@@ -4,7 +4,6 @@ button {
 
     /* Auto layout */
 
-    display: flex;
     flex-direction: row;
     align-items: center;
     

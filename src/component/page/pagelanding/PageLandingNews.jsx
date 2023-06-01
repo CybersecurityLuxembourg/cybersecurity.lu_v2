@@ -19,7 +19,7 @@ export default class PageLandingNews extends React.Component {
 		return (
 			<div id={"PageLandingNews"}>
 				<div className="content">
-					<div className="mid-sized-section">
+					<div className="sma-sized-section">
 						<div className="row">
 							<div className="col-md-12">
 								<h4>Latest news from the community</h4>

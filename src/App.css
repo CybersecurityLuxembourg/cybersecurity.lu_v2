@@ -71,6 +71,7 @@ h1 {
     font-weight: 800;
     font-size: 56px;
     line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 h2 {
@@ -79,6 +80,7 @@ h2 {
     font-weight: 800;
     font-size: 48px;
     line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 h3 {
@@ -87,6 +89,7 @@ h3 {
     font-weight: 700;
     font-size: 40px;
     line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 h4 {
@@ -95,6 +98,7 @@ h4 {
     font-weight: 700;
     font-size: 32px;
     line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 h5 {
@@ -144,5 +148,11 @@ h6 {
 .mid-sized-section {
     width: 100%;
     max-width: 946px;
+    margin: auto;
+}
+
+.sma-sized-section {
+    width: 100%;
+    max-width: 550px;
     margin: auto;
 }

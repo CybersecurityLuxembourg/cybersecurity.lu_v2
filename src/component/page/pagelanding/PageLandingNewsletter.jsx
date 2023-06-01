@@ -9,28 +9,27 @@ export default class PageLandingNewsletter extends React.Component {
 		};
 	}
 
+	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
 			<div id={"PageLandingNewsletter"}>
-				<div className="content">
-					<div className="mid-sized-section">
+				<div className="mid-sized-section">
+					<div className="content">
 						<div className="row">
-							<div className="col-md-12">
-								<h4>Latest news from the community</h4>
+							<div className="col-md-7">
+								<h4>Don’t miss our latest news!</h4>
 
 								<div className="catch-phrase">
-									Lorem ipsum dolor sit amet consectetur. Et ornare
-									posuere quisque morbi egestas convallis. Adipiscing
-									non enim aliquet
+									Keep up to date with the latest cybersecurity news
+									in and around Luxembourg: from institutional news, to
+									the tech corner and upcoming events, find a review of
+									all the newest developments in one place and remain a
+									step ahead of what’s coming next.
 								</div>
-
-								<button>Share your latest news</button>
 							</div>
-						</div>
 
-						<div className="row">
-							<div className="col-md-12">
-								{this.state.ee}
+							<div className="col-md-5">
+								<button>Subscribe to our newsletter</button>
 							</div>
 						</div>
 					</div>
