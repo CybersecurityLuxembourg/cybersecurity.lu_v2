@@ -1,0 +1,45 @@
+
+button {
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    padding: 16px 24px;
+    gap: 19px;
+
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text-neutral-0);
+
+    background: var(--accent-blue);
+    border: 1px solid var(--accent-blue) --primary-blue-100;
+
+    /* Button drop shadow */
+
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 200px;
+}
+
+button.red {
+    color: var(--secondary-red-80);
+    background: var(--text-neutral-0);
+    border: 1px solid var(--secondary-red-80);
+    font-weight: 700;
+}
+
+button.white {
+    color: var(--primary-blue-100);
+    background: var(--text-neutral-0);
+    border: 1px solid var(--primary-blue-100);
+}
+
+button.small {
+    padding: 8px 16px;
+}

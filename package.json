@@ -1,0 +1,54 @@
+{
+  "name": "cybersecurity.lu_v2",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "@react-leaflet/core": "1.1.1",
+    "babel-eslint": "^10.1.0",
+    "dompurify": "^2.2.6",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "react": "^16.14.0",
+    "react-bootstrap": "^1.5.1",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.3.1",
+    "react-helmet": "^6.1.0",
+    "react-leaflet": "^3.2.2",
+    "react-notifications": "^1.6.0",
+    "react-router-dom": "^5.2.0",
+    "react-select": "^3.2.0",
+  },
+  "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js --ext .jsx",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx src"
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "react-scripts": "^5.0.0",
+    "source-map-explorer": "^2.5.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "eslint": "^7.21.0",
+    "nth-check": "2.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.3.1"
+  }
+}

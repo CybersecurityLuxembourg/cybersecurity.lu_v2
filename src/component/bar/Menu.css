@@ -1,0 +1,156 @@
+
+.Menu {
+    padding-top: 24px;
+}
+
+@media (max-width: 480px) {
+    .Menu .Menu-hide-on-mobile {
+        display: none;
+    }
+}
+
+.Menu .logo {
+    max-height: 50px;
+    margin-bottom: 24px;
+}
+
+.Menu .top-link {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+    vertical-align: center;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    margin-right: 24px;
+}
+
+.Menu .top-link a {
+    color: var(--primary-blue-100) !important;
+}
+
+.Menu .separator {
+    margin-right: 24px;
+    width: 1px;
+    background-color: var(--text-neutral-10);
+}
+
+.navbar {
+    display: block;
+    z-index: 10;
+    padding: 0 !important;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: var(--primary-blue-100) !important;
+}
+
+/* DROPDOWN */
+
+.navbar-toggler {
+    background-color: white;
+    opacity: 1;
+}
+
+.nav-item .dropdown-toggle {
+    font-size: 20px;
+}
+
+.nav-item .dropdown-menu {
+    border: solid 1px black;
+}
+
+.nav-item .dropdown-item {
+    background-color: transparent;
+}
+
+.nav-item .dropdown-menu .dropdown-item:hover {
+    color: #000;
+}
+
+.Menu-item {
+    position: relative;
+}
+
+.Menu-logo {
+    max-width: 100%;
+    width: 400px;
+}
+
+.Menu-description {
+    font-size: 12px;
+}
+
+.Menu-image {
+    display: flex;
+    float: left;
+    height: 50px;
+    width: 37px;
+    margin-right: 5px;
+}
+
+.Menu-image img {
+    width: 35px;
+}
+
+.Menu-image-text {
+    padding-right: 40px;
+}
+
+.Menu .dropdown-item {
+    padding: 8px 25px;
+}
+
+.Menu .dropdown i.fa-sort-down {
+    position: absolute;
+    display: inline-block;
+    font-size: 12px;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Menu .dropdown-toggle::after {
+    display: none;
+}
+
+/* MENU STRUCTURE */
+
+@media (min-width: 0px) {
+    .Menu .top-right-bar {
+        margin-top: 15px;
+    }
+
+    .Menu .top-right-bar .SearchField {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Menu-title, .Menu-description {
+        text-align: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .Menu .top-right-bar {
+        position: absolute;
+        margin-top: 0px;
+        top: 20px;
+        right: 5px;
+    }
+
+    .Menu .top-right-bar .SearchField {
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+
+    .Menu-title, .Menu-description {
+        text-align: left;
+    }
+}

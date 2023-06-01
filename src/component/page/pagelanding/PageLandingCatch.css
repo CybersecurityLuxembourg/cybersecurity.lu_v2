@@ -1,0 +1,59 @@
+
+#PageLandingCatch {
+	position: relative;
+	height: calc(100vw - 600px);
+}
+
+#PageLandingCatch .content {
+	padding-top: 15vw;
+}
+
+#PageLandingCatch .title {
+	color: var(--text-neutral-50);
+	margin-bottom: 16px;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 44px;
+	line-height: 120%;
+}
+
+#PageLandingCatch .catch-phrase {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 150%;
+}
+
+#PageLandingCatch button {
+	width: 100%;
+	margin-bottom: 28px;
+}
+
+#PageLandingCatch .skyline {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+}
+
+#PageLandingCatch .skyline img {
+	width: 100%;
+	margin: auto;
+	max-width: 1440px;
+}
+
+#PageLandingCatch .alerts {
+	position: absolute;
+	right: 10px;
+	bottom: 0px;
+}
+
+#PageLandingCatch .alerts .alert-box {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+    #PageLandingCatch .catch-phrase {
+		max-width: 70%;
+	}
+}
