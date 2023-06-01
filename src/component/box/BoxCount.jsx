@@ -13,8 +13,8 @@ export default class BoxCount extends React.Component {
 		return (
 			<div className={"BoxCount"}>
 				<img src={this.props.image}/>
-				<div>{this.props.label}</div>
-				<div>{this.props.count}</div>
+				<div className="label">{this.props.label}</div>
+				<h2 className="count">{this.props.count}</h2>
 			</div>
 		);
 	}

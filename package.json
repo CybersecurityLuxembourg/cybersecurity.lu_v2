@@ -16,7 +16,7 @@
     "react-leaflet": "^3.2.2",
     "react-notifications": "^1.6.0",
     "react-router-dom": "^5.2.0",
-    "react-select": "^3.2.0",
+    "react-select": "^3.2.0"
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",

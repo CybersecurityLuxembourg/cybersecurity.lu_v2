@@ -2,3 +2,8 @@
 #PageLandingNews {
 	padding: 96px 0px;
 }
+
+#PageLandingNews .content {
+	margin: 80px 0px;
+	text-align: center;
+}

@@ -50,10 +50,10 @@ export default class Tab extends React.Component {
 		return (
 			<div className="Tab max-sized-page">
 				<div className={"row"}>
-					<div className={this.props.fullWidth ? "col-md-12" : "col-md-2"}>
+					<div className={"col-md-12"}>
 						<div className={"row"}>
 							<div className="col-md-12">
-								<div className={this.props.fullWidth ? "Tab-menu-fw" : "Tab-menu"}>
+								<div className={"Tab-menu"}>
 									{this.props.keys.map((k, i) => {
 										if (k === null) {
 											return (
@@ -78,7 +78,7 @@ export default class Tab extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className={this.props.fullWidth ? "col-md-12 Tab-content-fw" : "col-md-10 Tab-content"}>
+					<div className={"col-md-12 Tab-content"}>
 						{this.props.keys.indexOf(this.state.selectedMenu) >= 0
 							? this.props.content[this.props.keys.indexOf(this.state.selectedMenu)]
 							: ""}

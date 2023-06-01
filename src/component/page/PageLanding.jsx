@@ -3,6 +3,7 @@ import "./PageLanding.css";
 import PageLandingCatch from "./pagelanding/PageLandingCatch.jsx";
 import PageLandingEcosystem from "./pagelanding/PageLandingEcosystem.jsx";
 import PageLandingNews from "./pagelanding/PageLandingNews.jsx";
+import PageLandingNewsletter from "./pagelanding/PageLandingNewsletter.jsx";
 
 export default class PageLanding extends React.Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ export default class PageLanding extends React.Component {
 				<PageLandingCatch/>
 				<PageLandingEcosystem/>
 				<PageLandingNews/>
+				<PageLandingNewsletter/>
 				{this.state.ee}
 			</div>
 		);

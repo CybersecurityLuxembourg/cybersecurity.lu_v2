@@ -7,7 +7,7 @@ import { getApiURL } from "../../utils/env.jsx";
 import { dateToString } from "../../utils/date.jsx";
 import CardSocialMedia from "./CardSocialMedia.jsx";
 
-export default class Article extends Component {
+export default class News extends Component {
 	constructor(props) {
 		super(props);
 
@@ -39,7 +39,7 @@ export default class Article extends Component {
 	}
 
 	getBoxContent() {
-		return <div className="Article card">
+		return <div className="News card">
 			<div className="card-img-wrapper">
 				{this.getImage()
 					? <img

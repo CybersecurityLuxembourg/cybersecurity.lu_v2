@@ -8,7 +8,7 @@ With the following link: https://nodejs.org/en/download/
 >npm update
 
 # Install the dependencies
->cd ~/project/bo-front
+>cd ~/project/cybersecurity.lu_v2
 >npm install
 
 # Run the project

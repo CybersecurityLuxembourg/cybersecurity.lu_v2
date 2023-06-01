@@ -1,0 +1,10 @@
+
+#PageLandingNewsletter {
+	padding: 96px 0px;
+}
+
+#PageLandingNewsletter .content {
+	background: var(--linear-blue);
+	margin: 80px 0px;
+	text-align: center;
+}

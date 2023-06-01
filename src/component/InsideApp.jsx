@@ -67,10 +67,9 @@ class InsideApp extends React.Component {
 						<Route path="/tool/:handle" render={() => <div/>}/>
 
 						<Route exact path="/" render={(props) => <PageLanding
-								taxonomies={this.state.taxonomies}
-								{...props}
-							/>}
-						/>
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
 
 						{/* REDIRECTIONS */}
 
