@@ -1,14 +1,10 @@
 
-.Tab-menu {
-    position: absolute;
-}
-
-.Tab-menu, .Tab-menu-fw {
+.Tab .Tab-menu {
     padding: 20px 0px;
     margin-left: 0px;
 }
 
-.Tab-menu-el, .Tab-menu-el-fw {
+.Tab .Tab-menu-el {
 	cursor: pointer;
 	color: #010101;
     font-weight: 600;
@@ -22,21 +18,21 @@
     font-size: 14px;
 }
 
-.Tab-menu-el {
-    float: left;
+.Tab .Tab-menu-el {
+    display: inline-block;
     width: inherit;
     max-width: inherit;
 }
 
-.Tab-menu-el:hover {
+.Tab .Tab-menu-el:hover {
 	background-color: rgba(0, 159, 227, 0.05);
 }
 
-.Tab-menu-el-selected {
+.Tab .Tab-menu-el-selected {
     color: var(--primary-blue-80);
     border-bottom: 2px solid var(--primary-blue-80);
 }
 
-.Tab-menu-el-empty {
+.Tab .Tab-menu-el-empty {
     height: 15px;
 }

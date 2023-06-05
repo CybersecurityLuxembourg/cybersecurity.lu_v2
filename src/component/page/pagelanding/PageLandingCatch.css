@@ -1,11 +1,12 @@
 
 #PageLandingCatch {
 	position: relative;
-	height: calc(100vw - 600px);
+	height: calc(100vh - 100px);
+	max-height: 800px;
 }
 
 #PageLandingCatch .content {
-	padding-top: 15vw;
+	padding-top: 15vh;
 }
 
 #PageLandingCatch .title {

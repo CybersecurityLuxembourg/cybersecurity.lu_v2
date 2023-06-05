@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Article.css";
+import "./News.css";
 import { Link } from "react-router-dom";
 import dompurify from "dompurify";
 import NoImage from "../box/NoImage.jsx";
@@ -45,7 +45,7 @@ export default class News extends Component {
 					? <img
 						className="card-img-top"
 						src={this.getImage()}
-						alt="Article image"/>
+						alt="News image"/>
 					: <NoImage
 						height={200}
 					/>
@@ -87,12 +87,12 @@ export default class News extends Component {
 				href={this.props.info.link}
 				target={"_blank"}
 				rel="noreferrer"
-				className="Article-link">
+				className="link">
 				{this.getBoxContent()}
 			</a>
 			: <Link
 				to={"/news/" + this.props.info.handle}
-				className="Article-link">
+				className="link">
 				{this.getBoxContent()}
 			</Link>;
 	}

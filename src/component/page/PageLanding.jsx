@@ -22,9 +22,10 @@ export default class PageLanding extends React.Component {
 			<div id={"PageLanding"}>
 				<PageLandingCatch/>
 				<PageLandingEcosystem/>
-				<PageLandingNews/>
+				<PageLandingNews
+					taxonomies={this.props.taxonomies}
+				/>
 				<PageLandingNewsletter/>
-				{this.state.ee}
 			</div>
 		);
 	}
