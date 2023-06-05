@@ -1,8 +1,10 @@
 
 .TwitterLink {
-    margin: 5px 10px;
+    width: auto;
+    margin: 9px;
 }
 
 .TwitterLink i {
-    font-size: 30px;
+    color: var(--primary-blue-80);
+    font-size: 20px;
 }

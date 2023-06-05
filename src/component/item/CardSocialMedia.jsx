@@ -13,15 +13,16 @@ export default class CardSocialMedia extends Component {
 
 	render() {
 		return <div className={"card-social-media"}>
-			<div className="card-social-media-share">
-				Share:
+			<div>
+				<TwitterLink
+					article={this.props.article}
+				/>
 			</div>
-			<TwitterLink
-				article={this.props.article}
-			/>
-			<LinkedInLink
-				article={this.props.article}
-			/>
+			<div>
+				<LinkedInLink
+					article={this.props.article}
+				/>
+			</div>
 		</div>;
 	}
 }

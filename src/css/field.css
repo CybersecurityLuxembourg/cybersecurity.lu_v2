@@ -1,0 +1,23 @@
+
+input, option, select, textarea {
+	align-items: flex-start;
+	padding: 16px 24px;
+	width: 100%;
+	border: 1px solid var(--text-neutral-10);
+	border-radius: 12px;
+}
+
+input, option, select {
+	border-radius: 200px;
+}
+
+textarea {
+	border-radius: 12px;
+}
+
+input::placeholder {
+	color: var(--text-neutral-30);
+    font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+}

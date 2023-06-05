@@ -4,6 +4,11 @@ import PageLandingCatch from "./pagelanding/PageLandingCatch.jsx";
 import PageLandingEcosystem from "./pagelanding/PageLandingEcosystem.jsx";
 import PageLandingNews from "./pagelanding/PageLandingNews.jsx";
 import PageLandingNewsletter from "./pagelanding/PageLandingNewsletter.jsx";
+import PageLandingEvents from "./pagelanding/PageLandingEvents.jsx";
+import PageLandingCSWL from "./pagelanding/PageLandingCSWL.jsx";
+import PageLandingResources from "./pagelanding/PageLandingResources.jsx";
+import PageLandingLTAC from "./pagelanding/PageLandingLTAC.jsx";
+import PageLandingContact from "./pagelanding/PageLandingContact.jsx";
 
 export default class PageLanding extends React.Component {
 	constructor(props) {
@@ -26,6 +31,11 @@ export default class PageLanding extends React.Component {
 					taxonomies={this.props.taxonomies}
 				/>
 				<PageLandingNewsletter/>
+				<PageLandingEvents/>
+				<PageLandingCSWL/>
+				<PageLandingResources/>
+				<PageLandingLTAC/>
+				<PageLandingContact/>
 			</div>
 		);
 	}

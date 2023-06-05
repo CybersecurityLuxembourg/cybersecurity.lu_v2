@@ -1,32 +1,36 @@
 
-.FormLine {
+.Field {
+	margin-bottom: 16px;
 }
 
-.FormLine .row {
+.Field .row {
 	padding-top: 5px !important;
 	padding-bottom: 5px !important;
 }
 
-.FormLine-label {
+.Field .label {
     padding: 8px;
+    font-weight: 600;
+	font-size: 20px;
+	line-height: 150%;
 }
 
-.FormLine-wrong-format {
+.Field .wrong-format {
 	border: 2px solid #e40613 !important;
 }
 
-.FormLine-wrong-format:focus {
+.Field .wrong-format:focus {
 	border: 3px solid #e40613 !important;
 }
 
-.FormLine-right-format {
+.Field .right-format {
 	border: 2px solid #bcebff !important;
 }
 
-.FormLine-right-format:focus {
+.Field .right-format:focus {
 	border: 3px solid #bcebff !important;
 }
 
-.FormLine-chips {
+.Field .chips {
 	width: 100%;
 }

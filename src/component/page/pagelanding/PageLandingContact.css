@@ -1,0 +1,31 @@
+
+#PageLandingContact {
+	position: relative;
+	padding: 96px 0px;
+	background: var(--linear-blue);
+}
+
+#PageLandingContact .box-content {
+	padding: 64px;
+	background: var(--text-neutral-0);
+	box-shadow: 0px 2px 4px rgba(155, 153, 152, 0.16);
+	border-radius: 20px;
+}
+
+#PageLandingContact h4 {
+	color: var(--primary-blue-80) !important;
+}
+
+#PageLandingContact .skyline {
+	width: 100%;
+	position: absolute;
+	top: 200px;
+	left: 20vw;
+	text-align: center;
+}
+
+#PageLandingContact .skyline img {
+	width: 150%;
+	margin: auto;
+	max-width: 2880px;
+}

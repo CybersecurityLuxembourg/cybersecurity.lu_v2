@@ -39,7 +39,7 @@ export default class News extends Component {
 	}
 
 	getBoxContent() {
-		return <div className="News card">
+		return <div>
 			<div className="card-img-wrapper">
 				{this.getImage()
 					? <img
@@ -50,15 +50,18 @@ export default class News extends Component {
 						height={200}
 					/>
 				}
-				{this.props.hidePublicationDate === undefined
-					|| this.props.hidePublicationDate === false
-					? <div className="card-date">
-						{dateToString(this.props.info.publication_date, "DD MMM YYYY")}
-					</div>
-					: ""}
 			</div>
 			<div className="card-body">
-				<h5 className="card-title">{this.props.info.title}</h5>
+				{this.props.info.publication_date
+					&& this.props.hidePublicationDate !== false
+					&& <div className="card-date">
+						{dateToString(this.props.info.publication_date, "DD MMM YYYY")}
+					</div>
+				}
+
+				<div className="card-title">
+					{this.props.info.title}
+				</div>
 
 				<div className="card-text">
 					<div dangerouslySetInnerHTML={{
@@ -67,15 +70,18 @@ export default class News extends Component {
 					}} />
 				</div>
 
-				<button
-					className={"blue-background"}
-				>
-					Know more
-				</button>
-
-				<CardSocialMedia
-					article={this.props.info}
-				/>
+				<div className="row">
+					<div className="col-md-6">
+						<CardSocialMedia
+							article={this.props.info}
+						/>
+					</div>
+					<div className="col-md-6">
+						<button className={"link small"}>
+							Read more
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>;
 	}
@@ -83,17 +89,21 @@ export default class News extends Component {
 	render() {
 		return this.props.info.link
 			&& this.props.info.link.length > 0
-			? <a
-				href={this.props.info.link}
-				target={"_blank"}
-				rel="noreferrer"
-				className="link">
-				{this.getBoxContent()}
-			</a>
-			: <Link
-				to={"/news/" + this.props.info.handle}
-				className="link">
-				{this.getBoxContent()}
-			</Link>;
+			? <div className="News card">
+				<a
+					href={this.props.info.link}
+					target={"_blank"}
+					rel="noreferrer"
+					className="link">
+					{this.getBoxContent()}
+				</a>
+			</div>
+			: <div className="News card">
+				<Link
+					to={"/news/" + this.props.info.handle}
+					className="link">
+					{this.getBoxContent()}
+				</Link>
+			</div>;
 	}
 }

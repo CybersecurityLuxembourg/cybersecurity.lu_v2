@@ -1,20 +1,5 @@
 
-.card-social-media {
-    position: absolute;
-    right: 10px;
-    bottom: 20px;
-}
-
-.card-social-media-share {
-    display: block !important;
-    color: lightgrey !important;
-    font-size: 12px;
-}
-
-.card-social-media div {
-    display: inline;
-}
-
-.card-social-media div i {
-    font-size: 15px !important;
+.card-social-media > div {
+    display: inline-block;
+    margin-right: 12px;
 }

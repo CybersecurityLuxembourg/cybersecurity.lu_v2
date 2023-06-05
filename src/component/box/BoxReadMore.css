@@ -1,0 +1,38 @@
+
+.BoxReadMore {
+	padding: 24px;
+	margin-bottom: 24px;
+
+	/* Base/White */
+
+	background: var(--text-neutral-0);
+
+	/* Cards main drop shadow */
+
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+	border-radius: 12px;
+}
+
+.BoxReadMore .title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 150%;
+	margin-bottom: 24px;
+}
+
+.BoxReadMore .abstract {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	margin-bottom: 24px;
+	height: 72px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.BoxReadMore div:has(button) {
+	text-align: right;
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import "./PageLandingEcosystem.css";
+import "./PageLandingLTAC.css";
 
-export default class PageLandingEcosystem extends React.Component {
+export default class PageLandingLTAC extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -9,38 +9,43 @@ export default class PageLandingEcosystem extends React.Component {
 		};
 	}
 
+	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id={"PageLandingEcosystem"}>
-				<div className="content max-sized-section">
-					<div className="row">
-						<div className="col-md-7">
-							<div className="title">
-								For a secure digital society
+			<div id={"PageLandingLTAC"}>
+				<div className="max-sized-section">
+					<div className="content">
+						<div className="row">
+							<div className="col-md-5">
+								<img
+									src="/img/cybersecurity-ecso-taxonomy.png"
+									alt="CSWL 2023"
+								/>
 							</div>
 
-							<div className="catch-phrase">
-								The national cybersecurity portal for everyone. All
-								in one place, join our community-driven platform
-								that empowers your to stay ahead of the digital economy
-							</div>
-						</div>
+							<div className="col-md-1"/>
 
-						<div className="col-md-3">
-							<button>The Ecosystem</button>
-							<button className="white">How can we help?</button>
+							<div className="col-md-6">
+								<div className="text-content">
+									<div>
+										<h4># LËTZ TALK ABOUT CYBER</h4>
+
+										<p className="catch-phrase">
+											In this edition of Lëtz Talk about Cyber, Melanie
+											Delannoy, CyberSec Enthusiast received Björn
+											Ottersten, Director of the Interdisciplinary Centre
+											for Security, Reliability and Trust (SnT).
+										</p>
+
+										<button className="link">
+											Listen to our podcast
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-
-				<div className="skyline">
-					<img
-						className={"logo"}
-						src="/img/skyline.png"
-						alt="Skyline Luxembourg"
-					/>
-				</div>
-				{this.state.ee}
 			</div>
 		);
 	}

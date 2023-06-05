@@ -10,3 +10,12 @@
 	border: 1px solid #E5F5FF;
 	border-radius: 20px;
 }
+
+#PageLandingNewsletter .row div:has(button) {
+	display: flex;
+	align-items: center;
+}
+
+#PageLandingNewsletter .row div:has(button) button {
+	margin: auto;
+}

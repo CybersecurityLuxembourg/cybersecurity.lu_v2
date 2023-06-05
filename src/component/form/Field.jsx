@@ -1,7 +1,6 @@
 import React from "react";
-import "./FormLine.css";
+import "./Field.css";
 import Select from "react-select";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import _ from "lodash";
 import Chip from "./Chip.jsx";
 import CheckBox from "./CheckBox.jsx";
@@ -23,7 +22,7 @@ function getSelectStyle() {
 	};
 }
 
-export default class FormLine extends React.Component {
+export default class Field extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -81,8 +80,8 @@ export default class FormLine extends React.Component {
 		if (this.props.format === undefined) {
 			return "";
 		}
-		if (this.props.format(this.state.value)) return "FormLine-right-format";
-		return "FormLine-wrong-format";
+		if (this.props.format(this.state.value)) return "right-format";
+		return "wrong-format";
 	}
 
 	getField() {
@@ -90,6 +89,7 @@ export default class FormLine extends React.Component {
 		case "textarea":
 			return <textarea
 				value={this.state.value}
+				placeholder={this.props.placeholder}
 				onChange={(v) => this.onChange(v.target.value)}
 				onBlur={(v) => this.onBlur(v.target.value)}
 				disabled={this.props.disabled}
@@ -104,7 +104,7 @@ export default class FormLine extends React.Component {
 				background={this.props.background}
 			/>;
 		case "select":
-			return <Select
+			return <select
 				value={{
 					label: this.props.options
 						.filter((o) => o.value === this.state.value).length > 0
@@ -114,6 +114,7 @@ export default class FormLine extends React.Component {
 				}}
 				styles={getSelectStyle()}
 				options={this.props.options}
+				placeholder={this.props.placeholder}
 				onChange={(v) => this.onChange(v.value)}
 			/>;
 		case "multiselect":
@@ -124,7 +125,7 @@ export default class FormLine extends React.Component {
 					options={this.props.options}
 					onChange={(v) => this.addValue(v.value)}
 				/>
-				<div className="FormLine-chips">
+				<div className="chips">
 					{(Array.isArray(this.state.value) ? this.state.value : []).map((o) => (
 						<Chip
 							key={o}
@@ -135,24 +136,12 @@ export default class FormLine extends React.Component {
 					))}
 				</div>
 			</div>;
-		case "country":
-			return <CountryDropdown
-				className={this.getFormatClassName()}
-				value={this.state.value}
-				onChange={(value) => this.onChange(value)}
-			/>;
-		case "region":
-			return <RegionDropdown
-				className={this.getFormatClassName()}
-				country={this.props.country}
-				value={this.state.value}
-				onChange={(value) => this.onChange(value)}
-			/>;
 		default:
 			return <input
 				className={this.getFormatClassName()}
 				type={typeof this.props.type !== "undefined" ? this.props.type : "text"}
 				value={this.state.value}
+				placeholder={this.props.placeholder}
 				onChange={(v) => this.onChange(v.target.value)}
 				onBlur={(v) => this.onBlur(v.target.value)}
 				disabled={this.props.disabled}
@@ -175,10 +164,10 @@ export default class FormLine extends React.Component {
 		}
 
 		return (
-			<div className={"FormLine"}>
+			<div className={"Field"}>
 				<div className={"row"}>
 					<div className={labelWidth}>
-						<div className={"FormLine-label"}>
+						<div className={"label"}>
 							{this.props.label}
 						</div>
 					</div>
