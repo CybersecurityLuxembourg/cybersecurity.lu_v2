@@ -51,7 +51,16 @@
 #PageLandingCatch .alerts {
 	position: absolute;
 	right: 10px;
-	bottom: 0px;
+	bottom: -320px;
+	background: var(--secondary-red-80);
+	box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
+	border-radius: 12px;
+	width: 500px;
+	height: 200px;
+}
+
+#PageLandingCatch .alerts-wrapper {
+	position: relative;
 }
 
 #PageLandingCatch .alerts .alert-box {

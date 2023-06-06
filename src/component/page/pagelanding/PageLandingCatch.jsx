@@ -46,9 +46,11 @@ export default class PageLandingCatch extends React.Component {
 					/>
 				</div>
 
-				<div className="alerts max-sized-section">
-					<div className="alert-box">
-						{this.state.ee}
+				<div className="alerts-wrapper max-sized-section">
+					<div className="alerts">
+						<div className="alert-box">
+							{this.state.ee}
+						</div>
 					</div>
 				</div>
 			</div>
