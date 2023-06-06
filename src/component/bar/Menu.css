@@ -1,6 +1,7 @@
 
 .Menu {
     padding-top: 24px;
+    padding-bottom: 24px;
 }
 
 @media (max-width: 480px) {
@@ -51,7 +52,7 @@
 }
 
 .Menu #basic-navbar-nav {
-    display: block;
+    display: block !important;
 }
 
 .Menu .main-navbar-nav .Menu-title {

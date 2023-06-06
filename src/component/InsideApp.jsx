@@ -9,6 +9,7 @@ import GovBar from "./bar/GovBar.jsx";
 import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
 import PageLanding from "./page/PageLanding.jsx";
+import PageLatestNews from "./page/PageLatestNews.jsx";
 import Page404 from "./page/Page404.jsx";
 
 class InsideApp extends React.Component {
@@ -67,6 +68,10 @@ class InsideApp extends React.Component {
 						<Route path="/tool/:handle" render={() => <div/>}/>
 
 						<Route exact path="/" render={(props) => <PageLanding
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/news" render={(props) => <PageLatestNews
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>

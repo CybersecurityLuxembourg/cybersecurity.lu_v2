@@ -1,18 +1,19 @@
 import React from "react";
-import "./PageLandingNews.css";
+import "./SectionNews.css";
 import { NotificationManager as nm } from "react-notifications";
-import { getRequest } from "../../../utils/request.jsx";
-import { dictToURI } from "../../../utils/url.jsx";
-import News from "../../item/News.jsx";
-import Loading from "../../box/Loading.jsx";
-import Message from "../../box/Message.jsx";
-import SectionNews from "../../section/SectionNews.jsx";
+import Tab from "../tab/Tab.jsx";
+import { getRequest } from "../../utils/request.jsx";
+import { dictToURI } from "../../utils/url.jsx";
+import News from "../item/News.jsx";
+import Loading from "../box/Loading.jsx";
+import Message from "../box/Message.jsx";
 
-export default class PageLandingNews extends React.Component {
+export default class SectionNews extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			page: 1,
 			selectedMenu: 0,
 			newsCategories: [
 				"ALL NEWS",
@@ -49,8 +50,8 @@ export default class PageLandingNews extends React.Component {
 					is_created_by_admin: this.state.selectedMenu === "MEMBER NEWS"
 						? true
 						: undefined,
-					per_page: 6,
-					page: 1,
+					per_page: this.props.numberOfArticles,
+					page: this.state.page,
 				};
 
 				getRequest.call(this, "public/get_public_articles?" + dictToURI(params), (data) => {
@@ -96,36 +97,20 @@ export default class PageLandingNews extends React.Component {
 
 	render() {
 		return (
-			<div id={"PageLandingNews"}>
-				<div className="content">
-					<div className="sma-sized-section">
-						<div className="row spaced-row">
-							<div className="col-md-12">
-								<h4>Latest news from the community</h4>
-
-								<p className="catch-phrase">
-									Lorem ipsum dolor sit amet consectetur. Et ornare
-									posuere quisque morbi egestas convallis. Adipiscing
-									non enim aliquet
-								</p>
-							</div>
-						</div>
-
-						<div className="row">
-							<div className="col-md-12">
-								<button>Share your latest news</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className="articles max-sized-section">
-					<SectionNews
-						taxonomies={this.props.taxonomies}
-						numberOfArticle={6}
-						showPagination={false}
-					/>
-				</div>
+			<div className={"SectionNews"}>
+				<Tab
+					onMenuClick={(m) => this.onMenuClick(m)}
+					selectedMenu={this.state.selectedMenu}
+					labels={this.state.newsCategories}
+					keys={[0, 1, 2, 3, 4]}
+					content={[
+						this.buildNewsContent(),
+						this.buildNewsContent(),
+						this.buildNewsContent(),
+						this.buildNewsContent(),
+						this.buildNewsContent(),
+					]}
+				/>
 			</div>
 		);
 	}

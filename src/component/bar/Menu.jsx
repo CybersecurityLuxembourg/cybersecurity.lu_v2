@@ -99,7 +99,7 @@ export default class Menu extends React.Component {
 							News
 						</div>
 						<NavDropdown.Item>
-							<Link to="/latest-news">
+							<Link to="/news">
 								<div className="Menu-title">Latest News</div>
 							</Link>
 						</NavDropdown.Item>
