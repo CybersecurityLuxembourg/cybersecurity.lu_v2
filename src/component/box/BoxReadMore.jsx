@@ -17,7 +17,7 @@ export default class BoxReadMore extends React.Component {
 				<div className="abstract">{this.props.abstract}</div>
 				<div>
 					<button className="link">
-						Read more
+						Read more &nbsp;<i className="fas fa-arrow-right"/>
 					</button>
 				</div>
 			</div>

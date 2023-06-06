@@ -19,7 +19,13 @@ export default class PageLandingResources extends React.Component {
 						<div className="row">
 							<div className="col-md-12">
 								<h4>Education, resources & opportunities</h4>
+							</div>
+						</div>
+					</div>
 
+					<div className="sma-sized-section">
+						<div className="row">
+							<div className="col-md-12">
 								<p className="catch-phrase">
 									Lorem ipsum dolor sit amet consectetur. Et ornare
 									posuere quisque morbi egestas convallis. Adipiscing
@@ -43,7 +49,7 @@ export default class PageLandingResources extends React.Component {
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
-									title={"Tips & best practices"}
+									title={"Norms, Rules & Laws"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
 									link={""}
 									image={""}
@@ -51,7 +57,7 @@ export default class PageLandingResources extends React.Component {
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
-									title={"Tips & best practices"}
+									title={"Jobs & Internships"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
 									link={""}
 									image={""}
@@ -59,7 +65,7 @@ export default class PageLandingResources extends React.Component {
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
-									title={"Tips & best practices"}
+									title={"Support for Startups"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
 									link={""}
 									image={""}
@@ -67,7 +73,7 @@ export default class PageLandingResources extends React.Component {
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
-									title={"Tips & best practices"}
+									title={"Education & Skills"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
 									link={""}
 									image={""}
@@ -75,7 +81,7 @@ export default class PageLandingResources extends React.Component {
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
-									title={"Tips & best practices"}
+									title={"Publications Library"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
 									link={""}
 									image={""}

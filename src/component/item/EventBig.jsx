@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./News.css";
+import "./EventBig.css";
 import { Link } from "react-router-dom";
 import dompurify from "dompurify";
 import NoImage from "../box/NoImage.jsx";
@@ -7,7 +7,7 @@ import { getApiURL } from "../../utils/env.jsx";
 import { dateToString } from "../../utils/date.jsx";
 import CardSocialMedia from "./CardSocialMedia.jsx";
 
-export default class News extends Component {
+export default class EventBig extends Component {
 	constructor(props) {
 		super(props);
 
@@ -45,7 +45,7 @@ export default class News extends Component {
 					? <img
 						className="card-img-top"
 						src={this.getImage()}
-						alt="News image"/>
+						alt="EventBig image"/>
 					: <NoImage
 						height={200}
 					/>
@@ -77,8 +77,8 @@ export default class News extends Component {
 						/>
 					</div>
 					<div className="col-md-6">
-						<button className={"link small"}>
-							Read more &nbsp;<i className="fas fa-arrow-right"/>
+						<button className={"red small"}>
+							More information
 						</button>
 					</div>
 				</div>
@@ -89,7 +89,7 @@ export default class News extends Component {
 	render() {
 		return this.props.info.link
 			&& this.props.info.link.length > 0
-			? <div className="News card">
+			? <div className="EventBig card">
 				<a
 					href={this.props.info.link}
 					target={"_blank"}
@@ -98,9 +98,9 @@ export default class News extends Component {
 					{this.getBoxContent()}
 				</a>
 			</div>
-			: <div className="News card">
+			: <div className="EventBig card">
 				<Link
-					to={"/news/" + this.props.info.handle}
+					to={"/EventBig/" + this.props.info.handle}
 					className="link">
 					{this.getBoxContent()}
 				</Link>

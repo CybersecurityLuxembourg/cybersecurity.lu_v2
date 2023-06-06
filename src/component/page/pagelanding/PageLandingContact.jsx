@@ -80,6 +80,7 @@ export default class PageLandingContact extends React.Component {
 									<div className="col-md-12">
 										<Field
 											label={"Leave us a message"}
+											placeholder={"Please type your message here"}
 											type="textarea"
 											value={this.state.message}
 											onChange={(v) => this.setState({ message: v })}

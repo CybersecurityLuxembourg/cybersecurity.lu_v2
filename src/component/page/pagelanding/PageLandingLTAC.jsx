@@ -38,7 +38,7 @@ export default class PageLandingLTAC extends React.Component {
 										</p>
 
 										<button className="link">
-											Listen to our podcast
+											Listen to our podcast &nbsp;<i className="fas fa-arrow-right"/>
 										</button>
 									</div>
 								</div>
