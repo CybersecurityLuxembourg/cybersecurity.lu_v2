@@ -15,20 +15,25 @@ export default class PageLandingCatch extends React.Component {
 				<div className="content max-sized-section">
 					<div className="row">
 						<div className="col-md-7">
-							<h3>
-								For a secure digital society
-							</h3>
+							<div className="title">
+								Access Luxembourg’s cybersecurity
+								ecosystem, all in one place.
+							</div>
 
-							<div className="catch-phrase">
+							<p className="catch-phrase">
 								The national cybersecurity portal for everyone. All
 								in one place, join our community-driven platform
 								that empowers your to stay ahead of the digital economy
-							</div>
+							</p>
 						</div>
 
+						<div className="col-md-1"/>
+
 						<div className="col-md-3">
-							<button>The Ecosystem</button>
-							<button className="white">How can we help?</button>
+							<div className="buttons">
+								<button>The Ecosystem</button>
+								<button className="white">How can we help?</button>
+							</div>
 						</div>
 					</div>
 				</div>

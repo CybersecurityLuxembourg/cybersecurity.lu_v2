@@ -15,7 +15,6 @@
 }
 
 .Menu .top-link {
-    font-family: 'Open Sans';
     font-weight: 700;
     font-size: 14px;
     line-height: 150%;
@@ -37,57 +36,70 @@
     background-color: var(--text-neutral-10);
 }
 
-.navbar {
+.Menu .navbar {
     display: block;
     z-index: 10;
     padding: 0 !important;
 }
 
-.navbar a {
+.Menu .navbar a {
     text-decoration: none;
 }
 
-.navbar a:hover {
+.Menu .navbar a:hover {
     color: var(--primary-blue-100) !important;
+}
+
+.Menu #basic-navbar-nav {
+    display: block;
+}
+
+.Menu .main-navbar-nav .Menu-title {
+    color: var(--text-neutral-50);
 }
 
 /* DROPDOWN */
 
-.navbar-toggler {
+.Menu .navbar-toggler {
     background-color: white;
     opacity: 1;
 }
 
-.nav-item .dropdown-toggle {
+.Menu .nav-item {
+    margin-left: 2px !important;
+    margin-right: 16px !important;
+}
+
+.Menu .nav-item .dropdown-toggle {
     font-size: 20px;
 }
 
-.nav-item .dropdown-menu {
+.Menu .nav-item .dropdown-menu {
     border: solid 1px black;
 }
 
-.nav-item .dropdown-item {
+.Menu .nav-item .dropdown-item {
     background-color: transparent;
 }
 
-.nav-item .dropdown-menu .dropdown-item:hover {
+.Menu .nav-item .dropdown-menu .dropdown-item:hover {
     color: #000;
 }
 
-.Menu-item {
+.Menu .Menu-item {
     position: relative;
 }
 
-.Menu-logo {
+.Menu .Menu-logo {
     max-width: 100%;
     width: 400px;
 }
 
-.Menu-description {
+.Menu .Menu-description {
     font-size: 12px;
 }
 
-.Menu-image {
+.Menu .Menu-image {
     display: flex;
     float: left;
     height: 50px;
@@ -95,11 +107,11 @@
     margin-right: 5px;
 }
 
-.Menu-image img {
+.Menu .Menu-image img {
     width: 35px;
 }
 
-.Menu-image-text {
+.Menu .Menu-image-text {
     padding-right: 40px;
 }
 
@@ -121,6 +133,18 @@
 }
 
 /* MENU STRUCTURE */
+
+.Menu-title, .Menu-description {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.Menu .top-right-bar {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+}
 
 @media (min-width: 0px) {
     .Menu .top-right-bar {

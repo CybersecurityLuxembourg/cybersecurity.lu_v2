@@ -10,11 +10,11 @@
 }
 
 #PageLandingCatch .title {
+	font-family: "Open Sans 800";
 	color: var(--text-neutral-50);
 	margin-bottom: 16px;
 	font-style: normal;
-	font-weight: 800;
-	font-size: 44px;
+	font-size: 48px;
 	line-height: 120%;
 }
 
@@ -25,9 +25,14 @@
 	line-height: 150%;
 }
 
+#PageLandingCatch .buttons {
+	margin-top: 32px;
+}
+
 #PageLandingCatch button {
 	width: 100%;
-	margin-bottom: 28px;
+	margin-top: 14px;
+	margin-bottom: 14px;
 }
 
 #PageLandingCatch .skyline {

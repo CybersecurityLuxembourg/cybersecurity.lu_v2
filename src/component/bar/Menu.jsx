@@ -31,7 +31,7 @@ export default class Menu extends React.Component {
 
 	// eslint-disable-next-line class-methods-use-this
 	getNavBar() {
-		return <Nav className="mr-sm-2 ml-auto">
+		return <Nav className="mr-sm-2 ml-auto main-navbar-nav">
 			<NavDropdown
 				title={
 					<div className="Menu-item">
@@ -200,13 +200,13 @@ export default class Menu extends React.Component {
 				</NavDropdown.Item>
 			</NavDropdown>
 
-			<Nav.Link className="Menu-link-grey">
+			<Nav.Link className="nav-item">
 				<Link to="/about">
 					<div className="Menu-title">About us</div>
 				</Link>
 			</Nav.Link>
 
-			<Nav.Link className="Menu-link-grey">
+			<Nav.Link className="nav-item">
 				<Link to="/contact">
 					<div className="Menu-title">Contact</div>
 				</Link>
@@ -258,7 +258,7 @@ export default class Menu extends React.Component {
 								className="red small"
 								href={getPrivateAppURL()}
 							>
-								IMMEDIAT SUPPORT
+								IMMEDIATE SUPPORT
 							</button>
 						</Nav>
 					</Navbar.Collapse>
