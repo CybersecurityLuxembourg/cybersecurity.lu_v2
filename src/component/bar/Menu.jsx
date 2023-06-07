@@ -103,12 +103,11 @@ export default class Menu extends React.Component {
 								<div className="Menu-title">Latest News</div>
 							</Link>
 						</NavDropdown.Item>
-						<NavDropdown.Item>
-							<Link to="/newsletter">
-								<div className="Menu-title">Our Newsletter</div>
-							</Link>
-							https://newsletter.cybersecurity-luxembourg.com
-						</NavDropdown.Item>
+						<a
+							className="dropdown-item"
+							href="https://newsletter.cybersecurity-luxembourg.com">
+							<div className="Menu-title">Our Newsletter</div>
+						</a>
 					</div>
 					<div className="col-md-6">
 						<div className="h8">
