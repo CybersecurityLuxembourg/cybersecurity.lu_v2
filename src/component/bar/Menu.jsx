@@ -107,6 +107,7 @@ export default class Menu extends React.Component {
 							<Link to="/newsletter">
 								<div className="Menu-title">Our Newsletter</div>
 							</Link>
+							https://newsletter.cybersecurity-luxembourg.com
 						</NavDropdown.Item>
 					</div>
 					<div className="col-md-6">
@@ -114,7 +115,7 @@ export default class Menu extends React.Component {
 							Events
 						</div>
 						<NavDropdown.Item>
-							<Link to="/upcoming-events">
+							<Link to="/events">
 								<div className="Menu-title">Upcoming Events</div>
 							</Link>
 						</NavDropdown.Item>

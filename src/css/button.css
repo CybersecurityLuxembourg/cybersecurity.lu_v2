@@ -43,6 +43,13 @@ button.white {
     border: 1px solid var(--primary-blue-100);
 }
 
+button.transparent {
+    color: var(--primary-blue-80) !important;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 button.link {
     font-weight: 600;
     font-size: 16px;

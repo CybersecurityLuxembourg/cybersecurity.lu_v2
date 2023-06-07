@@ -10,6 +10,7 @@ import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
 import PageLanding from "./page/PageLanding.jsx";
 import PageLatestNews from "./page/PageLatestNews.jsx";
+import PageUpcomingEvents from "./page/PageUpcomingEvents.jsx";
 import Page404 from "./page/Page404.jsx";
 
 class InsideApp extends React.Component {
@@ -72,6 +73,10 @@ class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/news" render={(props) => <PageLatestNews
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/events" render={(props) => <PageUpcomingEvents
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>

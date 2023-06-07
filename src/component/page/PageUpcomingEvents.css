@@ -1,15 +1,15 @@
 
-#PageLatestNews .top-content {
+#PageUpcomingEvents .top-content {
 	position: relative;
 	padding: 64px 0px;
 }
 
-#PageLatestNews .text-content {
+#PageUpcomingEvents .text-content {
 	margin-bottom: 32px;
 }
 
 @media (min-width: 768px) {
-	#PageLatestNews img.logo {
+	#PageUpcomingEvents img.logo {
 		height: 100%;
 	}
 }

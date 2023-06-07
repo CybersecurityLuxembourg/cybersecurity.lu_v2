@@ -1,10 +1,11 @@
 import React from "react";
-import "./PageLatestNews.css";
+import "./PageUpcomingEvents.css";
 import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import SectionNews from "../section/SectionNews.jsx";
+import SectionEvents from "../section/SectionEvents.jsx";
+import SectionCSWL from "../section/SectionCSWL.jsx";
 
-export default class PageLatestNews extends React.Component {
+export default class PageUpcomingEvents extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -14,27 +15,26 @@ export default class PageLatestNews extends React.Component {
 
 	render() {
 		return (
-			<div id={"PageLatestNews"}>
+			<div id={"PageUpcomingEvents"}>
 				<div className="max-sized-section">
 					<div className={"top-content"}>
 						<div className="row">
 							<div className="col-md-6">
 								<Breadcrumb>
 									<Breadcrumb.Item><Link to="/">News & Events</Link></Breadcrumb.Item>
-									<Breadcrumb.Item><Link to="/news">News</Link></Breadcrumb.Item>
+									<Breadcrumb.Item><Link to="/events">Upcoming events</Link></Breadcrumb.Item>
 								</Breadcrumb>
 
 								<div className="text-content">
-									<h4>Latest news from the community</h4>
+									<h4>Upcoming events</h4>
 
 									<p>
-										The latest cybersecurity ecosystem
-										news, interviews, technologies, and resources.
+										Join the upcoming events on cybersecurity
 									</p>
 								</div>
 
 								<button>
-									Share your latest news
+									Get involved
 								</button>
 								<button
 									className="transparent"
@@ -43,7 +43,7 @@ export default class PageLatestNews extends React.Component {
 										"_blank",
 									)}
 								>
-									Subscribe to the newsletter
+									Set all upcoming events
 								</button>
 							</div>
 
@@ -62,19 +62,17 @@ export default class PageLatestNews extends React.Component {
 					<div className={"news-content"}>
 						<div className="row">
 							<div className="col-md-12">
-								<SectionNews
+								<SectionEvents
 									taxonomies={this.props.taxonomies}
-									numberOfArticle={9}
+									numberOfArticle={6}
 									showPagination={true}
 								/>
 							</div>
 						</div>
 					</div>
-
-					<div className={"podcast-content"}>
-						PODCAST CONTENT TODO
-					</div>
 				</div>
+
+				<SectionCSWL/>
 			</div>
 		);
 	}

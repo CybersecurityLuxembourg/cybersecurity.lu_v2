@@ -1,54 +1,48 @@
 import React from "react";
-import "./SectionNews.css";
+import "./SectionEvents.css";
 import { NotificationManager as nm } from "react-notifications";
 import Tab from "../tab/Tab.jsx";
 import { getRequest } from "../../utils/request.jsx";
 import { dictToURI } from "../../utils/url.jsx";
-import News from "../item/News.jsx";
+import Event from "../item/Event.jsx";
 import Loading from "../box/Loading.jsx";
 import Message from "../box/Message.jsx";
 
-export default class SectionNews extends React.Component {
+export default class SectionEvents extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			page: 1,
 			selectedMenu: 0,
-			newsCategories: [
-				"ALL NEWS",
-				"MEMBER NEWS",
-				"INSTITUTIONAL NEWS",
-				"TECH CORNER",
-				"CALL TO ACTION",
+			eventCategories: [
+				"UPCOMING EVENTS",
+				"PAST EVENTS",
 			],
-			news: null,
+			events: null,
 		};
 	}
 
 	componentDidMount() {
-		this.fetchNews();
+		this.fetchEvents();
 	}
 
 	componentDidUpdate(prevProps) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
-			this.fetchNews();
+			this.fetchEvents();
 		}
 	}
 
-	fetchNews() {
+	fetchEvents() {
 		if (this.props.taxonomies && this.props.taxonomies.taxonomy_values) {
-			this.setState({ news: null }, () => {
+			this.setState({ events: null }, () => {
 				const params = {
-					type: "NEWS",
+					type: "EVENT",
 					include_tags: "true",
 					taxonomy_values: this.state.selectedMenu >= 2
 						? this.props.taxonomies.taxonomy_values
-							.filter((v) => v.name === this.state.newsCategories[this.state.selectedMenu])
+							.filter((v) => v.name === this.state.eventCategories[this.state.selectedMenu])
 							.map((v) => v.id).join(",")
-						: undefined,
-					is_created_by_admin: this.state.selectedMenu === "MEMBER NEWS"
-						? true
 						: undefined,
 					per_page: this.props.numberOfArticles,
 					page: this.state.page,
@@ -56,7 +50,7 @@ export default class SectionNews extends React.Component {
 
 				getRequest.call(this, "public/get_public_articles?" + dictToURI(params), (data) => {
 					this.setState({
-						news: data,
+						events: data,
 					});
 				}, (response) => {
 					nm.warning(response.statusText);
@@ -67,14 +61,14 @@ export default class SectionNews extends React.Component {
 		}
 	}
 
-	buildNewsContent() {
-		if (this.state.news
-			&& this.state.news.pagination) {
-			if (this.state.news.pagination.total > 0) {
+	buildEventContent() {
+		if (this.state.events
+			&& this.state.events.pagination) {
+			if (this.state.events.pagination.total > 0) {
 				return <div className="row">
-					{this.state.news.items.map((i) => (
+					{this.state.events.items.map((i) => (
 						<div className="col-md-4" key={i.id}>
-							<News info={i}/>
+							<Event info={i}/>
 						</div>
 					))}
 					<div className="col-md-12">
@@ -85,7 +79,7 @@ export default class SectionNews extends React.Component {
 
 			return <Message
 				height={500}
-				text="No news found"
+				text="No event found"
 			/>;
 		}
 
@@ -94,24 +88,21 @@ export default class SectionNews extends React.Component {
 
 	onMenuClick(menu) {
 		this.setState({ selectedMenu: menu }, () => {
-			this.fetchNews();
+			this.fetchEvents();
 		});
 	}
 
 	render() {
 		return (
-			<div className={"SectionNews"}>
+			<div className={"SectionEvents"}>
 				<Tab
 					onMenuClick={(m) => this.onMenuClick(m)}
 					selectedMenu={this.state.selectedMenu}
-					labels={this.state.newsCategories}
-					keys={[0, 1, 2, 3, 4]}
+					labels={this.state.eventCategories}
+					keys={[0, 1]}
 					content={[
-						this.buildNewsContent(),
-						this.buildNewsContent(),
-						this.buildNewsContent(),
-						this.buildNewsContent(),
-						this.buildNewsContent(),
+						this.buildEventContent(),
+						this.buildEventContent(),
 					]}
 				/>
 			</div>

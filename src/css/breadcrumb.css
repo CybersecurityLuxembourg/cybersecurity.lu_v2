@@ -1,0 +1,25 @@
+
+.breadcrumb {
+	padding-left: 0px !important;
+	margin-bottom: 0px !important;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 150%;
+	letter-spacing: 0.4px;
+	text-transform: uppercase;
+	background: none;
+}
+
+.breadcrumb .breadcrumb-item a {
+	text-decoration: none;
+	color: var(--text-neutral-30) important;
+}
+
+.breadcrumb .breadcrumb-item:last-child a {
+	text-decoration: none;
+	color: var(--primary-blue-100) !important;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+}

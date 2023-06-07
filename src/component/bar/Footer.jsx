@@ -103,7 +103,12 @@ export default class Footer extends React.Component {
 								</a>
 							</div>
 
-							<button>
+							<button
+								onClick={() => window.open(
+									"https://newsletter.cybersecurity-luxembourg.com",
+									"_blank",
+								)}
+							>
 								Subscribe to the Newsletter
 							</button>
 						</div>
