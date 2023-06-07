@@ -21,7 +21,7 @@ export default class PageLandingContact extends React.Component {
 					<div className="skyline">
 						<img
 							className={"logo"}
-							src="/img/skyline.png"
+							src="/img/Skyline.png"
 							alt="Skyline Luxembourg"
 						/>
 					</div>

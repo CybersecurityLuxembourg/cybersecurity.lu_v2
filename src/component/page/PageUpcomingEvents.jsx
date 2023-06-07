@@ -52,7 +52,7 @@ export default class PageUpcomingEvents extends React.Component {
 							<div className="col-md-5">
 								<img
 									className={"logo"}
-									src="/img/skyline.png"
+									src="/img/Skyline.png"
 									alt="Skyline Luxembourg"
 								/>
 							</div>
