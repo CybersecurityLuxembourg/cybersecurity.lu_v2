@@ -61,16 +61,18 @@ export default class Menu extends React.Component {
 								<div className="Menu-title">Private Sector</div>
 							</Link>
 						</NavDropdown.Item>
-						<NavDropdown.Item>
-							<Link to="/startups">
-								<div className="Menu-title">Statups</div>
-							</Link>
-						</NavDropdown.Item>
-						<NavDropdown.Item>
-							<Link to="/pc-doctors">
-								<div className="Menu-title">PC Doctors</div>
-							</Link>
-						</NavDropdown.Item>
+						<div className="sub-box">
+							<NavDropdown.Item>
+								<Link to="/startups">
+									<div className="Menu-title">Startups</div>
+								</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/pc-doctors">
+									<div className="Menu-title">PC Doctors</div>
+								</Link>
+							</NavDropdown.Item>
+						</div>
 						<NavDropdown.Item>
 							<Link to="/public-sector">
 								<div className="Menu-title">Public Sector</div>
@@ -266,6 +268,8 @@ export default class Menu extends React.Component {
 						{this.getNavBar()}
 					</Navbar.Collapse>
 
+					<div className="split-bar"/>
+
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="top-right-bar mr-sm-2 ml-auto">
 							<Nav.Link className="top-link">
@@ -285,6 +289,7 @@ export default class Menu extends React.Component {
 							</Nav.Link>
 
 							<div className="separator"/>
+							<div className="split-bar"/>
 
 							<button
 								className="red small"
