@@ -1,6 +1,7 @@
 @font-face { font-family: "Open Sans"; src: url('./font/OpenSans-Regular.ttf'); }
 @font-face { font-family: "Open Sans 800"; src: url('./font/OpenSans-ExtraBold.ttf'); }
 @font-face { font-family: "Open Sans 700"; src: url('./font/OpenSans-Bold.ttf'); }
+@font-face { font-family: "Open Sans 600"; src: url('./font/OpenSans-SemiBold.ttf'); }
 
 :root {
 	--primary-blue: #1163EA;

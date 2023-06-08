@@ -29,7 +29,13 @@ export default class PageLandingNewsletter extends React.Component {
 							</div>
 
 							<div className="col-md-5">
-								<button>Subscribe to our newsletter</button>
+								<button
+									onClick={() => window.open(
+										"https://newsletter.cybersecurity-luxembourg.com",
+										"_blank",
+									)}>
+									Subscribe to our newsletter
+								</button>
 							</div>
 						</div>
 					</div>

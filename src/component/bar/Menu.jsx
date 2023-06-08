@@ -36,7 +36,7 @@ export default class Menu extends React.Component {
 				title={
 					<div className="Menu-item">
 						<div className="Menu-title">The Ecosystem</div>
-						<i className="fas fa-sort-down"/>
+						<i className="fas fa-chevron-down"/>
 					</div>
 				}
 				id="basic-nav-dropdown"
@@ -89,7 +89,7 @@ export default class Menu extends React.Component {
 				title={
 					<div className="Menu-item">
 						<div className="Menu-title">News & Events</div>
-						<i className="fas fa-sort-down"/>
+						<i className="fas fa-chevron-down"/>
 					</div>
 				}
 				id="basic-nav-dropdown">
@@ -131,7 +131,7 @@ export default class Menu extends React.Component {
 				title={
 					<div className="Menu-item">
 						<div className="Menu-title">Skills & Jobs</div>
-						<i className="fas fa-sort-down"/>
+						<i className="fas fa-chevron-down"/>
 					</div>
 				}
 				id="basic-nav-dropdown"
@@ -174,7 +174,7 @@ export default class Menu extends React.Component {
 				title={
 					<div className="Menu-item">
 						<div className="Menu-title">Resources & Support</div>
-						<i className="fas fa-sort-down"/>
+						<i className="fas fa-chevron-down"/>
 					</div>
 				}
 				id="basic-nav-dropdown">
@@ -270,17 +270,17 @@ export default class Menu extends React.Component {
 						<Nav className="top-right-bar mr-sm-2 ml-auto">
 							<Nav.Link className="top-link">
 								<Link to="/search">
-									<div className="Menu-title">Search</div>
+									<div className="Menu-title"><i className="fas fa-search"/>Search</div>
 								</Link>
 							</Nav.Link>
 							<Nav.Link className="top-link">
 								<Link to="/dashboard">
-									<div className="Menu-title">Dashboard</div>
+									<div className="Menu-title"><i className="fas fa-th"/>Dashboard</div>
 								</Link>
 							</Nav.Link>
 							<Nav.Link className="top-link">
 								<Link to="/login">
-									<div className="Menu-title">Log in/Register</div>
+									<div className="Menu-title"><i className="fas fa-user"/>Log in/Register</div>
 								</Link>
 							</Nav.Link>
 

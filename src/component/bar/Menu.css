@@ -15,8 +15,8 @@
     margin-bottom: 24px;
 }
 
-.Menu .top-link {
-    font-weight: 700;
+.Menu .top-link .Menu-title {
+    font-family: "Open Sans 700" !important;
     font-size: 14px;
     line-height: 150%;
     vertical-align: center;
@@ -25,6 +25,10 @@
     text-transform: uppercase;
 
     margin-right: 24px;
+}
+
+.Menu .top-link .Menu-title i {
+    margin-right: 7px;
 }
 
 .Menu .top-link a {
@@ -76,11 +80,18 @@
 }
 
 .Menu .nav-item .dropdown-menu {
-    border: solid 1px black;
+    border: 1px solid var(--primary-blue-10);
+    box-shadow: 0px 8px 16px rgba(155, 153, 152, 0.16);
+    border-radius: 8px;
+    padding: 24px;
 }
 
 .Menu .nav-item .dropdown-item {
     background-color: transparent;
+}
+
+.Menu .nav-item .dropdown-menu {
+    min-width: 500px;
 }
 
 .Menu .nav-item .dropdown-menu .dropdown-item:hover {
@@ -94,10 +105,6 @@
 .Menu .Menu-logo {
     max-width: 100%;
     width: 400px;
-}
-
-.Menu .Menu-description {
-    font-size: 12px;
 }
 
 .Menu .Menu-image {
@@ -117,26 +124,39 @@
 }
 
 .Menu .dropdown-item {
-    padding: 8px 25px;
+    padding: 8px 0px;
 }
 
-.Menu .dropdown i.fa-sort-down {
-    position: absolute;
+.Menu .dropdown-item .Menu-title {
+    font-family: "Open Sans";
+    font-weight: 400 !important;
+    margin-bottom: 16px;
+    white-space: initial;
+}
+
+.Menu .dropdown i {
     display: inline-block;
+    color: var(--text-neutral-50);
     font-size: 12px;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-left: 8px;
 }
 
 .Menu .dropdown-toggle::after {
     display: none;
 }
 
+.Menu .dropdown .h8 {
+    font-family: "Open Sans 600";
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+
 /* MENU STRUCTURE */
 
-.Menu-title, .Menu-description {
-    font-weight: 600;
+.Menu-title {
+    display: inline;
+    font-family: "Open Sans 600";
     font-size: 16px;
     line-height: 150%;
 }
@@ -152,12 +172,7 @@
         margin-top: 15px;
     }
 
-    .Menu .top-right-bar .SearchField {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .Menu-title, .Menu-description {
+    .Menu-title {
         text-align: center;
     }
 }
@@ -170,12 +185,7 @@
         right: 5px;
     }
 
-    .Menu .top-right-bar .SearchField {
-        margin-top: 10px;
-        margin-right: 20px;
-    }
-
-    .Menu-title, .Menu-description {
+    .Menu-title {
         text-align: left;
     }
 }
