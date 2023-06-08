@@ -13,7 +13,7 @@ export default class Page404 extends React.Component {
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id="Page404" className={"page max-sized-page"}>
+			<div id="Page404">
 				<div>
 					<i className="far fa-frown"/>
 				</div>

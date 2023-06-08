@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageDashboardPrivateSector.css";
+import BoxCount from "../../box/BoxCount.jsx";
 
 export default class PageDashboardPrivateSector extends React.Component {
 	constructor(props) {
@@ -13,23 +14,45 @@ export default class PageDashboardPrivateSector extends React.Component {
 	render() {
 		return (
 			<div id={"PageDashboardPrivateSector"}>
-				<div className="mid-sized-section">
+				<div className="max-sized-section">
 					<div className="content">
 						<div className="row">
-							<div className="col-md-7">
-								<h4>Don’t miss our latest news!</h4>
-
-								<div className="catch-phrase">
-									Keep up to date with the latest cybersecurity news
-									in and around Luxembourg: from institutional news, to
-									the tech corner and upcoming events, find a review of
-									all the newest developments in one place and remain a
-									step ahead of what’s coming next.
+							<div className="col-md-6">
+								<div className="title">
+									<h2>Private Sector</h2>
 								</div>
 							</div>
 
-							<div className="col-md-5">
-								<button>Subscribe to our newsletter</button>
+							<div className="col-md-3">
+								<BoxCount
+									image={""}
+									label={"ee"}
+									count={12}
+								/>
+								<BoxCount
+									image={""}
+									label={"ee"}
+									count={12}
+								/>
+							</div>
+
+							<div className="col-md-3">
+								<BoxCount
+									image={""}
+									label={"ee"}
+									count={12}
+								/>
+								<BoxCount
+									image={""}
+									label={"ee"}
+									count={12}
+								/>
+							</div>
+						</div>
+
+						<div className="row">
+							<div className="col-md-12">
+								<h5>A closer look to the Ecosystem</h5>
 							</div>
 						</div>
 					</div>

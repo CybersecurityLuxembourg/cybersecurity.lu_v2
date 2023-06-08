@@ -122,7 +122,7 @@ export default class PageLandingNews extends React.Component {
 				<div className="articles max-sized-section">
 					<SectionNews
 						taxonomies={this.props.taxonomies}
-						numberOfArticle={6}
+						numberOfArticles={6}
 						showPagination={false}
 					/>
 				</div>

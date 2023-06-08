@@ -50,7 +50,7 @@ export default class SectionNews extends React.Component {
 					is_created_by_admin: this.state.selectedMenu === "MEMBER NEWS"
 						? true
 						: undefined,
-					per_page: this.props.numberOfArticles,
+					per_page: this.props.numberOfArticles || 9,
 					page: this.state.page,
 				};
 

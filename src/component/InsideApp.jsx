@@ -12,6 +12,8 @@ import PageLanding from "./page/PageLanding.jsx";
 import PageDashboard from "./page/PageDashboard.jsx";
 import PageLatestNews from "./page/PageLatestNews.jsx";
 import PageUpcomingEvents from "./page/PageUpcomingEvents.jsx";
+import PageAbout from "./page/PageAbout.jsx";
+import PageContact from "./page/PageContact.jsx";
 import Page404 from "./page/Page404.jsx";
 
 class InsideApp extends React.Component {
@@ -85,6 +87,8 @@ class InsideApp extends React.Component {
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
+						<Route path="/about" render={() => <PageAbout/>}/>
+						<Route path="/contact" render={() => <PageContact/>}/>
 
 						{/* REDIRECTIONS */}
 

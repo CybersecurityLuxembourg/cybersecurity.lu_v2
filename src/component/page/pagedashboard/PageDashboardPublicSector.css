@@ -1,0 +1,8 @@
+
+#PageDashboardPublicSector .title {
+	background: var(--linear-blue);
+	padding: 134px 70px 164px 70px;
+	border: 1px solid #E5F5FF;
+	border-radius: 24px;
+	height: calc(100% - 24px);
+}

@@ -54,7 +54,7 @@ export default class Menu extends React.Component {
 					</div>
 					<div className="col-md-6">
 						<div className="h8">
-							Get an overview
+							Member list
 						</div>
 						<NavDropdown.Item>
 							<Link to="/private-sector">
@@ -142,13 +142,13 @@ export default class Menu extends React.Component {
 							Skills
 						</div>
 						<NavDropdown.Item>
-							<Link to="/latest-news">
-								<div className="Menu-title">Latest News</div>
+							<Link to="/education">
+								<div className="Menu-title">Education</div>
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Item>
-							<Link to="/newsletter">
-								<div className="Menu-title">Our Newsletter</div>
+							<Link to="/training">
+								<div className="Menu-title">Lifelong Learning</div>
 							</Link>
 						</NavDropdown.Item>
 					</div>
@@ -157,13 +157,13 @@ export default class Menu extends React.Component {
 							Jobs
 						</div>
 						<NavDropdown.Item>
-							<Link to="/upcoming-events">
-								<div className="Menu-title">Upcoming Events</div>
+							<Link to="/jobs">
+								<div className="Menu-title">Jobs</div>
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Item>
-							<Link to="/get-involved">
-								<div className="Menu-title">Get Involved</div>
+							<Link to="/internships">
+								<div className="Menu-title">Internships</div>
 							</Link>
 						</NavDropdown.Item>
 					</div>
@@ -178,26 +178,58 @@ export default class Menu extends React.Component {
 					</div>
 				}
 				id="basic-nav-dropdown">
-				<NavDropdown.Item>
-					<Link to="/practices">
-						<div className="Menu-title">Cyber awareness & best practices</div>
-					</Link>
-				</NavDropdown.Item>
-				<NavDropdown.Item>
-					<Link to="/frameworks">
-						<div className="Menu-title">Legal framework</div>
-					</Link>
-				</NavDropdown.Item>
-				<NavDropdown.Item>
-					<Link to="/topic">
-						<div className="Menu-title">Topic of the month</div>
-					</Link>
-				</NavDropdown.Item>
-				<NavDropdown.Item>
-					<Link to="/podcasts">
-						<div className="Menu-title">Podcasts</div>
-					</Link>
-				</NavDropdown.Item>
+				<div className="row">
+					<div className="col-md-6">
+						<div className="h8">
+							Resources
+						</div>
+						<NavDropdown.Item>
+							<Link to="/practices">
+								<div className="Menu-title">Tips & Best practices</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/legal">
+								<div className="Menu-title">Norms, Rules & Laws</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/standards">
+								<div className="Menu-title">Standards</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/publications">
+								<div className="Menu-title">Publications Library</div>
+							</Link>
+						</NavDropdown.Item>
+					</div>
+					<div className="col-md-6">
+						<div className="h8">
+							Support
+						</div>
+						<NavDropdown.Item>
+							<Link to="/startups">
+								<div className="Menu-title">Support for Startups</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/funding">
+								<div className="Menu-title">Funding Opportunities</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/scholarships">
+								<div className="Menu-title">Scholarships</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/partnerships">
+								<div className="Menu-title">Partnerships & Collaboration</div>
+							</Link>
+						</NavDropdown.Item>
+					</div>
+				</div>
 			</NavDropdown>
 
 			<Nav.Link className="nav-item">

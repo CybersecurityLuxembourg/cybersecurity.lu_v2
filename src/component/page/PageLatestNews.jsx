@@ -64,7 +64,7 @@ export default class PageLatestNews extends React.Component {
 							<div className="col-md-12">
 								<SectionNews
 									taxonomies={this.props.taxonomies}
-									numberOfArticle={9}
+									numberOfArticles={9}
 									showPagination={true}
 								/>
 							</div>
