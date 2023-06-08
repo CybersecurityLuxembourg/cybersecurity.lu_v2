@@ -1,41 +1,70 @@
 import React from "react";
-import "./PageLanding.css";
-import PageLandingCatch from "./pagelanding/PageLandingCatch.jsx";
-import PageLandingEcosystem from "./pagelanding/PageLandingEcosystem.jsx";
-import PageLandingNews from "./pagelanding/PageLandingNews.jsx";
-import PageLandingNewsletter from "./pagelanding/PageLandingNewsletter.jsx";
-import PageLandingEvents from "./pagelanding/PageLandingEvents.jsx";
-import PageLandingCSWL from "./pagelanding/PageLandingCSWL.jsx";
-import PageLandingResources from "./pagelanding/PageLandingResources.jsx";
-import PageLandingLTAC from "./pagelanding/PageLandingLTAC.jsx";
-import PageLandingContact from "./pagelanding/PageLandingContact.jsx";
+import "./PageDashboard.css";
+import Tab from "../tab/Tab.jsx";
+import PageDashboardOverview from "./pagedashboard/PageDashboardOverview.jsx";
+import PageDashboardPublicSector from "./pagedashboard/PageDashboardPublicSector.jsx";
+import PageDashboardPrivateSector from "./pagedashboard/PageDashboardPrivateSector.jsx";
 
-export default class PageLanding extends React.Component {
+export default class PageDashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			selectedMenu: 0,
 		};
-	}
-
-	changeState(field, value) {
-		this.setState({ [field]: value });
 	}
 
 	render() {
 		return (
-			<div id={"PageLanding"}>
-				<PageLandingCatch/>
-				<PageLandingEcosystem/>
-				<PageLandingNews
-					taxonomies={this.props.taxonomies}
-				/>
-				<PageLandingNewsletter/>
-				<PageLandingEvents/>
-				<PageLandingCSWL/>
-				<PageLandingResources/>
-				<PageLandingLTAC/>
-				<PageLandingContact/>
+			<div id={"PageDashboard"}>
+				<div className="max-sized-section">
+					<div className="header-content">
+						<div className="row">
+							<div className="col-md-12">
+								<div className="text-content">
+									<div>
+										<h2>The Ecosystem Dashboard</h2>
+
+										<div className="catch-phrase">
+											Welcome to the interactive dashboard of the Luxembourg
+											Cybersecurity Ecosystem. It presents a complete
+											overview of all relevant cybersecurity key figures
+											in the Grand-Duchy.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<img
+							src="/img/Skyline.png"
+							alt="Skyline Luxembourg"
+						/>
+					</div>
+
+					<div className="content">
+						<Tab
+							onMenuClick={(m) => this.setState({ selectedMenu: m })}
+							selectedMenu={this.state.selectedMenu}
+							labels={["Ecosystem Overview", "Public Sector", "Private Sector"]}
+							keys={[0, 1, 2]}
+							content={[
+								<PageDashboardOverview
+									key={0}
+									taxonomies={this.props.taxonomies}
+								/>,
+								<PageDashboardPublicSector
+									key={1}
+									taxonomies={this.props.taxonomies}
+								/>,
+								<PageDashboardPrivateSector
+									key={2}
+									taxonomies={this.props.taxonomies}
+								/>,
+							]}
+						/>
+					</div>
+				</div>
 			</div>
 		);
 	}

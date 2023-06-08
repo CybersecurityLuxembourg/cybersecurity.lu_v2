@@ -1,0 +1,20 @@
+
+#PageDashboard .header-content {
+	position: relative;
+	background: var(--linear-blue);
+	margin: 64px 0px 40px 0px;
+	padding: 60px 94px 164px 94px;
+	text-align: center;
+}
+
+#PageDashboard .header-content img {
+	position: absolute;
+	left: 0px;
+	bottom: -100px;
+	width: 100%;
+}
+
+#PageDashboard .Tab-menu {
+	text-align: center;
+	margin-bottom: 40px;
+}
