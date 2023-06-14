@@ -31,18 +31,18 @@ export default class Footer extends React.Component {
 									<div className="key-partners">
 										<b>Key partners:</b>
 									</div>
-									<div>
-										<a className="partner-link" href="https://hcpn.gouvernement.lu/" target="_blank" rel="noreferrer">
+									<div className="partner-link">
+										<a href="https://hcpn.gouvernement.lu/" target="_blank" rel="noreferrer">
 											High Commission for National Protection
 										</a>
 									</div>
-									<div>
-										<a className="partner-link" href="https://lhc.lu/" target="_blank" rel="noreferrer">
+									<div className="partner-link">
+										<a href="https://lhc.lu/" target="_blank" rel="noreferrer">
 											Luxembourg House of Cybersecurity
 										</a>
 									</div>
-									<div>
-										<a className="partner-link" href="https://www.luxinnovation.lu/" target="_blank" rel="noreferrer">
+									<div className="partner-link">
+										<a href="https://www.luxinnovation.lu/" target="_blank" rel="noreferrer">
 											Luxinnovation
 										</a>
 									</div>
@@ -50,7 +50,9 @@ export default class Footer extends React.Component {
 							</div>
 						</div>
 
-						<div className="col-md-3">
+						<div className="col-md-1"/>
+
+						<div className="col-md-2">
 							<div className="title">Your portal</div>
 
 							<div className="link">
