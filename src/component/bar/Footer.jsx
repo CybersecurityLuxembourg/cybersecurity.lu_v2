@@ -16,7 +16,7 @@ export default class Footer extends React.Component {
 			<div className="Footer">
 				<div className="content">
 					<div className="row">
-						<div className="col-md-4">
+						<div className="col-md-3">
 							<img
 								className={"logo"}
 								src="/img/ecosystem-logo.jpg"
@@ -25,63 +25,87 @@ export default class Footer extends React.Component {
 
 							<div className="row">
 								<div className="col-md-12">
-									<p className="patronage">
+									<div className="patronage">
 										Under the High Patronage of the Ministry of the Economy
-									</p>
-									<p>
-										<b>Key partners</b>
-									</p>
-									<p>
-										High Commission for National Protection
-									</p>
-									<p>
-										Luxembourg House of Cybersecurity
-									</p>
-									<p>
-										Luxinnovation
-									</p>
+									</div>
+									<div className="key-partners">
+										<b>Key partners:</b>
+									</div>
+									<div>
+										<a className="partner-link" href="https://hcpn.gouvernement.lu/" target="_blank" rel="noreferrer">
+											High Commission for National Protection
+										</a>
+									</div>
+									<div>
+										<a className="partner-link" href="https://lhc.lu/" target="_blank" rel="noreferrer">
+											Luxembourg House of Cybersecurity
+										</a>
+									</div>
+									<div>
+										<a className="partner-link" href="https://www.luxinnovation.lu/" target="_blank" rel="noreferrer">
+											Luxinnovation
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
 
-						<div className="col-md-2">
+						<div className="col-md-3">
 							<div className="title">Your portal</div>
 
-							<Link to="/">
-								Discover the Ecosystem
-							</Link>
-							<Link to="/">
-								News & Events
-							</Link>
-							<Link to="/">
-								Skills & Jobs
-							</Link>
-							<Link to="/">
-								Resources & Support
-							</Link>
-							<Link to="/">
-								About us
-							</Link>
-							<Link to="/">
-								Contact
-							</Link>
+							<div className="link">
+								<Link to="/">
+									The Ecosystem
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/">
+									News & Events
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/">
+									Skills & Jobs
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/">
+									Resources & Support
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/about">
+									About us
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/contact">
+									Contact
+								</Link>
+							</div>
 						</div>
 
-						<div className="col-md-2">
+						<div className="col-md-3">
 							<div className="title">Tools</div>
 
-							<Link to="/">
-								Dashboard
-							</Link>
-							<Link to="/">
-								How can we help?
-							</Link>
-							<Link to="/">
-								Emergency support
-							</Link>
+							<div className="link">
+								<Link to="/dashboard">
+									Dashboard
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/help">
+									How can we help?
+								</Link>
+							</div>
+							<div className="link">
+								<Link to="/support">
+									Immediate support
+								</Link>
+							</div>
 						</div>
 
-						<div className="col-md-4">
+						<div className="col-md-3">
 							<div className="title">Stay informed</div>
 
 							<div className="social-network">
@@ -109,7 +133,7 @@ export default class Footer extends React.Component {
 									"_blank",
 								)}
 							>
-								Subscribe to the Newsletter
+								Subscribe to our Newsletter &nbsp;<i className="fas fa-paper-plane"/>
 							</button>
 						</div>
 					</div>

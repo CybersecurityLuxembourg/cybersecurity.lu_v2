@@ -6,7 +6,7 @@
 }
 
 .Footer img {
-  width: 80%;
+  width: 70%;
 }
 
 .Footer .content {
@@ -20,10 +20,30 @@
 
 .Footer .patronage {
   margin: 23px 0px;
+  color: var(--text-neutral-50);
+}
+
+.Footer .key-partners {
+  font-family: "Open Sans 600";
+  color: var(--text-neutral-50);
+  margin-bottom: 16px;
 }
 
 .Footer a {
   color: var(--text-neutral-40);
+}
+
+.Footer .partner-link {
+  font-size: 14px;
+  color: var(--text-neutral-50);
+  text-decoration: underline;
+  margin-bottom: 8px !important;
+}
+
+.Footer .link {
+  font-size: 14px;
+  padding-bottom: 16px;
+  font-family: "Open Sans 600";
 }
 
 .Footer a:hover {
@@ -31,9 +51,10 @@
 }
 
 .Footer .title {
+    font-family: "Open Sans 600";
     color: var(--primary-blue-80);
     font-style: normal;
-    font-weight: 600;
+    padding-bottom: 16px;
 }
 
 .Footer .Footer-network {
@@ -46,11 +67,24 @@
 
 @media (min-width: 768px) {
   .Footer .social-network {
-    margin-bottom: 37px !important;
+    margin-top: 24px !important;
+    margin-bottom: 34px !important;
   }
 }
 
+.Footer .social-network a i {
+  margin-right: 16px;
+}
 
 .Footer .social-network a i:hover {
   color: #e40613 !important;
+}
+
+.Footer .row > div {
+  padding-right: 20px;
+}
+
+.Footer button {
+  font-family: "Open Sans 600";
+  font-size: 14px;
 }
