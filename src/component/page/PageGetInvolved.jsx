@@ -1,7 +1,7 @@
 import React from "react";
-import "./PagePrivateSector.css";
+import "./PageGetInvolved.css";
 
-export default class PagePrivateSector extends React.Component {
+export default class PageGetInvolved extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -12,7 +12,7 @@ export default class PagePrivateSector extends React.Component {
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id={"PagePrivateSector"}>
+			<div id={"PageGetInvolved"}>
 			</div>
 		);
 	}

@@ -1,16 +1,7 @@
 import React from "react";
-import "./PageLanding.css";
-import PageLandingCatch from "./pagelanding/PageLandingCatch.jsx";
-import PageLandingEcosystem from "./pagelanding/PageLandingEcosystem.jsx";
-import PageLandingNews from "./pagelanding/PageLandingNews.jsx";
-import PageLandingNewsletter from "./pagelanding/PageLandingNewsletter.jsx";
-import PageLandingEvents from "./pagelanding/PageLandingEvents.jsx";
-import PageLandingCSWL from "./pagelanding/PageLandingCSWL.jsx";
-import PageLandingResources from "./pagelanding/PageLandingResources.jsx";
-import PageLandingLTAC from "./pagelanding/PageLandingLTAC.jsx";
-import PageLandingContact from "./pagelanding/PageLandingContact.jsx";
+import "./PagePcDoctors.css";
 
-export default class PageLanding extends React.Component {
+export default class PagePcDoctors extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -18,24 +9,10 @@ export default class PageLanding extends React.Component {
 		};
 	}
 
-	changeState(field, value) {
-		this.setState({ [field]: value });
-	}
-
+	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id={"PageLanding"}>
-				<PageLandingCatch/>
-				<PageLandingEcosystem/>
-				<PageLandingNews
-					taxonomies={this.props.taxonomies}
-				/>
-				<PageLandingNewsletter/>
-				<PageLandingEvents/>
-				<PageLandingCSWL/>
-				<PageLandingResources/>
-				<PageLandingLTAC/>
-				<PageLandingContact/>
+			<div id={"PagePcDoctors"}>
 			</div>
 		);
 	}
