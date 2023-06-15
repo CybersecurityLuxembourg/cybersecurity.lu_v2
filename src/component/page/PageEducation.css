@@ -4,3 +4,13 @@
 	padding: 60px 0px;
 	margin-bottom: 64px;
 }
+
+#PageEducation .Tab .Tab-menu {
+	padding-bottom: 0px;
+	line-height: 0;
+}
+
+#PageEducation .Tab .Tab-menu .Tab-menu-el {
+	margin-bottom: 0px;
+	padding-bottom: 13px;
+}

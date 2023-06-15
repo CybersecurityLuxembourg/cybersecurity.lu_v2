@@ -1,47 +1,40 @@
 import React from "react";
-import "./PageEducationTrainings.css";
+import "./PageJobsJobs.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import { getApiURL } from "../../../utils/env.jsx";
-import Service from "../../item/Service.jsx";
+import Job from "../../item/Job.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
 import Field from "../../form/Field.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
 
-export default class PageEducationTrainings extends React.Component {
+export default class PageJobsJobs extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			entity: null,
-			services: null,
+			jobs: null,
 			searchValue: null,
 		};
 	}
 
 	componentDidMount() {
-		this.fetchINFPC();
+		this.fetchMoovijob();
+		this.fetchJobs();
 	}
 
-	componentDidUpdate(prevProps) {
-		if (!prevProps.taxonomies && this.props.taxonomies) {
-			this.fetchINFPC();
-		}
-	}
-
-	fetchINFPC() {
-		getRequest.call(this, "public/get_public_entities?name=INFPC", (data) => {
+	fetchMoovijob() {
+		getRequest.call(this, "public/get_public_entities?name=Moovijob", (data) => {
 			if (data.length === 0) {
-				nm.warning("INFPC entity not found");
+				nm.warning("Moovijob entity not found");
 			} else if (data.length > 1) {
-				nm.warning("Too much entities found for INFPC");
+				nm.warning("Too much entities found for Moovijob");
 			} else {
 				this.setState({
 					entity: data[0],
-				}, () => {
-					this.fetchServices();
 				});
 			}
 		}, (response) => {
@@ -51,60 +44,46 @@ export default class PageEducationTrainings extends React.Component {
 		});
 	}
 
-	fetchServices(page) {
-		if (this.props.taxonomies) {
-			const valueIds = this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "SERVICE CATEGORY" && v.name === "TRAINING")
-				.map((v) => v.id);
+	fetchJobs(page) {
+		const params = {
+			type: "JOB OFFER",
+			title: this.state.searchValue,
+			page: page || 1,
+			per_page: 9,
+			include_tags: true,
+		};
 
-			if (valueIds.length > 0) {
-				const params = {
-					type: "SERVICE",
-					title: this.state.searchValue,
-					page: page || 1,
-					per_page: 9,
-					taxonomy_values: valueIds,
-					entities: [this.state.entity.id],
-					include_tags: true,
-				};
-
-				getRequest.call(this, "public/get_public_articles?"
-					+ dictToURI(params), (data) => {
-					this.setState({
-						services: data,
-					});
-				}, (response) => {
-					nm.warning(response.statusText);
-				}, (error) => {
-					nm.error(error.message);
-				});
-			} else {
-				this.setState({
-					services: { pagination: { total: 0 } },
-				});
-			}
-		}
+		getRequest.call(this, "public/get_public_articles?"
+			+ dictToURI(params), (data) => {
+			this.setState({
+				jobs: data,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
 	}
 
 	buildContent() {
-		if (!this.state.entity || !this.state.services) {
+		if (!this.state.jobs) {
 			return <Loading height={500}/>;
 		}
 
-		if (this.state.services.pagination.total === 0) {
-			return <Message height={500} text={"No training found"}/>;
+		if (this.state.jobs.pagination.total === 0) {
+			return <Message height={500} text={"No jobs found"}/>;
 		}
 
 		return <div className="education-section">
 			<div className="row">
 				<DynamicTable
-					items={this.state.services.items}
-					pagination={this.state.services.pagination}
-					changePage={(page) => this.fetchServices(page)}
+					items={this.state.jobs.items}
+					pagination={this.state.jobs.pagination}
+					changePage={(page) => this.fetchJobs(page)}
 					buildElement={(s) => <div
 						className="col-md-4"
 						key={s.id}>
-						<Service
+						<Job
 							info={s}
 						/>
 					</div>
@@ -116,12 +95,12 @@ export default class PageEducationTrainings extends React.Component {
 
 	render() {
 		return (
-			<div id="PageEducationTrainings">
+			<div id="PageJobsJobs">
 				<div className="training-section top-section">
 					<div className="title-section">
 						<div className="row">
 							<div className="col-md-12">
-								<div>In collaboration with the national portal</div>
+								<div>In collaboration with</div>
 
 								{this.state.entity
 									&& <img

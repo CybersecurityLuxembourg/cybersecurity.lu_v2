@@ -1,0 +1,29 @@
+
+#PageJobsJobs .training-section {
+	border-top: 1px solid var(--text-neutral-10);
+	padding: 40px 0px 24px 0px;
+}
+
+#PageJobsJobs .top-section input {
+	width: 300px;
+	max-width: 100%;
+}
+
+#PageJobsJobs .title-section {
+	padding-top: 48px;
+	margin-bottom: 32px;
+}
+
+#PageJobsJobs .title-section img {
+	max-height: 100px;
+}
+
+#PageJobsJobs .title-section > .row > .col-md-12 > div {
+	display: inline-block;
+	height: 100%;
+	font-family: "Open Sans 700";
+	font-size: 20px;
+	line-height: 150%;
+	margin-right: 24px;
+	color: var(--text-neutral-50);
+}
