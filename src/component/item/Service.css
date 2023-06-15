@@ -1,0 +1,72 @@
+
+.Service {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    margin-bottom: 32px;
+    border: none;
+}
+
+.Service .link {
+    padding: 16px;
+}
+
+.Service a:hover {
+    text-decoration: none !important;
+}
+
+.Service .link {
+    color: inherit;
+}
+
+.Service .card-body {
+    padding-right: 0px !important;
+    padding-left: 0px;
+    padding-bottom: 0px !important;
+}
+
+.Service .card-img-wrapper {
+    min-height: 150px;
+    position: relative;
+}
+
+.Service .card-img-wrapper img,
+.Service .NoImage {
+    border-radius: 12px;
+    height: 214px !important;
+}
+
+.Service .card-date {
+    color: var(--primary-blue-80);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.Service .card-title {
+    height: 54px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: var(--text-neutral-50);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    margin-bottom: 8px;
+}
+
+.Service .card-text {
+    height: 68px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.Service button {
+   float: right;
+}

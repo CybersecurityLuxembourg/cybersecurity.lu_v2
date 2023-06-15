@@ -4,6 +4,7 @@ import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import Entity from "../../item/Entity.jsx";
+import Service from "../../item/Service.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
 
@@ -102,9 +103,16 @@ export default class PageEducationEducation extends React.Component {
 
 						<div className="col-md-8">
 							<div className="row">
-								<div className="col-md-6">
-
-								</div>
+								{this.state.educationServices.items
+									.filter((s) => s.entity_tags.indexOf(e.id) >= 0)
+									.map((s) => (
+										<div className="col-md-6" key={s.id}>
+											<Service
+												info={s}
+												taxnomies={this.props.taxnomies}
+											/>
+										</div>
+									))}
 							</div>
 						</div>
 					</div>

@@ -29,10 +29,14 @@ export default class PageEducation extends React.Component {
 								</Breadcrumb>
 							</div>
 
-							<div className="col-md-6">
+							<div className="col-md-12">
 								<div className="text-content">
 									<div className="blue-title">Education & trainings</div>
+								</div>
+							</div>
 
+							<div className="col-md-5">
+								<div className="text-content">
 									<h4>Discover Cybersecurity scholarships
 									and training opportunities from our partners</h4>
 								</div>
