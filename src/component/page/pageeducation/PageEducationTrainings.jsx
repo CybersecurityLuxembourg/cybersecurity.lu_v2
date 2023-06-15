@@ -3,119 +3,142 @@ import "./PageEducationTrainings.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
-import Entity from "../../item/Entity.jsx";
+import { getApiURL } from "../../../utils/env.jsx";
+import Service from "../../item/Service.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
+import Field from "../../form/Field.jsx";
 
 export default class PageEducationTrainings extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			educationEntities: null,
-			educationServices: null,
+			entity: null,
+			services: null,
+			searchValue: null,
 		};
 	}
 
 	componentDidMount() {
-		this.fetchEducationEntities();
+		this.fetchINFPC();
 	}
 
 	componentDidUpdate(prevProps) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
-			this.fetchEducationEntities();
+			this.fetchINFPC();
 		}
 	}
 
-	fetchEducationEntities() {
+	fetchINFPC() {
+		getRequest.call(this, "public/get_public_entities?name=INFPC", (data) => {
+			if (data.length === 0) {
+				nm.warning("INFPC entity not found");
+			} else if (data.length > 1) {
+				nm.warning("Too much entities found for INFPC");
+			} else {
+				this.setState({
+					entity: data[0],
+				}, () => {
+					this.fetchEducationServices();
+				});
+			}
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+	}
+
+	fetchEducationServices(page) {
 		if (this.props.taxonomies) {
-			const valueId = this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "ECOSYSTEM ROLE" && v.name === "EDUCATIONAL INSTITUTION")
+			const valueIds = this.props.taxonomies.taxonomy_values
+				.filter((v) => v.category === "SERVICE CATEGORY" && v.name === "TRAINING")
 				.map((v) => v.id);
 
-			if (valueId.length > 0) {
-				this.setState({
-					educationEntities: null,
-				}, () => {
-					getRequest.call(this, "public/get_public_entities"
-						+ "?taxonomy_values=" + valueId.join(","), (data) => {
-						this.setState({
-							educationEntities: data,
-						}, () => {
-							this.fetchServicesOfEducationEntities();
-						});
-					}, (response) => {
-						nm.warning(response.statusText);
-					}, (error) => {
-						nm.error(error.message);
+			if (valueIds.length > 0) {
+				const params = {
+					type: "SERVICE",
+					title: this.state.searchValue,
+					page: page || 1,
+					per_page: 9,
+					taxonomy_values: valueIds,
+					entities: [this.state.entity.id],
+					include_tags: true,
+				};
+
+				getRequest.call(this, "public/get_public_articles?"
+					+ dictToURI(params), (data) => {
+					this.setState({
+						services: data,
 					});
+				}, (response) => {
+					nm.warning(response.statusText);
+				}, (error) => {
+					nm.error(error.message);
 				});
 			} else {
 				this.setState({
-					educationEntities: [],
+					services: { pagination: { total: 0 } },
 				});
 			}
 		}
 	}
 
-	fetchServicesOfEducationEntities() {
-		if (this.state.educationEntities && this.state.educationEntities.length > 0) {
-			const params = {
-				type: "SERVICE",
-				include_tags: true,
-				entities: this.state.educationEntities.map((e) => (e.id)),
-			};
-
-			getRequest.call(this, "public/get_public_articles?"
-				+ dictToURI(params), (data) => {
-				this.setState({
-					educationServices: data,
-				});
-			}, (response) => {
-				nm.warning(response.statusText);
-			}, (error) => {
-				nm.error(error.message);
-			});
-		} else {
-			this.setState({
-				educationServices: { pagination: { total: 0 } },
-			});
-		}
-	}
-
 	buildContent() {
-		if (!this.state.educationEntities || !this.state.educationServices) {
+		if (!this.state.entity || !this.state.services) {
 			return <Loading height={500}/>;
 		}
 
-		if (this.state.educationEntities.length === 0) {
-			return <Message height={500} content={"No message found"}/>;
+		if (this.state.services.pagination.total === 0) {
+			return <Message height={500} text={"No training found"}/>;
 		}
 
-		return <div>
-			{this.state.educationEntities.map((e) => (
-				<div className="row" key={e.id}>
-					<div className="col-md-4">
-						<Entity info={e}/>
-					</div>
-
-					<div className="col-md-8">
-						<div className="row">
-							<div className="col-md-6">
-
-							</div>
+		return <div className="education-section">
+			<div className="row">
+				{this.state.services.items
+					.map((s) => (
+						<div className="col-md-4" key={s.id}>
+							<Service
+								info={s}
+							/>
 						</div>
-					</div>
-				</div>
-			))}
-
+					))}
+			</div>
 		</div>;
 	}
 
 	render() {
 		return (
 			<div id="PageEducationTrainings">
-				{this.buildContent()}
+				<div className="training-section top-section">
+					<div className="title-section">
+						<div className="row">
+							<div className="col-md-12">
+								<div>In collaboration with the national portal</div>
+
+								{this.state.entity
+									&& <img
+										src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
+									/>
+								}
+							</div>
+						</div>
+					</div>
+
+					<div className="col-md-12">
+						<Field
+							value={this.state.searchValue}
+							placeholder={"Search training"}
+							onChange={(v) => this.setState({ searchValue: v })}
+							fullWidth={true}
+						/>
+					</div>
+				</div>
+
+				<div className="training-section">
+					{this.buildContent()}
+				</div>
 			</div>
 		);
 	}

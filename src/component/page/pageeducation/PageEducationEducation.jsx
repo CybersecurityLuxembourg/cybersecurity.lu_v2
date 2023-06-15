@@ -90,7 +90,7 @@ export default class PageEducationEducation extends React.Component {
 		}
 
 		if (this.state.educationEntities.length === 0) {
-			return <Message height={500} content={"No message found"}/>;
+			return <Message height={500} text={"No message found"}/>;
 		}
 
 		return <div>
