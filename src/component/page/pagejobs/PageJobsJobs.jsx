@@ -114,7 +114,7 @@ export default class PageJobsJobs extends React.Component {
 					<div className="col-md-12">
 						<Field
 							value={this.state.searchValue}
-							placeholder={"Search training"}
+							placeholder={"Search job"}
 							onChange={(v) => this.setState({ searchValue: v })}
 							fullWidth={true}
 						/>

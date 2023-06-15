@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Job.css";
 import { Link } from "react-router-dom";
-import dompurify from "dompurify";
 import CardSocialMedia from "./CardSocialMedia.jsx";
+import { dateToString } from "../../utils/date.jsx";
 
 export default class Job extends Component {
 	constructor(props) {
@@ -19,12 +19,13 @@ export default class Job extends Component {
 					{this.props.info.title}
 				</div>
 
-				<div className="card-text">
-					<div dangerouslySetInnerHTML={{
-						__html:
-						dompurify.sanitize(this.props.info.abstract),
-					}} />
-				</div>
+				{this.props.info.publication_date
+					&& <div className="card-date">
+						<i className="far fa-calendar"/> {dateToString(this.props.info.publication_date, "DD MMM YYYY")}
+					</div>
+				}
+
+				<div className="card-tags"/>
 
 				<div className="row">
 					<div className="col-md-6">
@@ -56,7 +57,7 @@ export default class Job extends Component {
 			</div>
 			: <div className="Job card">
 				<Link
-					to={"/Job/" + this.props.info.handle}
+					to={"/job/" + this.props.info.handle}
 					className="link">
 					{this.getBoxContent()}
 				</Link>

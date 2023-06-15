@@ -4,10 +4,7 @@
     border-radius: 12px;
     margin-bottom: 32px;
     border: none;
-}
-
-.Job .link {
-    padding: 16px;
+    padding: 24px;
 }
 
 .Job a:hover {
@@ -22,6 +19,7 @@
     padding-right: 0px !important;
     padding-left: 0px;
     padding-bottom: 0px !important;
+    padding-top: 0px !important;
 }
 
 .Job .card-img-wrapper {
@@ -42,6 +40,10 @@
     margin-bottom: 8px;
 }
 
+.Job .card-tags {
+    height: 96px;
+}
+
 .Job .card-title {
     height: 54px;
     display: -webkit-box;
@@ -51,22 +53,21 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 150%;
-    margin-bottom: 8px;
-}
-
-.Job .card-text {
-    height: 68px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
+    margin-bottom: 24px;
 }
 
 .Job button {
    float: right;
+}
+
+.Job .card-date i {
+    color: var(--primary-blue-80);
+    margin-right: 2px;
+}
+
+.Job .card-date {
+    font-family: "Open Sans 600";
+    color: var(--text-neutral-40);
+    font-size: 14px;
+    margin-bottom: 36px;
 }
