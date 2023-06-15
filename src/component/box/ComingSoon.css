@@ -1,0 +1,24 @@
+.ComingSoon {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.ComingSoon-text {
+    font-family: "Open Sans 700";
+    font-size: 24px;
+    position: absolute;
+    text-align: center;
+    left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+}
+
+.ComingSoon-text i {
+    font-size: 56px;
+    margin-bottom: 8px;
+}
+
+.ComingSoon-text div:last-child {
+    font-size: 14px;
+}
