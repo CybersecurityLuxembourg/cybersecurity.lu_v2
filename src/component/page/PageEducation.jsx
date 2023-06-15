@@ -5,6 +5,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Tab from "../tab/Tab.jsx";
 import PageEducationEducation from "./pageeducation/PageEducationEducation.jsx";
 import PageEducationTrainings from "./pageeducation/PageEducationTrainings.jsx";
+import { getUrlParameter } from "../../utils/url.jsx";
 
 export default class PageEducation extends React.Component {
 	constructor(props) {
@@ -12,8 +13,26 @@ export default class PageEducation extends React.Component {
 
 		this.state = {
 			menuLabels: ["Education", "Trainings"],
-			selectedMenu: 0,
+			menuValues: ["education", "trainings"],
+			selectedMenu: "education",
 		};
+	}
+
+	componentDidMount() {
+		if (getUrlParameter("tab") !== null && this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
+			this.setState({ selectedMenu: getUrlParameter("tab") });
+		}
+	}
+
+	componentDidUpdate() {
+		if (this.state.selectedMenu !== getUrlParameter("tab")
+			&& this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
+			this.setState({ selectedMenu: getUrlParameter("tab") });
+		}
+	}
+
+	onMenuClick(m) {
+		this.props.history.push("?tab=" + m);
 	}
 
 	render() {
@@ -61,10 +80,10 @@ export default class PageEducation extends React.Component {
 					<div className="row">
 						<div className="col-md-12">
 							<Tab
-								onMenuClick={(m) => this.setState({ selectedMenu: m })}
+								onMenuClick={(m) => this.onMenuClick(m)}
 								selectedMenu={this.state.selectedMenu}
 								labels={this.state.menuLabels}
-								keys={[0, 1]}
+								keys={this.state.menuValues}
 								content={[
 									<PageEducationEducation
 										key={0}
