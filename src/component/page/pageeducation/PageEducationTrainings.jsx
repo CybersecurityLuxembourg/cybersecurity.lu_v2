@@ -8,6 +8,7 @@ import Service from "../../item/Service.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
 import Field from "../../form/Field.jsx";
+import DynamicTable from "../../table/DynamicTable.jsx";
 
 export default class PageEducationTrainings extends React.Component {
 	constructor(props) {
@@ -40,7 +41,7 @@ export default class PageEducationTrainings extends React.Component {
 				this.setState({
 					entity: data[0],
 				}, () => {
-					this.fetchEducationServices();
+					this.fetchServices();
 				});
 			}
 		}, (response) => {
@@ -50,7 +51,7 @@ export default class PageEducationTrainings extends React.Component {
 		});
 	}
 
-	fetchEducationServices(page) {
+	fetchServices(page) {
 		if (this.props.taxonomies) {
 			const valueIds = this.props.taxonomies.taxonomy_values
 				.filter((v) => v.category === "SERVICE CATEGORY" && v.name === "TRAINING")
@@ -61,7 +62,7 @@ export default class PageEducationTrainings extends React.Component {
 					type: "SERVICE",
 					title: this.state.searchValue,
 					page: page || 1,
-					per_page: 9,
+					per_page: 1,
 					taxonomy_values: valueIds,
 					entities: [this.state.entity.id],
 					include_tags: true,
@@ -96,14 +97,19 @@ export default class PageEducationTrainings extends React.Component {
 
 		return <div className="education-section">
 			<div className="row">
-				{this.state.services.items
-					.map((s) => (
-						<div className="col-md-4" key={s.id}>
-							<Service
-								info={s}
-							/>
-						</div>
-					))}
+				<DynamicTable
+					items={this.state.services.items}
+					pagination={this.state.services.pagination}
+					changePage={(page) => this.fetchServices(page)}
+					buildElement={(s) => <div
+						className="col-md-4"
+						key={s.id}>
+						<Service
+							info={s}
+						/>
+					</div>
+					}
+				/>
 			</div>
 		</div>;
 	}
