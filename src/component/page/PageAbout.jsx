@@ -27,7 +27,7 @@ export default class PageAbout extends React.Component {
 
 							<div className="col-md-6">
 								<div className="text-content">
-									<div className="blue-title">The initiative</div>
+									<div className="h8 blue-text uppercase">The initiative</div>
 
 									<h4>The National Cybersecurity Portal</h4>
 								</div>

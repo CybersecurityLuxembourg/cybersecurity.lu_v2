@@ -43,7 +43,7 @@ export default class PageLatestNews extends React.Component {
 										"_blank",
 									)}
 								>
-									Subscribe to the newsletter
+									Subscribe to the newsletter &nbsp;<i className="fas fa-paper-plane"/>
 								</button>
 							</div>
 
@@ -70,9 +70,54 @@ export default class PageLatestNews extends React.Component {
 							</div>
 						</div>
 					</div>
+				</div>
 
-					<div className={"podcast-content"}>
-						PODCAST CONTENT TODO
+				<div className={"podcast-content"}>
+					<div className="max-sized-section">
+						<div className="row">
+							<div className="col-md-4">
+								<h4 className="blue-text">Our Podcasts</h4>
+
+								<div>The latest industry news, interviews, technologies, and resources.</div>
+
+								<button>View all podcasts</button>
+							</div>
+
+							<div className="col-md-1"/>
+
+							<div className="col-md-7">
+								<div className="row">
+									<div className="col-md-4">
+										<img src="/img/ltac-image.svg"/>
+									</div>
+
+									<div className="col-md-8">
+										<h5><span className="blue-text">#</span> LËTZ TALK ABOUT CYBER</h5>
+
+										In this edition of Lëtz Talk about Cyber, Melanie
+										Delannoy, CyberSec Enthusiast received Björn
+										Ottersten, Director of the Interdisciplinary Centre
+										for Security, Reliability and Trust (SnT).
+									</div>
+								</div>
+
+								<div className="row">
+									<div className="col-md-4">
+										<img src="/img/breakfast-image.svg"/>
+									</div>
+
+									<div className="col-md-8">
+										<h5><span className="blue-text">#</span> CYBERSECURITY Breakfast</h5>
+
+										CYBERSECURITY Breakfast Podcast is a monthly series
+										that tackles trending or pressing cybersecurity
+										topics. National and international experts from
+										various field of activities discuss their views
+										and experiences.
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -14,10 +14,6 @@
   max-width: 1140px;
 }
 
-.Footer .content .row > div {
-  margin-bottom: 25px;
-}
-
 .Footer .patronage {
   margin: 23px 0px;
   color: var(--text-neutral-50);

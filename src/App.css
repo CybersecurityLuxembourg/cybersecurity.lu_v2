@@ -41,8 +41,9 @@
     --accent-orange: #EF7D38;
     --accent-blue: #33ADFF;
 
-    --linear-blue: linear-gradient(180deg, #EBF7FF 0%, #FFFFFF 100%);;
-    --linear-red: linear-gradient(179.53deg, #FDEBEC 0.4%, #FFFFFF 43.91%);;
+    --linear-blue: linear-gradient(180deg, #EBF7FF 0%, #FFFFFF 100%);
+    --linear-blue-bottom: linear-gradient(286.87deg, #EBF7FF 40.41%, #FFFFFF 90.72%);
+    --linear-red: linear-gradient(179.53deg, #FDEBEC 0.4%, #FFFFFF 43.91%);
 }
 
 body {
@@ -107,22 +108,27 @@ h4 {
 }
 
 h5 {
+    font-family: "Open Sans 700";
     margin: 0px;
     padding: 0px;
     font-weight: normal;
     font-size: 24px;
     line-height: 1.5;
+     margin-bottom: 24px;
 }
 
 h6 {
+    font-family: "Open Sans 700";
     margin: 0px;
     padding: 0px;
     font-weight: normal;
     font-size: 20px;
     line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 .h7 {
+    font-family: "Open Sans 700";
     margin: 0px;
     padding: 0px;
     font-weight: normal;
@@ -131,6 +137,7 @@ h6 {
 }
 
 .h8 {
+    font-family: "Open Sans 700";
     margin: 0px;
     padding: 0px;
     font-weight: normal;
@@ -138,11 +145,11 @@ h6 {
     line-height: 1.5;
 }
 
-.blue-title {
-    font-family: "Open Sans 700";
-    color: var(--primary-blue-100);
-    font-size: 16px;
-    margin-bottom: 12px;
+.blue-text {
+    color: var(--primary-blue-100) !important;
+}
+
+.uppercase {
     text-transform: uppercase;
 }
 

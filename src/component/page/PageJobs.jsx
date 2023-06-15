@@ -50,7 +50,7 @@ export default class PageJobs extends React.Component {
 
 							<div className="col-md-12">
 								<div className="text-content">
-									<div className="blue-title">Jobs & internship</div>
+									<div className="h8 blue-text uppercase">Jobs & internship</div>
 								</div>
 							</div>
 
