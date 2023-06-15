@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageScholarships.css";
+import ComingSoon from "../box/ComingSoon.jsx";
 
 export default class PageScholarships extends React.Component {
 	constructor(props) {
@@ -13,6 +14,9 @@ export default class PageScholarships extends React.Component {
 	render() {
 		return (
 			<div id={"PageScholarships"}>
+				<ComingSoon
+					height={500}
+				/>
 			</div>
 		);
 	}

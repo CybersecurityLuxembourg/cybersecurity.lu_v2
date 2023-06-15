@@ -1,7 +1,8 @@
 import React from "react";
-import "./PagePartnerships.css";
+import "./PagePublications.css";
+import ComingSoon from "../box/ComingSoon.jsx";
 
-export default class PagePartnerships extends React.Component {
+export default class PagePublications extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -12,7 +13,10 @@ export default class PagePartnerships extends React.Component {
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id={"PagePartnerships"}>
+			<div id={"PagePublications"}>
+				<ComingSoon
+					height={500}
+				/>
 			</div>
 		);
 	}

@@ -164,7 +164,7 @@ export default class Menu extends React.Component {
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Item>
-							<Link to="/internships">
+							<Link to="/jobs?tab=internship">
 								<div className="Menu-title">Internships</div>
 							</Link>
 						</NavDropdown.Item>
@@ -186,7 +186,7 @@ export default class Menu extends React.Component {
 							Resources
 						</div>
 						<NavDropdown.Item>
-							<Link to="/practices">
+							<Link to="/best-practice">
 								<div className="Menu-title">Tips & Best practices</div>
 							</Link>
 						</NavDropdown.Item>
@@ -211,7 +211,7 @@ export default class Menu extends React.Component {
 							Support
 						</div>
 						<NavDropdown.Item>
-							<Link to="/startups">
+							<Link to="/support-for-startups">
 								<div className="Menu-title">Support for Startups</div>
 							</Link>
 						</NavDropdown.Item>

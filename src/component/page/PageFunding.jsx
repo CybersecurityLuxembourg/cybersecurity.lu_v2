@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageFunding.css";
+import ComingSoon from "../box/ComingSoon.jsx";
 
 export default class PageFunding extends React.Component {
 	constructor(props) {
@@ -13,6 +14,9 @@ export default class PageFunding extends React.Component {
 	render() {
 		return (
 			<div id={"PageFunding"}>
+				<ComingSoon
+					height={500}
+				/>
 			</div>
 		);
 	}

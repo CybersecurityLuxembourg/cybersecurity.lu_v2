@@ -1,7 +1,8 @@
 import React from "react";
-import "./PageStartups.css";
+import "./PageSupportForStartups.css";
+import ComingSoon from "../box/ComingSoon.jsx";
 
-export default class PageStartups extends React.Component {
+export default class PageSupportForStartups extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -12,7 +13,10 @@ export default class PageStartups extends React.Component {
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id={"PageStartups"}>
+			<div id={"PageSupportForStartups"}>
+				<ComingSoon
+					height={500}
+				/>
 			</div>
 		);
 	}
