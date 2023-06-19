@@ -1,5 +1,6 @@
 import React from "react";
 import "./PagePrivateSector.css";
+import ComingSoon from "../box/ComingSoon.jsx";
 
 export default class PagePrivateSector extends React.Component {
 	constructor(props) {
@@ -13,6 +14,9 @@ export default class PagePrivateSector extends React.Component {
 	render() {
 		return (
 			<div id={"PagePrivateSector"}>
+				<ComingSoon
+					height={500}
+				/>
 			</div>
 		);
 	}
