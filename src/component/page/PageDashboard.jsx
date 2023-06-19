@@ -52,6 +52,7 @@ export default class PageDashboard extends React.Component {
 								<PageDashboardOverview
 									key={0}
 									taxonomies={this.props.taxonomies}
+									{...this.props}
 								/>,
 								<PageDashboardPublicSector
 									key={1}

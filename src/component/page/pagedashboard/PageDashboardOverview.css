@@ -6,3 +6,32 @@
 	border-radius: 24px;
 	height: calc(100% - 24px);
 }
+
+#PageDashboardOverview .total-entities {
+	padding: 24px;
+}
+
+#PageDashboardOverview .total-entities h2 {
+	margin-bottom: 56px;
+}
+
+#PageDashboardOverview .governance-box .governance-box-content {
+	text-align: center;
+}
+
+#PageDashboardOverview .governance-box img {
+	width: 100%;
+}
+
+#PageDashboardOverview .governance-box .governance-box-content h1,
+#PageDashboardOverview .governance-box .governance-box-content h5 {
+	margin-bottom: 36px;
+}
+
+#PageDashboardOverview .governance-box .right-buttons {
+	margin-top: 24px;
+}
+
+#PageDashboardOverview .sector-box img {
+	width: 60%;
+}

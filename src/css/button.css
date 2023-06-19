@@ -1,4 +1,8 @@
 
+.right-buttons > button {
+    float: right;
+}
+
 button {
     box-sizing: border-box;
 
