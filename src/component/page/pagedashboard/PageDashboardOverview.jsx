@@ -228,7 +228,7 @@ export default class PageDashboardOverview extends React.Component {
 							</div>
 						</div>
 
-						<div className="row">
+						<div className="row spaced-row">
 							<div className="col-md-4">
 								<div className="box">
 									<div className="row">

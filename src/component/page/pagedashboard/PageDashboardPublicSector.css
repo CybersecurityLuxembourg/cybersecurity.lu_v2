@@ -6,3 +6,7 @@
 	border-radius: 24px;
 	height: calc(100% - 24px);
 }
+
+#PageDashboardPublicSector .BoxWithTitle img {
+	width: 100%;
+}
