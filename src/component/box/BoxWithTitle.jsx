@@ -11,7 +11,8 @@ export default class BoxWithTitle extends React.Component {
 
 	render() {
 		return (
-			<div className="BoxWithTitle box">
+			<div className={"BoxWithTitle box "
+				+ this.props.className}>
 				<div className="row">
 					<div className="col-md-12">
 						<h6>{this.props.title}</h6>

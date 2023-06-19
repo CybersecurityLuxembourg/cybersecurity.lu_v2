@@ -10,3 +10,27 @@
 #PageDashboardPublicSector .BoxWithTitle img {
 	width: 100%;
 }
+
+#PageDashboardPublicSector .BoxWithTitle .fixed-height {
+	height: 90px;
+}
+
+#PageDashboardPublicSector .education-training .h8 {
+	height: 48px;
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+	#PageDashboardPublicSector .education-training > .row > .col-md-12 > .row  > .col-md-4:first-child {
+		border-right: 1px solid var(--text-neutral-10);
+	}
+
+	#PageDashboardPublicSector .education-training > .row > .col-md-12 > .row > .col-md-4:last-child {
+		border-left: 1px solid var(--text-neutral-10);
+	}
+}

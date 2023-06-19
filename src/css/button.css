@@ -1,6 +1,12 @@
 
-.right-buttons > button {
-    float: right;
+.buttons {
+    margin-top: 24px;
+}
+
+.right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
 }
 
 button {

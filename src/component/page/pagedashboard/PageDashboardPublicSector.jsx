@@ -132,7 +132,7 @@ export default class PageDashboardPublicSector extends React.Component {
 								<BoxWithTitle
 									title={"National Strategy & Governance"}
 									content={<div className="row">
-										<div className="offset-md-2 col-md-8">
+										<div className="offset-md-1 col-md-10">
 											<img
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
@@ -158,18 +158,21 @@ export default class PageDashboardPublicSector extends React.Component {
 									content={<div className="row">
 										<div className="col-md-6">
 											<img
+												className="fixed-height"
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
+												className="fixed-height"
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
 											/>
 										</div>
 										<div className="offset-md-3 col-md-6">
 											<img
+												className="fixed-height"
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
 											/>
@@ -191,18 +194,21 @@ export default class PageDashboardPublicSector extends React.Component {
 									content={<div className="row">
 										<div className="col-md-6">
 											<img
+												className="fixed-height"
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
+												className="fixed-height"
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
 											/>
 										</div>
 										<div className="offset-md-3 col-md-6">
 											<img
+												className="fixed-height"
 												src="/img/national-strategy-diagram.svg"
 												alt="National strategy diagram"
 											/>
@@ -223,17 +229,39 @@ export default class PageDashboardPublicSector extends React.Component {
 
 							<div className="col-md-12">
 								<BoxWithTitle
+									className={"education-training"}
 									title={"Education & Training"}
 									content={<div className="row">
 										<div className="col-md-4">
 											<div className="h8">
 												Formal Education
 											</div>
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
-											/>
-											<div>
+
+											<div className="row">
+												<div className="col-md-5">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="offset-md-2 col-md-5">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="offset-md-3 col-md-6">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+											</div>
+
+											<div className="buttons">
 												<button
 													className="transparent"
 													onClick={() => this.props.history.push("public-sector")}
@@ -247,11 +275,46 @@ export default class PageDashboardPublicSector extends React.Component {
 												Initial and Ongoing Training, Re-skilling
 												and Upskilling
 											</div>
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
-											/>
-											<div>
+
+											<div className="row">
+												<div className="col-md-5">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="offset-md-2 col-md-5">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="col-md-4">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="col-md-4">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="col-md-4">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+											</div>
+
+											<div className="buttons">
 												<button
 													className="transparent"
 													onClick={() => this.props.history.push("public-sector")}
@@ -264,11 +327,30 @@ export default class PageDashboardPublicSector extends React.Component {
 											<div className="h8">
 												Awareness Raising Activities
 											</div>
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
-											/>
-											<div>
+											<div className="row">
+												<div className="offset-md-3 col-md-6">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="col-md-4">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+												<div className="offset-md-4 col-md-4">
+													<img
+														className="fixed-height"
+														src="/img/national-strategy-diagram.svg"
+														alt="National strategy diagram"
+													/>
+												</div>
+											</div>
+											<div className="buttons">
 												<button
 													className="transparent"
 													onClick={() => this.props.history.push("public-sector")}
