@@ -60,7 +60,7 @@ export default class PageDashboardPublicSector extends React.Component {
 			<div id={"PageDashboardPublicSector"}>
 				<div className="max-sized-section">
 					<div className="content">
-						<div className="row spaced-row">
+						<div className="row spaced-row header">
 							<div className="col-md-6">
 								<div className="title">
 									<h2>Public Sector</h2>
@@ -125,7 +125,7 @@ export default class PageDashboardPublicSector extends React.Component {
 
 						<div className="row">
 							<div className="col-md-12">
-								<h5>A closer look to the Ecosystem</h5>
+								<h5>A closer look to the national actors</h5>
 							</div>
 
 							<div className="col-md-8">

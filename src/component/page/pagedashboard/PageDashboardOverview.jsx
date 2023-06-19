@@ -135,7 +135,7 @@ export default class PageDashboardOverview extends React.Component {
 			<div id={"PageDashboardOverview"}>
 				<div className="max-sized-section">
 					<div className="content">
-						<div className="row">
+						<div className="row spaced-row">
 							<div className="col-md-6">
 								<div className="title">
 									<h2>Ecosystem Overview</h2>

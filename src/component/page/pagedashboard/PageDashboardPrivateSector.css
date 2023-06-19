@@ -6,3 +6,19 @@
 	border-radius: 24px;
 	height: calc(100% - 24px);
 }
+
+#PageDashboardPrivateSector .header button {
+	margin-bottom: 32px;
+}
+
+#PageDashboardPrivateSector .header .box img {
+	height: 46px;
+	margin: 12px 0px;
+}
+
+#PageDashboardPrivateSector .join-the-ecosystem {
+	background: var(--linear-blue);
+	padding: 44px 26px;
+	border: 1px solid #E5F5FF;
+	border-radius: 24px;
+}

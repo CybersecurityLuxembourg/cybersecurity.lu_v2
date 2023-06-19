@@ -25,6 +25,10 @@
     margin-bottom: 16px;
 }
 
+#PageDashboardPublicSector .header button {
+	margin-bottom: 32px;
+}
+
 @media (min-width: 768px) {
 	#PageDashboardPublicSector .education-training > .row > .col-md-12 > .row  > .col-md-4:first-child {
 		border-right: 1px solid var(--text-neutral-10);
