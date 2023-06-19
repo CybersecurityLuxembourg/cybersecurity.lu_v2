@@ -160,18 +160,21 @@ h6 {
 }
 
 .max-sized-section {
+    padding: 0px 16px;
 	width: 100%;
 	max-width: 1140px;
 	margin: auto;
 }
 
 .mid-sized-section {
+    padding: 0px 16px;
     width: 100%;
     max-width: 946px;
     margin: auto;
 }
 
 .sma-sized-section {
+    padding: 0px 16px;
     width: 100%;
     max-width: 550px;
     margin: auto;

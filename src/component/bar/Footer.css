@@ -2,16 +2,26 @@
 .Footer {
   width: 100%;
   z-index: 150;
-  padding: 96px 0px 96px 0px;
+  padding: 96px 16px 96px 16px;
 }
 
 .Footer img {
   width: 70%;
 }
 
+@media (max-width: 768px) {
+  .Footer img {
+    width: 100%;
+  }
+}
+
 .Footer .content {
   margin: 0px auto 0px auto;
   max-width: 1140px;
+}
+
+.Footer > .content > .row > div {
+  margin-bottom: 24px;
 }
 
 .Footer .patronage {
