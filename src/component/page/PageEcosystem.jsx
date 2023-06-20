@@ -15,7 +15,7 @@ export default class PageEcosystem extends React.Component {
 		this.state = {
 			menuLabels: ["Private sector", "Public sector", "Clubs, associations & initiatives"],
 			menuValues: ["private-sector", "public-sector", "initiatives"],
-			selectedMenu: "jobs",
+			selectedMenu: getUrlParameter("tab"),
 		};
 	}
 
