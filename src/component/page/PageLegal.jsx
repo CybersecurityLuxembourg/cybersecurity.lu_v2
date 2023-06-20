@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageLegal.css";
+import ComingSoon from "../box/ComingSoon.jsx";
 
 export default class PageLegal extends React.Component {
 	constructor(props) {
@@ -13,6 +14,9 @@ export default class PageLegal extends React.Component {
 	render() {
 		return (
 			<div id={"PageLegal"}>
+				<ComingSoon
+					height={500}
+				/>
 			</div>
 		);
 	}
