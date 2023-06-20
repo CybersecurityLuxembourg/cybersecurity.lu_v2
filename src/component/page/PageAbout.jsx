@@ -13,6 +13,11 @@ export default class PageAbout extends React.Component {
 	}
 
 	// eslint-disable-next-line class-methods-use-this
+	goToDiv(id) {
+		const elmnt = document.getElementById(id);
+		elmnt.scrollIntoView();
+	}
+
 	render() {
 		return (
 			<div id="PageAbout">
@@ -50,7 +55,42 @@ export default class PageAbout extends React.Component {
 				<div className="max-sized-section">
 					<div className="row">
 						<div className="col-md-3">
-							The national cybersecurity portal
+							<div className="h8 blue-text uppercase">
+								The national cybersecurity portal
+							</div>
+
+							<div className="menu">
+								<div
+									className="menu-element selected"
+									onClick={() => this.goToDiv("PageAbout-foreword")}>
+									A FOREWORD FROM MR FRANZ FAYOT, MINISTER OF THE ECONOMY
+								</div>
+
+								<div
+									className="menu-element"
+									onClick={() => this.goToDiv("PageAbout-support")}>
+									Securing cyberspace at all levels to support the digital
+									transformation that characterises our economy and society
+								</div>
+
+								<div
+									className="menu-element"
+									onClick={() => this.goToDiv("PageAbout-empowering")}>
+									Empowering the cybersecurity ecosystem
+								</div>
+
+								<div
+									className="menu-element"
+									onClick={() => this.goToDiv("PageAbout-ecosystem")}>
+									What is the ecosystem like?
+								</div>
+
+								<div
+									className="menu-element"
+									onClick={() => this.goToDiv("PageAbout-methodology")}>
+									the methodology used for the ecosystem mapping
+								</div>
+							</div>
 						</div>
 
 						<div className="col-md-1"/>
@@ -58,7 +98,7 @@ export default class PageAbout extends React.Component {
 						<div className="col-md-8">
 							<div className="row">
 								<div className="col-md-12">
-									<h5>A FOREWORD FROM MR FRANZ FAYOT, MINISTER
+									<h5 id="PageAbout-foreword">A FOREWORD FROM MR FRANZ FAYOT, MINISTER
 									OF THE ECONOMY</h5>
 								</div>
 
@@ -130,7 +170,7 @@ export default class PageAbout extends React.Component {
 										Minister of the Economy
 									</div>
 
-									<h5>Securing cyberspace at all levels to support the digital transformation
+									<h5 id="PageAbout-support" >Securing cyberspace at all levels to support the digital transformation
 									that characterises our economy and society</h5>
 
 									<p>When it comes to cybersecurity, CYBERSECURITY Luxembourg portal, the
@@ -151,44 +191,91 @@ export default class PageAbout extends React.Component {
 										developing synergies</li>
 									</ul>
 
-									<h5>Empowering the cybersecurity ecosystem</h5>
+									<h5 id="PageAbout-empowering">Empowering the cybersecurity ecosystem</h5>
 
 									<p>Cybersecurity is a key component in the country’s efforts to promote
 									all aspects of the digital transformation and develop its data-driven
-									economy. Therefore, the initiative is part of the national cybersecurity
-									strategy.</p>
+									economy. Therefore, the initiative is part of the <a
+										href="https://www.cybersecurity.lu/strategy"
+										rel="noreferrer"
+										target="_blank">
+										national cybersecurity strategy
+									</a>.</p>
 
-									<p>Under the High Patronage of the Ministry of the Economy, CYBERSECURITY
+									<p>Under the High Patronage of the <a
+										href="https://meco.gouvernement.lu/en.html"
+										rel="noreferrer"
+										target="_blank">
+										Ministry of the Economy
+									</a>, CYBERSECURITY
 									Luxembourg is led and driven by key national cybersecurity stakeholders
-									that are HCNP, High Commission for National Protection and Luxembourg
-									House of Cybersecurity, the Cybersecurity Agency for the Luxembourg
-									Economy and Municipalities, and actively supported by Luxinnovation, the
+									that are <a
+										href="https://hcpn.gouvernement.lu/fr.html"
+										rel="noreferrer"
+										target="_blank">
+										HCPN
+									</a>, High Commission for National Protection and <a
+										href="https://lhc.lu/"
+										rel="noreferrer"
+										target="_blank">
+										Luxembourg House of Cybersecurity
+									</a>, the Cybersecurity Agency for the Luxembourg
+									Economy and Municipalities, and actively supported by <a
+										href="https://www.luxinnovation.lu/"
+										rel="noreferrer"
+										target="_blank">
+										Luxinnovation
+									</a>, the
 									national agency for innovation and the promotion of Luxembourg’s expertise
 									internationally.</p>
 
 									<p>By bringing together all cybersecurity actors, the portal aims to strengthen
 									the links between the actors of the Luxembourg cybersecurity ecosystem in order
 									to reinforce its relevance and impact and to make it more visible and available
-									at national, European and international level.</p>
+									at national, <a
+										href="https://tools.bdi.fr/annu_craft/cybersecurity.html"
+										rel="noreferrer"
+										target="_blank">
+										European
+									</a> and international level.</p>
 
 									<p>The promotion of the Luxembourg cybersecurity ecosystem is made through
 									the national brand “CYBERSECURITY Luxembourg”, an integral part of the
 									toolbox intended to enhance and structure the promotion of Luxembourg in
 									the field of cybersecurity. All actors from the CYBERSECURITY Luxembourg
 									ecosystem are invited to use the national branding, which guidelines are
-									available here.</p>
+									available <a
+										href="https://api.cybersecurity.lu/public/get_public_document/Charte-CYBERSECURITYLuxembourg_2023.pdf"
+										rel="noreferrer"
+										target="_blank">
+										here
+									</a>.</p>
 
-									<h5>What is the ecosystem like?</h5>
+									<h5 id="PageAbout-ecosystem" >What is the ecosystem like?</h5>
 
 									<p>The market mapping gathers all 300+ entities (private, public and
-									civil sectors) involved in cybersecurity. Based on the ECSO
-									Cybersecurity Market Radar classification, the directory unveils an
+									civil sectors) involved in cybersecurity. Based on the <a
+										href={getApiURL() + "public/get_public_document/ECSO-cybersecurity-market-radar-brochure_20190911.pdf"}
+										rel="noreferrer"
+										target="_blank">
+										ECSO Cybersecurity Market Radar
+									</a> classification, the directory unveils an
 									almost exhaustive range of cybersecurity solutions that cover the risk
 									management supply chain, highlighting the existing expertise and competence
 									amongst Luxembourg ecosystem and identifying the gaps and opportunities for
 									improvement.</p>
 
-									<p>The first mapping was introduced in October 2019, a second mapping was
+									<p>The <a
+										href="https://www.luxinnovation.lu/wp-content/uploads/sites/3/2019/10/luxembourg-cybersecurity-ecosystem_mapping-2019-1.pdf"
+										rel="noreferrer"
+										target="_blank">
+										first mapping
+									</a> was introduced in October 2019, a <a
+										href="https://www.luxinnovation.lu/wp-content/uploads/sites/3/2020/12/2020-10-key-insigights-cybersecurity_final.pdf"
+										rel="noreferrer"
+										target="_blank">
+										second mapping
+									</a> was
 									published in 2020.<br/>
 									Currently, of the 300+ organisations in the ecosystem, a quarter have
 									cybersecurity as their core business and more than 20% are
@@ -198,7 +285,7 @@ export default class PageAbout extends React.Component {
 									<p>Cybersecurity has been integrated as a focus area among non-IT traditional
 									businesses, making it a real asset to the Luxembourg economy.</p>
 
-									<h5>The methodology used for the ecosystem mapping: a 3-step process</h5>
+									<h5 id="PageAbout-methodology">The methodology used for the ecosystem mapping: a 3-step process</h5>
 
 									<img
 										src="img/3-step-process.png"
