@@ -81,10 +81,6 @@
     margin-right: 16px !important;
 }
 
-.Menu .nav-item .dropdown-toggle {
-    font-size: 20px;
-}
-
 .Menu .nav-item .dropdown-menu {
     border: 1px solid var(--primary-blue-10);
     box-shadow: 0px 8px 16px rgba(155, 153, 152, 0.16);
