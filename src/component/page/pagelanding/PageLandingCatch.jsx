@@ -32,8 +32,15 @@ export default class PageLandingCatch extends React.Component {
 
 						<div className="col-md-3">
 							<div className="buttons">
-								<button>The Ecosystem</button>
-								<button className="white">How can we help?</button>
+								<button
+									onClick={() => this.props.history.push("ecosystem")}>
+									The Ecosystem
+								</button>
+								<button
+									className="white"
+									onClick={() => this.props.history.push("support")}>
+									How can we help?
+								</button>
 							</div>
 						</div>
 					</div>

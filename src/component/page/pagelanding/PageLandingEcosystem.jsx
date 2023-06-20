@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageLandingEcosystem.css";
 import BoxCount from "../../box/BoxCount.jsx";
+import { getPrivateAppURL } from "../../../utils/env.jsx";
 
 export default class PageLandingEcosystem extends React.Component {
 	constructor(props) {
@@ -26,7 +27,13 @@ export default class PageLandingEcosystem extends React.Component {
 								is organised by the ecosystem for the ecosystem.
 							</div>
 
-							<button>Join the ecosystem</button>
+							<button
+								onClick={() => window.open(
+									getPrivateAppURL(),
+									"_blank",
+								)}>
+								Join the ecosystem
+							</button>
 						</div>
 
 						<div className="col-md-1"/>
