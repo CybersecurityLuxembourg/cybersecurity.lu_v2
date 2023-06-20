@@ -5,6 +5,22 @@
 	margin-bottom: 64px;
 }
 
-#PageAbout .top-content img {
+#PageAbout img {
 	width: 100%;
+}
+
+#PageAbout .vertical-text {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#PageAbout p > b {
+	display: block;
+	margin: 32px 0px 48px 0px;
+}
+
+#PageAbout h5:not(:first-child) {
+	margin: 48px 0px 32px 0px;
 }

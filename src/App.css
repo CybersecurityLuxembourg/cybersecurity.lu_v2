@@ -190,3 +190,12 @@ h6 {
     border: 1px solid var(--text-neutral-10);
     margin-bottom: 24px;
 }
+
+.quote {
+    margin: 48px 0px;
+    font-family: "Open Sans 600";
+    font-size: 18px;
+    font-style: italic;
+    padding: 8px 20px;
+    border-left: 2px solid var(--primary-blue-80);
+}
