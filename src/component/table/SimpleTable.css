@@ -1,4 +1,4 @@
-.simpleTable {
+.SimpleTable {
     line-height: 1.0;
     position: relative;
     width: 100%;
@@ -8,55 +8,68 @@
     margin-right: 0 !important;
 }
 
-.simpleTable-elements {
+.SimpleTable .SimpleTable-elements {
     height: calc(100% - 25px);
     overflow-y: hidden;
     overflow-x: hidden;
 }
 
-.simpleTable-pagination {
+.SimpleTable .SimpleTable-pagination {
     margin-bottom: 5px;
     height: 50px;
 }
 
-.simpleTable-info {
-    font-size: 20px;
+.SimpleTable .SimpleTable-pagination {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.SimpleTable .SimpleTable-info {
+    font-family: "Open Sans 600";
+    font-size: 16px;
     bottom: 0px;
-    width: 100%;
+    width: auto;
     height: 60px;
     text-align: center;
     padding-top: 20px;
+    margin: 0px  36px;
+    flex-shrink: 0;
 }
 
-.simpleTable-arrowLeft {
+.SimpleTable .SimpleTable-arrowLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    color: #009fe3;
+    color: var(--primary-blue-80);
     font-size: 20px;
-    position: absolute;
-    top: 20px;
-    left: 30px;
+    flex-shrink: 1;
+    margin-top: 4px;
 }
 
-.simpleTable-arrowRight {
+.SimpleTable .SimpleTable-arrowRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    color: #009fe3;
+    color: var(--primary-blue-80);
     font-size: 20px;
-    position: absolute;
-    top: 20px;
-    right: 30px;
+    flex-shrink: 1;
+    margin-top: 4px;
 }
 
-.simpleTable-arrowLeft .iconDisabled {
-    color: grey !important;
+.SimpleTable .SimpleTable-arrowLeft .iconDisabled {
+    color: var(--text-neutral-10) !important;
     cursor: default !important;
 }
 
-.simpleTable-arrowRight .iconDisabled {
-    color: grey !important;
+.SimpleTable .SimpleTable-arrowRight .iconDisabled {
+    color: var(--text-neutral-10) !important;
     cursor: default !important;
 }
 
-.simpleTable .row div p {
+.SimpleTable .SimpleTable .row div p {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

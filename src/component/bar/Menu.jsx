@@ -57,7 +57,7 @@ export default class Menu extends React.Component {
 							Member list
 						</div>
 						<NavDropdown.Item>
-							<Link to="/private-sector">
+							<Link to="/ecosystem?tab=private-sector">
 								<div className="Menu-title">Private Sector</div>
 							</Link>
 						</NavDropdown.Item>
@@ -74,12 +74,12 @@ export default class Menu extends React.Component {
 							</NavDropdown.Item>
 						</div>
 						<NavDropdown.Item>
-							<Link to="/public-sector">
+							<Link to="/ecosystem?tab=public-sector">
 								<div className="Menu-title">Public Sector</div>
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Item>
-							<Link to="/initiatives">
+							<Link to="/ecosystem?tab=initiatives">
 								<div className="Menu-title">Clubs, Associations & Initiatives</div>
 							</Link>
 						</NavDropdown.Item>

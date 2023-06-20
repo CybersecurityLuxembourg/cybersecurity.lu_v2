@@ -1,0 +1,16 @@
+
+#PageEcosystem {
+	margin-top: 64px;
+}
+
+#PageEcosystem .Tab-menu {
+	line-height: 1 !important;
+	border-bottom: 1px solid var(--text-neutral-10);
+	padding-bottom: 0px;
+}
+
+#PageEcosystem .Tab-menu-el {
+	line-height: 1 !important;
+	margin-bottom: 0px;
+	padding-bottom: 20px;
+}

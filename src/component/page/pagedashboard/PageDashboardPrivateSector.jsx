@@ -62,6 +62,14 @@ export default class PageDashboardPrivateSector extends React.Component {
 		}
 	}
 
+	getStartupCount() {
+		if (!this.state.entities || !this.state.analytics) {
+			return null;
+		}
+
+		return this.getActors().filter((a) => a.is_startup === 1).length;
+	}
+
 	render() {
 		return (
 			<div id={"PageDashboardPrivateSector"}>

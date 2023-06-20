@@ -10,11 +10,9 @@ import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
 import PageLanding from "./page/PageLanding.jsx";
 import PageDashboard from "./page/PageDashboard.jsx";
-import PagePrivateSector from "./page/PagePrivateSector.jsx";
+import PageEcosystem from "./page/PageEcosystem.jsx";
 import PageStartups from "./page/PageStartups.jsx";
 import PagePcDoctors from "./page/PagePcDoctors.jsx";
-import PagePublicSector from "./page/PagePublicSector.jsx";
-import PageInitiatives from "./page/PageInitiatives.jsx";
 import PageLatestNews from "./page/PageLatestNews.jsx";
 import PageUpcomingEvents from "./page/PageUpcomingEvents.jsx";
 import PageGetInvolved from "./page/PageGetInvolved.jsx";
@@ -100,7 +98,7 @@ class InsideApp extends React.Component {
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
-						<Route path="/private-sector" render={(props) => <PagePrivateSector
+						<Route path="/ecosystem" render={(props) => <PageEcosystem
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
@@ -109,14 +107,6 @@ class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/pc-doctors" render={(props) => <PagePcDoctors
-							taxonomies={this.state.taxonomies}
-							{...props}
-						/>}/>
-						<Route path="/public-sector" render={(props) => <PagePublicSector
-							taxonomies={this.state.taxonomies}
-							{...props}
-						/>}/>
-						<Route path="/initiatives" render={(props) => <PageInitiatives
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>

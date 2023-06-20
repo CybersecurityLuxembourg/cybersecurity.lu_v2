@@ -3,6 +3,10 @@
     margin-top: 24px;
 }
 
+.buttons button {
+    margin-right: 24px;
+}
+
 .right-buttons {
     display: flex;
     justify-content: flex-end;

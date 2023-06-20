@@ -1,8 +1,8 @@
 import React from "react";
-import "./PageInitiatives.css";
-import ComingSoon from "../box/ComingSoon.jsx";
+import "./PageEcosystemInitiatives.css";
+import ComingSoon from "../../box/ComingSoon.jsx";
 
-export default class PageInitiatives extends React.Component {
+export default class PageEcosystemInitiatives extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -13,7 +13,7 @@ export default class PageInitiatives extends React.Component {
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id={"PageInitiatives"}>
+			<div id={"PageEcosystemInitiatives"}>
 				<ComingSoon
 					height={500}
 				/>
