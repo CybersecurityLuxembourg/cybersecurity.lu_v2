@@ -3,7 +3,6 @@ import "./Field.css";
 import Select from "react-select";
 import _ from "lodash";
 import Chip from "./Chip.jsx";
-import CheckBox from "./CheckBox.jsx";
 
 function getSelectStyle() {
 	return {
@@ -96,13 +95,6 @@ export default class Field extends React.Component {
 				autoFocus={this.props.autofocus}
 				onKeyDown={this.props.onKeyDown}
 			/>;
-		case "checkbox":
-			return <CheckBox
-				value={this.state.value}
-				onClick={(v) => this.onChange(v)}
-				disabled={this.props.disabled}
-				background={this.props.background}
-			/>;
 		case "select":
 			return <select
 				value={{
@@ -117,6 +109,20 @@ export default class Field extends React.Component {
 				placeholder={this.props.placeholder}
 				onChange={(v) => this.onChange(v.value)}
 			/>;
+		case "checkbox":
+			return <div>
+				<input
+					className={this.getFormatClassName()}
+					type={typeof this.props.type !== "undefined" ? this.props.type : "text"}
+					value={this.state.value}
+					placeholder={this.props.placeholder}
+					onChange={(v) => this.onChange(v.target.value)}
+					onBlur={(v) => this.onBlur(v.target.value)}
+					disabled={this.props.disabled}
+					autoFocus={this.props.autofocus}
+					onKeyDown={this.props.onKeyDown}
+				/> {this.props.checkBoxLabel}
+			</div>;
 		case "multiselect":
 			return <div>
 				<Select

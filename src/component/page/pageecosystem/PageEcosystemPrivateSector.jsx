@@ -2,7 +2,7 @@ import React from "react";
 import "./PageEcosystemPrivateSector.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
-import { dictToURI } from "../../../utils/url.jsx";
+import { getUrlParameter, dictToURI } from "../../../utils/url.jsx";
 import { getPrivateAppURL } from "../../../utils/env.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
@@ -14,9 +14,16 @@ export default class PageEcosystemPrivateSector extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const initFilters = {
+			name: getUrlParameter("name"),
+			corebusiness_only: getUrlParameter("corebusiness_only") === "true",
+			startup_only: getUrlParameter("startup_only") === "true",
+		};
+
 		this.state = {
 			serviceProviders: null,
-			filters: {},
+			initFilters,
+			filters: initFilters,
 		};
 	}
 
@@ -24,8 +31,12 @@ export default class PageEcosystemPrivateSector extends React.Component {
 		this.fetchServiceProviders();
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (this.props.taxonomies !== prevProps.taxonomies) {
+			this.fetchServiceProviders();
+		}
+
+		if (this.state.filters !== prevState.filters) {
 			this.fetchServiceProviders();
 		}
 	}
@@ -89,13 +100,23 @@ export default class PageEcosystemPrivateSector extends React.Component {
 		/>;
 	}
 
+	modifyFilters(field, value) {
+		console.log(field, value);
+		const filters = { ...this.state.filters };
+		filters[field] = value;
+		this.setState({ filters });
+	}
+
+	clearFilters() {
+		this.setState({ filters: this.state.initFilters });
+	}
+
 	// eslint-disable-next-line class-methods-use-this
 	goToDiv(id) {
 		const elmnt = document.getElementById(id);
 		elmnt.scrollIntoView();
 	}
 
-	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
 			<div id={"PageEcosystemPrivateSector"}>
@@ -152,6 +173,8 @@ export default class PageEcosystemPrivateSector extends React.Component {
 						<div className="col-md-6">
 							<Field
 								placeholder="Search entity"
+								value={this.state.filters.name}
+								onChange={(v) => this.modifyFilters("name", v)}
 							/>
 						</div>
 
@@ -162,8 +185,52 @@ export default class PageEcosystemPrivateSector extends React.Component {
 
 					<div className="row">
 						<div className="col-md-3">
-							<div className="box">
-								Filter by
+							<div className="box filter-box">
+								<div className="row">
+									<div className="col-md-6">
+										<h6>Filter by</h6>
+									</div>
+
+									<div className="col-md-6">
+										<div className="right-buttons">
+											<button
+												className="link small"
+												onClick={() => this.clearFilters()}>
+												Clear all
+											</button>
+										</div>
+									</div>
+
+									<div className="col-md-12">
+										<div className="grey-horizontal-bar"/>
+
+										<div className="h8">
+											CORE BUSINESS
+										</div>
+
+										<Field
+											type="checkbox"
+											checkBoxLabel="Cybersecurity"
+											value={this.state.filters.corebusiness_only}
+											onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+											fullWidth={true}
+										/>
+
+										<div className="grey-horizontal-bar"/>
+
+										<div className="h8">
+											COMPANY TYPE
+										</div>
+
+										<Field
+											type="checkbox"
+											checkBoxLabel="Start-up"
+											value={this.state.filters.startup_only}
+											onChange={() => this.modifyFilters("startup_only", !this.state.filters.startup_only)}
+											fullWidth={true}
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
 
