@@ -32,6 +32,8 @@ import PageScholarships from "./page/PageScholarships.jsx";
 import PagePartnerships from "./page/PagePartnerships.jsx";
 import PageAbout from "./page/PageAbout.jsx";
 import PageContact from "./page/PageContact.jsx";
+import PageSupport from "./page/PageSupport.jsx";
+import PageSearch from "./page/PageSearch.jsx";
 import Page404 from "./page/Page404.jsx";
 
 class InsideApp extends React.Component {
@@ -184,6 +186,8 @@ class InsideApp extends React.Component {
 
 						<Route path="/about" render={() => <PageAbout/>}/>
 						<Route path="/contact" render={() => <PageContact/>}/>
+						<Route path="/support" render={() => <PageSupport/>}/>
+						<Route path="/search" render={() => <PageSearch/>}/>
 
 						{/* REDIRECTIONS */}
 

@@ -1,8 +1,8 @@
 import React from "react";
-import "./PageContact.css";
+import "./PageSearch.css";
 import ComingSoon from "../box/ComingSoon.jsx";
 
-export default class PageContact extends React.Component {
+export default class PageSearch extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -13,7 +13,7 @@ export default class PageContact extends React.Component {
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<div id="PageContact">
+			<div id={"PageSearch"}>
 				<ComingSoon
 					height={500}
 				/>
