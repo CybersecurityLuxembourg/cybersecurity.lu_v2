@@ -9,6 +9,7 @@ export default class PageLandingCatch extends React.Component {
 		};
 	}
 
+	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
 			<div id={"PageLandingCatch"}>
@@ -46,13 +47,13 @@ export default class PageLandingCatch extends React.Component {
 					/>
 				</div>
 
-				<div className="alerts-wrapper max-sized-section">
+				{/* <div className="alerts-wrapper max-sized-section">
 					<div className="alerts">
 						<div className="alert-box">
 							{this.state.ee}
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		);
 	}
