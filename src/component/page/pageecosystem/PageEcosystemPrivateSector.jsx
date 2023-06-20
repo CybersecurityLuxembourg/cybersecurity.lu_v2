@@ -101,7 +101,6 @@ export default class PageEcosystemPrivateSector extends React.Component {
 	}
 
 	modifyFilters(field, value) {
-		console.log(field, value);
 		const filters = { ...this.state.filters };
 		filters[field] = value;
 		this.setState({ filters });
@@ -188,7 +187,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 							<div className="box filter-box">
 								<div className="row">
 									<div className="col-md-6">
-										<h6>Filter by</h6>
+										<h6 className="blue-text">Filter by</h6>
 									</div>
 
 									<div className="col-md-6">
