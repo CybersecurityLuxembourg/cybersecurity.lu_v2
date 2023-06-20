@@ -282,11 +282,14 @@ export default class Menu extends React.Component {
 									<div className="Menu-title"><i className="fas fa-th"/>Dashboard</div>
 								</Link>
 							</Nav.Link>
-							<Nav.Link className="top-link">
-								<Link to="/login">
+							<a className="nav-link top-link">
+								<a
+									href={getPrivateAppURL()}
+									target="_blank"
+									rel="noreferrer">
 									<div className="Menu-title"><i className="fas fa-user"/>Log in/Register</div>
-								</Link>
-							</Nav.Link>
+								</a>
+							</a>
 
 							<div className="separator"/>
 							<div className="split-bar"/>
@@ -294,6 +297,7 @@ export default class Menu extends React.Component {
 							<button
 								className="red small"
 								href={getPrivateAppURL()}
+								onClick={() => this.props.history.push("support")}
 							>
 								IMMEDIATE SUPPORT
 							</button>
