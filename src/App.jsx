@@ -4,6 +4,8 @@ import "./css/button.css";
 import "./css/field.css";
 import "./css/breadcrumb.css";
 import "./css/box.css";
+import "./css/carousel.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { BrowserRouter } from "react-router-dom";
