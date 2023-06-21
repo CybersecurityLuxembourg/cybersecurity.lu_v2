@@ -48,16 +48,17 @@
 	margin-bottom: 16px;
 }
 
-.PageNews .side-info .PageNews-social-media-links {
+.PageNews .side-info .social-media-links {
 	width: 100%;
 	margin-top: 8px;
 }
 
-.PageNews .side-info .PageNews-social-media-links .TwitterLink, .PageNews-social-media-links .LinkedInLink {
+.PageNews .side-info .social-media-links .TwitterLink,
+.PageNews .side-info .social-media-links .LinkedInLink {
 	display: inline-block;
 }
 
-.PageNews-abstract {
+.PageNews abstract {
 	font-size: 18px;
 	margin: 15px 0px;
 }

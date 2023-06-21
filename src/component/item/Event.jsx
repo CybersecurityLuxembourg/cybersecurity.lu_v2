@@ -100,7 +100,7 @@ export default class News extends Component {
 			</div>
 			: <div className="News card">
 				<Link
-					to={"/news/" + this.props.info.handle}
+					to={"/event/" + this.props.info.handle}
 					className="link">
 					{this.getBoxContent()}
 				</Link>

@@ -1,38 +1,35 @@
 
 .PageTool article {
-	margin-bottom: 20px;
+	margin-bottom: 96px;
 }
 
-.PageTool article .PageTool-content-cover {
-	position: relative;
-	margin: auto;
-	background: repeating-linear-gradient(
-      135deg,
-      #f8f9fa,
-      #f8f9fa 10px,
-      rgba(0, 0, 0, 0) 10px,
-      rgba(0, 0, 0, 0) 20px
-    );
-	text-align: center;
-	min-height: 50px;
+.PageTool article h4 {
+	margin: 32px 0px 20px 0px;
 }
 
-.PageTool article .PageTool-content-cover img {
-	max-width: 100%;
-	min-height: 50px;
-	max-height: 300px;
+.PageTool article h5 {
+	margin: 8px 0px 8px 0px;
+}
+
+.PageTool article .cover img {
+	width: 100%;
+	border-radius: 12px;
+	margin: 32px 0px;
+}
+
+.PageTool article .publication-date {
+	text-align: right;
+}
+
+.PageTool article .publication-date .date {
+	margin-top: 12px;
 }
 
 .PageTool article .content-media {
-	margin: 15px auto;
+	margin: 48px auto;
 	text-align: center;
 	display: flex;
   	justify-content: center;
-}
-
-.PageTool article .content-media img {
-	max-width: 100%;
-	max-height: 300px;
 }
 
 .PageTool article .content-media iframe {
@@ -43,46 +40,25 @@
 	margin: 0 !important;
 }
 
-.PageTool-related-article {
-	background-color: #f8f9fa;
+.PageTool .side-info .grey-horizontal-bar {
+	margin: 32px 0px;
 }
 
-.PageTool-abstract {
+.PageTool .side-info .blue-text {
+	margin-bottom: 16px;
+}
+
+.PageTool .side-info .social-media-links {
+	width: 100%;
+	margin-top: 8px;
+}
+
+.PageTool .side-info .social-media-links .TwitterLink,
+.PageTool .side-info .social-media-links .LinkedInLink {
+	display: inline-block;
+}
+
+.PageTool abstract {
 	font-size: 18px;
 	margin: 15px 0px;
-}
-
-.PageTool-tags {
-	padding: 30px 10px 5px 10px;
-}
-
-/* Collapsible */ 
-
-.PageTool .Collapsible {
-	margin: 30px 0px 0px 0px !important;
-	border-top: solid 0px !important;
-    border-bottom: solid 0px !important;
-}
-
-.PageTool .Collapsible__trigger p {
-	position: relative;
-	padding: 8px 70px 8px 20px;
-	font-style: italic;
-	cursor: pointer;
-	margin-bottom: 0px;
-}
-
-.PageTool .Collapsible .is-closed:after {
-    top: 45px !important;
-    right: 10px;
-}
-
-.PageTool .Collapsible .is-open:after {
-    top: 45px !important;
-    right: 10px;
-}
-
-.PageTool .PageTool-external-link {
-	text-align: right;
-	margin: 20px 0px 10px 0px;
 }

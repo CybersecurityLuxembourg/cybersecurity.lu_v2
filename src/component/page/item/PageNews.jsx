@@ -24,8 +24,6 @@ export default class PageNews extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.getArticleContent = this.getArticleContent.bind(this);
-
 		this.state = {
 			article: null,
 			articleEntities: null,
@@ -163,7 +161,7 @@ export default class PageNews extends React.Component {
 
 									{this.state.article.abstract
 										&& <div
-											className="PageNews-abstract"
+											className="abstract"
 											dangerouslySetInnerHTML={{
 												__html:
 												dompurify.sanitize(this.state.article.abstract),
@@ -209,7 +207,7 @@ export default class PageNews extends React.Component {
 									</div>
 
 									<div className="col-md-12">
-										<div className="PageNews-social-media-links">
+										<div className="social-media-links">
 											<TwitterLink
 												article={this.state.article}
 											/>
@@ -265,7 +263,7 @@ export default class PageNews extends React.Component {
 										&& this.state.relatedArticles.length === 0
 										&& <div className="col-md-12">
 											<Message
-												text={"No related article found"}
+												text={"No related news found"}
 												height={200}
 											/>
 										</div>
