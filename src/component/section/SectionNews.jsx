@@ -7,13 +7,13 @@ import { dictToURI } from "../../utils/url.jsx";
 import News from "../item/News.jsx";
 import Loading from "../box/Loading.jsx";
 import Message from "../box/Message.jsx";
+import DynamicTable from "../table/DynamicTable.jsx";
 
 export default class SectionNews extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			page: 1,
 			selectedMenu: 0,
 			newsCategories: [
 				"ALL NEWS",
@@ -36,7 +36,7 @@ export default class SectionNews extends React.Component {
 		}
 	}
 
-	fetchNews() {
+	fetchNews(page) {
 		if (this.props.taxonomies && this.props.taxonomies.taxonomy_values) {
 			this.setState({ news: null }, () => {
 				const params = {
@@ -51,7 +51,7 @@ export default class SectionNews extends React.Component {
 						? true
 						: undefined,
 					per_page: this.props.numberOfArticles || 9,
-					page: this.state.page,
+					page: page || 1,
 				};
 
 				getRequest.call(this, "public/get_public_articles?" + dictToURI(params), (data) => {
@@ -72,14 +72,20 @@ export default class SectionNews extends React.Component {
 			&& this.state.news.pagination) {
 			if (this.state.news.pagination.total > 0) {
 				return <div className="row">
-					{this.state.news.items.map((i) => (
-						<div className="col-md-4" key={i.id}>
-							<News info={i}/>
+					<DynamicTable
+						items={this.state.news.items}
+						pagination={this.state.news.pagination}
+						changePage={(page) => this.fetchNews(page)}
+						buildElement={(s) => <div
+							className="col-md-4"
+							key={s.id}>
+							<News
+								info={s}
+							/>
 						</div>
-					))}
-					<div className="col-md-12">
-						showPagination TODO
-					</div>
+						}
+						hidePagination={this.props.hidePagination}
+					/>
 				</div>;
 			}
 

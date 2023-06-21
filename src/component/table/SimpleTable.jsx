@@ -48,26 +48,28 @@ class SimpleTable extends Component {
 					.map((o) => this.props.buildElement(...o))
 				}
 
-				<div className={"col-md-12"}>
-					<div className="SimpleTable-pagination">
-						<div className={"SimpleTable-arrowLeft"}>
-							<i className={"fas fa-angle-left hoverEffect elementIcon "
-								+ (minDisplayed <= 1 ? "iconDisabled" : "")}
-							onClick={this.setPreviousPage}/>
-						</div>
+				{this.props.hidePagination !== true
+					&& <div className={"col-md-12"}>
+						<div className="SimpleTable-pagination">
+							<div className={"SimpleTable-arrowLeft"}>
+								<i className={"fas fa-angle-left hoverEffect elementIcon "
+									+ (minDisplayed <= 1 ? "iconDisabled" : "")}
+								onClick={this.setPreviousPage}/>
+							</div>
 
-						<div className="SimpleTable-info">
-							{minDisplayed}-{maxDisplayed} on {this.props.items.length}
-						</div>
+							<div className="SimpleTable-info">
+								{minDisplayed}-{maxDisplayed} on {this.props.items.length}
+							</div>
 
-						<div className={"SimpleTable-arrowRight"}>
-							<i className={"fas fa-angle-right hoverEffect elementIcon "
-								+ (maxDisplayed === this.props.items.length
-									? "iconDisabled" : "")}
-							onClick={this.setNextPage}/>
+							<div className={"SimpleTable-arrowRight"}>
+								<i className={"fas fa-angle-right hoverEffect elementIcon "
+									+ (maxDisplayed === this.props.items.length
+										? "iconDisabled" : "")}
+								onClick={this.setNextPage}/>
+							</div>
 						</div>
 					</div>
-				</div>
+				}
 			</div>
 		);
 	}

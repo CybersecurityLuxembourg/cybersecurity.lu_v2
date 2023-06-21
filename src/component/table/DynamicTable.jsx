@@ -39,26 +39,28 @@ export default class DynamicTable extends Component {
 
 				{this.props.items.map((o) => this.props.buildElement(o))}
 
-				<div className={"col-md-12"}>
-					<div className="DynamicTable-pagination">
-						<div className={"DynamicTable-arrowLeft"}>
-							<i className={"fas fa-angle-left hoverEffect elementIcon "
-								+ (this.props.pagination.page <= 1 ? "iconDisabled" : "")}
-							onClick={() => this.setPreviousPage()}/>
-						</div>
+				{this.props.hidePagination !== true
+					&& <div className={"col-md-12"}>
+						<div className="DynamicTable-pagination">
+							<div className={"DynamicTable-arrowLeft"}>
+								<i className={"fas fa-angle-left hoverEffect elementIcon "
+									+ (this.props.pagination.page <= 1 ? "iconDisabled" : "")}
+								onClick={() => this.setPreviousPage()}/>
+							</div>
 
-						<div className="DynamicTable-info">
-							{minDisplayed}-{maxDisplayed} on {this.props.pagination.total}
-						</div>
+							<div className="DynamicTable-info">
+								{minDisplayed}-{maxDisplayed} on {this.props.pagination.total}
+							</div>
 
-						<div className={"DynamicTable-arrowRight"}>
-							<i className={"fas fa-angle-right hoverEffect elementIcon "
-								+ (this.props.pagination.pages <= this.props.pagination.page
-									? "iconDisabled" : "")}
-							onClick={() => this.setNextPage()}/>
+							<div className={"DynamicTable-arrowRight"}>
+								<i className={"fas fa-angle-right hoverEffect elementIcon "
+									+ (this.props.pagination.pages <= this.props.pagination.page
+										? "iconDisabled" : "")}
+								onClick={() => this.setNextPage()}/>
+							</div>
 						</div>
 					</div>
-				</div>
+				}
 			</div>
 		);
 	}

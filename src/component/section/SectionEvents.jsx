@@ -7,13 +7,13 @@ import { dictToURI } from "../../utils/url.jsx";
 import Event from "../item/Event.jsx";
 import Loading from "../box/Loading.jsx";
 import Message from "../box/Message.jsx";
+import DynamicTable from "../table/DynamicTable.jsx";
 
 export default class SectionEvents extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			page: 1,
 			selectedMenu: 0,
 			eventCategories: [
 				"UPCOMING EVENTS",
@@ -33,7 +33,7 @@ export default class SectionEvents extends React.Component {
 		}
 	}
 
-	fetchEvents() {
+	fetchEvents(page) {
 		if (this.props.taxonomies && this.props.taxonomies.taxonomy_values) {
 			this.setState({ events: null }, () => {
 				const params = {
@@ -45,7 +45,7 @@ export default class SectionEvents extends React.Component {
 							.map((v) => v.id).join(",")
 						: undefined,
 					per_page: this.props.numberOfArticles,
-					page: this.state.page,
+					page: page || 1,
 				};
 
 				getRequest.call(this, "public/get_public_articles?" + dictToURI(params), (data) => {
@@ -66,14 +66,19 @@ export default class SectionEvents extends React.Component {
 			&& this.state.events.pagination) {
 			if (this.state.events.pagination.total > 0) {
 				return <div className="row">
-					{this.state.events.items.map((i) => (
-						<div className="col-md-4" key={i.id}>
-							<Event info={i}/>
+					<DynamicTable
+						items={this.state.events.items}
+						pagination={this.state.events.pagination}
+						changePage={(page) => this.fetchEvents(page)}
+						buildElement={(s) => <div
+							className="col-md-4"
+							key={s.id}>
+							<Event
+								info={s}
+							/>
 						</div>
-					))}
-					<div className="col-md-12">
-						showPagination TODO
-					</div>
+						}
+					/>
 				</div>;
 			}
 
