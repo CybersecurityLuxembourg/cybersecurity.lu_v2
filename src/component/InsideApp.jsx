@@ -8,6 +8,12 @@ import { getRequest } from "../utils/request.jsx";
 import GovBar from "./bar/GovBar.jsx";
 import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
+import PageNews from "./page/item/PageNews.jsx";
+import PageEvent from "./page/item/PageEvent.jsx";
+import PageService from "./page/item/PageService.jsx";
+import PageTool from "./page/item/PageTool.jsx";
+import PageJob from "./page/item/PageJob.jsx";
+import PageEntity from "./page/item/PageEntity.jsx";
 import PageLanding from "./page/PageLanding.jsx";
 import PageDashboard from "./page/PageDashboard.jsx";
 import PageEcosystem from "./page/PageEcosystem.jsx";
@@ -87,12 +93,39 @@ class InsideApp extends React.Component {
 
 				<div id="InsideApp-content">
 					<Switch>
-						<Route path="/tool/:handle" render={() => <div/>}/>
-
 						<Route exact path="/" render={(props) => <PageLanding
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
+
+						{/* Item pages */}
+
+						<Route path="/news/:handle" render={(props) => <PageNews
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/event/:handle" render={(props) => <PageEvent
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/service/:handle" render={(props) => <PageService
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/tool/:handle" render={(props) => <PageTool
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/job/:handle" render={(props) => <PageJob
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/entity/:handle" render={(props) => <PageEntity
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+
+						{/* Menu pages */}
 
 						<Route path="/dashboard" render={(props) => <PageDashboard
 							taxonomies={this.state.taxonomies}
@@ -179,7 +212,7 @@ class InsideApp extends React.Component {
 						<Route path="/support" render={() => <PageSupport/>}/>
 						<Route path="/search" render={() => <PageSearch/>}/>
 
-						{/* REDIRECTIONS */}
+						{/* Redirections */}
 
 						<Redirect from="/company/:id" to="/entity/:id" />
 

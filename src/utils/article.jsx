@@ -7,11 +7,11 @@ export function getContentFromBlock(b) {
 	let el = null;
 
 	if (b.type === "TITLE1") {
-		el = <h2 className="showFulltext clickable">{b.content}</h2>;
-	} else if (b.type === "TITLE2") {
-		el = <h3>{b.content}</h3>;
-	} else if (b.type === "TITLE3") {
 		el = <h4>{b.content}</h4>;
+	} else if (b.type === "TITLE2") {
+		el = <h5>{b.content}</h5>;
+	} else if (b.type === "TITLE3") {
+		el = <h6>{b.content}</h6>;
 	} else if (b.type === "PARAGRAPH") {
 		el = <div dangerouslySetInnerHTML={{
 			__html:

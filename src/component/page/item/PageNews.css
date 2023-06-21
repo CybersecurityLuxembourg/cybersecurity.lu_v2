@@ -1,0 +1,111 @@
+
+.PageNews article {
+	margin-bottom: 20px;
+}
+
+.PageNews article h4 {
+	margin: 32px 0px 20px 0px;
+}
+
+.PageNews article h5 {
+	margin: 8px 0px 8px 0px;
+}
+
+.PageNews article .cover img {
+	width: 100%;
+	border-radius: 12px;
+	margin: 32px 0px;
+}
+
+.PageNews article .publication-date {
+	text-align: right;
+}
+
+.PageNews article .publication-date .date {
+	margin-top: 12px;
+}
+
+.PageNews article .content-media {
+	margin: 15px auto;
+	text-align: center;
+	display: flex;
+  	justify-content: center;
+}
+
+.PageNews article .content-media iframe {
+	max-width: 100%;
+}
+
+.PageNews article .content-media p {
+	margin: 0 !important;
+}
+
+.PageNews .side-info .grey-horizontal-bar {
+	margin: 32px 0px;
+}
+
+.PageNews .side-info .blue-text {
+	margin-bottom: 16px;
+}
+
+.PageNews .side-info .PageNews-social-media-links {
+	width: 100%;
+	margin-top: 8px;
+}
+
+.PageNews .side-info .PageNews-social-media-links .TwitterLink, .PageNews-social-media-links .LinkedInLink {
+	display: inline-block;
+}
+
+.PageNews-abstract {
+	font-size: 18px;
+	margin: 15px 0px;
+}
+
+/* Carousel */
+
+.PageNews .carousel {
+	margin: 48px 0px;
+}
+
+.PageNews .carousel .slider {
+	height: 400px;
+}
+
+.PageNews .carousel .slide {
+	display: flex;
+	justify-content: center;
+	background: repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0) 10px,
+      rgba(0, 0, 0, 0) 20px
+    ) !important;
+}
+
+.PageNews .carousel img {
+	max-height: 400px;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+.PageNews .carousel-slider .dot {
+    color: white;
+    padding: 1px 14px 0px 12px;
+    background: red !important;
+    transition: opacity .25s ease-in;
+    opacity: .3;
+    box-shadow: none !important;
+    background: 
+        linear-gradient( 135deg,transparent 8px,#009fe3 0) left /50.5% 100%,
+        linear-gradient( 315deg,transparent 8px,#009fe3 0) right /50.5% 100% !important;
+    background-repeat:no-repeat !important;
+    border-radius: 0% !important;
+    width: 18px !important;
+    height: 23px !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 3px !important;
+}
