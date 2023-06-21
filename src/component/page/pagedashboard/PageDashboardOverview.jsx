@@ -218,7 +218,9 @@ export default class PageDashboardOverview extends React.Component {
 
 										<div className="col-md-12">
 											<div className="right-buttons">
-												<button className="transparent">
+												<button
+													className="transparent"
+													onClick={() => this.props.history.push("about")}>
 													Read more about the initiative &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
 											</div>
@@ -259,7 +261,7 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -299,7 +301,7 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("initiatives")}
+													onClick={() => this.props.history.push("ecosystem?tab=initiatives")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -340,7 +342,7 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("private-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
