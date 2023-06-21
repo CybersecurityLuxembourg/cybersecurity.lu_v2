@@ -7,6 +7,7 @@ import News from "../../item/News.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
 import SectionNews from "../../section/SectionNews.jsx";
+import { getPrivateAppURL } from "../../../utils/env.jsx";
 
 export default class PageLandingNews extends React.Component {
 	constructor(props) {
@@ -113,7 +114,13 @@ export default class PageLandingNews extends React.Component {
 
 						<div className="row">
 							<div className="col-md-12">
-								<button>Share your latest news</button>
+								<button
+									onClick={() => window.open(
+										getPrivateAppURL(),
+										"_blank",
+									)}>
+									Share your latest news
+								</button>
 							</div>
 						</div>
 					</div>

@@ -1,9 +1,17 @@
 
 #PageLandingEcosystem {
 	background: var(--linear-blue);
-	padding: 96px 0px;
+	padding: 96px 0px 64px 0px;
 }
 
 #PageLandingEcosystem .catch-phrase {
 	margin: 16px 0px 32px 0px;
+}
+
+#PageLandingEcosystem .top-margin-box {
+	margin-top: 64px;
+}
+
+#PageLandingEcosystem .BoxCount img {
+	width: 60px;
 }

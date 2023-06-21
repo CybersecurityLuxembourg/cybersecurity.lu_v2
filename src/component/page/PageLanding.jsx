@@ -28,7 +28,9 @@ export default class PageLanding extends React.Component {
 				<PageLandingCatch
 					{...this.props}
 				/>
-				<PageLandingEcosystem/>
+				<PageLandingEcosystem
+					taxonomies={this.props.taxonomies}
+				/>
 				<PageLandingNews
 					taxonomies={this.props.taxonomies}
 				/>

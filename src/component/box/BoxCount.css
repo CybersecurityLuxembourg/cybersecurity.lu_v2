@@ -1,6 +1,6 @@
 
 .BoxCount {
-	padding: 14px !important;
+	padding: 24px !important;
 }
 
 .BoxCount .label {
@@ -8,4 +8,8 @@
 }
 
 .BoxCount .count {
+}
+
+.BoxCount h2 {
+	margin-bottom: 0px;
 }
