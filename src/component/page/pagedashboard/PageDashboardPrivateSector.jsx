@@ -118,20 +118,20 @@ export default class PageDashboardPrivateSector extends React.Component {
 										<div className="col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/govcert-logo.png"
-												alt="Govcert logo"
+												src="/img/logo-circl.png"
+												alt="Logo CIRCL"
 											/>
 											<img
 												className="fixed-height"
-												src="/img/govcert-logo.png"
-												alt="Govcert logo"
+												src="/img/logo-nc3.png"
+												alt="Logo NC3"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/govcert-logo.png"
-												alt="Govcert logo"
+												src="/img/logo-lhc.png"
+												alt="Logo LHC"
 											/>
 										</div>
 									</div>

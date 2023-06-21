@@ -12,8 +12,13 @@
 }
 
 #PageDashboardPrivateSector .header .box img {
-	height: 46px;
-	margin: 12px 0px;
+	max-height: 100%;
+	max-width: 100%;
+	width: auto !important;
+}
+
+#PageDashboardPrivateSector .header .box div:has(> img) {
+	text-align: center;
 }
 
 #PageDashboardPrivateSector .join-the-ecosystem {
