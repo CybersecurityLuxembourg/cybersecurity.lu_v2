@@ -34,7 +34,7 @@ export default class SectionCSWL extends React.Component {
 												"_blank",
 											)}
 										>
-											See more information
+											See more information &nbsp;<i className="fas fa-arrow-right"/>
 										</button>
 									</div>
 								</div>
@@ -44,7 +44,7 @@ export default class SectionCSWL extends React.Component {
 
 							<div className="col-md-5">
 								<img
-									src="/img/cybersecurity-ecso-taxonomy.png"
+									src="/img/rounded-cswl-2022.png"
 									alt="CSWL 2023"
 								/>
 							</div>

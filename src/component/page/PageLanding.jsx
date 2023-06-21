@@ -35,9 +35,13 @@ export default class PageLanding extends React.Component {
 					taxonomies={this.props.taxonomies}
 				/>
 				<PageLandingNewsletter/>
-				<PageLandingEvents/>
+				<PageLandingEvents
+					{...this.props}
+				/>
 				<PageLandingCSWL/>
-				<PageLandingResources/>
+				<PageLandingResources
+					{...this.props}
+				/>
 				<PageLandingLTAC/>
 				<PageLandingContact/>
 			</div>

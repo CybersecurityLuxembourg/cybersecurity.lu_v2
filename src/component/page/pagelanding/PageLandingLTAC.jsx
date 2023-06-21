@@ -18,7 +18,7 @@ export default class PageLandingLTAC extends React.Component {
 						<div className="row">
 							<div className="col-md-5">
 								<img
-									src="/img/cybersecurity-ecso-taxonomy.png"
+									src="/img/image-ltac.png"
 									alt="CSWL 2023"
 								/>
 							</div>
@@ -26,9 +26,9 @@ export default class PageLandingLTAC extends React.Component {
 							<div className="col-md-1"/>
 
 							<div className="col-md-6">
-								<div className="text-content">
+								<div className="vertically-centered">
 									<div>
-										<h4># LËTZ TALK ABOUT CYBER</h4>
+										<h4><span className="blue-text">#</span> LËTZ TALK ABOUT CYBER</h4>
 
 										<p className="catch-phrase">
 											In this edition of Lëtz Talk about Cyber, Melanie

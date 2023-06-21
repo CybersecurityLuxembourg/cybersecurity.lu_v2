@@ -2,15 +2,14 @@
 .BoxReadMore {
 	padding: 24px;
 	margin-bottom: 24px;
-
-	/* Base/White */
-
 	background: var(--text-neutral-0);
-
-	/* Cards main drop shadow */
-
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
 	border-radius: 12px;
+}
+
+.BoxReadMore img {
+	width: 40px;
+	margin-bottom: 24px;
 }
 
 .BoxReadMore .title {

@@ -11,12 +11,6 @@
 	border-radius: 20px;
 }
 
-#PageLandingLTAC .text-content {
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
 #PageLandingLTAC img {
 	border-radius: 100%;
 	width: 100%;

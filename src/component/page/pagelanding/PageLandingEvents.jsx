@@ -61,7 +61,9 @@ export default class PageLandingEvents extends React.Component {
 				<div className="max-sized-section">
 					<div className="row spaced-row">
 						<div className="col-md-6">
-							<button className="link">
+							<button
+								className="link"
+								onClick={() => this.props.history.push("events")}>
 								See all events &nbsp;<i className="fas fa-arrow-right"/>
 							</button>
 						</div>

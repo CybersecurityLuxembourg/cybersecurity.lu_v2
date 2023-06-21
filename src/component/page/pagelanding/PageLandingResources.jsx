@@ -41,50 +41,56 @@ export default class PageLandingResources extends React.Component {
 						<div className="row">
 							<div className="col-md-4">
 								<BoxReadMore
+									{...this.props}
 									title={"Tips & best practices"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
-									link={""}
-									image={""}
+									link={"best-practice"}
+									image={"/img/icon-shield.png"}
 								/>
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
+									{...this.props}
 									title={"Norms, Rules & Laws"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
-									link={""}
-									image={""}
+									link={"legal"}
+									image={"/img/icon-hammer.png"}
 								/>
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
+									{...this.props}
 									title={"Jobs & Internships"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
-									link={""}
-									image={""}
+									link={"jobs"}
+									image={"/img/icon-case.png"}
 								/>
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
+									{...this.props}
 									title={"Support for Startups"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
-									link={""}
-									image={""}
+									link={"support-for-startups"}
+									image={"/img/icon-rocket.png"}
 								/>
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
+									{...this.props}
 									title={"Education & Skills"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
-									link={""}
-									image={""}
+									link={"education"}
+									image={"/img/icon-hat.png"}
 								/>
 							</div>
 							<div className="col-md-4">
 								<BoxReadMore
+									{...this.props}
 									title={"Publications Library"}
 									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
-									link={""}
-									image={""}
+									link={"publications"}
+									image={"/img/icon-book.png"}
 								/>
 							</div>
 						</div>

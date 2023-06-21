@@ -16,7 +16,9 @@ export default class BoxReadMore extends React.Component {
 				<div className="title">{this.props.title}</div>
 				<div className="abstract">{this.props.abstract}</div>
 				<div>
-					<button className="link">
+					<button
+						className="link"
+						onClick={() => this.props.history.push(this.props.link)}>
 						Read more &nbsp;<i className="fas fa-arrow-right"/>
 					</button>
 				</div>
