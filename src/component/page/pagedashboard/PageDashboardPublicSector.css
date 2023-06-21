@@ -7,12 +7,26 @@
 	height: calc(100% - 24px);
 }
 
+#PageDashboardPublicSector .total-institutions {
+	padding: 0px 12px;
+}
+
 #PageDashboardPublicSector .BoxWithTitle img {
 	width: 100%;
 }
 
 #PageDashboardPublicSector .BoxWithTitle .fixed-height {
 	height: 90px;
+}
+
+#PageDashboardPublicSector .BoxWithTitle div:has(> img) {
+	text-align: center;
+}
+
+#PageDashboardPublicSector .BoxWithTitle img.fixed-height {
+	max-height: 90px;
+	max-width: 100%;
+	width: auto !important;
 }
 
 #PageDashboardPublicSector .education-training .h8 {

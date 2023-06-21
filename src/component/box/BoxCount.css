@@ -3,8 +3,12 @@
 	padding: 24px !important;
 }
 
+.BoxCount img {
+	width: 48px;
+}
+
 .BoxCount .label {
-	margin-top: 64px;
+	margin-top: 24px;
 }
 
 .BoxCount .count {

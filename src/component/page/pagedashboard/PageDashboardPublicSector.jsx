@@ -84,6 +84,7 @@ export default class PageDashboardPublicSector extends React.Component {
 
 											<button
 												className="small"
+												onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 											>
 												Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 											</button>
@@ -112,7 +113,7 @@ export default class PageDashboardPublicSector extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -142,7 +143,7 @@ export default class PageDashboardPublicSector extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -159,29 +160,29 @@ export default class PageDashboardPublicSector extends React.Component {
 										<div className="col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+												src="/img/logo-govcert.png"
+												alt="Logo GovCert"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+												src="/img/logo-circl.png"
+												alt="Logo Circl"
 											/>
 										</div>
 										<div className="offset-md-3 col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+												src="/img/logo-certlu.png"
+												alt="Logo CertLu"
 											/>
 										</div>
 										<div className="col-md-12">
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -195,29 +196,29 @@ export default class PageDashboardPublicSector extends React.Component {
 										<div className="col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+												src="/img/logo-list.png"
+												alt="Logo LIST"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+												src="/img/logo-unilu.png"
+												alt="Logo Uni.lu"
 											/>
 										</div>
 										<div className="offset-md-3 col-md-6">
 											<img
 												className="fixed-height"
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+												src="/img/logo-nc3.png"
+												alt="Logo NC3"
 											/>
 										</div>
 										<div className="col-md-12">
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -241,21 +242,21 @@ export default class PageDashboardPublicSector extends React.Component {
 												<div className="col-md-5">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
+														src="/img/logo-lyceegk.png"
 														alt="National strategy diagram"
 													/>
 												</div>
 												<div className="offset-md-2 col-md-5">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
+														src="/img/logo-unkn.png"
 														alt="National strategy diagram"
 													/>
 												</div>
 												<div className="offset-md-3 col-md-6">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
+														src="/img/logo-unilu-solo.png"
 														alt="National strategy diagram"
 													/>
 												</div>
@@ -264,7 +265,7 @@ export default class PageDashboardPublicSector extends React.Component {
 											<div className="buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -280,36 +281,36 @@ export default class PageDashboardPublicSector extends React.Component {
 												<div className="col-md-5">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-admin-pub.png"
+														alt="Logo administration publique"
 													/>
 												</div>
 												<div className="offset-md-2 col-md-5">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-hot.png"
+														alt="Logo House of Training"
 													/>
 												</div>
 												<div className="col-md-4">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-nc3.png"
+														alt="Logo NC3"
 													/>
 												</div>
 												<div className="col-md-4">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-cwf.png"
+														alt="Logo CWF"
 													/>
 												</div>
 												<div className="col-md-4">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-dlh.png"
+														alt="Logo DLH"
 													/>
 												</div>
 											</div>
@@ -317,7 +318,7 @@ export default class PageDashboardPublicSector extends React.Component {
 											<div className="buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -331,29 +332,29 @@ export default class PageDashboardPublicSector extends React.Component {
 												<div className="offset-md-3 col-md-6">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-beesecure.png"
+														alt="Logo BeeSecure"
 													/>
 												</div>
-												<div className="col-md-4">
+												<div className="col-md-5">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-ecsm.png"
+														alt="Logo ECSM"
 													/>
 												</div>
-												<div className="offset-md-4 col-md-4">
+												<div className="offset-md-2 col-md-5">
 													<img
 														className="fixed-height"
-														src="/img/national-strategy-diagram.svg"
-														alt="National strategy diagram"
+														src="/img/logo-cswl.png"
+														alt="Logo CSWL"
 													/>
 												</div>
 											</div>
 											<div className="buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>

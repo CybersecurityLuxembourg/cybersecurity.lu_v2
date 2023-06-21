@@ -196,6 +196,20 @@ h6 {
     margin-bottom: 24px;
 }
 
+.grey-vertical-bar {
+    height: 100%;
+    width: 1px;
+    border: 1px solid var(--text-neutral-10);
+    margin-bottom: 24px;
+}
+
+.grey-vertical-arrow-down {
+    height: 100%;
+    width: 1px;
+    border: 1px solid var(--text-neutral-10);
+    margin-bottom: 24px;
+}
+
 .quote {
     margin: 48px 0px;
     font-family: "Open Sans 600";

@@ -15,8 +15,14 @@
 	margin-bottom: 56px;
 }
 
-#PageDashboardOverview .governance-box .governance-box-content {
+#PageDashboardOverview .governance-box-content {
 	text-align: center;
+}
+
+#PageDashboardOverview .governance-box-content .grey-vertical-bar,
+#PageDashboardOverview .governance-box-content .grey-vertical-arrow-down {
+	height: 50px !important;
+	margin: 6px auto 12px auto;
 }
 
 #PageDashboardOverview .governance-box img {

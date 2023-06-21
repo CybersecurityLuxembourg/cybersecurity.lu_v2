@@ -4,7 +4,7 @@ import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import BoxCount from "../../box/BoxCount.jsx";
-import Loading from "../../box/Loading.jsx";
+/* import Loading from "../../box/Loading.jsx"; */
 
 export default class PageDashboardOverview extends React.Component {
 	constructor(props) {
@@ -160,7 +160,7 @@ export default class PageDashboardOverview extends React.Component {
 									</h6>
 								</div>
 								<BoxCount
-									image={""}
+									image={"/img/icon-institution.png"}
 									label={"Public Entities"}
 									count={this.state.publicEntities
 										? this.state.publicEntities.length : "Loading..."}
@@ -169,13 +169,13 @@ export default class PageDashboardOverview extends React.Component {
 
 							<div className="col-md-3">
 								<BoxCount
-									image={""}
+									image={"/img/icon-building-blue.png"}
 									label={"Private Companies"}
 									count={this.state.serviceProviders
 										? this.state.serviceProviders.length : "Loading..."}
 								/>
 								<BoxCount
-									image={""}
+									image={"/img/icon-group.png"}
 									label={"Clubs, Associations & Initiatives"}
 									count={this.state.associations
 										? this.state.associations.length : "Loading..."}
@@ -208,9 +208,13 @@ export default class PageDashboardOverview extends React.Component {
 										</div>
 
 										<div className="col-md-8 governance-box-content">
-											<h1>Prime minister</h1>
+											<h3>Prime minister</h3>
+
+											<div className="grey-vertical-bar"/>
 
 											<h5>National Strategy</h5>
+
+											<div className="grey-vertical-bar"/>
 
 											<div className="h8">Interministerial Coordination Committee
 											for Cyber prevention and Cybersecurity</div>
@@ -353,7 +357,7 @@ export default class PageDashboardOverview extends React.Component {
 							</div>
 						</div>
 
-						<div className="row">
+						{/* <div className="row">
 							<div className="col-md-12">
 								<div className="box">
 									<div className="row">
@@ -378,7 +382,7 @@ export default class PageDashboardOverview extends React.Component {
 												<div className="right-buttons">
 													<button
 														className="transparent"
-														onClick={() => this.props.history.push("private-sector")}
+														onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
 													>
 														Discover the private sector &nbsp;<i className="fas fa-arrow-right"/>
 													</button>
@@ -391,7 +395,7 @@ export default class PageDashboardOverview extends React.Component {
 									}
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
