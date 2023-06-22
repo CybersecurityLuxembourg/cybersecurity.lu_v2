@@ -5,6 +5,10 @@ import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import BoxCount from "../../box/BoxCount.jsx";
 import BoxWithTitle from "../../box/BoxWithTitle.jsx";
+import ChartCoreBusinessDonut from "../../chart/ChartCoreBusinessDonut.jsx";
+import ChartSolutionHorizontalBar from "../../chart/ChartSolutionHorizontalBar.jsx";
+import ChartCreationDateHorizontalBar from "../../chart/ChartCreationDateHorizontalBar.jsx";
+import { getPastDate } from "../../../utils/date.jsx";
 
 export default class PageDashboardPrivateSector extends React.Component {
 	constructor(props) {
@@ -63,11 +67,21 @@ export default class PageDashboardPrivateSector extends React.Component {
 	}
 
 	getStartupCount() {
-		if (!this.state.entities || !this.state.analytics) {
+		if (!this.state.serviceProviders) {
 			return null;
 		}
 
-		return this.getActors().filter((a) => a.is_startup === 1).length;
+		return this.state.serviceProviders.filter((a) => a.is_startup === 1).length;
+	}
+
+	getYoungCount() {
+		if (!this.state.serviceProviders) {
+			return null;
+		}
+
+		return this.state.serviceProviders
+			.filter((a) => a.creation_date >= getPastDate(5))
+			.length;
 	}
 
 	render() {
@@ -97,14 +111,17 @@ export default class PageDashboardPrivateSector extends React.Component {
 
 									<button
 										className="small"
+										onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
 									>
 										Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 									</button>
 								</div>
 								<BoxCount
-									image={""}
+									image={"/img/icon-plant.png"}
 									label={"Created during the last 5 years"}
-									count={12}
+									count={this.getYoungCount()
+										? this.getYoungCount()
+										: "Loading..."}
 								/>
 							</div>
 
@@ -137,9 +154,10 @@ export default class PageDashboardPrivateSector extends React.Component {
 									</div>
 								</div>
 								<BoxCount
-									image={""}
+									image={"/img/icon-rocket.png"}
 									label={"Number of Startups"}
-									count={12}
+									count={this.getStartupCount()
+										? this.getStartupCount() : "Loading..."}
 								/>
 							</div>
 						</div>
@@ -153,10 +171,10 @@ export default class PageDashboardPrivateSector extends React.Component {
 								<BoxWithTitle
 									title={"Cybersecurity as core business"}
 									content={<div className="row">
-										<div className="offset-md-1 col-md-10">
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+										<div className="col-md-12">
+											<ChartCoreBusinessDonut
+												serviceProviders={this.state.serviceProviders}
+												taxonomies={this.props.taxonomies}
 											/>
 										</div>
 										<div className="col-md-12">
@@ -177,10 +195,10 @@ export default class PageDashboardPrivateSector extends React.Component {
 								<BoxWithTitle
 									title={"Diversified solutions offered by the ecosystem"}
 									content={<div className="row">
-										<div className="offset-md-1 col-md-10">
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+										<div className="col-md-12">
+											<ChartSolutionHorizontalBar
+												serviceProviders={this.state.serviceProviders}
+												taxonomies={this.props.taxonomies}
 											/>
 										</div>
 										<div className="col-md-12">
@@ -201,10 +219,10 @@ export default class PageDashboardPrivateSector extends React.Component {
 								<BoxWithTitle
 									title={"50% of companies have been created in the last 5 years"}
 									content={<div className="row">
-										<div className="offset-md-1 col-md-10">
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
+										<div className="col-md-12">
+											<ChartCreationDateHorizontalBar
+												serviceProviders={this.state.serviceProviders}
+												taxonomies={this.props.taxonomies}
 											/>
 										</div>
 									</div>}
