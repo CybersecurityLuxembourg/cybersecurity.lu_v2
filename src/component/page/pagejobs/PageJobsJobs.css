@@ -16,6 +16,7 @@
 
 #PageJobsJobs .title-section img {
 	max-height: 100px;
+	width: auto;
 }
 
 #PageJobsJobs .title-section > .row > .col-md-12 > div {
