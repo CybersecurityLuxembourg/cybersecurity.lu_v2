@@ -16,6 +16,7 @@
 
 #PageEducationTrainings .title-section img {
 	max-height: 100px;
+	width: auto;
 }
 
 #PageEducationTrainings .title-section > .row > .col-md-12 > div {

@@ -3,6 +3,7 @@ import "./PageLatestNews.css";
 import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import SectionNews from "../section/SectionNews.jsx";
+import { getPrivateAppURL } from "../../utils/env.jsx";
 
 export default class PageLatestNews extends React.Component {
 	constructor(props) {
@@ -33,7 +34,11 @@ export default class PageLatestNews extends React.Component {
 									</p>
 								</div>
 
-								<button>
+								<button
+									onClick={() => window.open(
+										getPrivateAppURL(),
+										"_blank",
+									)}>
 									Share your latest news
 								</button>
 								<button

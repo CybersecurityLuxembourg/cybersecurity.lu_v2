@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import SectionEvents from "../section/SectionEvents.jsx";
 import SectionCSWL from "../section/SectionCSWL.jsx";
+import { getPrivateAppURL } from "../../utils/env.jsx";
 
 export default class PageUpcomingEvents extends React.Component {
 	constructor(props) {
@@ -33,7 +34,11 @@ export default class PageUpcomingEvents extends React.Component {
 									</p>
 								</div>
 
-								<button>
+								<button
+									onClick={() => window.open(
+										getPrivateAppURL(),
+										"_blank",
+									)}>
 									Get involved
 								</button>
 								<button
