@@ -181,7 +181,7 @@ export default class PageDashboardPrivateSector extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
 												>
 													See more &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -205,7 +205,7 @@ export default class PageDashboardPrivateSector extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
 												>
 													See more details on the solutions offered &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -247,7 +247,7 @@ export default class PageDashboardPrivateSector extends React.Component {
 											<div className="buttons">
 												<button
 													className="link transparent"
-													onClick={() => this.props.history.push("public-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
 												>
 													See more information &nbsp;<i className="fas fa-arrow-right"/>
 												</button>

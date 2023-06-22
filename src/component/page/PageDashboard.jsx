@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageDashboard.css";
 import Tab from "../tab/Tab.jsx";
+import { getUrlParameter } from "../../utils/url.jsx";
 import PageDashboardOverview from "./pagedashboard/PageDashboardOverview.jsx";
 import PageDashboardPublicSector from "./pagedashboard/PageDashboardPublicSector.jsx";
 import PageDashboardPrivateSector from "./pagedashboard/PageDashboardPrivateSector.jsx";
@@ -10,8 +11,14 @@ export default class PageDashboard extends React.Component {
 		super(props);
 
 		this.state = {
-			selectedMenu: 0,
+			menuLabels: ["Ecosystem Overview", "Public Sector", "Private Sector"],
+			menuValues: ["overview", "public-sector", "private-sector"],
+			selectedMenu: getUrlParameter("tab"),
 		};
+	}
+
+	onMenuClick(m) {
+		this.props.history.push("?tab=" + m);
 	}
 
 	render() {
@@ -44,10 +51,10 @@ export default class PageDashboard extends React.Component {
 
 					<div className="content">
 						<Tab
-							onMenuClick={(m) => this.setState({ selectedMenu: m })}
+							onMenuClick={(m) => this.onMenuClick(m)}
 							selectedMenu={this.state.selectedMenu}
-							labels={["Ecosystem Overview", "Public Sector", "Private Sector"]}
-							keys={[0, 1, 2]}
+							labels={this.state.menuLabels}
+							keys={this.state.menuValues}
 							content={[
 								<PageDashboardOverview
 									key={0}
