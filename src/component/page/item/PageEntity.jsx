@@ -7,10 +7,11 @@ import { getRequest } from "../../../utils/request.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
 import NoImage from "../../box/NoImage.jsx";
+import BoxWithTitle from "../../box/BoxWithTitle.jsx";
 import { getApiURL, getPrivateAppURL } from "../../../utils/env.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
-import Tab from "../../tab/Tab.jsx";
+/* import Tab from "../../tab/Tab.jsx"; */
 import Chip from "../../form/Chip.jsx";
 import News from "../../item/News.jsx";
 import Event from "../../item/Event.jsx";
@@ -110,32 +111,32 @@ export default class PageEntity extends React.Component {
 							{type === "NEWS"
 								&& <News
 									info={a}
-									analytics={this.props.analytics}
+									analytics={this.props.taxonomies}
 								/>
 							}
 							{type === "EVENT"
 								&& <Event
 									info={a}
-									analytics={this.props.analytics}
+									analytics={this.props.taxonomies}
 								/>
 							}
 							{type === "JOB OFFER"
 								&& <Job
 									info={a}
-									analytics={this.props.analytics}
+									analytics={this.props.taxonomies}
 								/>
 							}
 							{type === "SERVICE"
 								&& <Service
 									info={a}
 									showImage={true}
-									analytics={this.props.analytics}
+									analytics={this.props.taxonomies}
 								/>
 							}
 							{type === "TOOL"
 								&& <Tool
 									info={a}
-									analytics={this.props.analytics}
+									analytics={this.props.taxonomies}
 								/>
 							}
 						</div>
@@ -160,10 +161,10 @@ export default class PageEntity extends React.Component {
 	}
 
 	getTaxonomyCategories() {
-		if (this.props.analytics
+		if (this.props.taxonomies
 			&& this.state.entity
 			&& this.state.entity.taxonomy_assignment.length > 0) {
-			const values = this.props.analytics.taxonomy_values
+			const values = this.props.taxonomies.taxonomy_values
 				.filter((v) => this.state.entity.taxonomy_assignment.indexOf(v.id) >= 0);
 			let categories = [...new Set(values.map((v) => v.category))];
 			categories.sort((a, b) => (a < b ? 1 : -1));
@@ -180,205 +181,214 @@ export default class PageEntity extends React.Component {
 
 	render() {
 		return (
-			<div className={"PageEntity page max-sized-page"}>
-				<div className="row">
-					<div className="col-md-12">
-						<Breadcrumb>
-							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
-							<Breadcrumb.Item><Link to="/">ENTITY</Link></Breadcrumb.Item>
-							{this.state.entity !== null && !this.state.loading
-								? <Breadcrumb.Item>
-									<Link to={"/entity/" + this.state.entity.id}>{this.state.entity.name}</Link>
-								</Breadcrumb.Item>
-								: ""}
-						</Breadcrumb>
-					</div>
-				</div>
-
-				{this.state.entity !== null
-					? <div className="row row-spaced">
+			<div className={"PageEntity"}>
+				<div className="max-sized-section">
+					<div className="row">
 						<div className="col-md-12">
-							<div className="row">
-								<div className={"col-md-4 "
-									+ (this.state.entity.image
-										&& this.state.entity.image
-										? "PageEntity-logo" : "PageEntity-no-logo")}>
-									{this.state.entity.image
-										? <img
-											src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
-											alt="Card image cap"
-										/>
-										: <NoImage/>
-									}
-								</div>
-								<div className="col-md-8 PageEntity-name">
-									<h3>{this.state.entity.name}</h3>
-
-									<h4>{this.state.entity.headline}</h4>
-
-									<a
-										className="claim-link"
-										href={
-											getPrivateAppURL()
-											+ "add_entity?claim_entity="
-											+ this.state.entity.id
-										}
-										rel="noreferrer"
-										target="_blank">
-										<i className="far fa-edit"/>
-										&nbsp;Claim access and request modifications
-									</a>
-								</div>
-							</div>
-
-							<div className="row">
-								<div className={"col-md-8"}>
-									<div className="row">
-										<div className={"col-md-12"}>
-											<h3>About</h3>
-										</div>
-									</div>
-
-									{!this.state.entity.description
-										&& !this.state.entity.trade_register_number
-										&& !this.state.entity.creation_date
-										&& !this.state.entity.is_cybersecurity_core_business
-										&& !this.state.entity.is_startup
-										&& <div className="row">
-											<div className={"col-md-12"}>
-												<Message
-													text={"No information found"}
-													height={150}
-												/>
-											</div>
-										</div>
-									}
-
-									<div className="row">
-										<div className={"col-md-12"} style={{ whiteSpace: "pre-line" }}>
-											{this.state.entity.description}
-										</div>
-									</div>
-
-									<div className="row">
-										{this.state.entity.trade_register_number
-											? <div className={"col-md-12"}>
-												<b>Trade register number:</b> {this.state.entity.trade_register_number}
-											</div>
-											: ""
-										}
-
-										{this.state.entity.creation_date
-											? <div className={"col-md-12"}>
-												<b>Creation date:</b> {this.state.entity.creation_date}
-											</div>
-											: ""
-										}
-									</div>
-
-									<div className="row">
-										{this.state.entity.is_cybersecurity_core_business
-											&& this.state.entity.is_cybersecurity_core_business
-											? <div className="col-md-12 PageEntity-stamp">
-												<i className="fas fa-check-circle"/> Cybersecurity as a core business
-											</div>
-											: ""
-										}
-
-										{this.state.entity.is_startup
-											? <div className="col-md-12 PageEntity-stamp">
-												<i className="fas fa-check-circle"/> Start-up
-											</div>
-											: ""
-										}
-									</div>
-								</div>
-
-								<div className="col-md-4">
-									{this.hasWebsite()
-										&& <div className="shadow-section blue-shadow-section centered-shadow-section">
-											{/* eslint-disable no-script-url */}
-											<a
-												href={!/^(?:f|ht)tps?:\/\//.test(this.state.entity.website)
-													? "https://" + this.state.entity.website
-													: this.state.entity.website}
-												rel="noreferrer"
-												target="_blank">
-												<div>
-													<h3>Visit website</h3>
-													<i className="fas fa-globe-europe"/>
-												</div>
-											</a>
-										</div>
-									}
-								</div>
-							</div>
+							<Breadcrumb>
+								<Breadcrumb.Item><Link to="/ecosystem">Ecosystem</Link></Breadcrumb.Item>
+								{this.state.entity !== null && !this.state.loading
+									? <Breadcrumb.Item>
+										<Link to={"/entity/" + this.state.entity.id}>{this.state.entity.name}</Link>
+									</Breadcrumb.Item>
+									: ""}
+							</Breadcrumb>
 						</div>
 					</div>
-					: <Loading
-						height={400}
-					/>
-				}
 
-				{this.props.analytics
-					&& this.state.entity
-					&& this.state.entity.taxonomy_assignment.length > 0
-					&& <div className="row row-spaced">
-						<div className="col-md-12 row-spaced">
-							<h3>Taxonomy</h3>
-						</div>
-
-						{this.getTaxonomyCategories().map(([category, values]) => (
-							<div
-								key={category}
-								className="col-md-4">
-								<div className="PageEntity-taxonomy-category">
-									<div className="shadow-section">
-										<h4>{category}</h4>
-
-										{values.map((v) => (
-											<Chip
-												key={v.name}
-												label={v.name}
-												url={"/search?taxonomy_values=" + v.id}
+					{this.state.entity !== null
+						? <div className="row row-spaced">
+							<div className="col-md-12">
+								<div className="row">
+									<div className={"col-md-4 "
+										+ (this.state.entity.image
+											&& this.state.entity.image
+											? "PageEntity-logo" : "PageEntity-no-logo")}>
+										{this.state.entity.image
+											? <img
+												src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
+												alt="Card image cap"
 											/>
-										))}
+											: <NoImage/>
+										}
+									</div>
+									<div className="col-md-8 PageEntity-name">
+										<h4>{this.state.entity.name}</h4>
+
+										<h5>{this.state.entity.headline}</h5>
+
+										<a
+											className="claim-link"
+											href={
+												getPrivateAppURL()
+												+ "add_entity?claim_entity="
+												+ this.state.entity.id
+											}
+											rel="noreferrer"
+											target="_blank">
+											<i className="far fa-edit"/>
+											&nbsp;Claim access and request modifications
+										</a>
+									</div>
+								</div>
+
+								<div className="row">
+									<div className={"col-md-8"}>
+										<div className="row">
+											<div className={"col-md-12"}>
+												<h3>About</h3>
+											</div>
+										</div>
+
+										{!this.state.entity.description
+											&& !this.state.entity.trade_register_number
+											&& !this.state.entity.creation_date
+											&& !this.state.entity.is_cybersecurity_core_business
+											&& !this.state.entity.is_startup
+											&& <div className="row">
+												<div className={"col-md-12"}>
+													<Message
+														text={"No information found"}
+														height={150}
+													/>
+												</div>
+											</div>
+										}
+
+										<div className="row">
+											<div className={"col-md-12"} style={{ whiteSpace: "pre-line" }}>
+												{this.state.entity.description}
+											</div>
+										</div>
+
+										<div className="row">
+											{this.state.entity.trade_register_number
+												? <div className={"col-md-12"}>
+													<b>Trade register number:</b> {this.state.entity.trade_register_number}
+												</div>
+												: ""
+											}
+
+											{this.state.entity.creation_date
+												? <div className={"col-md-12"}>
+													<b>Creation date:</b> {this.state.entity.creation_date}
+												</div>
+												: ""
+											}
+										</div>
+
+										<div className="row">
+											{this.state.entity.is_cybersecurity_core_business
+												&& this.state.entity.is_cybersecurity_core_business
+												? <div className="col-md-12 PageEntity-stamp">
+													<i className="fas fa-check-circle"/> Cybersecurity as a core business
+												</div>
+												: ""
+											}
+
+											{this.state.entity.is_startup
+												? <div className="col-md-12 PageEntity-stamp">
+													<i className="fas fa-check-circle"/> Start-up
+												</div>
+												: ""
+											}
+										</div>
+									</div>
+
+									<div className="col-md-4">
+										{this.hasWebsite()
+											&& <div className="shadow-section blue-shadow-section centered-shadow-section">
+												{/* eslint-disable no-script-url */}
+												<a
+													href={!/^(?:f|ht)tps?:\/\//.test(this.state.entity.website)
+														? "https://" + this.state.entity.website
+														: this.state.entity.website}
+													rel="noreferrer"
+													target="_blank">
+													<div>
+														<h3>Visit website</h3>
+														<i className="fas fa-globe-europe"/>
+													</div>
+												</a>
+											</div>
+										}
 									</div>
 								</div>
 							</div>
-						))}
-					</div>
-				}
-
-				{this.props.analytics
-					&& this.state.entity
-					&& <div className="row row-spaced">
-						<div className="col-md-12">
-							<h3>Articles</h3>
 						</div>
+						: <Loading
+							height={400}
+						/>
+					}
 
-						<div className="col-md-12">
-							<Tab
-								fullWidth={true}
-								keys={["NEWS", "EVENTS", "JOB OFFERS", "SERVICES", "TOOLS"]}
-								labels={[
-									"News (" + (this.state.news ? this.state.news.pagination.total : "?") + ")",
-									"Events (" + (this.state.events ? this.state.events.pagination.total : "?") + ")",
-									"Job offers (" + (this.state.jobOffers ? this.state.jobOffers.pagination.total : "?") + ")",
-									"Services (" + (this.state.services ? this.state.services.pagination.total : "?") + ")",
-									"Tools (" + (this.state.tools ? this.state.tools.pagination.total : "?") + ")",
-								]}
-								content={[
-									this.getArticleContent("NEWS", "news"),
-									this.getArticleContent("EVENT", "events"),
-									this.getArticleContent("JOB OFFER", "jobOffers"),
-									this.getArticleContent("SERVICE", "services"),
-									this.getArticleContent("TOOL", "tools"),
-								]}
-							/>
+					{this.props.taxonomies
+						&& this.state.entity
+						&& this.state.entity.taxonomy_assignment.length > 0
+						&& <div className="row row-spaced">
+							<div className="col-md-12 row-spaced">
+								<h3>Taxonomy</h3>
+							</div>
+
+							{this.getTaxonomyCategories().map(([category, values]) => (
+								<div
+									key={category}
+									className="col-md-4">
+									<div className="PageEntity-taxonomy-category">
+										<div className="shadow-section">
+											<BoxWithTitle
+												title={category}
+												content={<div>
+													{values.map((v) => (
+														<Chip
+															key={v.name}
+															label={v.name}
+															url={"/search?taxonomy_values=" + v.id}
+														/>
+													))}
+												</div>}
+											/>
+										</div>
+									</div>
+								</div>
+							))}
 						</div>
-					</div>
-				}
+					}
+
+					{/* this.props.taxonomies
+						&& this.state.entity
+						&& <div className="row row-spaced">
+							<div className="col-md-12">
+								<h3>Articles</h3>
+							</div>
+
+							<div className="col-md-12">
+								<Tab
+									fullWidth={true}
+									keys={["NEWS", "EVENTS", "JOB OFFERS", "SERVICES", "TOOLS"]}
+									labels={[
+										"News (" + (this.state.news
+											? this.state.news.pagination.total : "?") + ")",
+										"Events (" + (this.state.events
+											? this.state.events.pagination.total : "?") + ")",
+										"Job offers (" + (this.state.jobOffers
+											? this.state.jobOffers.pagination.total : "?") + ")",
+										"Services (" + (this.state.services
+											? this.state.services.pagination.total : "?") + ")",
+										"Tools (" + (this.state.tools
+											? this.state.tools.pagination.total : "?") + ")",
+									]}
+									content={[
+										this.getArticleContent("NEWS", "news"),
+										this.getArticleContent("EVENT", "events"),
+										this.getArticleContent("JOB OFFER", "jobOffers"),
+										this.getArticleContent("SERVICE", "services"),
+										this.getArticleContent("TOOL", "tools"),
+									]}
+								/>
+							</div>
+						</div>
+					*/}
+				</div>
 			</div>
 		);
 	}

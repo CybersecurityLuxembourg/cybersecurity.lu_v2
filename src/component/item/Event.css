@@ -1,48 +1,48 @@
 
-.News {
+.Event {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     margin-bottom: 32px;
     border: none;
 }
 
-.News .link {
+.Event .link {
     padding: 16px;
 }
 
-.News a:hover {
+.Event a:hover {
     text-decoration: none !important;
 }
 
-.News .link {
+.Event .link {
     color: inherit;
 }
 
-.News .card-body {
+.Event .card-body {
     padding-right: 0px !important;
     padding-left: 0px;
     padding-bottom: 0px !important;
 }
 
-.News .card-img-wrapper {
+.Event .card-img-wrapper {
     min-height: 150px;
     position: relative;
 }
 
-.News .card-img-wrapper img,
-.News .NoImage {
+.Event .card-img-wrapper img,
+.Event .NoImage {
     border-radius: 12px;
     height: 214px !important;
 }
 
-.News .card-date {
+.Event .card-date {
     color: var(--primary-blue-80);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 8px;
 }
 
-.News .card-title {
+.Event .card-title {
     height: 80px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -54,7 +54,7 @@
     margin-bottom: 8px;
 }
 
-.News .card-text {
+.Event .card-text {
     height: 72px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -67,6 +67,6 @@
     line-height: 150%;
 }
 
-.News button {
+.Event button {
    float: right;
 }

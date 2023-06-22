@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./News.css";
+import "./Event.css";
 import { Link } from "react-router-dom";
 import dompurify from "dompurify";
 import NoImage from "../box/NoImage.jsx";
@@ -7,7 +7,7 @@ import { getApiURL } from "../../utils/env.jsx";
 import { dateToString } from "../../utils/date.jsx";
 import CardSocialMedia from "./CardSocialMedia.jsx";
 
-export default class News extends Component {
+export default class Event extends Component {
 	constructor(props) {
 		super(props);
 
@@ -45,7 +45,7 @@ export default class News extends Component {
 					? <img
 						className="card-img-top"
 						src={this.getImage()}
-						alt="News image"/>
+						alt="Event image"/>
 					: <NoImage
 						height={200}
 					/>
@@ -89,7 +89,7 @@ export default class News extends Component {
 	render() {
 		return this.props.info.link
 			&& this.props.info.link.length > 0
-			? <div className="News card">
+			? <div className="Event card">
 				<a
 					href={this.props.info.link}
 					target={"_blank"}
@@ -98,7 +98,7 @@ export default class News extends Component {
 					{this.getBoxContent()}
 				</a>
 			</div>
-			: <div className="News card">
+			: <div className="Event card">
 				<Link
 					to={"/event/" + this.props.info.handle}
 					className="link">

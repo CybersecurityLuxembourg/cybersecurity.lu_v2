@@ -120,7 +120,7 @@ class InsideApp extends React.Component {
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
-						<Route path="/entity/:handle" render={(props) => <PageEntity
+						<Route path="/entity/:id" render={(props) => <PageEntity
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
