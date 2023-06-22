@@ -285,10 +285,6 @@ export default class PageDashboardOverview extends React.Component {
 										</div>
 
 										<div className="col-md-12">
-											<img
-												src="/img/govcert-logo.png"
-												alt="Govcert logo"
-											/>
 										</div>
 
 										<div className="col-md-12">
