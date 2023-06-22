@@ -99,7 +99,7 @@ export default class SectionEvents extends React.Component {
 
 	render() {
 		return (
-			<div className={"SectionEvents"}>
+			<div id={"SectionEvents"} className={"SectionEvents"}>
 				<Tab
 					onMenuClick={(m) => this.onMenuClick(m)}
 					selectedMenu={this.state.selectedMenu}

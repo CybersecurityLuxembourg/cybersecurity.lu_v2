@@ -14,6 +14,12 @@ export default class PageUpcomingEvents extends React.Component {
 		};
 	}
 
+	// eslint-disable-next-line class-methods-use-this
+	goToDiv(id) {
+		const elmnt = document.getElementById(id);
+		elmnt.scrollIntoView();
+	}
+
 	render() {
 		return (
 			<div id={"PageUpcomingEvents"}>
@@ -43,10 +49,7 @@ export default class PageUpcomingEvents extends React.Component {
 								</button>
 								<button
 									className="transparent"
-									onClick={() => window.open(
-										"https://newsletter.cybersecurity-luxembourg.com",
-										"_blank",
-									)}
+									onClick={() => this.goToDiv("SectionEvents")}
 								>
 									Set all upcoming events
 								</button>
