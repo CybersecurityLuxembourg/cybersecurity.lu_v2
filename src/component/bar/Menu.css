@@ -12,6 +12,7 @@
 
 .Menu .logo {
     max-height: 50px;
+    width: auto;
     margin-bottom: 24px;
 }
 
