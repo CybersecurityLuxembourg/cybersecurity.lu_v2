@@ -293,11 +293,11 @@ export default class PageDashboardOverview extends React.Component {
 
 										<div className="col-md-12">
 											<p>
-												Single point of contact dedicated to the treatment
-												of IT incidents affecting the information systems
-												of the government and operators of critical
-												infrastructures (private and public) defined
-												as operating in Luxembourg
+												These dynamic communities serve as catalysts for
+												connection, collaboration, and positive change.
+												Whether you&apos;re seeking personal growth or professional
+												networking, these diverse groups offer an incredible array
+												of opportunities.
 											</p>
 										</div>
 

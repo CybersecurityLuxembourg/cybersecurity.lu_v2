@@ -22,18 +22,6 @@ export default class PageLandingResources extends React.Component {
 							</div>
 						</div>
 					</div>
-
-					<div className="sma-sized-section">
-						<div className="row">
-							<div className="col-md-12">
-								<p className="catch-phrase">
-									Lorem ipsum dolor sit amet consectetur. Et ornare
-									posuere quisque morbi egestas convallis. Adipiscing
-									non enim aliquet
-								</p>
-							</div>
-						</div>
-					</div>
 				</div>
 
 				<div className="box-content">
@@ -43,7 +31,7 @@ export default class PageLandingResources extends React.Component {
 								<BoxReadMore
 									{...this.props}
 									title={"Tips & best practices"}
-									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
+									abstract={""}
 									link={"best-practice"}
 									image={"/img/icon-shield.png"}
 								/>
@@ -52,7 +40,7 @@ export default class PageLandingResources extends React.Component {
 								<BoxReadMore
 									{...this.props}
 									title={"Norms, Rules & Laws"}
-									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
+									abstract={""}
 									link={"legal"}
 									image={"/img/icon-hammer.png"}
 								/>
@@ -61,7 +49,7 @@ export default class PageLandingResources extends React.Component {
 								<BoxReadMore
 									{...this.props}
 									title={"Jobs & Internships"}
-									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
+									abstract={""}
 									link={"jobs"}
 									image={"/img/icon-case.png"}
 								/>
@@ -70,7 +58,7 @@ export default class PageLandingResources extends React.Component {
 								<BoxReadMore
 									{...this.props}
 									title={"Support for Startups"}
-									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
+									abstract={""}
 									link={"support-for-startups"}
 									image={"/img/icon-rocket.png"}
 								/>
@@ -79,7 +67,7 @@ export default class PageLandingResources extends React.Component {
 								<BoxReadMore
 									{...this.props}
 									title={"Education & Skills"}
-									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
+									abstract={""}
 									link={"education"}
 									image={"/img/icon-hat.png"}
 								/>
@@ -88,7 +76,7 @@ export default class PageLandingResources extends React.Component {
 								<BoxReadMore
 									{...this.props}
 									title={"Publications Library"}
-									abstract={"Lorem ipsum dolor sit amet consectetur. Et ornare posuere quisque morbi egestas convallis. "}
+									abstract={""}
 									link={"publications"}
 									image={"/img/icon-book.png"}
 								/>

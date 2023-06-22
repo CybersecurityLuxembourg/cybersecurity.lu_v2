@@ -103,12 +103,6 @@ export default class PageLandingNews extends React.Component {
 						<div className="row spaced-row">
 							<div className="col-md-12">
 								<h4>Latest news from the community</h4>
-
-								<p className="catch-phrase">
-									Lorem ipsum dolor sit amet consectetur. Et ornare
-									posuere quisque morbi egestas convallis. Adipiscing
-									non enim aliquet
-								</p>
 							</div>
 						</div>
 
