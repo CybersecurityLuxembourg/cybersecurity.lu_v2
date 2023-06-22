@@ -8,13 +8,14 @@ import Event from "../item/Event.jsx";
 import Loading from "../box/Loading.jsx";
 import Message from "../box/Message.jsx";
 import DynamicTable from "../table/DynamicTable.jsx";
+import { dateToString } from "../../utils/date.jsx";
 
 export default class SectionEvents extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			selectedMenu: 0,
+			selectedMenu: "UPCOMING EVENTS",
 			eventCategories: [
 				"UPCOMING EVENTS",
 				"PAST EVENTS",
@@ -39,11 +40,10 @@ export default class SectionEvents extends React.Component {
 				const params = {
 					type: "EVENT",
 					include_tags: "true",
-					taxonomy_values: this.state.selectedMenu >= 2
-						? this.props.taxonomies.taxonomy_values
-							.filter((v) => v.name === this.state.eventCategories[this.state.selectedMenu])
-							.map((v) => v.id).join(",")
-						: undefined,
+					order_by: "start_date",
+					order: this.state.selectedMenu === "UPCOMING EVENTS" ? "asc" : "desc",
+					min_end_date: this.state.selectedMenu === "UPCOMING EVENTS" ? dateToString(new Date()) : undefined,
+					max_start_date: this.state.selectedMenu === "UPCOMING EVENTS" ? undefined : dateToString(new Date()),
 					per_page: this.props.numberOfArticles,
 					page: page || 1,
 				};
@@ -104,7 +104,7 @@ export default class SectionEvents extends React.Component {
 					onMenuClick={(m) => this.onMenuClick(m)}
 					selectedMenu={this.state.selectedMenu}
 					labels={this.state.eventCategories}
-					keys={[0, 1]}
+					keys={this.state.eventCategories}
 					content={[
 						this.buildEventContent(),
 						this.buildEventContent(),
