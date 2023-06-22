@@ -4,6 +4,10 @@
 	padding: 64px 0px;
 }
 
+#PageUpcomingEvents .top-content img {
+	width: auto;
+}
+
 #PageUpcomingEvents .text-content {
 	margin-bottom: 32px;
 }

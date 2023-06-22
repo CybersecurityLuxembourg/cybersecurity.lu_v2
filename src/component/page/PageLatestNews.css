@@ -4,6 +4,10 @@
 	padding: 64px 0px;
 }
 
+#PageLatestNews .top-content img {
+	width: auto;
+}
+
 #PageLatestNews .text-content {
 	margin-bottom: 32px;
 }
