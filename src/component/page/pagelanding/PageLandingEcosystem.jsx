@@ -186,8 +186,8 @@ export default class PageLandingEcosystem extends React.Component {
 							<BoxCount
 								image="/img/icon-network.png"
 								label="Total initiatives"
-								count={this.state.serviceProviders
-									? this.state.serviceProviders.length : "Loading..."}
+								count={this.state.initiatives
+									? this.state.initiatives.length : "Loading..."}
 							/>
 						</div>
 					</div>
