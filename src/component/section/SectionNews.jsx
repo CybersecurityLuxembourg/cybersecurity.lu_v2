@@ -42,13 +42,15 @@ export default class SectionNews extends React.Component {
 				const params = {
 					type: "NEWS",
 					include_tags: "true",
-					taxonomy_values: this.state.selectedMenu >= 2
+					taxonomy_values: ["INSTITUTIONAL NEWS", "TECH CORNER", "CALL TO ACTION"]
+						.indexOf(this.state.selectedMenu) >= 0
 						? this.props.taxonomies.taxonomy_values
-							.filter((v) => v.name === this.state.newsCategories[this.state.selectedMenu])
-							.map((v) => v.id).join(",")
+							.filter((v) => v.category === "ARTICLE CATEGORY")
+							.filter((v) => v.name.startsWith(this.state.selectedMenu))
+							.map((v) => v.id)[0]
 						: undefined,
 					is_created_by_admin: this.state.selectedMenu === "MEMBER NEWS"
-						? true
+						? "false"
 						: undefined,
 					per_page: this.props.numberOfArticles || 9,
 					page: page || 1,
@@ -111,7 +113,7 @@ export default class SectionNews extends React.Component {
 					onMenuClick={(m) => this.onMenuClick(m)}
 					selectedMenu={this.state.selectedMenu}
 					labels={this.state.newsCategories}
-					keys={[0, 1, 2, 3, 4]}
+					keys={this.state.newsCategories}
 					content={[
 						this.buildNewsContent(),
 						this.buildNewsContent(),
