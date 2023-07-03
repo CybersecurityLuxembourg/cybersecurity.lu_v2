@@ -1,0 +1,54 @@
+
+#PageSearch .how-can-we-help {
+	background: var(--linear-blue);
+	margin: 64px 0px;
+    padding: 60px 97px 40px 97px;
+    border-radius: 24px;
+}
+
+#PageSearch .how-can-we-help h3 {
+	text-align: center;
+	margin-bottom: 64px;
+}
+
+#PageSearch .how-can-we-help button:not(.link) {
+	width: 100%;
+}
+
+#PageSearch .how-can-we-help button.link {
+	text-decoration: underline;
+}
+
+#PageSearch .how-can-we-help b {
+	margin-right: 8px;
+}
+
+#PageSearch .result-section {
+	margin: 64px 0px;
+}
+
+#PageSearch .filter-box .right-buttons {
+	margin-top: 0px;
+}
+
+#PageSearch .filter-box .right-buttons button {
+	padding: 2px !important;
+	color: var(--text-neutral-50) !important;
+	text-decoration: underline;
+	font-size: 14px;
+}
+
+#PageSearch input[type='checkbox'] {
+	text-align: left;
+	width: auto;
+}
+
+#PageSearch .DynamicTable,
+#PageSearch .SimpleTable {
+	padding: 40px 0px 48px 0px;
+}
+
+#PageSearch .DynamicTable .card,
+#PageSearch .SimpleTable .card {
+	margin-bottom: 0px;
+}

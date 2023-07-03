@@ -161,7 +161,7 @@ export default class Field extends React.Component {
 		let labelWidth = null;
 		let fieldWidth = null;
 
-		if (this.props.fullWidth) {
+		if (this.props.fullWidth || this.props.hideLabel) {
 			labelWidth = "col-md-12";
 			fieldWidth = "col-md-12";
 		} else {
@@ -172,11 +172,13 @@ export default class Field extends React.Component {
 		return (
 			<div className={"Field"}>
 				<div className={"row"}>
-					<div className={labelWidth}>
-						<div className={"label"}>
-							{this.props.label}
+					{!this.props.hideLabel
+						&& <div className={labelWidth}>
+							<div className={"label"}>
+								{this.props.label}
+							</div>
 						</div>
-					</div>
+					}
 					<div className={fieldWidth}>
 						{this.getField()}
 					</div>
