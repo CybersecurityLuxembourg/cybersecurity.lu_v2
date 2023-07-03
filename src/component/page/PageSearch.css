@@ -31,6 +31,10 @@
 	margin-top: 0px;
 }
 
+#PageSearch .filter-box .h8 {
+	margin-bottom: 16px;
+}
+
 #PageSearch .filter-box .right-buttons button {
 	padding: 2px !important;
 	color: var(--text-neutral-50) !important;
@@ -41,6 +45,7 @@
 #PageSearch input[type='checkbox'] {
 	text-align: left;
 	width: auto;
+	transform : scale(1.3);
 }
 
 #PageSearch .DynamicTable,

@@ -250,10 +250,45 @@ export default class PageSearch extends React.Component {
 
 													<Field
 														type="checkbox"
-														checkBoxLabel="Cybersecurity"
+														checkBoxLabel="Entities"
 														value={this.state.filters.corebusiness_only}
 														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														fullWidth={true}
+														hideLabel={true}
+													/>
+													<Field
+														type="checkbox"
+														checkBoxLabel="News"
+														value={this.state.filters.corebusiness_only}
+														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+														hideLabel={true}
+													/>
+													<Field
+														type="checkbox"
+														checkBoxLabel="Events"
+														value={this.state.filters.corebusiness_only}
+														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+														hideLabel={true}
+													/>
+													<Field
+														type="checkbox"
+														checkBoxLabel="Services"
+														value={this.state.filters.corebusiness_only}
+														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+														hideLabel={true}
+													/>
+													<Field
+														type="checkbox"
+														checkBoxLabel="Tools"
+														value={this.state.filters.corebusiness_only}
+														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+														hideLabel={true}
+													/>
+													<Field
+														type="checkbox"
+														checkBoxLabel="Job offers"
+														value={this.state.filters.corebusiness_only}
+														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+														hideLabel={true}
 													/>
 												</div>
 											</div>
