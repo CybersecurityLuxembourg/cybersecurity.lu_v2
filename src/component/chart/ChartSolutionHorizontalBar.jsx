@@ -12,6 +12,7 @@ export default class ChartSolutionHorizontalBar extends React.Component {
 		super(props);
 
 		this.state = {
+			valueChainOrder: ["IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"],
 		};
 	}
 
@@ -19,14 +20,21 @@ export default class ChartSolutionHorizontalBar extends React.Component {
 	getChartData() {
 		const distribution = this.getValueChainDistribution();
 
+		if (distribution === null) {
+			return { datasets: [] };
+		}
+
+		console.log(this.state.valueChainOrder.map((o) => (distribution[o] ? distribution[o] : 0)));
+
 		return {
 			maintainAspectRatio: false,
 			responsive: false,
-			labels: Object.keys(distribution),
+			labels: this.state.valueChainOrder,
 			datasets: [
 				{
-					label: Object.keys(distribution),
-					data: Object.values(distribution),
+					label: this.state.valueChainOrder,
+					data: this.state.valueChainOrder
+						.map((o) => (distribution[o] ? distribution[o] : 0)),
 					borderColor: "#E93842",
 					backgroundColor: "#E93842",
 				},
