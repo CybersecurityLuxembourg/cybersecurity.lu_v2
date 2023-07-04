@@ -1,6 +1,5 @@
 import React from "react";
 import "./Tab.css";
-import dompurify from "dompurify";
 
 export default class Tab extends React.Component {
 	constructor(props) {
@@ -66,9 +65,7 @@ export default class Tab extends React.Component {
 										key={k}
 										className={this.getElementClassName(this.state.selectedMenu === k)}
 										onClick={() => this.onMenuClick(k)}>
-										<div dangerouslySetInnerHTML={{
-											__html: dompurify.sanitize(this.props.labels[i]),
-										}}/>
+										{this.props.labels[i]}
 									</div>
 								);
 							})}

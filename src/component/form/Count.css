@@ -1,6 +1,10 @@
 
 .Count {
+    display: inline-block;
     padding: 4px 12px;
+    margin: 8px 0px;
     border-radius: 2000px;
     background: var(--primary-blue-10, #E5F5FF);
+    color: var(--text-neutral-50, #232332);
+    text-align: center;
 }
