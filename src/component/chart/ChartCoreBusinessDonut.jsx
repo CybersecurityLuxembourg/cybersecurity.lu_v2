@@ -66,7 +66,7 @@ export default class ChartCoreBusinessDonut extends React.Component {
 							<div className="dot" style={{ backgroundColor: "#FCE6E7" }}/>
 							<span>All companies</span>
 							<div className="dot" style={{ backgroundColor: "#E93842" }}/>
-							<span>Companies with Cybersecurity as core buisiness</span>
+							<span>Companies with Cybersecurity as core business</span>
 						</div>
 					</div>
 				</div>
