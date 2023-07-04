@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageEcosystemPublicSector.css";
 import { NotificationManager as nm } from "react-notifications";
+import { Link } from "react-router-dom";
 import { getRequest } from "../../../utils/request.jsx";
 import { getUrlParameter, dictToURI } from "../../../utils/url.jsx";
 import Loading from "../../box/Loading.jsx";
@@ -139,10 +140,14 @@ export default class PageEcosystemPublicSector extends React.Component {
 
 						<div className="col-md-5">
 							<div className="vertically-centered">
-								<img
-									src={"/img/public-sector-charts.svg"}
-									alt={"Private sector charts"}
-								/>
+								<Link
+									to="/dashboard?tab=public-sector"
+									title="Go to the dashboard">
+									<img
+										src={"/img/public-sector-charts.svg"}
+										alt={"Private sector charts"}
+									/>
+								</Link>
 							</div>
 						</div>
 					</div>
