@@ -224,7 +224,7 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("about")}>
+													onClick={() => this.props.history.push("dashboard?tab=public-sector")}>
 													Read more about the initiative &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
 											</div>
