@@ -236,7 +236,7 @@ export default class PageDashboardOverview extends React.Component {
 
 						<div className="row spaced-row">
 							<div className="col-md-4">
-								<div className="box">
+								<div className="box sector-box">
 									<div className="row">
 										<div className="col-md-12">
 											<h6>Public Sector</h6>
@@ -244,11 +244,8 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="grey-horizontal-bar"/>
 										</div>
 
-										<div className="col-md-12">
-											<img
-												src="/img/govcert-logo.png"
-												alt="Govcert logo"
-											/>
+										<div className="col-md-12 sector-box-logo">
+											<i className="fas fa-landmark"/>
 										</div>
 
 										<div className="col-md-12">
@@ -276,7 +273,7 @@ export default class PageDashboardOverview extends React.Component {
 							</div>
 
 							<div className="col-md-4">
-								<div className="box">
+								<div className="box sector-box">
 									<div className="row">
 										<div className="col-md-12">
 											<h6>Clubs, Associations & Initiatives</h6>
@@ -284,11 +281,8 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="grey-horizontal-bar"/>
 										</div>
 
-										<div className="col-md-12">
-											<img
-												src="/img/people-group.png"
-												alt="Govcert logo"
-											/>
+										<div className="col-md-12 sector-box-logo">
+											<i className="fas fa-users"/>
 										</div>
 
 										<div className="col-md-12">
@@ -316,7 +310,7 @@ export default class PageDashboardOverview extends React.Component {
 							</div>
 
 							<div className="col-md-4">
-								<div className="box">
+								<div className="box sector-box">
 									<div className="row">
 										<div className="col-md-12">
 											<h6>Private Sector</h6>
@@ -324,11 +318,8 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="grey-horizontal-bar"/>
 										</div>
 
-										<div className="col-md-12">
-											<img
-												src="/img/lhc-logo.png"
-												alt="LHC logo"
-											/>
+										<div className="col-md-12 sector-box-logo">
+											<i className="fas fa-building"/>
 										</div>
 
 										<div className="col-md-12">

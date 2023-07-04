@@ -38,6 +38,16 @@
 	margin-top: 24px;
 }
 
-#PageDashboardOverview .sector-box img {
-	width: 60%;
+#PageDashboardOverview .sector-box i.fas-landmarks {
+	font-size: 60px;
+}
+
+#PageDashboardOverview .sector-box-logo {
+	text-align: center;
+}
+
+#PageDashboardOverview .sector-box-logo i {
+	font-size: 80px;
+	margin: 10px 0px 30px 0px;
+	color: var(--text-neutral-50)
 }
