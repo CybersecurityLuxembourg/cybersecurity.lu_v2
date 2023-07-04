@@ -74,6 +74,7 @@ export default class PageUpcomingEvents extends React.Component {
 									taxonomies={this.props.taxonomies}
 									numberOfArticle={6}
 									showPagination={true}
+									{...this.props}
 								/>
 							</div>
 						</div>

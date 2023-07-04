@@ -3,7 +3,7 @@ import "./SectionEvents.css";
 import { NotificationManager as nm } from "react-notifications";
 import Tab from "../tab/Tab.jsx";
 import { getRequest } from "../../utils/request.jsx";
-import { dictToURI } from "../../utils/url.jsx";
+import { dictToURI, getUrlParameter } from "../../utils/url.jsx";
 import Event from "../item/Event.jsx";
 import Loading from "../box/Loading.jsx";
 import Message from "../box/Message.jsx";
@@ -15,7 +15,7 @@ export default class SectionEvents extends React.Component {
 		super(props);
 
 		this.state = {
-			selectedMenu: "UPCOMING EVENTS",
+			selectedMenu: getUrlParameter("tab") !== "past" ? "UPCOMING EVENTS" : "PAST EVENTS",
 			eventCategories: [
 				"UPCOMING EVENTS",
 				"PAST EVENTS",
@@ -28,9 +28,13 @@ export default class SectionEvents extends React.Component {
 		this.fetchEvents();
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
 			this.fetchEvents();
+		}
+
+		if (this.state.selectedMenu !== prevState.selectedMenu) {
+			this.props.history.push(this.state.selectedMenu === "PAST EVENTS" ? "?tab=past" : "?");
 		}
 	}
 

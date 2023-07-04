@@ -121,8 +121,8 @@ export default class Menu extends React.Component {
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Item>
-							<Link to="/get-involved">
-								<div className="Menu-title">Get Involved</div>
+							<Link to="/events?tab=past">
+								<div className="Menu-title">Past Events</div>
 							</Link>
 						</NavDropdown.Item>
 					</div>
