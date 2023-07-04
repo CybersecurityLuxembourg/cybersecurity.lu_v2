@@ -25,6 +25,7 @@
 }
 
 .Footer .patronage {
+  font-size: 14px;
   margin: 23px 0px;
   color: var(--text-neutral-50);
 }

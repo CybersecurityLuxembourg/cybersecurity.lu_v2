@@ -26,25 +26,9 @@ export default class Footer extends React.Component {
 							<div className="row">
 								<div className="col-md-12">
 									<div className="patronage">
-										Under the High Patronage of the Ministry of the Economy
-									</div>
-									<div className="key-partners">
-										<b>Key partners:</b>
-									</div>
-									<div className="partner-link">
-										<a href="https://hcpn.gouvernement.lu/" target="_blank" rel="noreferrer">
-											High Commission for National Protection
-										</a>
-									</div>
-									<div className="partner-link">
-										<a href="https://lhc.lu/" target="_blank" rel="noreferrer">
-											Luxembourg House of Cybersecurity
-										</a>
-									</div>
-									<div className="partner-link">
-										<a href="https://www.luxinnovation.lu/" target="_blank" rel="noreferrer">
-											Luxinnovation
-										</a>
+										<b>The national cybersecurity portal for everyone.</b> All in
+										one place, join our community-driven platform that
+										empowers your to stay ahead of the digital economy
 									</div>
 								</div>
 							</div>
