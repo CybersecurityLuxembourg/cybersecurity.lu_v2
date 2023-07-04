@@ -2,13 +2,15 @@
 .Chip {
     position: relative;
     display: inline-block;
-    background-color: #e9ecef;
-    border: none;
-    height: 26px;
-    padding: 0;
+    border-radius: 2000px;
+    border: 1px solid var(--accent-blue, #33ADFF);
+    background: var(--text-neutral-white, #FFF);
+    color: var(--text-neutral-50, #232332);
+    padding: 6px 12px;
     margin: 3px 2px 1px 2px;
-    font-size: 14px;
-    font-family:"Open Sans", sans-serif;
+    font-family: "Open Sans 600", sans-serif;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
     border-radius: 16px;
     text-decoration: none;
     max-width: 100%;
@@ -18,33 +20,33 @@
 .Chip-head {
     position: absolute;
     overflow: hidden;
-    background-color: #8fddff;
+    background-color: var(--accent-blue, #33ADFF);
     flex-shrink: 0;
     align-items: center;
     user-select: none;
     border-radius: 50%;
     justify-content: center;
-    width: 26px;
+    width: 18px;
     color: #fff;
-    height: 26px;
-    font-size: 16px;
-    margin-right: -4px;
+    height: 18px;
+    font-size: 12px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 2px;
 }
 
 .Chip-content {
     cursor: inherit;
-    display: absolute;
     align-items: center;
     user-select: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: 7px;
-    padding-left: 32px;
+    padding-top: 4px;
+    padding-left: 28px;
     padding-right: 25px;
     width: 100%;
+    height: 18px;
+    font-size: 12px;
 }
 
 .Chip-close {

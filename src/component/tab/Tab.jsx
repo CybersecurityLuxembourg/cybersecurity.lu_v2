@@ -51,33 +51,30 @@ export default class Tab extends React.Component {
 			<div className="Tab max-sized-page">
 				<div className={"row"}>
 					<div className={"col-md-12"}>
-						<div className={"row"}>
-							<div className="col-md-12">
-								<div className={"Tab-menu"}>
-									{this.props.keys.map((k, i) => {
-										if (k === null) {
-											return (
-												<div
-													key={k}
-													className={"Tab-menu-el-empty"}
-												/>
-											);
-										}
-										return (
-											<div
-												key={k}
-												className={this.getElementClassName(this.state.selectedMenu === k)}
-												onClick={() => this.onMenuClick(k)}>
-												<div dangerouslySetInnerHTML={{
-													__html: dompurify.sanitize(this.props.labels[i]),
-												}}/>
-											</div>
-										);
-									})}
-								</div>
-							</div>
+						<div className={"Tab-menu"}>
+							{this.props.keys.map((k, i) => {
+								if (k === null) {
+									return (
+										<div
+											key={k}
+											className={"Tab-menu-el-empty"}
+										/>
+									);
+								}
+								return (
+									<div
+										key={k}
+										className={this.getElementClassName(this.state.selectedMenu === k)}
+										onClick={() => this.onMenuClick(k)}>
+										<div dangerouslySetInnerHTML={{
+											__html: dompurify.sanitize(this.props.labels[i]),
+										}}/>
+									</div>
+								);
+							})}
 						</div>
 					</div>
+
 					<div className={"col-md-12 Tab-content"}>
 						{this.props.keys.indexOf(this.state.selectedMenu) >= 0
 							? this.props.content[this.props.keys.indexOf(this.state.selectedMenu)]

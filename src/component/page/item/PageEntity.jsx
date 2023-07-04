@@ -7,17 +7,17 @@ import { getRequest } from "../../../utils/request.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
 import NoImage from "../../box/NoImage.jsx";
-import BoxWithTitle from "../../box/BoxWithTitle.jsx";
 import { getApiURL, getPrivateAppURL } from "../../../utils/env.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
-/* import Tab from "../../tab/Tab.jsx"; */
+import Tab from "../../tab/Tab.jsx";
 import Chip from "../../form/Chip.jsx";
 import News from "../../item/News.jsx";
 import Event from "../../item/Event.jsx";
 import Job from "../../item/Job.jsx";
 import Service from "../../item/Service.jsx";
 import Tool from "../../item/Tool.jsx";
+import Count from "../../form/Count.jsx";
 
 export default class PageEntity extends React.Component {
 	constructor(props) {
@@ -102,47 +102,45 @@ export default class PageEntity extends React.Component {
 	getArticleContent(type, variable) {
 		if (this.state[variable]) {
 			if (this.state[variable].pagination.total > 0) {
-				return <div className="col-md-12">
-					<DynamicTable
-						items={this.state[variable].items}
-						pagination={this.state[variable].pagination}
-						changePage={(page) => this.getEntityArticle(type, variable, page)}
-						buildElement={(a) => <div className="col-md-6">
-							{type === "NEWS"
-								&& <News
-									info={a}
-									analytics={this.props.taxonomies}
-								/>
-							}
-							{type === "EVENT"
-								&& <Event
-									info={a}
-									analytics={this.props.taxonomies}
-								/>
-							}
-							{type === "JOB OFFER"
-								&& <Job
-									info={a}
-									analytics={this.props.taxonomies}
-								/>
-							}
-							{type === "SERVICE"
-								&& <Service
-									info={a}
-									showImage={true}
-									analytics={this.props.taxonomies}
-								/>
-							}
-							{type === "TOOL"
-								&& <Tool
-									info={a}
-									analytics={this.props.taxonomies}
-								/>
-							}
-						</div>
+				return <DynamicTable
+					items={this.state[variable].items}
+					pagination={this.state[variable].pagination}
+					changePage={(page) => this.getEntityArticle(type, variable, page)}
+					buildElement={(a) => <div className="col-md-4">
+						{type === "NEWS"
+							&& <News
+								info={a}
+								analytics={this.props.taxonomies}
+							/>
 						}
-					/>
-				</div>;
+						{type === "EVENT"
+							&& <Event
+								info={a}
+								analytics={this.props.taxonomies}
+							/>
+						}
+						{type === "JOB OFFER"
+							&& <Job
+								info={a}
+								analytics={this.props.taxonomies}
+							/>
+						}
+						{type === "SERVICE"
+							&& <Service
+								info={a}
+								showImage={true}
+								analytics={this.props.taxonomies}
+							/>
+						}
+						{type === "TOOL"
+							&& <Tool
+								info={a}
+								analytics={this.props.taxonomies}
+							/>
+						}
+					</div>
+					}
+				/>;
 			}
 
 			return <div className="col-md-12">
@@ -324,29 +322,28 @@ export default class PageEntity extends React.Component {
 					{this.props.taxonomies
 						&& this.state.entity
 						&& this.state.entity.taxonomy_assignment.length > 0
-						&& <div className="row row-spaced">
-							<div className="col-md-12 row-spaced">
-								<h3>Taxonomy</h3>
+						&& <div className="row spaced-row">
+							<div className="col-md-12 spaced-row">
+								<h5>Taxonomy</h5>
 							</div>
 
 							{this.getTaxonomyCategories().map(([category, values]) => (
 								<div
 									key={category}
 									className="col-md-4">
-									<div className="PageEntity-taxonomy-category">
-										<div className="shadow-section">
-											<BoxWithTitle
-												title={category}
-												content={<div>
-													{values.map((v) => (
-														<Chip
-															key={v.name}
-															label={v.name}
-															url={"/search?taxonomy_values=" + v.id}
-														/>
-													))}
-												</div>}
-											/>
+									<div className="row spaced-row">
+										<div className="col-md-12 spaced-row">
+											<div className="h8 blue-text">{category}</div>
+										</div>
+
+										<div className="col-md-12 spaced-row">
+											{values.map((v) => (
+												<Chip
+													key={v.name}
+													label={v.name}
+													url={"/search?taxonomy_values=" + v.id}
+												/>
+											))}
 										</div>
 									</div>
 								</div>
@@ -354,27 +351,22 @@ export default class PageEntity extends React.Component {
 						</div>
 					}
 
-					{/* this.props.taxonomies
+					{this.props.taxonomies
 						&& this.state.entity
-						&& <div className="row row-spaced">
-							<div className="col-md-12">
-								<h3>Articles</h3>
-							</div>
-
+						&& <div className="row spaced-row">
 							<div className="col-md-12">
 								<Tab
-									fullWidth={true}
 									keys={["NEWS", "EVENTS", "JOB OFFERS", "SERVICES", "TOOLS"]}
 									labels={[
-										"News (" + (this.state.news
-											? this.state.news.pagination.total : "?") + ")",
-										"Events (" + (this.state.events
+										<span key="news">NEWS <Count count={this.state.news
+											? this.state.news.pagination.total : "?"}/></span>,
+										"EVENTS (" + (this.state.events
 											? this.state.events.pagination.total : "?") + ")",
-										"Job offers (" + (this.state.jobOffers
+										"JOB OFFERS (" + (this.state.jobOffers
 											? this.state.jobOffers.pagination.total : "?") + ")",
-										"Services (" + (this.state.services
+										"SERVICES (" + (this.state.services
 											? this.state.services.pagination.total : "?") + ")",
-										"Tools (" + (this.state.tools
+										"TOOLS (" + (this.state.tools
 											? this.state.tools.pagination.total : "?") + ")",
 									]}
 									content={[
@@ -387,7 +379,7 @@ export default class PageEntity extends React.Component {
 								/>
 							</div>
 						</div>
-					*/}
+					}
 				</div>
 			</div>
 		);

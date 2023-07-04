@@ -1,0 +1,6 @@
+
+.Count {
+    padding: 4px 12px;
+    border-radius: 2000px;
+    background: var(--primary-blue-10, #E5F5FF);
+}
