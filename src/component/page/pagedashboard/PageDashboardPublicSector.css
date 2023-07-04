@@ -15,6 +15,10 @@
 	width: 100%;
 }
 
+#PageDashboardPublicSector .BoxWithTitle img.hcpn-logo {
+	margin: 20px 0px 30px 0px;
+}
+
 #PageDashboardPublicSector .BoxWithTitle .fixed-height {
 	height: 90px;
 }

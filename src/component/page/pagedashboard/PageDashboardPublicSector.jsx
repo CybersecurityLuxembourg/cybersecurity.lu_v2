@@ -113,7 +113,7 @@ export default class PageDashboardPublicSector extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
+													onClick={() => this.props.history.push("legal")}
 												>
 													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
@@ -159,34 +159,34 @@ export default class PageDashboardPublicSector extends React.Component {
 									content={<div className="row">
 										<div className="col-md-6">
 											<img
-												className="fixed-height"
 												src="/img/logo-govcert.png"
 												alt="Logo GovCert"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
-												className="fixed-height"
 												src="/img/logo-circl.png"
 												alt="Logo Circl"
 											/>
 										</div>
-										<div className="offset-md-3 col-md-6">
+										<div className="offset-md-2 col-md-8">
 											<img
-												className="fixed-height"
+												className="hcpn-logo"
+												src="/img/logo-hcpn.png"
+												alt="Logo HCPN"
+											/>
+										</div>
+										<div className="col-md-5">
+											<img
 												src="/img/logo-certlu.png"
 												alt="Logo CertLu"
 											/>
 										</div>
-										<div className="col-md-12">
-											<div className="right-buttons">
-												<button
-													className="transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
-												>
-													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
-												</button>
-											</div>
+										<div className="offset-md-2 col-md-5">
+											<img
+												src="/img/logo-infocrise.png"
+												alt="Logo InfoCrise"
+											/>
 										</div>
 									</div>}
 								/>
@@ -195,34 +195,15 @@ export default class PageDashboardPublicSector extends React.Component {
 									content={<div className="row">
 										<div className="col-md-6">
 											<img
-												className="fixed-height"
 												src="/img/logo-list.png"
 												alt="Logo LIST"
 											/>
 										</div>
 										<div className="col-md-6">
 											<img
-												className="fixed-height"
 												src="/img/logo-unilu.png"
 												alt="Logo Uni.lu"
 											/>
-										</div>
-										<div className="offset-md-3 col-md-6">
-											<img
-												className="fixed-height"
-												src="/img/logo-nc3.png"
-												alt="Logo NC3"
-											/>
-										</div>
-										<div className="col-md-12">
-											<div className="right-buttons">
-												<button
-													className="transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=public-sector")}
-												>
-													Access the full list &nbsp;<i className="fas fa-arrow-right"/>
-												</button>
-											</div>
 										</div>
 									</div>}
 								/>
