@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageLandingEcosystem.css";
+import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
@@ -160,35 +161,51 @@ export default class PageLandingEcosystem extends React.Component {
 						<div className="col-md-1"/>
 
 						<div className="col-md-3">
-							<BoxCount
-								image="/img/icon-building.png"
-								label="Total companies"
-								count={this.state.serviceProviders
-									? this.state.serviceProviders.length : "Loading..."}
-							/>
-							<BoxCount
-								image="/img/icon-rocket.png"
-								label="Total startups"
-								count={this.state.serviceProviders
-									? this.state.serviceProviders
-										.filter((a) => a.is_startup === 1).length : "Loading..."}
-							/>
+							<Link
+								to="/dashboard?tab=private-sector"
+								title="Go to the dashboard">
+								<BoxCount
+									image="/img/icon-building.png"
+									label="Total companies"
+									count={this.state.serviceProviders
+										? this.state.serviceProviders.length : "Loading..."}
+								/>
+							</Link>
+							<Link
+								to="/dashboard?tab=private-sector&subtab=startups"
+								title="Go to the dashboard">
+								<BoxCount
+									image="/img/icon-rocket.png"
+									label="Total startups"
+									count={this.state.serviceProviders
+										? this.state.serviceProviders
+											.filter((a) => a.is_startup === 1).length : "Loading..."}
+								/>
+							</Link>
 						</div>
 
 						<div className="col-md-3">
-							<BoxCount
-								className="top-margin-box"
-								image="/img/icon-institution.png"
-								label="Total public institutions"
-								count={this.state.publicEntities
-									? this.state.publicEntities.length : "Loading..."}
-							/>
-							<BoxCount
-								image="/img/icon-network.png"
-								label="Total initiatives"
-								count={this.state.initiatives
-									? this.state.initiatives.length : "Loading..."}
-							/>
+							<Link
+								to="/dashboard?tab=public-sector"
+								title="Go to the dashboard">
+								<BoxCount
+									className="top-margin-box"
+									image="/img/icon-institution.png"
+									label="Total public institutions"
+									count={this.state.publicEntities
+										? this.state.publicEntities.length : "Loading..."}
+								/>
+							</Link>
+							<Link
+								to="/dashboard"
+								title="Go to the dashboard">
+								<BoxCount
+									image="/img/icon-network.png"
+									label="Total initiatives"
+									count={this.state.initiatives
+										? this.state.initiatives.length : "Loading..."}
+								/>
+							</Link>
 						</div>
 					</div>
 				</div>

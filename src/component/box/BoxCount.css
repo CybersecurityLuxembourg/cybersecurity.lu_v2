@@ -3,12 +3,17 @@
 	padding: 24px !important;
 }
 
+a:hover:has(.BoxCount) {
+	text-decoration: none;
+}
+
 .BoxCount img {
 	width: 48px;
 }
 
 .BoxCount .label {
 	margin-top: 24px;
+	color: var(--text-neutral-40);
 }
 
 .BoxCount .count {
