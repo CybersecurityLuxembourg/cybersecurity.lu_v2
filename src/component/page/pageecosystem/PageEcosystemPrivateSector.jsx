@@ -8,6 +8,7 @@ import { getPrivateAppURL } from "../../../utils/env.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
 import Field from "../../form/Field.jsx";
+import Count from "../../form/Count.jsx";
 import Entity from "../../item/Entity.jsx";
 import SimpleTable from "../../table/SimpleTable.jsx";
 
@@ -268,7 +269,14 @@ export default class PageEcosystemPrivateSector extends React.Component {
 						<div className="col-md-1"/>
 
 						<div className="col-md-8">
-							<div className="h8">Entities found</div>
+							<span className="h8">
+								Entities found&nbsp;&nbsp;
+							</span>
+
+							{this.state.serviceProviders
+								&& this.state.serviceProviders.length > 0
+								&& <Count count={this.state.serviceProviders.length}/>
+							}
 
 							<div className="row">
 								{this.buildEntityList()}
