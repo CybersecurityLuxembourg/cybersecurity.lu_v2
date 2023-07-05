@@ -20,6 +20,10 @@
 	margin-top: 0px;
 }
 
+#PageEcosystemPrivateSector .filter-box .h8 {
+	margin-bottom: 16px !important;
+}
+
 #PageEcosystemPrivateSector .filter-box .right-buttons button {
 	padding: 2px !important;
 	color: var(--text-neutral-50) !important;

@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageDashboardPrivateSector.css";
+import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
@@ -140,12 +141,14 @@ export default class PageDashboardPrivateSector extends React.Component {
 										</div>
 									</div>
 								</div>
-								<BoxCount
-									image={"/img/icon-rocket.png"}
-									label={"Number of Startups"}
-									count={this.getStartupCount()
-										? this.getStartupCount() : "Loading..."}
-								/>
+								<Link to="/ecosystem?tab=private-sector&startup_only=true">
+									<BoxCount
+										image={"/img/icon-rocket.png"}
+										label={"Number of Startups"}
+										count={this.getStartupCount()
+											? this.getStartupCount() : "Loading..."}
+									/>
+								</Link>
 							</div>
 						</div>
 
@@ -168,7 +171,7 @@ export default class PageDashboardPrivateSector extends React.Component {
 											<div className="right-buttons">
 												<button
 													className="transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
+													onClick={() => this.props.history.push("ecosystem?tab=private-sector&corebusiness_only=true")}
 												>
 													See more &nbsp;<i className="fas fa-arrow-right"/>
 												</button>

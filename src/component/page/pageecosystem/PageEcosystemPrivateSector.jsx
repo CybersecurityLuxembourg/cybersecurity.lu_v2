@@ -19,6 +19,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 			name: getUrlParameter("name"),
 			corebusiness_only: getUrlParameter("corebusiness_only") === "true",
 			startup_only: getUrlParameter("startup_only") === "true",
+			pcdoctor_only: getUrlParameter("pcdoctor_only") === "true",
 		};
 
 		this.state = {
@@ -61,7 +62,8 @@ export default class PageEcosystemPrivateSector extends React.Component {
 					const params = {
 						...this.state.filters,
 						taxonomy_values: entityTypes
-							.concat(ecosystemRoles),
+							.concat(ecosystemRoles)
+							.concat(this.getPcDoctorTaxonomyValues()),
 					};
 
 					getRequest.call(this, "public/get_public_entities?" + dictToURI(params), (data) => {
@@ -77,6 +79,17 @@ export default class PageEcosystemPrivateSector extends React.Component {
 				});
 			}
 		}
+	}
+
+	getPcDoctorTaxonomyValues() {
+		if (this.props.taxonomies && this.state.filters.pcdoctor_only) {
+			return this.props.taxonomies.taxonomy_values
+				.filter((v) => v.category === "ENTITY TARGET")
+				.filter((v) => v.name === "INDIVIDUAL")
+				.map((v) => v.id);
+		}
+
+		return [];
 	}
 
 	buildEntityList() {
@@ -217,7 +230,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 											checkBoxLabel="Cybersecurity"
 											value={this.state.filters.corebusiness_only}
 											onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-											fullWidth={true}
+											hideLabel={true}
 										/>
 
 										<div className="grey-horizontal-bar"/>
@@ -231,8 +244,22 @@ export default class PageEcosystemPrivateSector extends React.Component {
 											checkBoxLabel="Start-up"
 											value={this.state.filters.startup_only}
 											onChange={() => this.modifyFilters("startup_only", !this.state.filters.startup_only)}
-											fullWidth={true}
+											hideLabel={true}
 										/>
+
+										<Field
+											type="checkbox"
+											checkBoxLabel="PC Doctors"
+											value={this.state.filters.pcdoctor_only}
+											onChange={() => this.modifyFilters("pcdoctor_only", !this.state.filters.pcdoctor_only)}
+											hideLabel={true}
+										/>
+
+										<div className="grey-horizontal-bar"/>
+
+										<div className="h8">
+											CLASSIFICATION
+										</div>
 									</div>
 								</div>
 							</div>
