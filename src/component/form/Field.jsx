@@ -115,11 +115,10 @@ export default class Field extends React.Component {
 			return <div>
 				<input
 					className={this.getFormatClassName()}
-					type={typeof this.props.type !== "undefined" ? this.props.type : "text"}
-					value={this.state.value}
+					type={this.props.type}
+					checked={this.props.value}
 					placeholder={this.props.placeholder}
-					onChange={(v) => this.onChange(v.target.value)}
-					onBlur={(v) => this.onBlur(v.target.value)}
+					onChange={() => this.onChange(!this.state.value)}
 					disabled={this.props.disabled}
 					autoFocus={this.props.autofocus}
 					onKeyDown={this.props.onKeyDown}
