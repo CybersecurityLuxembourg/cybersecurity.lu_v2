@@ -96,6 +96,11 @@ export default class SectionContactForm extends React.Component {
 											placeholder={"Select a topic"}
 											options={[
 												{ label: "--", value: null },
+												{ label: "I want to get more information on the ecosystem", value: "I want to get more information on the ecosystem" },
+												{ label: "I want to join the ecosystem", value: "I want to join the ecosystem" },
+												{ label: "I would like to suggest a new partnership/collaboration", value: "I would like to suggest a new partnership/collaboration" },
+												{ label: "I have a technical issue", value: "I have a technical issue" },
+												{ label: "I would like to contribute content", value: "I would like to contribute content" },
 												{ label: "Other", value: "Other" },
 											]}
 											value={this.state.topic}
