@@ -92,13 +92,14 @@ export default class PageDashboardPublicSector extends React.Component {
 									</div>
 									<div className="col-md-6">
 										<div className="box">
-											<div className="h8">
+											<div className="h8 spaced-row">
 												Main point of contact
 											</div>
 
 											<img
-												src="/img/govcert-logo.png"
-												alt="Govcert logo"
+												className="spaced-row"
+												src="/img/logo-hcpn.png"
+												alt="Logo HCPN"
 											/>
 										</div>
 									</div>

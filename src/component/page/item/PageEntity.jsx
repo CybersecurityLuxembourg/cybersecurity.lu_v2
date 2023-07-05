@@ -311,9 +311,9 @@ export default class PageEntity extends React.Component {
 												</span>
 											</div>
 
-											<div className="col-md-12 entity-address">
+											{/* <div className="col-md-12 entity-address">
 												ADDRESS TODO
-											</div>
+											</div> */}
 
 											{(this.state.entity.twitter_url
 												|| this.state.entity.linkedin_url)

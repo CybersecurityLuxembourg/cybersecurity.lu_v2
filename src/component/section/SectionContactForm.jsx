@@ -1,8 +1,8 @@
 import React from "react";
-import "./PageLandingContact.css";
-import Field from "../../form/Field.jsx";
+import "./SectionContactForm.css";
+import Field from "../form/Field.jsx";
 
-export default class PageLandingContact extends React.Component {
+export default class SectionContactForm extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -16,7 +16,7 @@ export default class PageLandingContact extends React.Component {
 
 	render() {
 		return (
-			<div id={"PageLandingContact"}>
+			<div id={"SectionContactForm"}>
 				<div className="content max-sized-section">
 					<div className="skyline">
 						<img

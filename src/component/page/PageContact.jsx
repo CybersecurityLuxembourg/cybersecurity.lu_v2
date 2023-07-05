@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageContact.css";
 import BoxWithTitle from "../box/BoxWithTitle.jsx";
+import SectionContactForm from "../section/SectionContactForm.jsx";
 
 export default class PageContact extends React.Component {
 	constructor(props) {
@@ -14,6 +15,8 @@ export default class PageContact extends React.Component {
 	render() {
 		return (
 			<div id="PageContact">
+				<SectionContactForm/>
+
 				<div className="max-sized-section">
 					<div className="row">
 						<div className="offset-md-2 col-md-4">
