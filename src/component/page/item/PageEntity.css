@@ -2,3 +2,64 @@
 #PageEntity .top-section {
     padding: 64px 0px 40px 0px;
 }
+
+#PageEntity .header h4 {
+    display: inline-block;
+}
+
+#PageEntity .header a {
+    margin-top: 0px;
+    color: ;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--text-neutral-50, #232332);
+    text-decoration-line: underline;
+    vertical-align: text-top;
+    margin-left: 24px;
+}
+
+#PageEntity .header i {
+    margin-right: 8px;
+    color: var(--primary-blue-80);
+}
+
+#PageEntity .chips .Chip {
+    margin-bottom: 24px;
+}
+
+#PageEntity .titled-info {
+    margin: 24px 24px 24px 0px;
+}
+
+#PageEntity .titled-info .h8 {
+    margin-bottom: 12px;
+}
+
+#PageEntity .entity-card {
+    padding: 24px;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+}
+
+#PageEntity .entity-logo,
+#PageEntity .entity-address,
+#PageEntity .entity-socials {
+    margin-bottom: 24px;
+}
+
+#PageEntity .entity-card .entity-name {
+    vertical-align: middle;
+}
+
+#PageEntity .entity-card button {
+    width: 100%;
+}
+
+#PageEntity .entity-socials a {
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 8px;
+    color: var(--primary-blue-80);
+}

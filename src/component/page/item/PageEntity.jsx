@@ -200,28 +200,80 @@ export default class PageEntity extends React.Component {
 							? <div className="row row-spaced">
 								<div className="col-md-7">
 									<div className="row">
-										<div className="col-md-8">
-											<h4>{this.state.entity.name}</h4>
+										<div className="col-md-12">
+											<div className="header">
+												<h4>
+													{this.state.entity.name}
+												</h4>
 
-											<h5>{this.state.entity.headline}</h5>
+												<a
+													className="claim-link"
+													href={
+														getPrivateAppURL()
+														+ "add_entity?claim_entity="
+														+ this.state.entity.id
+													}
+													rel="noreferrer"
+													target="_blank">
+													<i className="fas fa-pen"/>
+													CLAIM ACCESS AND REQUEST MODIFICATIONS
+												</a>
+											</div>
 
-											<a
-												className="claim-link"
-												href={
-													getPrivateAppURL()
-													+ "add_entity?claim_entity="
-													+ this.state.entity.id
+											<div className="chips">
+												{this.state.entity.is_cybersecurity_core_business
+													? <Chip
+														label={"CYBERSECURITY AS A CORE BUSINESS"}
+													/>
+													: ""
 												}
-												rel="noreferrer"
-												target="_blank">
-												<i className="far fa-edit"/>
-												&nbsp;Claim access and request modifications
-											</a>
+
+												{this.state.entity.is_startup
+													? <Chip
+														label={"STARTUP"}
+													/>
+													: ""
+												}
+											</div>
+
+											{this.state.entity.headline
+												&& <h6>
+													{this.state.entity.headline}
+												</h6>
+											}
+
+											{this.state.entity.description
+												&& <div>
+													{this.state.entity.description}
+												</div>
+											}
+
+											{this.state.entity.trade_register_number
+												? <div className="titled-info">
+													<div className="h8 blue-text">
+														Trade register number
+													</div>
+
+													{this.state.entity.trade_register_number}
+												</div>
+												: ""
+											}
+
+											{this.state.entity.creation_date
+												? <div className="titled-info">
+													<div className="h8 blue-text">
+														Creation date
+													</div>
+
+													{this.state.entity.creation_date}
+												</div>
+												: ""
+											}
 										</div>
 									</div>
 
 									<div className="row">
-										<div className={"col-md-8"}>
+										<div className={"col-md-12"}>
 											{!this.state.entity.description
 												&& !this.state.entity.trade_register_number
 												&& !this.state.entity.creation_date
@@ -236,99 +288,67 @@ export default class PageEntity extends React.Component {
 													</div>
 												</div>
 											}
-
-											<div className="row">
-												<div className={"col-md-12"} style={{ whiteSpace: "pre-line" }}>
-													{this.state.entity.description}
-												</div>
-											</div>
-
-											<div className="row">
-												{this.state.entity.trade_register_number
-													? <div className={"col-md-12"}>
-														<b>Trade register number:</b> {this.state.entity.trade_register_number}
-													</div>
-													: ""
-												}
-
-												{this.state.entity.creation_date
-													? <div className={"col-md-12"}>
-														<b>Creation date:</b> {this.state.entity.creation_date}
-													</div>
-													: ""
-												}
-											</div>
-
-											<div className="row">
-												{this.state.entity.is_cybersecurity_core_business
-													&& this.state.entity.is_cybersecurity_core_business
-													? <div className="col-md-12 PageEntity-stamp">
-														<i className="fas fa-check-circle"/> Cybersecurity as a core business
-													</div>
-													: ""
-												}
-
-												{this.state.entity.is_startup
-													? <div className="col-md-12 PageEntity-stamp">
-														<i className="fas fa-check-circle"/> Start-up
-													</div>
-													: ""
-												}
-											</div>
-										</div>
-
-										<div className="col-md-4">
-											{this.hasWebsite()
-												&& <div className="shadow-section blue-shadow-section centered-shadow-section">
-													{/* eslint-disable no-script-url */}
-													<a
-														href={!/^(?:f|ht)tps?:\/\//.test(this.state.entity.website)
-															? "https://" + this.state.entity.website
-															: this.state.entity.website}
-														rel="noreferrer"
-														target="_blank">
-														<div>
-															<h3>Visit website</h3>
-															<i className="fas fa-globe-europe"/>
-														</div>
-													</a>
-												</div>
-											}
 										</div>
 									</div>
 								</div>
 
 								<div className="offset-md-1 col-md-4">
-									<div className="row">
-										<div className={"col-md-4 "
-											+ (this.state.entity.image
-												&& this.state.entity.image
-												? "PageEntity-logo" : "PageEntity-no-logo")}>
-											{this.state.entity.image
-												? <img
-													src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
-													alt="Card image cap"
-												/>
-												: <NoImage/>
-											}
-										</div>
-										<div className="col-md-8 PageEntity-name">
-											<h4>{this.state.entity.name}</h4>
-
-											<h5>{this.state.entity.headline}</h5>
-
-											<a
-												className="claim-link"
-												href={
-													getPrivateAppURL()
-													+ "add_entity?claim_entity="
-													+ this.state.entity.id
+									<div className="entity-card">
+										<div className="row">
+											<div className="col-md-4 entity-logo">
+												{this.state.entity.image
+													? <img
+														src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
+														alt="Card image cap"
+													/>
+													: <NoImage/>
 												}
-												rel="noreferrer"
-												target="_blank">
-												<i className="far fa-edit"/>
-												&nbsp;Claim access and request modifications
-											</a>
+											</div>
+
+											<div className="col-md-8 entity-name">
+												<span className="h8">
+													{this.state.entity.name}
+												</span>
+											</div>
+
+											<div className="col-md-12 entity-address">
+												ADDRESS TODO
+											</div>
+
+											{(this.state.entity.twitter_url
+												|| this.state.entity.linkedin_url)
+												&& <div className="col-md-12 entity-socials">
+													{this.state.entity.twitter_url
+														&& <a
+															href={this.state.entity.twitter_url}
+															target="_blank"
+															rel="noreferrer">
+															<i className="fab fa-twitter"/>
+														</a>
+													}
+													{this.state.entity.linkedin_url
+														&& <a
+															href={this.state.entity.linkedin_url}
+															target="_blank"
+															rel="noreferrer">
+															<i className="fab fa-linkedin-in"/>
+														</a>
+													}
+												</div>
+											}
+
+											<div className="col-md-12">
+												{this.hasWebsite()
+													? <button
+														onClick={() => window.open(
+															this.state.entity.website,
+															"_blank",
+														)}>
+														Visit website
+													</button>
+													: ""
+												}
+											</div>
 										</div>
 									</div>
 								</div>
