@@ -83,6 +83,10 @@ export default class SectionContactForm extends React.Component {
 											placeholder={"example@email.com"}
 											onChange={(v) => this.setState({ email: v })}
 											fullWidth={true}
+											format={!this.state.email
+												? undefined
+												: validateEmail
+											}
 										/>
 									</div>
 									<div className="col-md-12">
