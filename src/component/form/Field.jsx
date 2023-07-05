@@ -7,11 +7,13 @@ import Chip from "./Chip.jsx";
 function getSelectStyle() {
 	return {
 		input: () => ({
-			height: "32px !important",
 		}),
 		control: (base, state) => ({
 			...base,
-			border: state.isFocused ? "2px solid #000 !important" : "2px solid lightgrey !important",
+			border: state.isFocused ? "1px solid #d3d3d6 !important" : "1px solid #d3d3d6 !important",
+			borderRadius: "200px",
+			padding: "10px 20px",
+			fontSize: "16px",
 			boxShadow: 0,
 		}),
 		singleValue: (base) => ({
@@ -96,7 +98,7 @@ export default class Field extends React.Component {
 				onKeyDown={this.props.onKeyDown}
 			/>;
 		case "select":
-			return <select
+			return <Select
 				value={{
 					label: this.props.options
 						.filter((o) => o.value === this.state.value).length > 0

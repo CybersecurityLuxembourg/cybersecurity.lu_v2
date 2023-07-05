@@ -1,5 +1,8 @@
 import React from "react";
 import "./SectionContactForm.css";
+import { NotificationManager as nm } from "react-notifications";
+import { postRequest } from "../../utils/request.jsx";
+import { validateEmail } from "../../utils/re.jsx";
 import Field from "../form/Field.jsx";
 
 export default class SectionContactForm extends React.Component {
@@ -7,11 +10,34 @@ export default class SectionContactForm extends React.Component {
 		super(props);
 
 		this.state = {
-			name: "",
+			full_name: "",
 			email: "",
-			topic: "",
+			topic: null,
 			message: "",
 		};
+	}
+
+	postMessage() {
+		const params = {
+			full_name: this.state.full_name,
+			email: this.state.email,
+			message: this.state.message,
+			parameters: { topic: this.state.topic },
+		};
+
+		postRequest.call(this, "public/add_public_request", params, () => {
+			nm.info("The message has been sent");
+			this.setState({
+				full_name: "",
+				email: "",
+				topic: "",
+				message: "",
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
 	}
 
 	render() {
@@ -36,10 +62,6 @@ export default class SectionContactForm extends React.Component {
 										</h4>
 
 										<p className="catch-phrase">
-											Lorem ipsum dolor sit amet consectetur
-											adipiscing elit tortor eu dolorol egestas
-											morbi sem vulputate etiam facilisis
-											pellentesque ut quis.
 										</p>
 									</div>
 								</div>
@@ -48,9 +70,9 @@ export default class SectionContactForm extends React.Component {
 									<div className="col-md-6">
 										<Field
 											label={"Name"}
-											value={this.state.name}
+											value={this.state.full_name}
 											placeholder={"Your name"}
-											onChange={(v) => this.setState({ name: v })}
+											onChange={(v) => this.setState({ full_name: v })}
 											fullWidth={true}
 										/>
 									</div>
@@ -69,8 +91,8 @@ export default class SectionContactForm extends React.Component {
 											type={"select"}
 											placeholder={"Select a topic"}
 											options={[
-												{ label: "oo", value: "oo" },
-												{ label: "aa", value: "aa" },
+												{ label: "--", value: null },
+												{ label: "Other", value: "Other" },
 											]}
 											value={this.state.topic}
 											onChange={(v) => this.setState({ topic: v })}
@@ -89,7 +111,13 @@ export default class SectionContactForm extends React.Component {
 									</div>
 									<div className="col-md-12">
 										<button
-											disabled={true}
+											disabled={!this.state.full_name
+												|| !this.state.message
+												|| !this.state.email
+												|| !this.state.topic
+												|| !validateEmail(this.state.email)
+											}
+											onClick={() => this.postMessage()}
 										>
 											Send message
 										</button>
