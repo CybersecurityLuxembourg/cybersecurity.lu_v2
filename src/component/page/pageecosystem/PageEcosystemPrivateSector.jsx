@@ -11,6 +11,7 @@ import Field from "../../form/Field.jsx";
 import Count from "../../form/Count.jsx";
 import Entity from "../../item/Entity.jsx";
 import SimpleTable from "../../table/SimpleTable.jsx";
+import getLeavesOfNode from "../../../utils/taxonomy.jsx";
 
 export default class PageEcosystemPrivateSector extends React.Component {
 	constructor(props) {
@@ -21,12 +22,16 @@ export default class PageEcosystemPrivateSector extends React.Component {
 			corebusiness_only: getUrlParameter("corebusiness_only") === "true",
 			startup_only: getUrlParameter("startup_only") === "true",
 			pcdoctor_only: getUrlParameter("pcdoctor_only") === "true",
+			taxonomy_values: getUrlParameter("taxonomy_values")
+				? getUrlParameter("taxonomy_values").split(",") : [],
 		};
 
 		this.state = {
+			valueChainOrder: ["IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"],
 			serviceProviders: null,
 			initFilters,
 			filters: initFilters,
+			openClassifications: [],
 		};
 	}
 
@@ -64,6 +69,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 						...this.state.filters,
 						taxonomy_values: entityTypes
 							.concat(ecosystemRoles)
+							.concat(this.state.filters.taxonomy_values)
 							.concat(this.getPcDoctorTaxonomyValues()),
 					};
 
@@ -129,6 +135,85 @@ export default class PageEcosystemPrivateSector extends React.Component {
 	goToDiv(id) {
 		const elmnt = document.getElementById(id);
 		elmnt.scrollIntoView();
+	}
+
+	buildClassificationFilters() {
+		if (!this.props.taxonomies) {
+			return <Loading/>;
+		}
+
+		const result = [];
+
+		const solutionCategories = this.props.taxonomies.taxonomy_values
+			.filter((c) => c.category === "VALUE CHAIN")
+			.sort((a, b) => this.state.valueChainOrder.indexOf(a.name)
+				- this.state.valueChainOrder.indexOf(b.name));
+
+		for (let i = 0; i < solutionCategories.length; i++) {
+			result.push(
+				<div>
+					{this.state.openClassifications.indexOf(solutionCategories[i].name) >= 0
+						? <span
+							className="checkbox-chevron"
+							onClick={() => (
+								this.setState({
+									openClassifications:
+										this.state.openClassifications
+											.filter((o) => o !== solutionCategories[i].name),
+								}))}>
+							<i className="fas fa-chevron-down"/>
+						</span>
+						: <span
+							className="checkbox-chevron"
+							onClick={() => (
+								this.setState({
+									openClassifications:
+										this.state.openClassifications
+											.concat([solutionCategories[i].name]),
+								}))}>
+							<i className="fas fa-chevron-right"/>
+						</span>
+					}
+
+					<Field
+						className="checkbox-category"
+						type="checkbox"
+						checkBoxLabel={<b>{solutionCategories[i].name}</b>}
+						value={this.state.filters.taxonomy_values.indexOf(solutionCategories[i].id) >= 0}
+						onChange={(v) => this.modifyFilters(
+							"taxonomy_values",
+							v
+								? this.state.filters.taxonomy_values.concat([solutionCategories[i].id])
+								: this.state.filters.taxonomy_values.filter((o) => o !== solutionCategories[i].id),
+						)}
+						hideLabel={true}
+					/>
+				</div>,
+			);
+
+			if (this.state.openClassifications.indexOf(solutionCategories[i].name) >= 0) {
+				getLeavesOfNode(this.props.taxonomies, [solutionCategories[i]]).forEach((l) => {
+					result.push(
+						<Field
+							className="checkbox-subcategory"
+							type="checkbox"
+							checkBoxLabel={l.name}
+							value={this.state.filters.taxonomy_values.indexOf(l.id) >= 0
+								|| this.state.filters.taxonomy_values.indexOf(solutionCategories[i].id) >= 0}
+							onChange={(v) => this.modifyFilters(
+								"taxonomy_values",
+								v
+									? this.state.filters.taxonomy_values.concat([l.id])
+									: this.state.filters.taxonomy_values.filter((o) => o !== l.id),
+							)}
+							hideLabel={true}
+						/>,
+					);
+				});
+			}
+		}
+
+		return result;
 	}
 
 	render() {
@@ -261,6 +346,8 @@ export default class PageEcosystemPrivateSector extends React.Component {
 										<div className="h8">
 											CLASSIFICATION
 										</div>
+
+										{this.buildClassificationFilters()}
 									</div>
 								</div>
 							</div>

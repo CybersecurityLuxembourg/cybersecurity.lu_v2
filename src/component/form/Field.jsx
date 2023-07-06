@@ -171,7 +171,7 @@ export default class Field extends React.Component {
 		}
 
 		return (
-			<div className={"Field"}>
+			<div className={"Field " + this.props.className}>
 				<div className={"row"}>
 					{!this.props.hideLabel
 						&& <div className={labelWidth}>
