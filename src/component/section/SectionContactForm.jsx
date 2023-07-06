@@ -100,7 +100,7 @@ export default class SectionContactForm extends React.Component {
 												{ label: "I want to join the ecosystem", value: "I want to join the ecosystem" },
 												{ label: "I would like to suggest a new partnership/collaboration", value: "I would like to suggest a new partnership/collaboration" },
 												{ label: "I have a technical issue", value: "I have a technical issue" },
-												{ label: "I would like to contribute content", value: "I would like to contribute content" },
+												{ label: "I would like to contribute/suggest content", value: "I would like to contribute/suggest content" },
 												{ label: "Other", value: "Other" },
 											]}
 											value={this.state.topic}
