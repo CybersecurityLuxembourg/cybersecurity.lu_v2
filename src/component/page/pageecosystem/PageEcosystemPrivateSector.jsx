@@ -10,6 +10,7 @@ import Message from "../../box/Message.jsx";
 import Field from "../../form/Field.jsx";
 import Count from "../../form/Count.jsx";
 import Entity from "../../item/Entity.jsx";
+import Dialog from "../../dialog/Dialog.jsx";
 import SimpleTable from "../../table/SimpleTable.jsx";
 import getLeavesOfNode from "../../../utils/taxonomy.jsx";
 
@@ -345,6 +346,11 @@ export default class PageEcosystemPrivateSector extends React.Component {
 
 										<div className="h8">
 											CLASSIFICATION
+
+											<Dialog
+												trigger={<div>ddd</div>}
+												content={<div/>}
+											/>
 										</div>
 
 										{this.buildClassificationFilters()}

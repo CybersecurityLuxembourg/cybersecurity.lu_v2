@@ -1,0 +1,37 @@
+
+.Dialog-overlay {
+	display: block;
+	z-index: 1080 !important;
+	margin: initial;
+	font-size: initial;
+	font-variant: initial;
+	font-weight: initial;
+	width: initial;
+	text-align: initial;
+	background: rgba(123, 123, 132, 0.40);
+	backdrop-filter: blur(8px);
+}
+
+.Dialog-overlay .popup-content {
+	max-height: 100%;
+	width: 60% !important;
+	max-width: 1200px;
+	padding: 30px;
+	animation: fadeIn ease .5s;
+	-webkit-animation: fadeIn ease .5s;
+	-moz-animation: fadeIn ease .5s;
+	-o-animation: fadeIn ease .5s;
+	-ms-animation: fadeIn ease .5s;
+	z-index: 1080 !important;
+	background: var(--base-white, #FFF);
+	border-radius: 12px;
+
+	line-height: 1.5 !important;
+}
+
+.Dialog .close-button {
+	position: relative !important;
+	width: auto !important;
+	bottom: 0 !important;
+	right: 0 !important;
+}
