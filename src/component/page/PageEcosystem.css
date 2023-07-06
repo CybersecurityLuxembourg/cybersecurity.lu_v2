@@ -4,7 +4,7 @@
 }
 
 #PageEcosystem .Tab-menu {
-	line-height: 1 !important;
+	line-height: 0 !important;
 	border-bottom: 1px solid var(--text-neutral-10);
 	padding-bottom: 0px;
 }
