@@ -5,6 +5,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import SectionEvents from "../section/SectionEvents.jsx";
 import SectionCSWL from "../section/SectionCSWL.jsx";
 import { getPrivateAppURL } from "../../utils/env.jsx";
+import { getUrlParameter } from "../../utils/url.jsx";
 
 export default class PageUpcomingEvents extends React.Component {
 	constructor(props) {
@@ -29,7 +30,10 @@ export default class PageUpcomingEvents extends React.Component {
 							<div className="col-md-6">
 								<Breadcrumb>
 									<Breadcrumb.Item><Link to="/">News & Events</Link></Breadcrumb.Item>
-									<Breadcrumb.Item><Link to="/events">Upcoming events</Link></Breadcrumb.Item>
+									{getUrlParameter("tab") !== "past"
+										? <Breadcrumb.Item><Link to="/events">Upcoming events</Link></Breadcrumb.Item>
+										: <Breadcrumb.Item><Link to="/events?tab=past">Past events</Link></Breadcrumb.Item>
+									}
 								</Breadcrumb>
 
 								<div className="text-content">
@@ -58,11 +62,13 @@ export default class PageUpcomingEvents extends React.Component {
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<img
-									className={"logo"}
-									src="/img/Skyline.png"
-									alt="Skyline Luxembourg"
-								/>
+								<div className="vertically-centered">
+									<img
+										className={"logo"}
+										src="/img/Skyline.png"
+										alt="Skyline Luxembourg"
+									/>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -13,7 +13,11 @@
 }
 
 @media (min-width: 768px) {
+	#PageUpcomingEvents .top-content .vertically-centered {
+		justify-content: left !important;
+	}
+
 	#PageUpcomingEvents img.logo {
-		height: 100%;
+		height: calc(100% - 50px);
 	}
 }
