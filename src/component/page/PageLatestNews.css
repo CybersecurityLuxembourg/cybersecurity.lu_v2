@@ -13,8 +13,12 @@
 }
 
 @media (min-width: 768px) {
+	#PageLatestNews .top-content .vertically-centered {
+		justify-content: left !important;
+	}
+
 	#PageLatestNews img.logo {
-		height: 100%;
+		height: calc(100% - 50px);
 	}
 }
 
