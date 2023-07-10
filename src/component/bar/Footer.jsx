@@ -19,7 +19,7 @@ export default class Footer extends React.Component {
 						<div className="col-md-3">
 							<img
 								className={"logo"}
-								src="/img/ecosystem-logo.jpg"
+								src="/img/logo-cyberlux-full.png"
 								alt="CYBERLUX Logo"
 							/>
 

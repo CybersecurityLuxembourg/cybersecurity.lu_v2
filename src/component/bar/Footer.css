@@ -6,13 +6,7 @@
 }
 
 .Footer img {
-  width: 70%;
-}
-
-@media (max-width: 768px) {
-  .Footer img {
-    width: 100%;
-  }
+  width: 100%;
 }
 
 .Footer .content {
@@ -26,8 +20,9 @@
 
 .Footer .patronage {
   font-size: 14px;
-  margin: 23px 0px;
+  margin: 12px 0px;
   color: var(--text-neutral-50);
+  text-align: justify;
 }
 
 .Footer .key-partners {
@@ -72,11 +67,9 @@
   margin-bottom: 5px;
 }
 
-@media (min-width: 768px) {
-  .Footer .social-network {
-    margin-top: 24px !important;
-    margin-bottom: 34px !important;
-  }
+.Footer .social-network {
+  margin-top: 24px !important;
+  margin-bottom: 34px !important;
 }
 
 .Footer .social-network a i {
