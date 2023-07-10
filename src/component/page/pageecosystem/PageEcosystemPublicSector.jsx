@@ -16,6 +16,8 @@ export default class PageEcosystemPublicSector extends React.Component {
 
 		const initFilters = {
 			name: getUrlParameter("name"),
+			taxonomy_values: getUrlParameter("taxonomy_values")
+				? getUrlParameter("taxonomy_values").split(",") : [],
 		};
 
 		this.state = {
@@ -52,7 +54,8 @@ export default class PageEcosystemPublicSector extends React.Component {
 				}, () => {
 					const params = {
 						...this.state.filters,
-						taxonomy_values: entityTypes,
+						taxonomy_values: entityTypes
+							.concat(this.state.filters.taxonomy_values),
 					};
 
 					getRequest.call(this, "public/get_public_entities?" + dictToURI(params), (data) => {
@@ -90,6 +93,40 @@ export default class PageEcosystemPublicSector extends React.Component {
 				</div>
 			)}
 		/>;
+	}
+
+	buildClassificationFilters() {
+		if (!this.props.taxonomies) {
+			return <Loading/>;
+		}
+
+		const result = [];
+
+		const legalCategories = this.props.taxonomies.taxonomy_values
+			.filter((c) => c.category === "LEGAL FRAMEWORK")
+			.sort((a, b) => a.name - b.name);
+
+		for (let i = 0; i < legalCategories.length; i++) {
+			result.push(
+				<div>
+					<Field
+						className="checkbox-category"
+						type="checkbox"
+						checkBoxLabel={<b>{legalCategories[i].name}</b>}
+						value={this.state.filters.taxonomy_values.indexOf(legalCategories[i].id) >= 0}
+						onChange={(v) => this.modifyFilters(
+							"taxonomy_values",
+							v
+								? this.state.filters.taxonomy_values.concat([legalCategories[i].id])
+								: this.state.filters.taxonomy_values.filter((o) => o !== legalCategories[i].id),
+						)}
+						hideLabel={true}
+					/>
+				</div>,
+			);
+		}
+
+		return result;
 	}
 
 	modifyFilters(field, value) {
@@ -178,6 +215,28 @@ export default class PageEcosystemPublicSector extends React.Component {
 								<div className="row">
 									<div className="col-md-6">
 										<h6 className="blue-text">Filter by</h6>
+									</div>
+
+									<div className="col-md-6">
+										<div className="right-buttons">
+											<button
+												className="link small"
+												onClick={() => this.clearFilters()}>
+												Clear all
+											</button>
+										</div>
+									</div>
+
+									<div className="col-md-12">
+										<div className="grey-horizontal-bar"/>
+
+										<div className="h8">
+											LEGAL FRAMEWORK
+										</div>
+									</div>
+
+									<div className="col-md-12">
+										{this.buildClassificationFilters()}
 									</div>
 								</div>
 							</div>
