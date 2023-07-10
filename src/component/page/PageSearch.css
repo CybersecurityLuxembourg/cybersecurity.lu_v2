@@ -57,3 +57,8 @@
 #PageSearch .SimpleTable .card {
 	margin-bottom: 0px;
 }
+
+#PageSearch .result-section h6 {
+	display: inline-block;
+	margin-right: 8px;
+}

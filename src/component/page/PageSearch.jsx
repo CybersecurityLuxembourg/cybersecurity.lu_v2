@@ -12,6 +12,7 @@ import Job from "../item/Job.jsx";
 import Service from "../item/Service.jsx";
 import Loading from "../box/Loading.jsx";
 import Message from "../box/Message.jsx";
+import Count from "../form/Count.jsx";
 import DynamicTable from "../table/DynamicTable.jsx";
 import SimpleTable from "../table/SimpleTable.jsx";
 
@@ -25,6 +26,7 @@ export default class PageSearch extends React.Component {
 			articleTypes: ["NEWS", "EVENT", "TOOL", "JOB OFFER", "SERVICE"],
 
 			searchValue: getUrlParameter("r") ? decodeURI(getUrlParameter("r")) : "",
+			launchedSearch: false,
 			initFilters,
 			filters: initFilters,
 
@@ -44,11 +46,12 @@ export default class PageSearch extends React.Component {
 	}
 
 	search() {
-		this.getObjectCount();
-		this.getEntities();
-		this.getArticles();
-
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
+			this.setState({ launchedSearch: true });
+			this.getObjectCount();
+			this.getEntities();
+			this.getArticles();
+
 			this.props.history.push("/search?r=" + this.state.searchValue);
 			PageSearch.trackSearch(this.state.searchValue);
 		}
@@ -58,6 +61,7 @@ export default class PageSearch extends React.Component {
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
 			const filters = {
 				name: this.state.searchValue,
+				include_taxonomy_categories: ["SERVICE GROUP"],
 			};
 
 			getRequest.call(this, "public/get_public_object_count?"
@@ -108,25 +112,13 @@ export default class PageSearch extends React.Component {
 
 	getArticlesByType(type, page) {
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
-			const filters = this.state.taxonomyValues === null
-				? {
-					title: this.state.searchValue,
-					include_tags: "true",
-					type,
-					page,
-					per_page: 4,
-				}
-				: {
-					taxonomy_values: this.state.taxonomyValues,
-					include_tags: "true",
-					type,
-					page,
-					per_page: 4,
-				};
-
-			if (this.state.memberArticleOnly) {
-				filters.is_created_by_admin = false;
-			}
+			const filters = {
+				title: this.state.searchValue,
+				include_tags: "true",
+				type,
+				page,
+				per_page: 4,
+			};
 
 			getRequest.call(this, "public/get_public_articles?"
 				+ dictToURI(filters), (data) => {
@@ -221,278 +213,304 @@ export default class PageSearch extends React.Component {
 							</div>
 						</div>
 
-						<div className="col-md-12">
-							<div className="result-section">
-								<div className="row">
-									<div className="col-md-3">
-										<div className="box filter-box">
-											<div className="row">
-												<div className="col-md-6">
-													<h6 className="blue-text">Filter by</h6>
-												</div>
-
-												<div className="col-md-6">
-													<div className="right-buttons">
-														<button
-															className="link small"
-															onClick={() => this.clearFilters()}>
-															Clear all
-														</button>
-													</div>
-												</div>
-
-												<div className="col-md-12">
-													<div className="grey-horizontal-bar"/>
-
-													<div className="h8">
-														CATEGORIES
+						{this.state.launchedSearch
+							&& <div className="col-md-12">
+								<div className="result-section">
+									<div className="row">
+										<div className="col-md-3">
+											<div className="box filter-box">
+												<div className="row">
+													<div className="col-md-6">
+														<h6 className="blue-text">Filter by</h6>
 													</div>
 
-													<Field
-														type="checkbox"
-														checkBoxLabel="Entities"
-														value={this.state.filters.corebusiness_only}
-														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														hideLabel={true}
-													/>
-													<Field
-														type="checkbox"
-														checkBoxLabel="News"
-														value={this.state.filters.corebusiness_only}
-														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														hideLabel={true}
-													/>
-													<Field
-														type="checkbox"
-														checkBoxLabel="Events"
-														value={this.state.filters.corebusiness_only}
-														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														hideLabel={true}
-													/>
-													<Field
-														type="checkbox"
-														checkBoxLabel="Services"
-														value={this.state.filters.corebusiness_only}
-														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														hideLabel={true}
-													/>
-													<Field
-														type="checkbox"
-														checkBoxLabel="Tools"
-														value={this.state.filters.corebusiness_only}
-														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														hideLabel={true}
-													/>
-													<Field
-														type="checkbox"
-														checkBoxLabel="Job offers"
-														value={this.state.filters.corebusiness_only}
-														onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-														hideLabel={true}
-													/>
+													<div className="col-md-6">
+														<div className="right-buttons">
+															<button
+																className="link small"
+																onClick={() => this.clearFilters()}>
+																Clear all
+															</button>
+														</div>
+													</div>
+
+													<div className="col-md-12">
+														<div className="grey-horizontal-bar"/>
+
+														<div className="h8">
+															CATEGORIES
+														</div>
+
+														<Field
+															type="checkbox"
+															checkBoxLabel="Entities"
+															value={this.state.filters.corebusiness_only}
+															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+															hideLabel={true}
+														/>
+														<Field
+															type="checkbox"
+															checkBoxLabel="News"
+															value={this.state.filters.corebusiness_only}
+															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+															hideLabel={true}
+														/>
+														<Field
+															type="checkbox"
+															checkBoxLabel="Events"
+															value={this.state.filters.corebusiness_only}
+															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+															hideLabel={true}
+														/>
+														<Field
+															type="checkbox"
+															checkBoxLabel="Services"
+															value={this.state.filters.corebusiness_only}
+															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+															hideLabel={true}
+														/>
+														<Field
+															type="checkbox"
+															checkBoxLabel="Tools"
+															value={this.state.filters.corebusiness_only}
+															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+															hideLabel={true}
+														/>
+														<Field
+															type="checkbox"
+															checkBoxLabel="Job offers"
+															value={this.state.filters.corebusiness_only}
+															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
+															hideLabel={true}
+														/>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
 
-									<div className="col-md-1"/>
+										<div className="col-md-1"/>
 
-									<div className="col-md-8">
-										{!this.hasLoaded()
-											&& (this.state.searchValue !== null && this.state.searchValue.length >= 3)
-											&& <div className="row">
-												<div className="col-md-12">
-													<Loading
-														height={300}
-													/>
+										<div className="col-md-8">
+											{this.state.launchedSearch && !this.hasLoaded()
+												&& <div className="row">
+													<div className="col-md-12">
+														<Loading
+															height={300}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{this.state.searchValue && this.state.searchValue.length < 3
-											&& <div className="row">
-												<div className="col-md-12">
-													<Message
-														text={"The search query must contain at least 3 characters"}
-														height={300}
-													/>
+											{this.state.launchedSearch && this.hasLoaded()
+												&& this.state.entities.length === 0
+												&& this.state.NEWS.pagination.total === 0
+												&& this.state.EVENT.pagination.total === 0
+												&& this.state.TOOL.pagination.total === 0
+												&& this.state.JOB_OFFER.pagination.total === 0
+												&& this.state.SERVICE.pagination.total === 0
+												&& <div className="row row-spaced">
+													<div className="col-md-12">
+														<Message
+															text={"No item found"}
+															height={300}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{!this.state.searchValue
-											&& <div className="row row-spaced">
-												<div className="col-md-12">
-													<Message
-														text={"Please type your search query"}
-														height={300}
-													/>
+											{this.state.entities && this.state.entities.length > 0
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															Entities
+														</h6>
+
+														{this.state.object_count
+															&& this.state.object_count.entity
+															&& <Count
+																count={this.state.object_count.entity.total}
+															/>
+														}
+
+														<SimpleTable
+															numberDisplayed={4}
+															items={this.state.entities.map((a, i) => [a, i])}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<Entity
+																		info={a}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{this.hasLoaded()
-											&& this.state.entities.length === 0
-											&& this.state.NEWS.pagination.total === 0
-											&& this.state.EVENT.pagination.total === 0
-											&& this.state.TOOL.pagination.total === 0
-											&& this.state.JOB_OFFER.pagination.total === 0
-											&& this.state.SERVICE.pagination.total === 0
-											&& <div className="row row-spaced">
-												<div className="col-md-12">
-													<Message
-														text={"No item found"}
-														height={300}
-													/>
+											{this.state.NEWS && this.state.NEWS.items.length > 0
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															News
+														</h6>
+
+														{this.state.object_count
+															&& this.state.object_count.article
+															&& this.state.object_count.article.news
+															&& <Count
+																count={this.state.object_count.article.news}
+															/>
+														}
+
+														<DynamicTable
+															items={this.state.NEWS.items}
+															pagination={this.state.NEWS.pagination}
+															changePage={(page) => this.getArticlesByType("NEWS", page)}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<News
+																		info={a}
+																		taxonomies={this.props.taxonomies}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{this.state.entities && this.state.entities.length > 0
-											&& <div className="row">
-												<div className="col-md-12">
-													<h6>
-														Entities
-													</h6>
+											{this.state.EVENT && this.state.EVENT.items.length > 0
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															Events
+														</h6>
 
-													<SimpleTable
-														numberDisplayed={4}
-														items={this.state.entities.map((a, i) => [a, i])}
-														buildElement={(a) => (
-															<div className="col-md-6">
-																<Entity
-																	info={a}
-																/>
-															</div>
-														)}
-													/>
+														{this.state.object_count
+															&& this.state.object_count.article
+															&& this.state.object_count.article.event
+															&& <Count
+																count={this.state.object_count.article.event}
+															/>
+														}
+
+														<DynamicTable
+															items={this.state.EVENT.items}
+															pagination={this.state.EVENT.pagination}
+															changePage={(page) => this.getArticlesByType("EVENT", page)}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<Event
+																		info={a}
+																		taxonomies={this.props.taxonomies}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{this.state.NEWS && this.state.NEWS.items.length > 0
-											&& <div className="row">
-												<div className="col-md-12">
-													<h6>
-														News
-													</h6>
+											{this.state.SERVICE && this.state.SERVICE.items.length > 0
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															Services
+														</h6>
 
-													<DynamicTable
-														items={this.state.NEWS.items}
-														pagination={this.state.NEWS.pagination}
-														changePage={(page) => this.getArticlesByType("NEWS", page)}
-														buildElement={(a) => (
-															<div className="col-md-6">
-																<News
-																	info={a}
-																	taxonomies={this.props.taxonomies}
-																/>
-															</div>
-														)}
-													/>
+														{this.state.object_count
+															&& this.state.object_count.article
+															&& this.state.object_count.article.service
+															&& <Count
+																count={this.state.object_count.article.service}
+															/>
+														}
+
+														<DynamicTable
+															items={this.state.SERVICE.items}
+															pagination={this.state.SERVICE.pagination}
+															changePage={(page) => this.getArticlesByType("SERVICE", page)}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<Service
+																		info={a}
+																		taxonomies={this.props.taxonomies}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{this.state.EVENT && this.state.EVENT.items.length > 0
-											&& <div className="row">
-												<div className="col-md-12">
-													<h6>
-														Events
-													</h6>
+											{this.state.TOOL && this.state.TOOL.items.length > 0
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															Tools
+														</h6>
 
-													<DynamicTable
-														items={this.state.EVENT.items}
-														pagination={this.state.EVENT.pagination}
-														changePage={(page) => this.getArticlesByType("EVENT", page)}
-														buildElement={(a) => (
-															<div className="col-md-6">
-																<Event
-																	info={a}
-																	taxonomies={this.props.taxonomies}
-																/>
-															</div>
-														)}
-													/>
+														{this.state.object_count
+															&& this.state.object_count.article
+															&& this.state.object_count.article.tool
+															&& <Count
+																count={this.state.object_count.article.tool}
+															/>
+														}
+
+														<DynamicTable
+															items={this.state.TOOL.items}
+															pagination={this.state.TOOL.pagination}
+															changePage={(page) => this.getArticlesByType("TOOL", page)}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<Tool
+																		info={a}
+																		taxonomies={this.props.taxonomies}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
 												</div>
-											</div>
-										}
+											}
 
-										{this.state.SERVICE && this.state.SERVICE.items.length > 0
-											&& <div className="row">
-												<div className="col-md-12">
-													<h6>
-														Services
-													</h6>
+											{this.state.JOB_OFFER && this.state.JOB_OFFER.items.length > 0
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															Job offers
+														</h6>
 
-													<DynamicTable
-														items={this.state.SERVICE.items}
-														pagination={this.state.SERVICE.pagination}
-														changePage={(page) => this.getArticlesByType("SERVICE", page)}
-														buildElement={(a) => (
-															<div className="col-md-6">
-																<Service
-																	info={a}
-																	taxonomies={this.props.taxonomies}
-																/>
-															</div>
-														)}
-													/>
+														{this.state.object_count
+															&& this.state.object_count.article
+															&& this.state.object_count.article["job offer"]
+															&& <Count
+																count={this.state.object_count.article["job offer"]}
+															/>
+														}
+
+														<DynamicTable
+															items={this.state.JOB_OFFER.items}
+															pagination={this.state.JOB_OFFER.pagination}
+															changePage={(page) => this.getArticlesByType("JOB OFFER", page)}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<Job
+																		info={a}
+																		analytics={this.props.analytics}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
 												</div>
-											</div>
-										}
-
-										{this.state.TOOL && this.state.TOOL.items.length > 0
-											&& <div className="row">
-												<div className="col-md-12">
-													<h6>
-														Tools
-													</h6>
-
-													<DynamicTable
-														items={this.state.TOOL.items}
-														pagination={this.state.TOOL.pagination}
-														changePage={(page) => this.getArticlesByType("TOOL", page)}
-														buildElement={(a) => (
-															<div className="col-md-6">
-																<Tool
-																	info={a}
-																	taxonomies={this.props.taxonomies}
-																/>
-															</div>
-														)}
-													/>
-												</div>
-											</div>
-										}
-
-										{this.state.JOB_OFFER && this.state.JOB_OFFER.items.length > 0
-											&& <div className="row">
-												<div className="col-md-12">
-													<h6>
-														Job offers
-													</h6>
-
-													<DynamicTable
-														items={this.state.JOB_OFFER.items}
-														pagination={this.state.JOB_OFFER.pagination}
-														changePage={(page) => this.getArticlesByType("JOB OFFER", page)}
-														buildElement={(a) => (
-															<div className="col-md-6">
-																<Job
-																	info={a}
-																	analytics={this.props.analytics}
-																/>
-															</div>
-														)}
-													/>
-												</div>
-											</div>
-										}
+											}
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						}
 					</div>
 				</div>
 			</div>
