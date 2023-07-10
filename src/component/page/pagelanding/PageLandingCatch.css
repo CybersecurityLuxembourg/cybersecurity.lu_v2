@@ -1,12 +1,12 @@
 
 #PageLandingCatch {
 	position: relative;
-	height: calc(100vh - 100px);
-	max-height: 800px;
+	min-height: calc(100vh - 200px);
 }
 
 #PageLandingCatch .content {
-	padding-top: 8vh;
+	padding-top: 12vh;
+	padding-bottom: 350px;
 }
 
 #PageLandingCatch .title {
@@ -38,14 +38,15 @@
 #PageLandingCatch .skyline {
 	width: 100%;
 	position: absolute;
-	bottom: 10px;
+	bottom: 120px;
 	text-align: center;
 }
 
 #PageLandingCatch .skyline img {
-	width: 100%;
+	width: auto;
 	margin: auto;
 	max-width: 1440px;
+	min-height: 100px;
 }
 
 #PageLandingCatch .alerts {
