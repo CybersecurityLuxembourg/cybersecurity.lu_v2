@@ -1,0 +1,47 @@
+
+#PageEcosystemInitiatives .top-content {
+	margin: 80px 0px;
+}
+
+@media (min-width: 768px) {
+	#PageEcosystemInitiatives .top-content .vertically-centered {
+		justify-content: left !important;
+	}
+
+	#PageEcosystemInitiatives img.logo {
+		height: calc(100% - 100px);
+		width: auto;
+	}
+}
+
+#PageEcosystemInitiatives #PageEcosystemInitiatives-list-content .h8 {
+	margin: 8px 0px;
+}
+
+#PageEcosystemInitiatives #PageEcosystemInitiatives-list-content span.h8 {
+	margin-right: 8px;
+}
+
+#PageEcosystemInitiatives #PageEcosystemInitiatives-list-content input[type='checkbox'] {
+	text-align: left;
+	width: auto;
+}
+
+#PageEcosystemInitiatives .SimpleTable {
+	margin: 40px 0px;
+}
+
+#PageEcosystemInitiatives .filter-box .right-buttons {
+	margin-top: 0px;
+}
+
+#PageEcosystemInitiatives .filter-box .right-buttons button {
+	padding: 2px !important;
+	color: var(--text-neutral-50) !important;
+	text-decoration: underline;
+	font-size: 14px;
+}
+
+#PageEcosystemInitiatives .list-separator {
+	margin-bottom: 48px;
+}
