@@ -1,7 +1,7 @@
 
 .Menu {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 @media (max-width: 480px) {
@@ -11,9 +11,21 @@
 }
 
 .Menu .logo {
-    max-height: 50px;
+    max-height: 120px;
     width: auto;
-    margin-bottom: 24px;
+    margin-bottom: 4px;
+}
+
+.Menu .top-link .Menu-title {
+    font-family: "Open Sans 700" !important;
+    font-size: 14px;
+    line-height: 150%;
+    vertical-align: center;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    margin-right: 24px;
 }
 
 .Menu .top-link .Menu-title {
@@ -224,7 +236,7 @@
     .Menu .top-right-bar {
         position: absolute;
         margin-top: 0px;
-        top: 20px;
+        top: 45px;
         right: 5px;
     }
 

@@ -256,7 +256,7 @@ export default class Menu extends React.Component {
 						<Link to="/">
 							<img
 								className={"logo"}
-								src="/img/ecosystem-logo.jpg"
+								src="/img/logo-cyberlux-full.png"
 								alt="CYBERLUX Logo"
 							/>
 						</Link>
@@ -270,7 +270,7 @@ export default class Menu extends React.Component {
 
 					<div className="split-bar"/>
 
-					<Navbar.Collapse id="basic-navbar-nav">
+					<Navbar.Collapse id="basic-navbar-nav" className="vertically-centered">
 						<Nav className="top-right-bar mr-sm-2 ml-auto">
 							<Nav.Link className="top-link">
 								<Link to="/search">

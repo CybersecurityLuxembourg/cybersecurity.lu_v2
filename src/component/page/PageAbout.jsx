@@ -24,14 +24,12 @@ export default class PageAbout extends React.Component {
 				<div className="top-content">
 					<div className="max-sized-section">
 						<div className="row">
-							<div className="col-md-12">
+							<div className="col-md-6">
 								<Breadcrumb>
 									<Breadcrumb.Item>About us</Breadcrumb.Item>
 									<Breadcrumb.Item><Link to="/about">The initiative</Link></Breadcrumb.Item>
 								</Breadcrumb>
-							</div>
 
-							<div className="col-md-6">
 								<div className="text-content">
 									<div className="h8 blue-text uppercase">The initiative</div>
 
@@ -42,11 +40,13 @@ export default class PageAbout extends React.Component {
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<img
-									className={"logo"}
-									src="/img/ecosystem-logo.jpg"
-									alt="Skyline Luxembourg"
-								/>
+								<div className="vertically-centered">
+									<img
+										className={"logo"}
+										src="/img/logo-cyberlux-full.png"
+										alt="CYBERLUX Logo"
+									/>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -5,6 +5,14 @@
 	margin-bottom: 64px;
 }
 
+#PageAbout .top-content .blue-text {
+	margin-bottom: 12px;
+}
+
+#PageAbout .top-content h4 {
+	margin-bottom: 72px;
+}
+
 #PageAbout img {
 	width: 100%;
 }
