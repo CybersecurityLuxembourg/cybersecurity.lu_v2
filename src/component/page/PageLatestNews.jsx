@@ -55,11 +55,13 @@ export default class PageLatestNews extends React.Component {
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<img
-									className={"logo"}
-									src="/img/Skyline.png"
-									alt="Skyline Luxembourg"
-								/>
+								<div className="vertically-centered">
+									<img
+										className={"logo"}
+										src="/img/Skyline.png"
+										alt="Skyline Luxembourg"
+									/>
+								</div>
 							</div>
 						</div>
 					</div>
