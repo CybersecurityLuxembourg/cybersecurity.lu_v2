@@ -7,6 +7,10 @@
 	margin: 8px 0px;
 }
 
+#PageEcosystemPrivateSector #PageEcosystemPrivateSector-list-content span.h8 {
+	margin-right: 8px;
+}
+
 #PageEcosystemPrivateSector #PageEcosystemPrivateSector-list-content input[type='checkbox'] {
 	text-align: left;
 	width: auto;
@@ -45,4 +49,8 @@
 #PageEcosystemPrivateSector .filter-box .checkbox-chevron {
 	cursor: pointer;
 	margin: 0px 16px 0px 10px;
+}
+
+#PageEcosystemPrivateSector .list-separator {
+	margin-bottom: 48px;
 }

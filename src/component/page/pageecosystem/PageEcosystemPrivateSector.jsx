@@ -283,7 +283,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 						</div>
 
 						<div className="col-md-12">
-							<div className="grey-horizontal-bar"/>
+							<div className="grey-horizontal-bar list-separator"/>
 						</div>
 					</div>
 
@@ -363,7 +363,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 
 						<div className="col-md-8">
 							<span className="h8">
-								Entities found&nbsp;&nbsp;
+								Entities found
 							</span>
 
 							{this.state.serviceProviders

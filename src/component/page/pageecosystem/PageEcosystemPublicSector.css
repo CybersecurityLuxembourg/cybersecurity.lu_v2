@@ -7,6 +7,10 @@
 	margin: 8px 0px;
 }
 
+#PageEcosystemPublicSector #PageEcosystemPublicSector-list-content span.h8 {
+	margin-right: 8px;
+}
+
 #PageEcosystemPublicSector #PageEcosystemPublicSector-list-content input[type='checkbox'] {
 	text-align: left;
 	width: auto;
@@ -25,4 +29,8 @@
 	color: var(--text-neutral-50) !important;
 	text-decoration: underline;
 	font-size: 14px;
+}
+
+#PageEcosystemPublicSector .list-separator {
+	margin-bottom: 48px;
 }

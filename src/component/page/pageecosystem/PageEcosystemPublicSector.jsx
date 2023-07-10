@@ -6,6 +6,7 @@ import { getRequest } from "../../../utils/request.jsx";
 import { getUrlParameter, dictToURI } from "../../../utils/url.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
+import Count from "../../form/Count.jsx";
 import Field from "../../form/Field.jsx";
 import Entity from "../../item/Entity.jsx";
 import SimpleTable from "../../table/SimpleTable.jsx";
@@ -21,7 +22,7 @@ export default class PageEcosystemPublicSector extends React.Component {
 		};
 
 		this.state = {
-			serviceProviders: null,
+			publicEntities: null,
 			initFilters,
 			filters: initFilters,
 		};
@@ -50,7 +51,7 @@ export default class PageEcosystemPublicSector extends React.Component {
 
 			if (entityTypes.length > 0) {
 				this.setState({
-					serviceProviders: null,
+					publicEntities: null,
 				}, () => {
 					const params = {
 						...this.state.filters,
@@ -60,7 +61,7 @@ export default class PageEcosystemPublicSector extends React.Component {
 
 					getRequest.call(this, "public/get_public_entities?" + dictToURI(params), (data) => {
 						this.setState({
-							serviceProviders: data
+							publicEntities: data
 								.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
 						});
 					}, (response) => {
@@ -74,17 +75,17 @@ export default class PageEcosystemPublicSector extends React.Component {
 	}
 
 	buildEntityList() {
-		if (!this.state.serviceProviders) {
+		if (!this.state.publicEntities) {
 			return <Loading height={500}/>;
 		}
 
-		if (this.state.serviceProviders.length === 0) {
+		if (this.state.publicEntities.length === 0) {
 			return <Message height={500} text={"No entity found"}/>;
 		}
 
 		return <SimpleTable
 			numberDisplayed={10}
-			items={this.state.serviceProviders.map((a, i) => [a, i])}
+			items={this.state.publicEntities.map((a, i) => [a, i])}
 			buildElement={(a) => (
 				<div className="col-md-6">
 					<Entity
@@ -205,7 +206,7 @@ export default class PageEcosystemPublicSector extends React.Component {
 						</div>
 
 						<div className="col-md-12">
-							<div className="grey-horizontal-bar"/>
+							<div className="grey-horizontal-bar list-separator"/>
 						</div>
 					</div>
 
@@ -245,7 +246,12 @@ export default class PageEcosystemPublicSector extends React.Component {
 						<div className="col-md-1"/>
 
 						<div className="col-md-8">
-							<div className="h8">Entities found</div>
+							<span className="h8">Entities found</span>
+
+							{this.state.publicEntities
+								&& this.state.publicEntities.length > 0
+								&& <Count count={this.state.publicEntities.length}/>
+							}
 
 							<div className="row">
 								{this.buildEntityList()}
