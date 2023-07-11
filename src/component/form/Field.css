@@ -29,3 +29,10 @@
 .Field .chips {
 	width: 100%;
 }
+
+.Field input[type='checkbox'] {
+	margin-right: 4px;
+	text-align: left;
+	width: auto;
+	transform : scale(1.3);
+}
