@@ -38,6 +38,15 @@ export default class PageSearch extends React.Component {
 			SERVICE: null,
 			TOOL: null,
 			JOB_OFFER: null,
+
+			show_options: {
+				entity: true,
+				news: true,
+				event: true,
+				service: true,
+				tool: true,
+				jobOffer: true,
+			},
 		};
 	}
 
@@ -61,7 +70,7 @@ export default class PageSearch extends React.Component {
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
 			const filters = {
 				name: this.state.searchValue,
-				include_taxonomy_categories: ["SERVICE GROUP"],
+				include_taxonomy_categories: ["SERVICE GROUP", "LEGAL FRAMEWORK"],
 			};
 
 			getRequest.call(this, "public/get_public_object_count?"
@@ -219,12 +228,12 @@ export default class PageSearch extends React.Component {
 									<div className="row">
 										<div className="col-md-3">
 											<div className="box filter-box">
-												<div className="row">
-													<div className="col-md-6">
+												<div className="row spaced-row">
+													<div className="col-md-7">
 														<h6 className="blue-text">Filter by</h6>
 													</div>
 
-													<div className="col-md-6">
+													<div className="col-md-5">
 														<div className="right-buttons">
 															<button
 																className="link small"
@@ -241,48 +250,135 @@ export default class PageSearch extends React.Component {
 															CATEGORIES
 														</div>
 
-														<Field
-															type="checkbox"
-															checkBoxLabel="Entities"
-															value={this.state.filters.corebusiness_only}
-															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-															hideLabel={true}
-														/>
-														<Field
-															type="checkbox"
-															checkBoxLabel="News"
-															value={this.state.filters.corebusiness_only}
-															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-															hideLabel={true}
-														/>
-														<Field
-															type="checkbox"
-															checkBoxLabel="Events"
-															value={this.state.filters.corebusiness_only}
-															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-															hideLabel={true}
-														/>
-														<Field
-															type="checkbox"
-															checkBoxLabel="Services"
-															value={this.state.filters.corebusiness_only}
-															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-															hideLabel={true}
-														/>
-														<Field
-															type="checkbox"
-															checkBoxLabel="Tools"
-															value={this.state.filters.corebusiness_only}
-															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-															hideLabel={true}
-														/>
-														<Field
-															type="checkbox"
-															checkBoxLabel="Job offers"
-															value={this.state.filters.corebusiness_only}
-															onChange={() => this.modifyFilters("corebusiness_only", !this.state.filters.corebusiness_only)}
-															hideLabel={true}
-														/>
+														{this.state.object_count?.entity?.total > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="Entities"
+																	value={this.state.show_options.entity}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			entity: !this.state.show_options.entity,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.entity.total}
+																/>
+															</div>
+														}
+
+														{this.state.object_count?.article?.news > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="News"
+																	value={this.state.show_options.news}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			news: !this.state.show_options.news,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.article.news}
+																/>
+															</div>
+														}
+
+														{this.state.object_count?.article?.event > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="Events"
+																	value={this.state.show_options.event}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			event: !this.state.show_options.event,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.article.event}
+																/>
+															</div>
+														}
+
+														{this.state.object_count?.article?.service > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="Services"
+																	value={this.state.show_options.service}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			service: !this.state.show_options.service,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.article.service}
+																/>
+															</div>
+														}
+
+														{this.state.object_count?.article?.tool > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="Tools"
+																	value={this.state.show_options.tool}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			tool: !this.state.show_options.tool,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.article.tool}
+																/>
+															</div>
+														}
+
+														{this.state.object_count?.article?.["job offer"] > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="Job offers"
+																	value={this.state.show_options.event}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			event: !this.state.show_options.event,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.article["job offer"]}
+																/>
+															</div>
+														}
+													</div>
+												</div>
+
+												<div className="row">
+													<div className="col-md-12">
+														<div className="grey-horizontal-bar"/>
+
+														<div className="h8">
+															TOPIC
+														</div>
 													</div>
 												</div>
 											</div>
@@ -319,6 +415,7 @@ export default class PageSearch extends React.Component {
 											}
 
 											{this.state.entities && this.state.entities.length > 0
+												&& this.state.show_options.entity
 												&& <div className="row">
 													<div className="col-md-12">
 														<h6>
@@ -348,6 +445,7 @@ export default class PageSearch extends React.Component {
 											}
 
 											{this.state.NEWS && this.state.NEWS.items.length > 0
+												&& this.state.show_options.news
 												&& <div className="row">
 													<div className="col-md-12">
 														<h6>
@@ -380,6 +478,7 @@ export default class PageSearch extends React.Component {
 											}
 
 											{this.state.EVENT && this.state.EVENT.items.length > 0
+												&& this.state.show_options.event
 												&& <div className="row">
 													<div className="col-md-12">
 														<h6>
@@ -412,6 +511,7 @@ export default class PageSearch extends React.Component {
 											}
 
 											{this.state.SERVICE && this.state.SERVICE.items.length > 0
+												&& this.state.show_options.service
 												&& <div className="row">
 													<div className="col-md-12">
 														<h6>
@@ -444,6 +544,7 @@ export default class PageSearch extends React.Component {
 											}
 
 											{this.state.TOOL && this.state.TOOL.items.length > 0
+												&& this.state.show_options.tool
 												&& <div className="row">
 													<div className="col-md-12">
 														<h6>
@@ -476,6 +577,7 @@ export default class PageSearch extends React.Component {
 											}
 
 											{this.state.JOB_OFFER && this.state.JOB_OFFER.items.length > 0
+												&& this.state.show_options.jobOffer
 												&& <div className="row">
 													<div className="col-md-12">
 														<h6>

@@ -42,10 +42,25 @@
 	font-size: 14px;
 }
 
-#PageSearch input[type='checkbox'] {
+#PageSearch .filter-box .filter-row {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+#PageSearch .filter-box .filter-row input[type='checkbox'] {
 	text-align: left;
 	width: auto;
 	transform : scale(1.3);
+}
+
+#PageSearch .filter-box .Field {
+	margin: 4px 0px 0px 0px;
+}
+
+#PageSearch .filter-box .Count {
+	margin: 0px;
 }
 
 #PageSearch .DynamicTable,
