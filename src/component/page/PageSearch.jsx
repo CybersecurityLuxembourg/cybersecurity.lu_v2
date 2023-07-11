@@ -239,7 +239,8 @@ export default class PageSearch extends React.Component {
 
 									<div className="col-md-3">
 										<button
-											onClick={() => this.search()}>
+											onClick={() => this.search()}
+											disabled={this.state.searchValue.length < 3}>
 											Search &nbsp;<i className="fas fa-arrow-right"/>
 										</button>
 									</div>
