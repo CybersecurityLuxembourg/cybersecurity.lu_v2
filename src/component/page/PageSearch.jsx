@@ -20,15 +20,13 @@ export default class PageSearch extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const initFilters = {};
-
 		this.state = {
-			articleTypes: ["NEWS", "EVENT", "TOOL", "JOB OFFER", "SERVICE"],
+			articleTypes: ["NEWS", "EVENT", "TOOL", "JOB OFFER", "SERVICE", "RESOURCE"],
+			taxonomyCategories: ["SERVICE GROUP", "LEGAL FRAMEWORK", "ARTICLE TYPE"],
 
 			searchValue: getUrlParameter("r") ? decodeURI(getUrlParameter("r")) : "",
+			selectedTaxonomyValues: [],
 			launchedSearch: false,
-			initFilters,
-			filters: initFilters,
 
 			object_count: null,
 
@@ -38,6 +36,7 @@ export default class PageSearch extends React.Component {
 			SERVICE: null,
 			TOOL: null,
 			JOB_OFFER: null,
+			RESOURCE: null,
 
 			show_options: {
 				entity: true,
@@ -46,12 +45,19 @@ export default class PageSearch extends React.Component {
 				service: true,
 				tool: true,
 				jobOffer: true,
+				resource: true,
 			},
 		};
 	}
 
 	componentDidMount() {
 		this.search();
+	}
+
+	componentDidUpdate(_, prevState) {
+		if (prevState.selectedTaxonomyValues !== this.state.selectedTaxonomyValues) {
+			this.search();
+		}
 	}
 
 	search() {
@@ -70,7 +76,8 @@ export default class PageSearch extends React.Component {
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
 			const filters = {
 				name: this.state.searchValue,
-				include_taxonomy_categories: ["SERVICE GROUP", "LEGAL FRAMEWORK"],
+				taxonomy_values: this.state.selectedTaxonomyValues,
+				include_taxonomy_categories: this.state.taxonomyCategories,
 			};
 
 			getRequest.call(this, "public/get_public_object_count?"
@@ -94,6 +101,7 @@ export default class PageSearch extends React.Component {
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
 			const filters = {
 				name: this.state.searchValue,
+				taxonomy_values: this.state.selectedTaxonomyValues,
 			};
 
 			getRequest.call(this, "public/get_public_entities?"
@@ -123,6 +131,7 @@ export default class PageSearch extends React.Component {
 		if (this.state.searchValue && this.state.searchValue.length > 2) {
 			const filters = {
 				title: this.state.searchValue,
+				taxonomy_values: this.state.selectedTaxonomyValues,
 				include_tags: "true",
 				type,
 				page,
@@ -152,7 +161,8 @@ export default class PageSearch extends React.Component {
 			&& this.state.EVENT
 			&& this.state.TOOL
 			&& this.state.JOB_OFFER
-			&& this.state.SERVICE;
+			&& this.state.SERVICE
+			&& this.state.RESOURCE;
 	}
 
 	static trackSearch(k) {
@@ -162,7 +172,45 @@ export default class PageSearch extends React.Component {
 	}
 
 	clearFilters() {
-		this.setState({ filters: this.state.initFilters });
+		this.setState({
+			searchValue: "",
+			selectedTaxonomyValues: [],
+		}, () => {
+			this.search();
+		});
+	}
+
+	isTaxonomyValueSelected(category, value) {
+		if (!this.props.taxonomies?.taxonomy_values) {
+			return false;
+		}
+
+		const values = this.props.taxonomies.taxonomy_values
+			.filter((v) => v.category === category)
+			.filter((v) => v.name === value);
+
+		if (values.length !== 1) {
+			return false;
+		}
+
+		return this.state.selectedTaxonomyValues
+			.indexOf(this.getIdOfTaxonomyValue(category, value)) >= 0;
+	}
+
+	getIdOfTaxonomyValue(category, value) {
+		if (!this.props.taxonomies?.taxonomy_values) {
+			return false;
+		}
+
+		const values = this.props.taxonomies.taxonomy_values
+			.filter((v) => v.category === category)
+			.filter((v) => v.name === value);
+
+		if (values.length !== 1) {
+			return false;
+		}
+
+		return values[0].id;
 	}
 
 	render() {
@@ -369,6 +417,26 @@ export default class PageSearch extends React.Component {
 																/>
 															</div>
 														}
+
+														{this.state.object_count?.article?.resource > 0
+															&& <div className="filter-row">
+																<Field
+																	type="checkbox"
+																	checkBoxLabel="Resource"
+																	value={this.state.show_options.resource}
+																	onChange={() => this.setState({
+																		show_options: {
+																			...this.state.show_options,
+																			resource: !this.state.show_options.resource,
+																		},
+																	})}
+																	hideLabel={true}
+																/>
+																<Count
+																	count={this.state.object_count.article.resource}
+																/>
+															</div>
+														}
 													</div>
 												</div>
 
@@ -379,6 +447,37 @@ export default class PageSearch extends React.Component {
 														<div className="h8">
 															TOPIC
 														</div>
+
+														{this.state.object_count?.taxonomy
+															&& Object.keys(this.state.object_count?.taxonomy).map((t) => (
+																Object.keys(this.state.object_count.taxonomy[t]).map((v) => {
+																	if (this.state.object_count.taxonomy[t][v] > 0) {
+																		return <div className="filter-row" key={v}>
+																			<Field
+																				type="checkbox"
+																				checkBoxLabel={v}
+																				value={this.isTaxonomyValueSelected(t, v)}
+																				onChange={(o) => this.setState({
+																					selectedTaxonomyValues:
+																						o
+																							? this.state.selectedTaxonomyValues
+																								.concat([this.getIdOfTaxonomyValue(t, v)])
+																							: this.state.selectedTaxonomyValues
+																								.filter((i) => i
+																									!== this.getIdOfTaxonomyValue(t, v)),
+																				})}
+																				hideLabel={true}
+																			/>
+																			<Count
+																				count={this.state.object_count.taxonomy[t][v]}
+																			/>
+																		</div>;
+																	}
+
+																	return "";
+																})
+															))
+														}
 													</div>
 												</div>
 											</div>

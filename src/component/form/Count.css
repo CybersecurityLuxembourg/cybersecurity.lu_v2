@@ -3,6 +3,7 @@
     font-family: "Open Sans 600";
     display: inline-block;
     padding: 4px 12px;
+    height: 32px;
     margin: 8px 0px;
     border-radius: 2000px;
     background: var(--primary-blue-10, #E5F5FF);
