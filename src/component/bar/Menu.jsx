@@ -107,7 +107,9 @@ export default class Menu extends React.Component {
 						</NavDropdown.Item>
 						<a
 							className="dropdown-item"
-							href="https://newsletter.cybersecurity-luxembourg.com">
+							href="https://newsletter.cybersecurity-luxembourg.com"
+							target="_blank"
+							rel="noreferrer">
 							<div className="Menu-title">Our Newsletter</div>
 						</a>
 					</div>
