@@ -175,6 +175,7 @@ export default class PageSearch extends React.Component {
 		this.setState({
 			searchValue: "",
 			selectedTaxonomyValues: [],
+			launchedSearch: false,
 		}, () => {
 			this.search();
 		});
