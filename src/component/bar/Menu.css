@@ -72,6 +72,10 @@
     display: block !important;
 }
 
+.Menu .main-navbar-nav {
+    margin-left: 5px !important;
+}
+
 .Menu .main-navbar-nav .Menu-title {
     color: var(--text-neutral-50);
 }
