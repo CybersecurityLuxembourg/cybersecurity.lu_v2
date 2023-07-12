@@ -266,7 +266,7 @@ export default class Menu extends React.Component {
 
 					<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
-					<Navbar.Collapse id="basic-navbar-nav">
+					<Navbar.Collapse>
 						{this.getNavBar()}
 					</Navbar.Collapse>
 
