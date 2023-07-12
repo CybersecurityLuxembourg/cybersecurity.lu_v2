@@ -23,6 +23,14 @@ export default class PageEcosystem extends React.Component {
 		this.props.history.push("?tab=" + m);
 	}
 
+	componentDidUpdate() {
+		if (getUrlParameter("tab")
+			&& this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0
+			&& getUrlParameter("tab") !== this.state.selectedMenu) {
+			this.setState({ selectedMenu: getUrlParameter("tab") });
+		}
+	}
+
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
