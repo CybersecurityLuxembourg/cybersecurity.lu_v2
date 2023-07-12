@@ -10,11 +10,8 @@
 }
 
 #PageLandingCatch .title {
-	font-family: "Open Sans 800";
-	color: var(--text-neutral-50);
 	margin-bottom: 16px;
 	font-style: normal;
-	font-size: 48px;
 	line-height: 120%;
 }
 
