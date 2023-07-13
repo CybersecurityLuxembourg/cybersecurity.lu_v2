@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import SectionEvents from "../section/SectionEvents.jsx";
 import SectionCSWL from "../section/SectionCSWL.jsx";
-import { getPrivateAppURL } from "../../utils/env.jsx";
 import { getUrlParameter } from "../../utils/url.jsx";
 
 export default class PageUpcomingEvents extends React.Component {
@@ -48,7 +47,7 @@ export default class PageUpcomingEvents extends React.Component {
 									className="transparent"
 									onClick={() => this.goToDiv("SectionEvents")}
 								>
-									Set all upcoming events
+									See all upcoming events
 								</button>
 							</div>
 
