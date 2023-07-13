@@ -40,23 +40,18 @@ export default class Footer extends React.Component {
 							<div className="title">Your portal</div>
 
 							<div className="link">
-								<Link to="/ecosystem">
-									The Ecosystem
-								</Link>
-							</div>
-							<div className="link">
 								<Link to="/news">
-									News & Events
+									Latest News
 								</Link>
 							</div>
 							<div className="link">
-								<Link to="/education">
-									Skills & Jobs
+								<Link to="/events">
+									Upcoming Events
 								</Link>
 							</div>
 							<div className="link">
-								<Link to="/best-practice">
-									Resources & Support
+								<Link to="/jobs">
+									Jobs
 								</Link>
 							</div>
 							<div className="link">
