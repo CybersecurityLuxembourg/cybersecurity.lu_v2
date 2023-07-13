@@ -70,7 +70,7 @@ export default class PageUpcomingEvents extends React.Component {
 							<div className="col-md-12">
 								<SectionEvents
 									taxonomies={this.props.taxonomies}
-									numberOfArticle={6}
+									numberOfArticles={6}
 									showPagination={true}
 									{...this.props}
 								/>
