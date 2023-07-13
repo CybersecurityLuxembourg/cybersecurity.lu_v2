@@ -24,11 +24,6 @@
 	align-items: center;
 }
 
-#PageAbout p > b {
-	display: block;
-	margin: 32px 0px 48px 0px;
-}
-
 #PageAbout h5:not(:first-child) {
 	margin: 48px 0px 32px 0px;
 }
