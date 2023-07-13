@@ -24,7 +24,7 @@ export default class PageContact extends React.Component {
 								title={"Email address"}
 								content={<div className="row">
 									<div className="col-md-12">
-										<div>info@cybersecurity-luxembourg.com</div>
+										<div>info@cybersecurity.lu</div>
 									</div>
 								</div>}
 							/>
