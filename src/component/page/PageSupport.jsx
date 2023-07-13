@@ -19,7 +19,7 @@ export default class PageSupport extends React.Component {
 							<div className="immediate-support">
 								<div className="row">
 									<div className="col-md-12">
-										<h2>Immediat support</h2>
+										<h2>Immediate support</h2>
 									</div>
 
 									<div className="offset-md-2 col-md-8">
