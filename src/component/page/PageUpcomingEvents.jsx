@@ -45,13 +45,6 @@ export default class PageUpcomingEvents extends React.Component {
 								</div>
 
 								<button
-									onClick={() => window.open(
-										getPrivateAppURL(),
-										"_blank",
-									)}>
-									Get involved
-								</button>
-								<button
 									className="transparent"
 									onClick={() => this.goToDiv("SectionEvents")}
 								>
