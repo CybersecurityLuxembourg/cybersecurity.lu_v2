@@ -84,10 +84,10 @@ export default class PageEcosystemInitiatives extends React.Component {
 		}
 
 		return <SimpleTable
-			numberDisplayed={10}
+			numberDisplayed={12}
 			items={this.state.serviceProviders.map((a, i) => [a, i])}
 			buildElement={(a) => (
-				<div className="col-md-6">
+				<div className="col-md-4">
 					<Entity
 						info={a}
 					/>
@@ -200,7 +200,7 @@ export default class PageEcosystemInitiatives extends React.Component {
 				<div id="PageEcosystemInitiatives-list-content" className="list-content">
 					<div className="row">
 						<div className="col-md-6">
-							<h6>Clubs, Associations & Initiatives entities</h6>
+							<h6>Clubs, Associations & Initiatives</h6>
 						</div>
 
 						<div className="col-md-6">
@@ -217,7 +217,7 @@ export default class PageEcosystemInitiatives extends React.Component {
 					</div>
 
 					<div className="row">
-						<div className="col-md-3">
+						{/* <div className="col-md-3">
 							<div className="box filter-box">
 								<div className="row">
 									<div className="col-md-6">
@@ -251,7 +251,9 @@ export default class PageEcosystemInitiatives extends React.Component {
 
 						<div className="col-md-1"/>
 
-						<div className="col-md-8">
+						<div className="col-md-8"> */}
+
+						<div className="col-md-12">
 							<span className="h8">Entities found</span>
 
 							{this.state.serviceProviders
