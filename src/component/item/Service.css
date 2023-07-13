@@ -33,6 +33,7 @@
 .Service .NoImage {
     border-radius: 12px;
     height: 214px !important;
+    object-fit: cover;
 }
 
 .Service .card-date {

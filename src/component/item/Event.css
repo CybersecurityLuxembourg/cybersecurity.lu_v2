@@ -33,6 +33,7 @@
 .Event .NoImage {
     border-radius: 12px;
     height: 214px !important;
+    object-fit: cover;
 }
 
 .Event .card-date {
