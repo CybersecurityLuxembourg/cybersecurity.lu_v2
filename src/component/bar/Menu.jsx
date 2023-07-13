@@ -63,12 +63,12 @@ export default class Menu extends React.Component {
 						</NavDropdown.Item>
 						<div className="sub-box">
 							<NavDropdown.Item>
-								<Link to="/startups">
+								<Link to="/ecosystem?tab=private-sector&startup_only=true">
 									<div className="Menu-title">Startups</div>
 								</Link>
 							</NavDropdown.Item>
 							<NavDropdown.Item>
-								<Link to="/pc-doctors">
+								<Link to="/ecosystem?tab=private-sector&pcdoctor_only=true">
 									<div className="Menu-title">PC Doctors</div>
 								</Link>
 							</NavDropdown.Item>
