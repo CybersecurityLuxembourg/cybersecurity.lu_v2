@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { getUrlParameter, dictToURI } from "../../../utils/url.jsx";
-import { getPrivateAppURL } from "../../../utils/env.jsx";
+import { getPrivateAppURL, getApiURL } from "../../../utils/env.jsx";
 import Loading from "../../box/Loading.jsx";
 import Message from "../../box/Message.jsx";
 import Field from "../../form/Field.jsx";
@@ -348,8 +348,53 @@ export default class PageEcosystemPrivateSector extends React.Component {
 											CLASSIFICATION
 
 											<Dialog
-												trigger={<div>ddd</div>}
-												content={<div/>}
+												trigger={
+													<i className="fas fa-info-circle classification-trigger"/>
+												}
+												content={<div className="row">
+													<div className="col-md-12">
+														<h5>Learn more about the classification</h5>
+													</div>
+
+													<div className="col-md-5">
+														<p>Private companies are classified according to the ECSO
+														Cybersecurity Market Radar, which is based on the NIST
+														Cybersecurity Framework.</p>
+
+														<p>The <a
+															href={getApiURL()
+																+ "public/get_public_document/ECSO-cybersecurity-market-radar-brochure_20190911.pdf"}
+															rel="noreferrer"
+															target="_blank">ECSO Cybersecurity Market Radar</a> serves as
+														a comprehensive visualisation tool of
+														the European cybersecurity market.</p>
+
+														<p>The ECSO Radar indicates 5 capabilities that make the cybersecurity
+														value chain:</p>
+
+														<ul>
+															<li>identify,</li>
+															<li>protect,</li>
+															<li>detect,</li>
+															<li>respond,</li>
+															<li>recover.</li>
+														</ul>
+
+														<p>Each link in the value chain is then divided into groups of
+														services and products that are respectively offered by the member
+														companies of the ecosystem.</p>
+													</div>
+
+													<div className="col-md-1"/>
+
+													<div className="col-md-6">
+														<div className="vertically-centered">
+															<img
+																src="img/cybersecurity-ecso-taxonomy.png"
+															/>
+														</div>
+													</div>
+												</div>}
 											/>
 										</div>
 

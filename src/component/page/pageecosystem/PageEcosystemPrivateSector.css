@@ -49,3 +49,10 @@
 #PageEcosystemPrivateSector .list-separator {
 	margin-bottom: 48px;
 }
+
+#PageEcosystemPrivateSector .trigger:has(.classification-trigger) {
+	margin-left: 4px;
+	display: inline-block;
+	color: var(--primary-blue-80);
+	cursor: pointer;
+}

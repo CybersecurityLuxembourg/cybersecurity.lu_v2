@@ -20,13 +20,13 @@ export default class Dialog extends React.Component {
 			>
 				{(close) => (
 					<div className={"wrapper"}>
-						{this.props.text}
-						<button
+						{this.props.content}
+						<div
 							className="close-button"
 							data-hover="Close"
 							onClick={close}>
-							<i className="far fa-check-circle"/>
-						</button>
+							<i className="fas fa-times"/>
+						</div>
 					</div>
 				)}
 			</Popup>

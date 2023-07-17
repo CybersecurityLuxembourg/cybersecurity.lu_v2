@@ -14,7 +14,7 @@
 
 .Dialog-overlay .popup-content {
 	max-height: 100%;
-	width: 60% !important;
+	width: 80% !important;
 	max-width: 1200px;
 	padding: 30px;
 	animation: fadeIn ease .5s;
@@ -25,13 +25,27 @@
 	z-index: 1080 !important;
 	background: var(--base-white, #FFF);
 	border-radius: 12px;
-
 	line-height: 1.5 !important;
+	overflow: auto;
 }
 
-.Dialog .close-button {
-	position: relative !important;
+.Dialog-overlay .wrapper {
+	position: relative;
+}
+
+.Dialog-overlay .close-button {
+	position: absolute !important;
 	width: auto !important;
-	bottom: 0 !important;
+	top: 0 !important;
 	right: 0 !important;
+}
+
+.Dialog-overlay .close-button i {
+	color: var(--accent-red);
+	font-size: 24px;
+	padding: 8px;
+}
+
+.Dialog-overlay .popup-content h5 {
+	width: calc(100% - 50px);
 }
