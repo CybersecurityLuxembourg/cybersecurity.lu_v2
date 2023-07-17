@@ -20,6 +20,11 @@ export default class PageUpcomingEvents extends React.Component {
 		elmnt.scrollIntoView();
 	}
 
+	// eslint-disable-next-line class-methods-use-this
+	isOnUpcomingTab() {
+		return getUrlParameter("tab") !== "past";
+	}
+
 	render() {
 		return (
 			<div id={"PageUpcomingEvents"}>
@@ -29,17 +34,25 @@ export default class PageUpcomingEvents extends React.Component {
 							<div className="col-md-6">
 								<Breadcrumb>
 									<Breadcrumb.Item><Link to="/">News & Events</Link></Breadcrumb.Item>
-									{getUrlParameter("tab") !== "past"
+									{this.isOnUpcomingTab()
 										? <Breadcrumb.Item><Link to="/events">Upcoming events</Link></Breadcrumb.Item>
 										: <Breadcrumb.Item><Link to="/events?tab=past">Past events</Link></Breadcrumb.Item>
 									}
 								</Breadcrumb>
 
 								<div className="text-content">
-									<h4>Upcoming events</h4>
+									<h4>
+										{this.isOnUpcomingTab()
+											? "Upcoming events"
+											: "Past events"
+										}
+									</h4>
 
 									<p>
-										Join the upcoming events on cybersecurity
+										{this.isOnUpcomingTab()
+											? "Join the upcoming events on cybersecurity"
+											: "Consult all the past events on cybersecurity"
+										}
 									</p>
 								</div>
 
@@ -47,7 +60,10 @@ export default class PageUpcomingEvents extends React.Component {
 									className="transparent"
 									onClick={() => this.goToDiv("SectionEvents")}
 								>
-									See all upcoming events
+									{this.isOnUpcomingTab()
+										? "See all upcoming events"
+										: "See all past events"
+									}
 								</button>
 							</div>
 
