@@ -207,9 +207,19 @@ class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 
-						<Route path="/about" render={() => <PageAbout/>}/>
-						<Route path="/contact" render={() => <PageContact/>}/>
-						<Route path="/support" render={() => <PageSupport/>}/>
+						<Route path="/about" render={(props) => <PageAbout
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/contact" render={(props) => <PageContact
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/support" render={(props) => <PageSupport
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+
 						<Route path="/search" render={(props) => <PageSearch
 							taxonomies={this.state.taxonomies}
 							{...props}

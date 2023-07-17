@@ -4,11 +4,25 @@
 	padding: 40px 16px;
 	background: var(--linear-red);
 	border-radius: 24px;
-	text-align: center;
 }
+
+#PageSupport .immediate-support p {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
 
 #PageSupport .immediate-support h2 {
 	color: var(--secondary-red-80) !important;
+	text-align: center;
+}
+
+#PageSupport .immediate-support .h8 {
+	margin-bottom: 8px;
+}
+
+#PageSupport .immediate-support button {
+	width: 100%;
 }
 
 #PageSupport .report {
