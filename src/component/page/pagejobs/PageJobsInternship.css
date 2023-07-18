@@ -1,5 +1,30 @@
 
-#PageJobsInternship .education-section {
+#PageJobsInternship .training-section {
 	border-top: 1px solid var(--text-neutral-10);
-	padding: 40px 0px 48px 0px;
+	padding: 40px 0px 24px 0px;
+}
+
+#PageJobsInternship .top-section input {
+	width: 300px;
+	max-width: 100%;
+}
+
+#PageJobsInternship .title-section {
+	padding-top: 48px;
+	margin-bottom: 32px;
+}
+
+#PageJobsInternship .title-section img {
+	max-height: 100px;
+	width: auto;
+}
+
+#PageJobsInternship .title-section > .row > .col-md-12 > div {
+	display: inline-block;
+	height: 100%;
+	font-family: "Open Sans 700";
+	font-size: 20px;
+	line-height: 150%;
+	margin-right: 24px;
+	color: var(--text-neutral-50);
 }

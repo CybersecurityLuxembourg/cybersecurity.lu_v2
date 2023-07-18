@@ -26,43 +26,58 @@ export default class PageJobsJobs extends React.Component {
 		this.fetchJobs();
 	}
 
+	componentDidUpdate(prevProps) {
+		if (!prevProps.taxonomies && this.props.taxonomies) {
+			this.fetchMoovijob();
+			this.fetchJobs();
+		}
+	}
+
 	fetchMoovijob() {
-		getRequest.call(this, "public/get_public_entities?name=Moovijob", (data) => {
-			if (data.length === 0) {
-				nm.warning("Moovijob entity not found");
-			} else if (data.length > 1) {
-				nm.warning("Too much entities found for Moovijob");
-			} else {
-				this.setState({
-					entity: data[0],
-				});
-			}
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		if (this.props.taxonomies) {
+			getRequest.call(this, "public/get_public_entities?name=Moovijob", (data) => {
+				if (data.length === 0) {
+					nm.warning("Moovijob entity not found");
+				} else if (data.length > 1) {
+					nm.warning("Too much entities found for Moovijob");
+				} else {
+					this.setState({
+						entity: data[0],
+					});
+				}
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
+			});
+		}
 	}
 
 	fetchJobs(page) {
-		const params = {
-			type: "JOB OFFER",
-			title: this.state.searchValue,
-			page: page || 1,
-			per_page: 9,
-			include_tags: true,
-		};
+		if (this.props.taxonomies) {
+			const params = {
+				type: "JOB OFFER",
+				title: this.state.searchValue,
+				ignored_taxonomy_values: this.props.taxonomies.taxonomy_values
+					.filter((v) => v.category === "JOB OFFER CATEGORY")
+					.filter((v) => v.name === "INTERNSHIP")
+					.map((v) => v.id),
+				page: page || 1,
+				per_page: 9,
+				include_tags: true,
+			};
 
-		getRequest.call(this, "public/get_public_articles?"
-			+ dictToURI(params), (data) => {
-			this.setState({
-				jobs: data,
+			getRequest.call(this, "public/get_public_articles?"
+				+ dictToURI(params), (data) => {
+				this.setState({
+					jobs: data,
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
 			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		}
 	}
 
 	buildContent() {
@@ -71,7 +86,7 @@ export default class PageJobsJobs extends React.Component {
 		}
 
 		if (this.state.jobs.pagination.total === 0) {
-			return <Message height={500} text={"No jobs found"}/>;
+			return <Message height={500} text={"No job found"}/>;
 		}
 
 		return <div className="education-section">
