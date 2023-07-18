@@ -70,7 +70,20 @@ export default class PageSupport extends React.Component {
 			this.state.entityPerQuestion[this.state.validatedValue]
 				.map((v) => this.fetchEntities(v)),
 		).then((results) => {
-			console.log(results);
+			console.log(results, results.filter((r) => r.length === 0));
+			if (results.filter((r) => r === null).length > 0) {
+				return;
+			}
+
+			if (results.filter((r) => r.length === 0).length > 0) {
+				nm.warning("Some of the result has not been found. Please contact administrators");
+			}
+
+			if (results.filter((r) => r.length > 1).length > 0) {
+				nm.warning("Too much results found. Please contact administrators");
+				return;
+			}
+
 			this.setState({ entities: results.flat() });
 		});
 	}
@@ -88,7 +101,21 @@ export default class PageSupport extends React.Component {
 			this.state.articlePerQuestion[this.state.validatedValue]
 				.map((v) => this.fetchArticles(v)),
 		).then((results) => {
-			this.setState({ articles: results.map((r) => r.items).flat() });
+			console.log(results);
+			if (results.filter((r) => r === null).length > 0) {
+				return;
+			}
+
+			if (results.filter((r) => r.length === 0).length > 0) {
+				nm.warning("Some of the result has not been found. Please contact administrators");
+			}
+
+			if (results.filter((r) => r.length > 1).length > 0) {
+				nm.warning("Too much results found. Please contact administrators");
+				return;
+			}
+
+			this.setState({ articles: results.flat() });
 		});
 	}
 
@@ -109,7 +136,7 @@ export default class PageSupport extends React.Component {
 	fetchArticles(title) {
 		return new Promise((resolve) => {
 			getRequest.call(this, "public/get_public_articles?type=SERVICE,TOOL&title=" + title, (data) => {
-				resolve(data);
+				resolve(data.items);
 			}, (response) => {
 				resolve(null);
 				nm.warning(response.statusText);
