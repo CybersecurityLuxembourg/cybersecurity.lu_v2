@@ -21,6 +21,10 @@
 	margin-bottom: 8px;
 }
 
+#PageSupport .immediate-support .Field div[class$="-singleValue"] {
+	color: var(--primary-blue-80) !important;
+}
+
 #PageSupport .immediate-support button {
 	width: 100%;
 }
