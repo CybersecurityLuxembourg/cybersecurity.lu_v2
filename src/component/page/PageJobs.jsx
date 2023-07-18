@@ -19,15 +19,26 @@ export default class PageJobs extends React.Component {
 	}
 
 	componentDidMount() {
-		if (getUrlParameter("tab") !== null && this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
+		if (getUrlParameter("tab") !== null
+			&& this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
 			this.setState({ selectedMenu: getUrlParameter("tab") });
 		}
 	}
 
 	componentDidUpdate() {
 		if (this.state.selectedMenu !== getUrlParameter("tab")
-			&& this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
-			this.setState({ selectedMenu: getUrlParameter("tab") });
+			&& getUrlParameter("tab")) {
+			if (this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
+				this.setState({ selectedMenu: getUrlParameter("tab") });
+			} else {
+				this.props.history.push("?");
+				this.setState({ selectedMenu: "jobs" });
+			}
+		}
+
+		if (this.state.selectedMenu !== "jobs"
+			&& !getUrlParameter("tab")) {
+			this.setState({ selectedMenu: "jobs" });
 		}
 	}
 
