@@ -1,7 +1,13 @@
 import React from "react";
 import "./PageSupport.css";
+import { NotificationManager as nm } from "react-notifications";
 import Field from "../form/Field.jsx";
 import Entity from "../item/Entity.jsx";
+import Service from "../item/Service.jsx";
+import Tool from "../item/Tool.jsx";
+import Loading from "../box/Loading.jsx";
+import Message from "../box/Message.jsx";
+import { getRequest } from "../../utils/request.jsx";
 
 export default class PageSupport extends React.Component {
 	constructor(props) {
@@ -10,41 +16,169 @@ export default class PageSupport extends React.Component {
 		this.state = {
 			selectedValue: 0,
 			validatedValue: null,
+
+			entities: null,
+			articles: null,
+
+			entityPerQuestion: {
+				0: ["(NC3)", "BEE SECURE"],
+				1: ["(CIRCL)"],
+				2: [],
+				3: ["SPAMBEE"],
+				4: [],
+				5: ["(CNPD)"],
+				6: ["(ILR)"],
+				7: ["(LHC)"],
+			},
+			articlePerQuestion: {
+				0: [],
+				1: [],
+				2: ["URL Abuse", "Pandora"],
+				3: [],
+				4: ["BEE SECURE STOPLINE"],
+				5: [],
+				6: [],
+				7: [],
+			},
 		};
 	}
 
 	componentDidUpdate(_, prevState) {
 		if (this.state.validatedValue !== prevState.validatedValue) {
 			this.props.history.push("?emergency=" + this.state.validatedValue);
+
+			this.setState({
+				entities: null,
+				articles: null,
+			}, () => {
+				this.fetchAllEntities();
+				this.fetchAllArticles();
+			});
 		}
 	}
 
-	buildResult() {
-		switch (this.state.validatedValue) {
-		case 0:
-			return <Entity
-				info={{
-					name: "CIRCL",
-					website: "https://circl.lu",
-				}}
-			/>;
-		case 1:
-			return "1";
-		case 2:
-			return "2";
-		case 3:
-			return "3";
-		case 4:
-			return "4";
-		case 5:
-			return "5";
-		case 6:
-			return "6";
-		case 7:
-			return "7";
-		default:
-			return "";
+	fetchAllEntities() {
+		if (this.state.entityPerQuestion[this.state.validatedValue] === null) {
+			return;
 		}
+
+		if (this.state.entityPerQuestion[this.state.validatedValue].length === 0) {
+			this.setState({ entities: [] });
+		}
+
+		Promise.all(
+			this.state.entityPerQuestion[this.state.validatedValue]
+				.map((v) => this.fetchEntities(v)),
+		).then((results) => {
+			console.log(results);
+			this.setState({ entities: results.flat() });
+		});
+	}
+
+	fetchAllArticles() {
+		if (this.state.articlePerQuestion[this.state.validatedValue] === null) {
+			return;
+		}
+
+		if (this.state.articlePerQuestion[this.state.validatedValue].length === 0) {
+			this.setState({ articles: [] });
+		}
+
+		Promise.all(
+			this.state.articlePerQuestion[this.state.validatedValue]
+				.map((v) => this.fetchArticles(v)),
+		).then((results) => {
+			this.setState({ articles: results.map((r) => r.items).flat() });
+		});
+	}
+
+	fetchEntities(name) {
+		return new Promise((resolve) => {
+			getRequest.call(this, "public/get_public_entities?name=" + name, (data) => {
+				resolve(data);
+			}, (response) => {
+				resolve(null);
+				nm.warning(response.statusText);
+			}, (error) => {
+				resolve(null);
+				nm.error(error.message);
+			});
+		});
+	}
+
+	fetchArticles(title) {
+		return new Promise((resolve) => {
+			getRequest.call(this, "public/get_public_articles?type=SERVICE,TOOL&title=" + title, (data) => {
+				resolve(data);
+			}, (response) => {
+				resolve(null);
+				nm.warning(response.statusText);
+			}, (error) => {
+				resolve(null);
+				nm.error(error.message);
+			});
+		});
+	}
+
+	buildResult() {
+		return <div className="row">
+			{!this.state.entities && !this.state.articles
+				&& <div className="col-md-12">
+					<Loading
+						height={300}
+					/>
+				</div>
+			}
+
+			{this.state.entities && this.state.entities.length === 0
+				&& this.state.articles && this.state.articles.length === 0
+				&& <div className="col-md-12">
+					<Message
+						text={"No result found. Please contact administrators"}
+						height={300}
+					/>
+				</div>
+			}
+
+			{this.state.entities && this.state.entities.length > 0
+				&& <div className="col-md-12">
+					<div className="row">
+						{this.state.entities.map((e) => (
+							<div className="col-md-4" key={e.id}>
+								<Entity
+									info={e}
+									showAddress={true}
+									showSocials={true}
+									showWebsite={true}
+								/>
+							</div>
+						))}
+					</div>
+				</div>
+			}
+
+			{this.state.articles && this.state.articles.length > 0
+				&& <div className="col-md-12">
+					<div className="row">
+						{this.state.articles.map((s) => (
+							<div className="col-md-4" key={s.id}>
+								{s.type === "SERVICE"
+									&& <Service
+										info={s}
+									/>
+								}
+
+								{s.type === "TOOL"
+									&& <Tool
+										info={s}
+									/>
+								}
+							</div>
+						))}
+					</div>
+				</div>
+			}
+		</div>;
 	}
 
 	// eslint-disable-next-line class-methods-use-this
@@ -123,15 +257,6 @@ export default class PageSupport extends React.Component {
 										<p>Incidents can be reported via e-mail or phone. See
 										our contact page for details including OpenPGP
 										information.</p>
-
-										<button
-											className="link"
-											onClick={() => window.open(
-												"https://circl.lu",
-												"_blank",
-											)}>
-											Report an incident &nbsp;<i className="fas fa-arrow-right"/>
-										</button>
 
 										<button
 											className="link"
