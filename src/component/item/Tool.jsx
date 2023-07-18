@@ -56,7 +56,7 @@ export default class Tool extends Component {
 			</div>
 			: <div className="Tool card">
 				<Link
-					to={"/Tool/" + this.props.info.handle}
+					to={"/tool/" + this.props.info.handle}
 					className="link">
 					{this.getBoxContent()}
 				</Link>
