@@ -24,8 +24,6 @@ export default class ChartSolutionHorizontalBar extends React.Component {
 			return { datasets: [] };
 		}
 
-		console.log(this.state.valueChainOrder.map((o) => (distribution[o] ? distribution[o] : 0)));
-
 		return {
 			maintainAspectRatio: false,
 			responsive: false,

@@ -70,7 +70,6 @@ export default class PageSupport extends React.Component {
 			this.state.entityPerQuestion[this.state.validatedValue]
 				.map((v) => this.fetchEntities(v)),
 		).then((results) => {
-			console.log(results, results.filter((r) => r.length === 0));
 			if (results.filter((r) => r === null).length > 0) {
 				return;
 			}
@@ -101,7 +100,6 @@ export default class PageSupport extends React.Component {
 			this.state.articlePerQuestion[this.state.validatedValue]
 				.map((v) => this.fetchArticles(v)),
 		).then((results) => {
-			console.log(results);
 			if (results.filter((r) => r === null).length > 0) {
 				return;
 			}
