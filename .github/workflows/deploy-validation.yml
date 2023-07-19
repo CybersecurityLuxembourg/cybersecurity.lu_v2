@@ -43,4 +43,4 @@ jobs:
       run: ssh-keyscan -p ${{ secrets.BASTION_SSH_PORT }} -H ${{ secrets.BASTION_HOST }} >> ~/.ssh/known_hosts
 
     - name: Deploy with rsync
-      run: rsync -e 'ssh -A -p ${{ secrets.BASTION_SSH_PORT }} lhcfofront@${{ secrets.BASTION_HOST }} ssh' -r --delete ./build/ cyfofront@${{ secrets.VALIDATION_ENV_HOST }}:/var/www/cy-fo-front
+      run: rsync -v -e 'ssh -A -p ${{ secrets.BASTION_SSH_PORT }} lhcfofront@${{ secrets.BASTION_HOST }} ssh' -r --delete ./build/ cyfofront@${{ secrets.VALIDATION_ENV_HOST }}:/var/www/cy-fo-front
