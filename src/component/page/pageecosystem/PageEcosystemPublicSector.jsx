@@ -193,12 +193,15 @@ export default class PageEcosystemPublicSector extends React.Component {
 
 				<div id="PageEcosystemPublicSector-list-content" className="list-content">
 					<div className="row">
-						<div className="col-md-6">
-							<h6>Public Sector Entities</h6>
+						<div className="col-md-8">
+							<div className="vertically-centered">
+								<h6>Public Sector Entities</h6>
+							</div>
 						</div>
 
-						<div className="col-md-6">
+						<div className="col-md-4">
 							<Field
+								hideLabel={true}
 								placeholder="Search entity"
 								value={this.state.filters.name}
 								onChange={(v) => this.modifyFilters("name", v)}

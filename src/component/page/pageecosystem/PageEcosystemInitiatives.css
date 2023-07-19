@@ -14,6 +14,11 @@
 	}
 }
 
+#PageEcosystemInitiatives .vertically-centered h6 {
+	width: 100%;
+	margin-bottom: 12px;
+}
+
 #PageEcosystemInitiatives #PageEcosystemInitiatives-list-content .h8 {
 	margin: 8px 0px;
 }
