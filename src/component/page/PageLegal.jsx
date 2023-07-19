@@ -43,7 +43,7 @@ export default class PageLegal extends React.Component {
 		const params = {
 			type: "TOOL",
 			page: page || 1,
-			per_page: 3,
+			per_page: 6,
 			include_tags: true,
 			...this.state.filters,
 		};
@@ -169,12 +169,15 @@ export default class PageLegal extends React.Component {
 				<div className="max-sized-section">
 					<div className="list-content">
 						<div className="row">
-							<div className="col-md-6">
-								<h6>Norms, Rules & Laws</h6>
+							<div className="col-md-8">
+								<div className="vertically-centered">
+									<h6>Norms, Rules & Laws</h6>
+								</div>
 							</div>
 
-							<div className="col-md-6">
+							<div className="col-md-4">
 								<Field
+									hideLabel={true}
 									placeholder="Search"
 									value={this.state.filters.title}
 									onChange={(v) => this.modifyFilters("title", v)}
@@ -225,8 +228,8 @@ export default class PageLegal extends React.Component {
 								<span className="h8">Norms, Rules & Laws</span>
 
 								{this.state.articles
-									&& this.state.articles.length > 0
-									&& <Count count={this.state.articles.length}/>
+									&& this.state.articles.pagination.total > 0
+									&& <Count count={this.state.articles.pagination.total}/>
 								}
 
 								<div className="row">
