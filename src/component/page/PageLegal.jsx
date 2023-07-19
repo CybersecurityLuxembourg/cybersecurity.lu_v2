@@ -17,7 +17,7 @@ export default class PageLegal extends React.Component {
 		super(props);
 
 		const initFilters = {
-			name: getUrlParameter("name"),
+			title: getUrlParameter("title"),
 			taxonomy_values: getUrlParameter("taxonomy_values")
 				? getUrlParameter("taxonomy_values").split(",") : [],
 		};
@@ -34,7 +34,7 @@ export default class PageLegal extends React.Component {
 	}
 
 	componentDidUpdate(_, prevState) {
-		if (prevState.filters !== this.state.filters) {
+		if (JSON.stringify(prevState.filters) !== JSON.stringify(this.state.filters)) {
 			this.fetchArticles();
 		}
 	}
@@ -42,10 +42,10 @@ export default class PageLegal extends React.Component {
 	fetchArticles(page) {
 		const params = {
 			type: "TOOL",
-			title: this.state.name,
 			page: page || 1,
 			per_page: 3,
 			include_tags: true,
+			...this.state.filters,
 		};
 
 		getRequest.call(this, "public/get_public_articles?"
@@ -175,9 +175,9 @@ export default class PageLegal extends React.Component {
 
 							<div className="col-md-6">
 								<Field
-									placeholder="Search entity"
-									value={this.state.filters.name}
-									onChange={(v) => this.modifyFilters("name", v)}
+									placeholder="Search"
+									value={this.state.filters.title}
+									onChange={(v) => this.modifyFilters("title", v)}
 								/>
 							</div>
 
