@@ -34,7 +34,7 @@ jobs:
         known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 
     - name: Adding forward agent config
-      run: echo -e "Host ${{ secrets.BASTION_HOST }}\nForwardAgent yes" >> ~/.ssh/config
+      run: echo -e "Host b.lhc.lu\nForwardAgent yes" >> ~/.ssh/config
 
     - name: Show previous config
       run: cat ~/.ssh/config
