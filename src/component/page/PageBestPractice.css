@@ -1,0 +1,16 @@
+
+#PageBestPractice .top-content {
+	background: var(--linear-blue);
+	padding: 60px 0px;
+	margin-bottom: 64px;
+}
+
+#PageBestPractice .Tab .Tab-menu {
+	padding-bottom: 0px;
+	line-height: 0;
+}
+
+#PageBestPractice .Tab .Tab-menu .Tab-menu-el {
+	margin-bottom: 0px;
+	padding-bottom: 13px;
+}
