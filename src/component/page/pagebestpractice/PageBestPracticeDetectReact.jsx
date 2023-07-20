@@ -3,8 +3,8 @@ import "./PageBestPracticeDetectReact.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
-import Entity from "../../item/Entity.jsx";
-import Service from "../../item/Service.jsx";
+import Tool from "../../item/Tool.jsx";
+import SectionPCDoctor from "../../section/SectionPCDoctor.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
 
@@ -13,119 +13,120 @@ export default class PageBestPracticeDetectReact extends React.Component {
 		super(props);
 
 		this.state = {
-			educationEntities: null,
-			educationServices: null,
+			tools: null,
+			values: [
+				"Common incidents",
+				"Management of cybersecurity incidents: first reflexes",
+			],
 		};
 	}
 
 	componentDidMount() {
-		this.fetchEducationEntities();
+		this.fetchTools();
 	}
 
 	componentDidUpdate(prevProps) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
-			this.fetchEducationEntities();
+			this.fetchTools();
 		}
 	}
 
-	fetchEducationEntities() {
+	fetchTools(page) {
 		if (this.props.taxonomies) {
-			const valueId = this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "ECOSYSTEM ROLE" && v.name === "EDUCATIONAL INSTITUTION")
+			const tv = this.props.taxonomies.taxonomy_values
+				.filter((v) => v.category === "BEST PRACTICE CATEGORY")
+				.filter((v) => this.state.values
+					.map((n) => n.toUpperCase()).indexOf(v.name) >= 0)
 				.map((v) => v.id);
 
-			if (valueId.length > 0) {
-				this.setState({
-					educationEntities: null,
-				}, () => {
-					getRequest.call(this, "public/get_public_entities"
-						+ "?taxonomy_values=" + valueId.join(","), (data) => {
-						this.setState({
-							educationEntities: data,
-						}, () => {
-							this.fetchServicesOfEducationEntities();
-						});
-					}, (response) => {
-						nm.warning(response.statusText);
-					}, (error) => {
-						nm.error(error.message);
-					});
-				});
-			} else {
-				this.setState({
-					educationEntities: [],
-				});
-			}
-		}
-	}
-
-	fetchServicesOfEducationEntities() {
-		if (this.state.educationEntities && this.state.educationEntities.length > 0) {
 			const params = {
-				type: "SERVICE",
+				type: "TOOL",
+				page: page || 1,
+				per_page: 50,
+				taxonomy_values: tv,
 				include_tags: true,
-				entities: this.state.educationEntities.map((e) => (e.id)),
 			};
 
 			getRequest.call(this, "public/get_public_articles?"
 				+ dictToURI(params), (data) => {
 				this.setState({
-					educationServices: data,
+					tools: data,
 				});
 			}, (response) => {
 				nm.warning(response.statusText);
 			}, (error) => {
 				nm.error(error.message);
 			});
-		} else {
-			this.setState({
-				educationServices: { pagination: { total: 0 } },
-			});
 		}
 	}
 
-	buildContent() {
-		if (!this.state.educationEntities || !this.state.educationServices) {
-			return <Loading height={500}/>;
-		}
-
-		if (this.state.educationEntities.length === 0) {
-			return <Message height={500} text={"No message found"}/>;
-		}
-
-		return <div>
-			{this.state.educationEntities.map((e) => (
-				<div className="education-section" key={e.id}>
-					<div className="row">
-						<div className="col-md-4">
-							<Entity info={e}/>
-						</div>
-
-						<div className="col-md-8">
-							<div className="row">
-								{this.state.educationServices.items
-									.filter((s) => s.entity_tags.indexOf(e.id) >= 0)
-									.map((s) => (
-										<div className="col-md-6" key={s.id}>
-											<Service
-												info={s}
-												taxnomies={this.props.taxnomies}
-											/>
-										</div>
-									))}
-							</div>
-						</div>
-					</div>
+	buildTools(v) {
+		return <div className="row">
+			{this.state.tools.map((t) => (
+				<div className="col-md-6" key={t.id}>
+					<Tool info={t}/>
 				</div>
 			))}
-
+			{v}
 		</div>;
 	}
 
 	render() {
 		return (
 			<div id="PageBestPracticeDetectReact">
-				{this.buildContent()}
+				<div className="row">
+					<div className="col-md-3">
+						<div className="h8 blue-text uppercase">
+							IN THIS SECTION
+						</div>
+
+						<div className="menu">
+							{this.state.values.map((v, i) => (
+								<div
+									key={i}
+									className={"menu-element" + (i === 0 ? " selected" : "")}
+									onClick={() => this.goToDiv("PageBestPracticeDetectReact-" + i)}>
+									{v}
+								</div>
+							))}
+						</div>
+
+						<div className="grey-horizontal-bar"/>
+
+						<SectionPCDoctor
+							{...this.props}
+						/>
+					</div>
+
+					<div className="col-md-1"/>
+
+					<div className="col-md-8">
+						{this.state.tools && this.state.tools.pagination.total > 0
+							&& <div className="row">
+								{this.state.values.map((v, i) => (
+									<div className="col-md-12" key={i}>
+										<h6>{v}</h6>
+
+										{this.buildTools(v)}
+									</div>
+								))}
+							</div>
+						}
+
+						{this.state.tools && this.state.tools.pagination.total === 0
+							&& <Message
+								text={"No tool found"}
+								height={300}
+							/>
+						}
+
+						{!this.state.tools
+							&& <Loading
+								height={300}
+							/>
+						}
+					</div>
+				</div>
 			</div>
 		);
 	}

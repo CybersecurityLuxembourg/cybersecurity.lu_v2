@@ -1,5 +1,33 @@
 
-#PageEducationEducation .education-section {
+#PageBestPracticeDetectReact {
 	border-top: 1px solid var(--text-neutral-10);
 	padding: 40px 0px 48px 0px;
+}
+
+#PageBestPracticeDetectReact .menu {
+	margin: 16px 0px;
+}
+
+#PageBestPracticeDetectReact .selected {
+	border-left: 1px solid var(--primary-blue-80) !important;
+	color: var(--primary-blue-80) !important;
+}
+
+#PageBestPracticeDetectReact .menu-element {
+	padding: 12px;
+	font-family: "Open Sans 600";
+	font-size: 14px;
+	text-transform: uppercase;
+	border-left: 1px solid var(--text-neutral-10);
+	color: var(--text-neutral-40);
+}
+
+#PageBestPracticeDetectReact .menu-element:hover {
+	cursor: pointer;
+	color: var(--primary-blue-80) !important;
+	border-left: 1px solid var(--primary-blue-80) !important;
+}
+
+#PageBestPracticeDetectReact .grey-horizontal-bar {
+	margin: 32px 0px;
 }

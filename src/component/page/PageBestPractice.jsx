@@ -13,9 +13,9 @@ export default class PageBestPractice extends React.Component {
 		super(props);
 
 		this.state = {
-			menuLabels: ["Education", "Trainings"],
-			menuValues: ["education", "trainings"],
-			selectedMenu: "education",
+			menuLabels: ["Detect & react", "Protect & prevent", "Test & improve"],
+			menuValues: ["detect_react", "protect_prevent", "test_improve"],
+			selectedMenu: "detect_react",
 		};
 	}
 
@@ -51,27 +51,25 @@ export default class PageBestPractice extends React.Component {
 
 							<div className="col-md-12">
 								<div className="text-content">
-									<div className="h8 blue-text uppercase">Education & trainings</div>
+									<div className="h8 blue-text uppercase">Cybersecurity tips & best practices</div>
 								</div>
 							</div>
 
 							<div className="col-md-5">
 								<div className="text-content">
-									<h4>Discover Cybersecurity scholarships
-									and training opportunities from our partners</h4>
+									<h4>Stay safe online with these Cybersecurity best practices</h4>
 								</div>
 							</div>
 
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<p>Our education and training page is a gateway to a wide
-								range of cybersecurity scholarships and training opportunities
-								from our trusted partners.</p>
+								<p>The Cyber Awareness and Best Practice page at cybersecurity.lu is your source
+								for valuable tips and resources on how to stay safe online.</p>
 
-								<p>Browse our selection of programs to find the best fit for
-								your needs and interests, whether you&apos;re looking to start a
-								career in cybersecurity or enhance your existing skills.</p>
+								<p>From best practices for secure password management to safe online
+								browsing, our page provides essential information
+								on cybersecurity awareness</p>
 							</div>
 						</div>
 					</div>
@@ -89,14 +87,17 @@ export default class PageBestPractice extends React.Component {
 									<PageBestPracticeDetectReact
 										key={0}
 										taxonomies={this.props.taxonomies}
+										{...this.props}
 									/>,
 									<PageBestPracticeProtectPrevent
 										key={1}
 										taxonomies={this.props.taxonomies}
+										{...this.props}
 									/>,
 									<PageBestPracticeTestImprove
 										key={2}
 										taxonomies={this.props.taxonomies}
+										{...this.props}
 									/>,
 								]}
 							/>
