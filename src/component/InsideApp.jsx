@@ -17,8 +17,6 @@ import PageEntity from "./page/item/PageEntity.jsx";
 import PageLanding from "./page/PageLanding.jsx";
 import PageDashboard from "./page/PageDashboard.jsx";
 import PageEcosystem from "./page/PageEcosystem.jsx";
-import PageStartups from "./page/PageStartups.jsx";
-import PagePcDoctors from "./page/PagePcDoctors.jsx";
 import PageLatestNews from "./page/PageLatestNews.jsx";
 import PageUpcomingEvents from "./page/PageUpcomingEvents.jsx";
 import PageGetInvolved from "./page/PageGetInvolved.jsx";
@@ -132,14 +130,6 @@ class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/ecosystem" render={(props) => <PageEcosystem
-							taxonomies={this.state.taxonomies}
-							{...props}
-						/>}/>
-						<Route path="/startups" render={(props) => <PageStartups
-							taxonomies={this.state.taxonomies}
-							{...props}
-						/>}/>
-						<Route path="/pc-doctors" render={(props) => <PagePcDoctors
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
