@@ -44,6 +44,8 @@
     --linear-blue: linear-gradient(180deg, #EBF7FF 0%, #FFFFFF 100%);
     --linear-blue-bottom: linear-gradient(286.87deg, #EBF7FF 40.41%, #FFFFFF 90.72%);
     --linear-red: linear-gradient(179.53deg, #FDEBEC 0.4%, #FFFFFF 43.91%);
+
+    --gray-200: #EAECF0;
 }
 
 body {
