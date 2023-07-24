@@ -110,7 +110,7 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 
 	render() {
 		return (
-			<div id={this.constructor.name}>
+			<div id={"PageBestPracticeProtectPrevent"}>
 				<div className="row">
 					<div className="col-md-3">
 						<div className="h8 blue-text uppercase">

@@ -109,7 +109,7 @@ export default class PageBestPracticeTestImprove extends React.Component {
 
 	render() {
 		return (
-			<div id={this.constructor.name}>
+			<div id={"PageBestPracticeTestImprove"}>
 				<div className="row">
 					<div className="col-md-3">
 						<div className="h8 blue-text uppercase">
