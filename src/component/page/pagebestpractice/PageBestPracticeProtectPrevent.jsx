@@ -21,13 +21,17 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 				"Work from home: Do's and Dont's",
 			],
 			icons: {
-				"DDoS Attack": "fas fa-wifi",
-				"Compromised Data": "fas fa-server",
-				"Infected computer": "far fa-times-circle",
-				"Suspicious e-mail": "far fa-envelope",
-				"Report an incident": "fas fa-bullhorn",
-				"How to survive a crisis": "fas fa-radiation-alt",
-				"Prepare for the inevitable": "fas fa-tasks",
+				"Social Engineering": "fas fa-people-arrows",
+				"Backup Management": "fas fa-undo-alt",
+				"Training on daily work, software, and security": "fas fa-graduation-cap",
+				"Procedures, rules and user charter": "fas fa-project-diagram",
+				"Wireless network": "fas fa-wifi",
+				Password: "fas fa-key",
+				"Back home": "fas fa-plane-arrival",
+				"During your vacation": "fas fa-umbrella-beach",
+				"Before you leave": "fas fa-plane-departure",
+				"DON'TS": "fas fa-minus-circle",
+				"DO'S": "fas fa-check-circle",
 			},
 		};
 	}
@@ -96,7 +100,7 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 						<Tool
 							info={t}
 							icon={this.state.icons[t.title] || "fas fa-shield-alt"}
-							iconColor={"blue"}
+							iconColor={this.state.icons[t.title] === "DON'TS" ? "red" : "blue"}
 						/>
 					</div>
 				))
