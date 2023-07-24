@@ -100,7 +100,7 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 						<Tool
 							info={t}
 							icon={this.state.icons[t.title] || "fas fa-shield-alt"}
-							iconColor={this.state.icons[t.title] === "DON'TS" ? "red" : "blue"}
+							iconColor={t.title === "DON'TS" ? "red" : "blue"}
 						/>
 					</div>
 				))

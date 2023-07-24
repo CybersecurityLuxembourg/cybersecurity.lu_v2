@@ -19,6 +19,16 @@ export default class PageBestPracticeTestImprove extends React.Component {
 				"Be prepared at all times",
 				"Test to improve your Cyber Maturity",
 			],
+			icons: {
+				"Cyber threat intelligence": "fas fa-user-secret",
+				"Security policy": "fas fa-shield-alt",
+				"Risk analysis": "fas fa-chart-area",
+				"Protect your data": "fas fa-lock",
+				"Penetration Testing - training": "fas fa-random",
+				"Develop your cyber reflexes": "fas fa-user-shield",
+				"Assess your contractual relationship(s)": "fas fa-file-contract",
+				"Assess your maturity level": "fas fa-battery-full",
+			},
 		};
 	}
 
@@ -83,7 +93,11 @@ export default class PageBestPracticeTestImprove extends React.Component {
 			{this.state.tools && this.state.tools[v] && this.state.tools[v].pagination.total > 0
 				&& this.state.tools[v].items.map((t) => (
 					<div className="col-md-6" key={t.id}>
-						<Tool info={t}/>
+						<Tool
+							info={t}
+							icon={this.state.icons[t.title] || "fas fa-shield-alt"}
+							iconColor={"blue"}
+						/>
 					</div>
 				))
 			}
