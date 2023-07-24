@@ -55,13 +55,13 @@
 }
 
 .Tool .card-text {
-    height: 68px;
+    height: 144px;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
