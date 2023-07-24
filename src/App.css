@@ -259,3 +259,11 @@ h6 {
     justify-content: center;
     align-items: center;
 }
+
+.red {
+    color: var(--secondary-red-80);
+}
+
+.blue {
+    color: var(--primary-blue-80);
+}

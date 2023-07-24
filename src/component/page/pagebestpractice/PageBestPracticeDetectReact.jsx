@@ -19,6 +19,15 @@ export default class PageBestPracticeDetectReact extends React.Component {
 				"Common incidents",
 				"Management of cybersecurity incidents: first reflexes",
 			],
+			icons: {
+				"DDoS Attack": "fas fa-wifi",
+				"Compromised Data": "fas fa-server",
+				"Infected computer": "far fa-times-circle",
+				"Suspicious e-mail": "far fa-envelope",
+				"Report an incident": "fas fa-bullhorn",
+				"How to survive a crisis": "fas fa-radiation-alt",
+				"Prepare for the inevitable": "fas fa-tasks",
+			},
 		};
 	}
 
@@ -83,7 +92,11 @@ export default class PageBestPracticeDetectReact extends React.Component {
 			{this.state.tools && this.state.tools[v] && this.state.tools[v].pagination.total > 0
 				&& this.state.tools[v].items.map((t) => (
 					<div className="col-md-6" key={t.id}>
-						<Tool info={t}/>
+						<Tool
+							info={t}
+							icon={this.state.icons[t.title] || "fas fa-shield-alt"}
+							iconColor={"red"}
+						/>
 					</div>
 				))
 			}

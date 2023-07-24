@@ -20,6 +20,15 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 				"On holidays: continue to stay cyber-safe",
 				"Work from home: Do's and Dont's",
 			],
+			icons: {
+				"DDoS Attack": "fas fa-wifi",
+				"Compromised Data": "fas fa-server",
+				"Infected computer": "far fa-times-circle",
+				"Suspicious e-mail": "far fa-envelope",
+				"Report an incident": "fas fa-bullhorn",
+				"How to survive a crisis": "fas fa-radiation-alt",
+				"Prepare for the inevitable": "fas fa-tasks",
+			},
 		};
 	}
 
@@ -84,7 +93,11 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 			{this.state.tools && this.state.tools[v] && this.state.tools[v].pagination.total > 0
 				&& this.state.tools[v].items.map((t) => (
 					<div className="col-md-6" key={t.id}>
-						<Tool info={t}/>
+						<Tool
+							info={t}
+							icon={this.state.icons[t.title] || "fas fa-shield-alt"}
+							iconColor={"blue"}
+						/>
 					</div>
 				))
 			}

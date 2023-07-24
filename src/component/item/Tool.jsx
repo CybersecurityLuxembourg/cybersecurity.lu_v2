@@ -15,6 +15,11 @@ export default class Tool extends Component {
 	getBoxContent() {
 		return <div>
 			<div className="card-body">
+				{this.props.icon
+					&& <div className="card-icon">
+						<i className={this.props.icon + " " + this.props.iconColor}/>
+					</div>
+				}
 				<div className="card-title">
 					{this.props.info.title}
 				</div>

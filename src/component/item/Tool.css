@@ -7,7 +7,7 @@
 }
 
 .Tool .link {
-    padding: 16px;
+    padding: 24px;
 }
 
 .Tool a:hover {
@@ -19,9 +19,7 @@
 }
 
 .Tool .card-body {
-    padding-right: 0px !important;
-    padding-left: 0px;
-    padding-bottom: 0px !important;
+    padding: 0px !important;
 }
 
 .Tool .card-img-wrapper {
@@ -67,6 +65,11 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
+}
+
+.Tool .card-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
 }
 
 .Tool button {
