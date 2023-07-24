@@ -32,3 +32,8 @@
 	margin: 32px 0px;
 	border-color: var(--gray-200);
 }
+
+#PageBestPracticeDetectReact .Tool-section {
+	margin-top: 16px;
+	margin-bottom: 48px;
+}

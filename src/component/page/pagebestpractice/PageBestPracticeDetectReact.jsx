@@ -79,7 +79,7 @@ export default class PageBestPracticeDetectReact extends React.Component {
 	}
 
 	buildToolSection(v) {
-		return <div className="row">
+		return <div className="row Tool-section">
 			{this.state.tools && this.state.tools[v] && this.state.tools[v].pagination.total > 0
 				&& this.state.tools[v].items.map((t) => (
 					<div className="col-md-6" key={t.id}>
