@@ -30,4 +30,5 @@
 
 #PageBestPracticeDetectReact .grey-horizontal-bar {
 	margin: 32px 0px;
+	border-color: var(--gray-200);
 }

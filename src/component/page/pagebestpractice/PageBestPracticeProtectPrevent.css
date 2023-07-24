@@ -1,30 +1,34 @@
 
-#PageEducationTrainings .training-section {
+#PageBestPracticeProtectPrevent {
 	border-top: 1px solid var(--text-neutral-10);
-	padding: 40px 0px 24px 0px;
+	padding: 40px 0px 48px 0px;
 }
 
-#PageEducationTrainings .top-section input {
-	width: 300px;
-	max-width: 100%;
+#PageBestPracticeProtectPrevent .menu {
+	margin: 16px 0px;
 }
 
-#PageEducationTrainings .title-section {
-	padding-top: 48px;
-	margin-bottom: 32px;
+#PageBestPracticeProtectPrevent .selected {
+	border-left: 1px solid var(--primary-blue-80) !important;
+	color: var(--primary-blue-80) !important;
 }
 
-#PageEducationTrainings .title-section img {
-	max-height: 100px;
-	width: auto;
+#PageBestPracticeProtectPrevent .menu-element {
+	padding: 12px;
+	font-family: "Open Sans 600";
+	font-size: 14px;
+	text-transform: uppercase;
+	border-left: 1px solid var(--text-neutral-10);
+	color: var(--text-neutral-40);
 }
 
-#PageEducationTrainings .title-section > .row > .col-md-12 > div {
-	display: inline-block;
-	height: 100%;
-	font-family: "Open Sans 700";
-	font-size: 20px;
-	line-height: 150%;
-	margin-right: 24px;
-	color: var(--text-neutral-50);
+#PageBestPracticeProtectPrevent .menu-element:hover {
+	cursor: pointer;
+	color: var(--primary-blue-80) !important;
+	border-left: 1px solid var(--primary-blue-80) !important;
+}
+
+#PageBestPracticeProtectPrevent .grey-horizontal-bar {
+	margin: 32px 0px;
+	border-color: var(--gray-200);
 }

@@ -3,75 +3,65 @@ import "./PageBestPracticeProtectPrevent.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
-import { getApiURL } from "../../../utils/env.jsx";
-import Service from "../../item/Service.jsx";
+import Tool from "../../item/Tool.jsx";
+import SectionPCDoctor from "../../section/SectionPCDoctor.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
-import Field from "../../form/Field.jsx";
-import DynamicTable from "../../table/DynamicTable.jsx";
+import { goToDiv } from "../../../utils/page.jsx";
 
 export default class PageBestPracticeProtectPrevent extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			entity: null,
-			services: null,
-			searchValue: null,
+			tools: {},
+			values: [
+				"Cybersecurity essentials",
+				"On holidays: continue to stay cyber-safe",
+				"Work from home: Do's and Dont's",
+			],
 		};
 	}
 
 	componentDidMount() {
-		this.fetchINFPC();
+		this.fetchAllTools();
 	}
 
 	componentDidUpdate(prevProps) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
-			this.fetchINFPC();
+			this.fetchAllTools();
 		}
 	}
 
-	fetchINFPC() {
-		getRequest.call(this, "public/get_public_entities?name=INFPC", (data) => {
-			if (data.length === 0) {
-				nm.warning("INFPC entity not found");
-			} else if (data.length > 1) {
-				nm.warning("Too much entities found for INFPC");
-			} else {
-				this.setState({
-					entity: data[0],
-				}, () => {
-					this.fetchServices();
-				});
-			}
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+	fetchAllTools() {
+		for (let i = 0; i < this.state.values.length; i++) {
+			this.fetchTools(this.state.values[i]);
+		}
 	}
 
-	fetchServices(page) {
+	fetchTools(value, page) {
 		if (this.props.taxonomies) {
-			const valueIds = this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "SERVICE CATEGORY" && v.name === "TRAINING")
+			const tv = this.props.taxonomies.taxonomy_values
+				.filter((v) => v.category === "BEST PRACTICE CATEGORY")
+				.filter((v) => v.name === value.toUpperCase())
 				.map((v) => v.id);
 
-			if (valueIds.length > 0) {
+			if (tv.length > 0) {
 				const params = {
-					type: "SERVICE",
-					title: this.state.searchValue,
+					type: "TOOL",
 					page: page || 1,
-					per_page: 9,
-					taxonomy_values: valueIds,
-					entities: [this.state.entity.id],
+					per_page: 50,
+					taxonomy_values: tv,
 					include_tags: true,
 				};
 
 				getRequest.call(this, "public/get_public_articles?"
 					+ dictToURI(params), (data) => {
 					this.setState({
-						services: data,
+						tools: {
+							[value]: data,
+							...this.state.tools,
+						},
 					});
 				}, (response) => {
 					nm.warning(response.statusText);
@@ -80,70 +70,86 @@ export default class PageBestPracticeProtectPrevent extends React.Component {
 				});
 			} else {
 				this.setState({
-					services: { pagination: { total: 0 } },
+					tools: {
+						[value]: null,
+						...this.state.tools,
+					},
 				});
 			}
 		}
 	}
 
-	buildContent() {
-		if (!this.state.entity || !this.state.services) {
-			return <Loading height={500}/>;
-		}
-
-		if (this.state.services.pagination.total === 0) {
-			return <Message height={500} text={"No training found"}/>;
-		}
-
-		return <div className="education-section">
-			<div className="row">
-				<DynamicTable
-					items={this.state.services.items}
-					pagination={this.state.services.pagination}
-					changePage={(page) => this.fetchServices(page)}
-					buildElement={(s) => <div
-						className="col-md-4"
-						key={s.id}>
-						<Service
-							info={s}
-						/>
+	buildToolSection(v) {
+		return <div className="row">
+			{this.state.tools && this.state.tools[v] && this.state.tools[v].pagination.total > 0
+				&& this.state.tools[v].items.map((t) => (
+					<div className="col-md-6" key={t.id}>
+						<Tool info={t}/>
 					</div>
-					}
-				/>
-			</div>
+				))
+			}
+
+			{this.state.tools && this.state.tools[v] && this.state.tools[v].pagination.total === 0
+				&& <div className="col-md-12">
+					<Message
+						text={"No tool found"}
+						height={300}
+					/>
+				</div>
+			}
+
+			{(!this.state.tools || !this.state.tools[v])
+				&& <div className="col-md-12">
+					<Loading
+						height={300}
+					/>
+				</div>
+			}
 		</div>;
 	}
 
 	render() {
 		return (
-			<div id="PageBestPracticeProtectPrevent">
-				<div className="training-section top-section">
-					<div className="title-section">
-						<div className="row">
-							<div className="col-md-12">
-								<div>In collaboration with the national portal</div>
-
-								{this.state.entity
-									&& <img
-										src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
-									/>
-								}
-							</div>
+			<div id={this.constructor.name}>
+				<div className="row">
+					<div className="col-md-3">
+						<div className="h8 blue-text uppercase">
+							IN THIS SECTION
 						</div>
-					</div>
 
-					<div className="col-md-12">
-						<Field
-							value={this.state.searchValue}
-							placeholder={"Search training"}
-							onChange={(v) => this.setState({ searchValue: v })}
-							fullWidth={true}
+						<div className="menu">
+							{this.state.values.map((v, i) => (
+								<div
+									key={i}
+									className={"menu-element" + (i === 0 ? " selected" : "")}
+									onClick={() => goToDiv(this.constructor.name + "-" + i)}>
+									{v}
+								</div>
+							))}
+						</div>
+
+						<div className="grey-horizontal-bar"/>
+
+						<SectionPCDoctor
+							{...this.props}
 						/>
 					</div>
-				</div>
 
-				<div className="training-section">
-					{this.buildContent()}
+					<div className="col-md-1"/>
+
+					<div className="col-md-8">
+						{this.state.values.map((v, i) => (
+							<div className="row" key={v}>
+								<div className="col-md-12">
+									<h6 id={this.constructor.name + "-" + i}>{v}</h6>
+								</div>
+
+								<div className="col-md-12">
+									{this.buildToolSection(v)}
+								</div>
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		);
