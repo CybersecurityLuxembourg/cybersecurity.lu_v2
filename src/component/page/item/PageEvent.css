@@ -23,6 +23,7 @@
 
 .PageEvent article .publication-date {
 	text-align: right;
+	margin-bottom: 24px;
 }
 
 .PageEvent article .publication-date .date {

@@ -23,6 +23,7 @@
 
 .PageService article .publication-date {
 	text-align: right;
+	margin-bottom: 24px;
 }
 
 .PageService article .publication-date .date {

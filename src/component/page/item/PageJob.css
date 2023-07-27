@@ -23,6 +23,7 @@
 
 .PageJob article .publication-date {
 	text-align: right;
+	margin-bottom: 24px;
 }
 
 .PageJob article .publication-date .date {

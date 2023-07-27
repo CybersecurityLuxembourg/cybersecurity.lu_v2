@@ -23,6 +23,7 @@
 
 .PageNews article .publication-date {
 	text-align: right;
+	margin-bottom: 24px;
 }
 
 .PageNews article .publication-date .date {
