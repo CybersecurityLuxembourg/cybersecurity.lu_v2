@@ -26,9 +26,13 @@ export default class PageJobsInternship extends React.Component {
 		this.fetchJobs();
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
 			this.fetchMoovijob();
+			this.fetchJobs();
+		}
+
+		if (this.state.searchValue !== prevState.searchValue) {
 			this.fetchJobs();
 		}
 	}

@@ -17,7 +17,7 @@ export default class PageJobsJobs extends React.Component {
 		this.state = {
 			entity: null,
 			jobs: null,
-			searchValue: null,
+			searchValue: "",
 		};
 	}
 
@@ -26,9 +26,13 @@ export default class PageJobsJobs extends React.Component {
 		this.fetchJobs();
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (!prevProps.taxonomies && this.props.taxonomies) {
 			this.fetchMoovijob();
+			this.fetchJobs();
+		}
+
+		if (this.state.searchValue !== prevState.searchValue) {
 			this.fetchJobs();
 		}
 	}
