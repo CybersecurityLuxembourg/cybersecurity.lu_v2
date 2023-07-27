@@ -57,7 +57,7 @@
 }
 
 .EventBig .card-text {
-    height: 68px;
+    height: 66px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
