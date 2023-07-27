@@ -203,7 +203,7 @@ export default class PageJob extends React.Component {
 							<div className="col-md-4 side-info">
 								<div className="row">
 									<div className="col-md-12">
-										<div className="h8 blue-text">Share the job</div>
+										<div className="h8 blue-text">Share the job offer</div>
 									</div>
 
 									<div className="col-md-12">
@@ -241,7 +241,7 @@ export default class PageJob extends React.Component {
 
 								<div className="row">
 									<div className="col-md-12">
-										<div className="h8 blue-text">Related jobs</div>
+										<div className="h8 blue-text">Related job offers</div>
 									</div>
 
 									{this.state.relatedArticles !== null && !this.state.relatedArticleLoading
