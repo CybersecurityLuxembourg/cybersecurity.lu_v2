@@ -3,7 +3,8 @@ import "./PageAbout.css";
 import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { getPrivateAppURL } from "../../utils/env.jsx";
-import ComingSoon from "../box/ComingSoon.jsx";
+import PageAboutLogo from "./pageabout/PageAboutLogo.jsx";
+import PageAboutLogoUsage from "./pageabout/PageAboutLogoUsage.jsx";
 
 export default class PageAbout extends React.Component {
 	constructor(props) {
@@ -135,9 +136,26 @@ export default class PageAbout extends React.Component {
 
 									<h4 id="PageAbout-toolkit">A brand toolkit for all ecosystem members</h4>
 
-									<ComingSoon
-										height={500}
-									/>
+									<p>The promotion of the Luxembourg cybersecurity ecosystem is made through
+									the national brand “CYBERSECURITY Luxembourg”, intended to enhance and
+									structure the promotion of Luxembourg in the field of cybersecurity.</p>
+
+									<p>Learn about the CYBERSECURITY Luxembourg brand guidelines, download
+									the logos and icons, or use the brand colors.</p>
+
+									<p>All members of the Luxembourg cybersecurity ecosystem are invited to
+									actively use the CYBERSECURITY Luxembourg brand.</p>
+
+									<p>Download the version of the logo you need:</p>
+
+									<PageAboutLogo/>
+
+									<p>To have a harmonized and strong identity, please remember
+									to use it the right way.</p>
+
+									<p>How to use the logo:</p>
+
+									<PageAboutLogoUsage/>
 								</div>
 							</div>
 						</div>
