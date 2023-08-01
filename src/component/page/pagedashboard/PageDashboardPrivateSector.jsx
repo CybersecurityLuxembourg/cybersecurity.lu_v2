@@ -129,13 +129,13 @@ export default class PageDashboardPrivateSector extends React.Component {
 							<div className="col-md-3">
 								<div className="box">
 									<div className="h8">
-										National contact points
+										Main point of contact
 									</div>
 
 									<div className="row">
 										<div className="col-md-12">
 											<img
-												src="/img/logo-lhc.png"
+												src="/img/lhc-logo.png"
 												alt="Logo LHC"
 											/>
 										</div>
