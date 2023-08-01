@@ -1,0 +1,15 @@
+
+#PageAboutLogo {
+	margin: 24px 0px;
+}
+
+#PageAboutLogo img {
+	margin: 12px 0px 24px 0px;
+}
+
+#PageAboutLogo img.in-text {
+	display: inline-block;
+	height: 15px;
+	width: auto;
+	margin: 0px !important;
+}

@@ -146,14 +146,14 @@ export default class PageAbout extends React.Component {
 									<p>All members of the Luxembourg cybersecurity ecosystem are invited to
 									actively use the CYBERSECURITY Luxembourg brand.</p>
 
-									<p>Download the version of the logo you need:</p>
+									<h5>Download the version of the logo you need:</h5>
 
 									<PageAboutLogo/>
 
 									<p>To have a harmonized and strong identity, please remember
 									to use it the right way.</p>
 
-									<p>How to use the logo:</p>
+									<h5>How to use the logo:</h5>
 
 									<PageAboutLogoUsage/>
 								</div>
