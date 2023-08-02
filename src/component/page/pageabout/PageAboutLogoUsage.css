@@ -6,3 +6,18 @@
 #PageAboutLogoUsage img {
 	margin: 12px 0px 24px 0px;
 }
+
+#PageAboutLogoUsage .resume-section-content-donts img {
+	max-height: 100px;
+	width: auto;
+	max-width: 100%;
+}
+
+#PageAboutLogoUsage .resume-section-content svg {
+	margin: 4px 0px 12px 0px;
+}
+
+#PageAboutLogoUsage .resume-section-content-donts .legend {
+	font-size: 12px;
+	min-height: 40px;
+}

@@ -15,10 +15,12 @@ export default class PageAboutLogoUsage extends React.Component {
 				<div className="resume-section-content">
 					<h6>Minimum size</h6>
 					<div className="row">
-						<div className="col-md-12">
+						<div className="col-md-6 offset-md-3">
 							<div className="featurette-image img-fluide mx-auto">
 								<img src="/img/chart/minimum-size.png" width="400px" alt="Responsive image"/>
 							</div>
+						</div>
+						<div className="col-md-12">
 							<p>The logo must be clearly visible across all the communications. To make sure it
 							is visible to everyone, the minimum size for print and digital
 							formats has to be respected.</p>
@@ -56,7 +58,7 @@ export default class PageAboutLogoUsage extends React.Component {
 					</div>
 				</div>
 
-				<div className="resume-section-content">
+				<div className="resume-section-content resume-section-content-donts">
 					<h6>Don&apos;ts</h6>
 					<div className="row">
 						<div className="col-md-12">
@@ -67,38 +69,46 @@ export default class PageAboutLogoUsage extends React.Component {
 								<li>with the support of</li>
 								<li>sponsored by</li>
 								<li>in the frame of</li>
-								<li>etc.</li></ul>
+								<li>etc.</li>
+							</ul>
+
 							<div className="row">
-								<div className="col-md-4">
+								<div className="col-md-4 centered">
+									<div className="legend"><b><i className="far fa-times-circle"/> Don’t add shadows</b></div>
 									<div className="featurette-image-donts img-fluide mx-auto">
-										<img src="/img/chart/shadow.png" width="250px" alt="Responsive image"/>
+										<img src="/img/chart/shadow.png" alt="Responsive image"/>
 									</div>
 								</div>
-								<div className="col-md-4">
+								<div className="col-md-4 centered">
+									<div className="legend"><b><i className="far fa-times-circle"/> Don’t move elements</b></div>
 									<div className="featurette-image-donts img-fluide mx-auto">
-										<img src="/img/chart/move.png" width="120px" alt="Responsive image"/>
+										<img src="/img/chart/move.png" alt="Responsive image"/>
 									</div>
 								</div>
-								<div className="col-md-4">
+								<div className="col-md-4 centered">
+									<div className="legend"><b><i className="far fa-times-circle"/> Don’t stretch or transform</b></div>
 									<div className="featurette-image-donts img-fluide mx-auto">
-										<img src="/img/chart/stretch.png" width="200px" alt="Responsive image"/>
+										<img src="/img/chart/stretch.png" alt="Responsive image"/>
 									</div>
 								</div>
 							</div>
 							<div className="row">
-								<div className="col-md-4">
+								<div className="col-md-4 centered">
+									<div className="legend"><b><i className="far fa-times-circle"/> Don’t mix the colour versions</b></div>
 									<div className="featurette-image-donts img-fluide mx-auto">
-										<img src="/img/chart/mix.png" width="250px" alt="Responsive image"/>
+										<img src="/img/chart/mix.png" alt="Responsive image"/>
 									</div>
 								</div>
-								<div className="col-md-4">
+								<div className="col-md-4 centered">
+									<div className="legend"><b><i className="far fa-times-circle"/> Don’t use the black version on a dark background</b></div>
 									<div className="featurette-image-donts img-fluide mx-auto">
-										<img src="/img/chart/black-dark.png" width="250px" alt="Responsive image"/>
+										<img src="/img/chart/black-dark.png" alt="Responsive image"/>
 									</div>
 								</div>
-								<div className="col-md-4">
+								<div className="col-md-4 centered">
+									<div className="legend"><b><i className="far fa-times-circle"/> Don’t use the standard version on a dark-image background</b></div>
 									<div className="featurette-image-donts img-fluide mx-auto">
-										<img src="/img/chart/dark.png" width="250px" alt="Responsive image"/>
+										<img src="/img/chart/dark.png" alt="Responsive image"/>
 									</div>
 								</div>
 							</div>
@@ -112,7 +122,9 @@ export default class PageAboutLogoUsage extends React.Component {
 						<div className="col-md-12">
 							<div className="row">
 								<div className="col-sm-4">
-							  <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><rect width="100%" height="100%" fill="#E30613"></rect></svg>
+									<div className="centered">
+										<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><rect width="100%" height="100%" fill="#E30613"></rect></svg>
+									</div>
 									<ul>
 										<li><span>CMYK</span> C0 M100 Y100 K0</li>
 										<li><span>Pantone</span> 485
@@ -121,7 +133,9 @@ export default class PageAboutLogoUsage extends React.Component {
 									</ul>
 								</div>
 								<div className="col-sm-4">
-							  <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><rect width="100%" height="100%" fill="#0099FF"></rect></svg>
+									<div className="centered">
+										<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><rect width="100%" height="100%" fill="#0099FF"></rect></svg>
+									</div>
 									<ul>
 										<li><span>CMYK</span> C100 M0 Y0 K0</li>
 										<li><span>Pantone</span> Process Cyan
@@ -130,7 +144,9 @@ export default class PageAboutLogoUsage extends React.Component {
 									</ul>
 								</div>
 								<div className="col-sm-4">
-							  <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><rect width="100%" height="100%" fill="#000"></rect></svg>
+									<div className="centered">
+										<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><rect width="100%" height="100%" fill="#000"></rect></svg>
+									</div>
 									<ul>
 										<li><span>CMYK</span> C0 M0 Y0 K100</li>
 										<li><span>Pantone</span> Process Black
@@ -146,10 +162,12 @@ export default class PageAboutLogoUsage extends React.Component {
 				<div className="resume-section-content">
 					<h6>The usage</h6>
 					<div className="row">
-						<div className="col-md-12">
+						<div className="col-md-6 offset-md-3">
 							<div className="featurette-image img-fluide mx-auto">
 								<img src="/img/chart/cybersecurity-logo.jpg" width="400px" alt="Responsive image"/>
 							</div>
+						</div>
+						<div className="col-md-12">
 							<p>The standard logo may be used, in respect with the rules of these guidelines, by
 							anyone to brand any publication, event, or any other activity in relation with
 							cybersecurity and related to Luxembourg, either in Luxembourg or abroad.</p>
@@ -178,7 +196,7 @@ export default class PageAboutLogoUsage extends React.Component {
 				<div className="resume-section-content">
 					<h6>Stationery</h6>
 					<div className="row">
-						<div className="col-md-12">
+						<div className="col-md-8 offset-md-2">
 							<div className="featurette-image img-fluide mx-auto">
 								<img src="/img/chart/poster.png" width="800px" className="img-fluid" alt="Responsive image"/>
 							</div>
@@ -195,7 +213,7 @@ export default class PageAboutLogoUsage extends React.Component {
 				<div className="resume-section-content">
 					<h6>Banners</h6>
 					<div className="row">
-						<div className="col-md-12">
+						<div className="col-md-8 offset-md-2">
 							<div className="featurette-image img-fluide mx-auto">
 								<img src="/img/chart/banners.png" width="700px" className="img-fluid" alt="Responsive image"/>
 							</div>
@@ -206,7 +224,7 @@ export default class PageAboutLogoUsage extends React.Component {
 				<div className="resume-section-content">
 					<h6>Web</h6>
 					<div className="row">
-						<div className="col-md-12">
+						<div className="col-md-8 offset-md-2">
 							<div className="featurette-image img-fluide mx-auto">
 								<img src="/img/chart/web.png" width="700px" className="img-fluid" alt="Responsive image"/>
 							</div>

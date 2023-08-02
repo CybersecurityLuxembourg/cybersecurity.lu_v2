@@ -16,13 +16,13 @@ export default class PageAboutLogo extends React.Component {
 					<div className="row">
 						<div className="col-md-3 offset-md-3">
 							<div className="featurette-image img-fluide mx-auto">
-								<img src="/img/chart/standard_logo.png" width="400px" alt="Responsive image"/>
+								<img src="/img/chart/cybersecurity-logo.jpg" width="400px" alt="Responsive image"/>
 							</div>
 						</div>
 						<div className="col-md-3">
 							<div className="vertically-centered">
 								<button
-									onClick={() => window.open("/img/chart/standard_logo.png")}
+									onClick={() => window.open("/img/chart/cybersecurity-logo.jpg")}
 									className="small">
 									Open image
 								</button>

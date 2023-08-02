@@ -260,6 +260,10 @@ h6 {
     align-items: center;
 }
 
+.centered {
+    text-align: center;
+}
+
 .red {
     color: var(--secondary-red-80);
 }
