@@ -3,7 +3,7 @@
 	margin: 24px 0px;
 }
 
-#PageAboutLogo img {
+#PageAboutLogo .featurette-image {
 	margin: 12px 0px 24px 0px;
 }
 
@@ -12,4 +12,10 @@
 	height: 15px;
 	width: auto;
 	margin: 0px !important;
+}
+
+#PageAboutLogo .featurette-image-transparent {
+	background-image: linear-gradient(to bottom, transparent 50%, #cdcdcd 50%),
+		linear-gradient(to right, #cdcdcd 50%, #ddd 50%);
+	background-size: 8px 8px, 8px 8px;
 }

@@ -29,28 +29,14 @@ export default class PageAboutLogo extends React.Component {
 							</div>
 						</div>
 						<div className="col-md-3 offset-md-3">
-							<div className="featurette-image img-fluide mx-auto">
-								<img src="/img/chart/logo-cyberlux-blue.png" width="400px" alt="Responsive image"/>
+							<div className="featurette-image featurette-image-transparent img-fluide mx-auto">
+								<img src="/img/chart/logo-cyberlux-white.png" width="400px" alt="Responsive image"/>
 							</div>
 						</div>
 						<div className="col-md-3">
 							<div className="vertically-centered">
 								<button
-									onClick={() => window.open("/img/chart/logo-cyberlux-blue.png")}
-									className="small">
-									Open image
-								</button>
-							</div>
-						</div>
-						<div className="col-md-3 offset-md-3">
-							<div className="featurette-image img-fluide mx-auto">
-								<img src="/img/chart/logo-cyberlux-red.png" width="400px" alt="Responsive image"/>
-							</div>
-						</div>
-						<div className="col-md-3">
-							<div className="vertically-centered">
-								<button
-									onClick={() => window.open("/img/chart/logo-cyberlux-red.png")}
+									onClick={() => window.open("/img/chart/logo-cyberlux-white.png")}
 									className="small">
 									Open image
 								</button>
