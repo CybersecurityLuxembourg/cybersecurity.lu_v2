@@ -36,6 +36,11 @@ export default class SectionEvents extends React.Component {
 		if (this.state.selectedMenu !== prevState.selectedMenu) {
 			this.props.history.push(this.state.selectedMenu === "PAST EVENTS" ? "?tab=past" : "?");
 		}
+
+		if ((this.state.selectedMenu === "UPCOMING EVENTS" && getUrlParameter("tab") === "past")
+			|| (this.state.selectedMenu === "PAST EVENTS" && getUrlParameter("tab") !== "past")) {
+			this.setState({ selectedMenu: getUrlParameter("tab") !== "past" ? "UPCOMING EVENTS" : "PAST EVENTS" });
+		}
 	}
 
 	fetchEvents(page) {
