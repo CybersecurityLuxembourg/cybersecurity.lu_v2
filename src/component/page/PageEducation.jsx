@@ -29,6 +29,10 @@ export default class PageEducation extends React.Component {
 			&& this.state.menuValues.indexOf(getUrlParameter("tab")) >= 0) {
 			this.setState({ selectedMenu: getUrlParameter("tab") });
 		}
+
+		if (!getUrlParameter("tab") && this.state.selectedMenu !== "education") {
+			this.setState({ selectedMenu: "education" });
+		}
 	}
 
 	onMenuClick(m) {
