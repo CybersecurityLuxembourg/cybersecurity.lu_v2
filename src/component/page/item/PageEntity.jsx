@@ -11,6 +11,7 @@ import { getApiURL, getPrivateAppURL } from "../../../utils/env.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
 import Tab from "../../tab/Tab.jsx";
+import Address from "../../form/Address.jsx";
 import Chip from "../../form/Chip.jsx";
 import News from "../../item/News.jsx";
 import Event from "../../item/Event.jsx";
@@ -25,6 +26,7 @@ export default class PageEntity extends React.Component {
 
 		this.state = {
 			entity: null,
+			addresses: null,
 			geolocations: null,
 			news: null,
 			events: null,
@@ -36,6 +38,7 @@ export default class PageEntity extends React.Component {
 
 	componentDidMount() {
 		this.getEntityContent();
+		this.getEntityAddresses();
 		this.getEntityArticle("NEWS", "news");
 		this.getEntityArticle("EVENT", "events");
 		this.getEntityArticle("JOB OFFER", "jobOffers");
@@ -80,6 +83,19 @@ export default class PageEntity extends React.Component {
 			+ dictToURI(params), (data) => {
 			this.setState({
 				[variable]: data,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+	}
+
+	getEntityAddresses() {
+		getRequest.call(this, "public/get_public_entity_addresses/"
+			+ this.props.match.params.id, (data) => {
+			this.setState({
+				addresses: data,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -311,9 +327,15 @@ export default class PageEntity extends React.Component {
 												</span>
 											</div>
 
-											{/* <div className="col-md-12 entity-address">
-												ADDRESS TODO
-											</div> */}
+											{this.state.addresses
+												&& this.state.addresses.map((a) => (
+													<div className="col-md-12" key={a.id}>
+														<Address
+															info={a}
+														/>
+													</div>
+												))
+											}
 
 											{(this.state.entity.twitter_url
 												|| this.state.entity.linkedin_url)

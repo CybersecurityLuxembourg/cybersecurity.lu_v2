@@ -1,0 +1,16 @@
+
+.Address {
+	margin: 4px 0px 24px 0px;
+	display: flex;
+}
+
+.Address .marker {
+	color: var(--primary-blue-80);
+	font-size: 16px;
+	margin: 0px 12px 0px 4px;
+}
+
+.Adress .details {
+	flex-grow: 1;
+	line-height: 150%;
+}
