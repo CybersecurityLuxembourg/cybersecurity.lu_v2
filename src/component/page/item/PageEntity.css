@@ -51,6 +51,7 @@
 
 #PageEntity .entity-card .entity-name {
     vertical-align: middle;
+    margin-bottom: 24px;
 }
 
 #PageEntity .entity-card button {
