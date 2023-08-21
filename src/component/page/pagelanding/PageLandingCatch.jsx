@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageLandingCatch.css";
+import AlertNews from "../../box/AlertNews.jsx";
 
 export default class PageLandingCatch extends React.Component {
 	constructor(props) {
@@ -46,6 +47,14 @@ export default class PageLandingCatch extends React.Component {
 					</div>
 				</div>
 
+				<div className="alert-container">
+					<div className="alert-wrapper">
+						<AlertNews
+							taxonomies={this.props.taxonomies}
+						/>
+					</div>
+				</div>
+
 				<div className="skyline">
 					<img
 						className={"logo"}
@@ -53,14 +62,6 @@ export default class PageLandingCatch extends React.Component {
 						alt="Skyline Luxembourg"
 					/>
 				</div>
-
-				{/* <div className="alerts-wrapper max-sized-section">
-					<div className="alerts">
-						<div className="alert-box">
-							{this.state.ee}
-						</div>
-					</div>
-				</div> */}
 			</div>
 		);
 	}
