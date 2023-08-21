@@ -265,9 +265,9 @@ h6 {
 }
 
 .red {
-    color: var(--secondary-red-80);
+    color: var(--secondary-red-80) !important;
 }
 
 .blue {
-    color: var(--primary-blue-80);
+    color: var(--primary-blue-80) !important;
 }

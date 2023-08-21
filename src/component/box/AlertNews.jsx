@@ -3,6 +3,8 @@ import "./AlertNews.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../utils/request.jsx";
 import { dictToURI } from "../../utils/url.jsx";
+import News from "../item/News.jsx";
+import Dialog from "../dialog/Dialog.jsx";
 
 export default class AlertNews extends React.Component {
 	constructor(props) {
@@ -108,9 +110,24 @@ export default class AlertNews extends React.Component {
 						</div>
 						<div className="col-md-12">
 							<div className="right-buttons">
-								<button className="link small">
-									See all alerts &nbsp;<i className="fas fa-arrow-right"/>
-								</button>
+								<Dialog
+									trigger={<button className="link small">
+										See all alerts &nbsp;<i className="fas fa-arrow-right"/>
+									</button>}
+									content={<div className="row">
+										<div className="col-md-9">
+											<h4 className="red"><i className="fas fa-shield-alt"/>&nbsp;Latest Alerts</h4>
+										</div>
+
+										{this.state.news.items.map((i) => (
+											<div className="col-md-6" key={i.id}>
+												<News
+													info={i}
+												/>
+											</div>
+										))}
+									</div>}
+								/>
 							</div>
 						</div>
 					</div>
