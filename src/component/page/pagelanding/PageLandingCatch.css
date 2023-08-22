@@ -67,7 +67,7 @@
 
 #PageLandingCatch .alert-wrapper .AlertNews {
 	position: absolute;
-	bottom: -128px;
+	bottom: -64px;
 	right: -10px;
 	width: 500px;
 	z-index: 10;
