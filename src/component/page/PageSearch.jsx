@@ -712,6 +712,39 @@ export default class PageSearch extends React.Component {
 													</div>
 												</div>
 											}
+
+											{this.state.RESOURCE && this.state.RESOURCE.items.length > 0
+												&& this.state.show_options.resource
+												&& <div className="row">
+													<div className="col-md-12">
+														<h6>
+															Resources
+														</h6>
+
+														{this.state.object_count
+															&& this.state.object_count.article
+															&& this.state.object_count.article["resource"]
+															&& <Count
+																count={this.state.object_count.article["resource"]}
+															/>
+														}
+
+														<DynamicTable
+															items={this.state.RESOURCE.items}
+															pagination={this.state.RESOURCE.pagination}
+															changePage={(page) => this.getArticlesByType("RESOURCE", page)}
+															buildElement={(a) => (
+																<div className="col-md-6">
+																	<Job
+																		info={a}
+																		analytics={this.props.analytics}
+																	/>
+																</div>
+															)}
+														/>
+													</div>
+												</div>
+											}
 										</div>
 									</div>
 								</div>
