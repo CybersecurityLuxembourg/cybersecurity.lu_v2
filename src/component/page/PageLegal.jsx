@@ -35,57 +35,69 @@ export default class PageLegal extends React.Component {
 		this.fetchObjectCount();
 	}
 
-	componentDidUpdate(_, prevState) {
+	componentDidUpdate(prevProps, prevState) {
 		if (JSON.stringify(prevState.filters) !== JSON.stringify(this.state.filters)) {
+			this.fetchArticles();
+			this.fetchObjectCount();
+		}
+
+		if (prevProps.taxonomies !== this.props.taxonomies) {
 			this.fetchArticles();
 			this.fetchObjectCount();
 		}
 	}
 
 	fetchArticles(page) {
-		const params = {
-			type: "TOOL",
-			page: page || 1,
-			per_page: 6,
-			include_tags: true,
-			...this.state.filters,
-		};
+		if (this.props.taxonomies) {
+			const params = {
+				type: "TOOL",
+				page: page || 1,
+				per_page: 6,
+				include_tags: true,
+				name: this.state.filters.title,
+				taxonomy_values: this.state.filters.taxonomy_values
+					.concat(this.getLegalFrameworkTaxonomyValueId()),
+			};
 
-		getRequest.call(this, "public/get_public_articles?"
-			+ dictToURI(params), (data) => {
-			this.setState({
-				articles: data,
+			getRequest.call(this, "public/get_public_articles?"
+				+ dictToURI(params), (data) => {
+				this.setState({
+					articles: data,
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
 			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		}
 	}
 
 	fetchObjectCount() {
-		const filters = {
-			name: this.state.filters.title,
-			taxonomy_values: this.state.filters.taxonomy_values,
-			include_article_types: ["TOOL"],
-			include_taxonomy_categories: [
-				"LEGAL FRAMEWORK",
-				"LEGAL FRAMEWORK STATUS",
-				"LEGAL FRAMEWORK SECTOR-SPECIFIC",
-				"LEGAL FRAMEWORK APPLICATION LEVEL",
-			],
-		};
+		if (this.props.taxonomies) {
+			const filters = {
+				name: this.state.filters.title,
+				taxonomy_values: this.state.filters.taxonomy_values
+					.concat(this.getLegalFrameworkTaxonomyValueId()),
+				include_article_types: ["TOOL"],
+				include_taxonomy_categories: [
+					"LEGAL FRAMEWORK",
+					"LEGAL FRAMEWORK STATUS",
+					"LEGAL FRAMEWORK SECTOR-SPECIFIC",
+					"LEGAL FRAMEWORK APPLICATION LEVEL",
+				],
+			};
 
-		getRequest.call(this, "public/get_public_object_count?"
-			+ dictToURI(filters), (data) => {
-			this.setState({
-				objectCount: data,
+			getRequest.call(this, "public/get_public_object_count?"
+				+ dictToURI(filters), (data) => {
+				this.setState({
+					objectCount: data,
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
 			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		}
 	}
 
 	buildArticleList() {
@@ -162,6 +174,12 @@ export default class PageLegal extends React.Component {
 		}
 
 		return false;
+	}
+
+	getLegalFrameworkTaxonomyValueId() {
+		return this.props.taxonomies?.taxonomy_values
+			.filter((v) => v.category === "TOOL CATEGORY" && v.name === "LEGAL FRAMEWORK")
+			.map((v) => v.id);
 	}
 
 	modifyFilters(field, value) {
