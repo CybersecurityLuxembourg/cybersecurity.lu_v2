@@ -408,11 +408,11 @@ export default class PageSearch extends React.Component {
 																<Field
 																	type="checkbox"
 																	checkBoxLabel="Job offers"
-																	value={this.state.show_options.event}
+																	value={this.state.show_options.jobOffer}
 																	onChange={() => this.setState({
 																		show_options: {
 																			...this.state.show_options,
-																			event: !this.state.show_options.event,
+																			jobOffer: !this.state.show_options.jobOffer,
 																		},
 																	})}
 																	hideLabel={true}
