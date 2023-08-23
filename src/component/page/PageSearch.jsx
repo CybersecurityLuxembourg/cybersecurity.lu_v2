@@ -278,7 +278,7 @@ export default class PageSearch extends React.Component {
 									<div className="row">
 										<div className="col-md-3">
 											<div className="box filter-box">
-												<div className="row spaced-row">
+												<div className="row">
 													<div className="col-md-7">
 														<h6 className="blue-text">Filter by</h6>
 													</div>
