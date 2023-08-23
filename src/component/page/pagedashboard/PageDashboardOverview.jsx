@@ -4,7 +4,7 @@ import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import BoxCount from "../../box/BoxCount.jsx";
-/* import Loading from "../../box/Loading.jsx"; */
+import Loading from "../../box/Loading.jsx";
 
 export default class PageDashboardOverview extends React.Component {
 	constructor(props) {
@@ -41,7 +41,7 @@ export default class PageDashboardOverview extends React.Component {
 
 			const ecosystemRoles = this.props.taxonomies.taxonomy_values
 				.filter((v) => v.category === "ECOSYSTEM ROLE")
-				.filter((v) => v.name === "ACTOR")
+				.filter((v) => v.name === "CYBERSECURITY SERVICE PROVIDER")
 				.map((v) => v.id);
 
 			if (entityTypes.length > 0 && ecosystemRoles.length > 0) {
@@ -348,7 +348,7 @@ export default class PageDashboardOverview extends React.Component {
 							</div>
 						</div>
 
-						{/* <div className="row">
+						<div className="row">
 							<div className="col-md-12">
 								<div className="box">
 									<div className="row">
@@ -366,7 +366,39 @@ export default class PageDashboardOverview extends React.Component {
 											</div>
 
 											<div className="col-md-7">
-												text
+												<div className="row">
+													<div className="col-md-2">
+														<h3>{this.state.serviceProviders.length}</h3>
+													</div>
+													<div className="col-md-10">
+														Companies supplying Cybersecurity in Luxembourg
+													</div>
+													<div className="col-md-2">
+														<h3 className="red">
+															{this.state.serviceProviders
+																.filter((s) => s.is_cybersecurity_core_business).length}
+														</h3>
+													</div>
+													<div className="col-md-10">
+														Companies have Cybersecurity as their core business
+													</div>
+													<div className="col-md-2">
+														<h3 className="blue">
+															{(this.state.serviceProviders
+																.filter((s) => s.is_cybersecurity_core_business && s.is_startup)
+																.length
+																* 100)
+																/ this.state.serviceProviders
+																	.filter((s) => s.is_startup)
+																	.length}%
+														</h3>
+													</div>
+													<div className="col-md-10">
+														of the {this.state.serviceProviders.filter((s) => s.is_startup)
+															.length} Start-ups
+														have cybersecurity as a core business
+													</div>
+												</div>
 											</div>
 
 											<div className="col-md-12">
@@ -386,7 +418,7 @@ export default class PageDashboardOverview extends React.Component {
 									}
 								</div>
 							</div>
-						</div> */}
+						</div>
 					</div>
 				</div>
 			</div>

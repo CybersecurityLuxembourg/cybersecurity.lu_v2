@@ -59,7 +59,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 
 			const ecosystemRoles = this.props.taxonomies.taxonomy_values
 				.filter((v) => v.category === "ECOSYSTEM ROLE")
-				.filter((v) => v.name === "ACTOR")
+				.filter((v) => v.name === "CYBERSECURITY SERVICE PROVIDER")
 				.map((v) => v.id);
 
 			if (entityTypes.length > 0 && ecosystemRoles.length > 0) {
