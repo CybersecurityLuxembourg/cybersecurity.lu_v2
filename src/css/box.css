@@ -6,3 +6,62 @@
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
 	border-radius: 12px;
 }
+
+.filter-box {
+	padding: 16px !important;
+}
+
+.filter-box .Field {
+	margin-bottom: 8px;
+}
+
+.filter-box .right-buttons {
+	margin-top: 0px;
+}
+
+.filter-box h6 {
+	margin-bottom: 4px;
+}
+
+.filter-box .h8 {
+	margin-bottom: 16px;
+}
+
+.filter-box .right-buttons button {
+	padding: 2px !important;
+	color: var(--text-neutral-50) !important;
+	text-decoration: underline;
+	font-size: 14px;
+}
+
+.filter-box .grey-horizontal-bar {
+	margin: 16px 0px 24px 0px;
+}
+
+.filter-box .Count {
+	margin: 0px;
+}
+
+.filter-box .filter-row {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: space-between;
+	margin-bottom: 8px;
+	align-items: center
+}
+
+.filter-box .checkbox-category {
+	display: inline-block;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.filter-box .checkbox-subcategory {
+	display: inline-block;
+	margin: 0px 10px 8px 10px;
+}
+
+.filter-box .checkbox-chevron {
+	cursor: pointer;
+	margin: 0px 16px 0px 10px;
+}

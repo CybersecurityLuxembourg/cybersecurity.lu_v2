@@ -20,37 +20,6 @@
 	margin: 40px 0px;
 }
 
-#PageEcosystemPrivateSector .filter-box .right-buttons {
-	margin-top: 0px;
-}
-
-#PageEcosystemPrivateSector .filter-box .h8 {
-	margin-bottom: 16px !important;
-}
-
-#PageEcosystemPrivateSector .filter-box .right-buttons button {
-	padding: 2px !important;
-	color: var(--text-neutral-50) !important;
-	text-decoration: underline;
-	font-size: 14px;
-}
-
-#PageEcosystemPrivateSector .filter-box .checkbox-category {
-	display: inline-block;
-	margin-top: 8px;
-	margin-bottom: 8px;
-}
-
-#PageEcosystemPrivateSector .filter-box .checkbox-subcategory {
-	display: inline-block;
-	margin: 0px 10px 8px 10px;
-}
-
-#PageEcosystemPrivateSector .filter-box .checkbox-chevron {
-	cursor: pointer;
-	margin: 0px 16px 0px 10px;
-}
-
 #PageEcosystemPrivateSector .list-separator {
 	margin-bottom: 48px;
 }

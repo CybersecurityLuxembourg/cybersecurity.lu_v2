@@ -31,17 +31,6 @@
 	margin: 40px 0px;
 }
 
-#PageEcosystemInitiatives .filter-box .right-buttons {
-	margin-top: 0px;
-}
-
-#PageEcosystemInitiatives .filter-box .right-buttons button {
-	padding: 2px !important;
-	color: var(--text-neutral-50) !important;
-	text-decoration: underline;
-	font-size: 14px;
-}
-
 #PageEcosystemInitiatives .list-separator {
 	margin-bottom: 48px;
 }

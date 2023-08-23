@@ -27,37 +27,6 @@
 	margin: 64px 0px;
 }
 
-#PageSearch .filter-box .right-buttons {
-	margin-top: 0px;
-}
-
-#PageSearch .filter-box .h8 {
-	margin-bottom: 16px;
-}
-
-#PageSearch .filter-box .right-buttons button {
-	padding: 2px !important;
-	color: var(--text-neutral-50) !important;
-	text-decoration: underline;
-	font-size: 14px;
-}
-
-#PageSearch .filter-box .filter-row {
-	display: flex;
-	flex: 1 1 auto;
-	justify-content: space-between;
-	margin-bottom: 8px;
-	align-items: center
-}
-
-#PageSearch .filter-box .Field {
-	margin: 4px 0px 0px 0px;
-}
-
-#PageSearch .filter-box .Count {
-	margin: 0px;
-}
-
 #PageSearch .DynamicTable,
 #PageSearch .SimpleTable {
 	padding: 40px 0px 48px 0px;
