@@ -112,7 +112,7 @@ export default class Field extends React.Component {
 				onChange={(v) => this.onChange(v.value)}
 			/>;
 		case "checkbox":
-			return <div>
+			return <div className="checkbox">
 				<input
 					className={this.getFormatClassName()}
 					type={this.props.type}
@@ -122,7 +122,8 @@ export default class Field extends React.Component {
 					disabled={this.props.disabled}
 					autoFocus={this.props.autofocus}
 					onKeyDown={this.props.onKeyDown}
-				/> {this.props.checkBoxLabel}
+				/>
+				<div>{this.props.checkBoxLabel}</div>
 			</div>;
 		case "multiselect":
 			return <div>
