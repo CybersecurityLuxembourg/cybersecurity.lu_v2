@@ -723,9 +723,9 @@ export default class PageSearch extends React.Component {
 
 														{this.state.object_count
 															&& this.state.object_count.article
-															&& this.state.object_count.article["resource"]
+															&& this.state.object_count.article.resource
 															&& <Count
-																count={this.state.object_count.article["resource"]}
+																count={this.state.object_count.article.resource}
 															/>
 														}
 
