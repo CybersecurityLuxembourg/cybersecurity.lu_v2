@@ -24,6 +24,7 @@ export default class PageLegal extends React.Component {
 
 		this.state = {
 			articles: null,
+			objectCount: null,
 			initFilters,
 			filters: initFilters,
 		};
@@ -31,11 +32,13 @@ export default class PageLegal extends React.Component {
 
 	componentDidMount() {
 		this.fetchArticles();
+		this.fetchObjectCount();
 	}
 
 	componentDidUpdate(_, prevState) {
 		if (JSON.stringify(prevState.filters) !== JSON.stringify(this.state.filters)) {
 			this.fetchArticles();
+			this.fetchObjectCount();
 		}
 	}
 
@@ -52,6 +55,31 @@ export default class PageLegal extends React.Component {
 			+ dictToURI(params), (data) => {
 			this.setState({
 				articles: data,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+	}
+
+	fetchObjectCount() {
+		const filters = {
+			name: this.state.filters.title,
+			taxonomy_values: this.state.filters.taxonomy_values,
+			include_article_types: ["TOOL"],
+			include_taxonomy_categories: [
+				"LEGAL FRAMEWORK",
+				"LEGAL FRAMEWORK STATUS",
+				"LEGAL FRAMEWORK SECTOR-SPECIFIC",
+				"LEGAL FRAMEWORK APPLICATION LEVEL",
+			],
+		};
+
+		getRequest.call(this, "public/get_public_object_count?"
+			+ dictToURI(filters), (data) => {
+			this.setState({
+				objectCount: data,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -95,26 +123,45 @@ export default class PageLegal extends React.Component {
 			.sort((a, b) => a.name - b.name);
 
 		for (let i = 0; i < legalCategories.length; i++) {
-			result.push(
-				<div>
-					<Field
-						className="checkbox-category"
-						type="checkbox"
-						checkBoxLabel={legalCategories[i].name}
-						value={this.state.filters.taxonomy_values.indexOf(legalCategories[i].id) >= 0}
-						onChange={(v) => this.modifyFilters(
-							"taxonomy_values",
-							v
-								? this.state.filters.taxonomy_values.concat([legalCategories[i].id])
-								: this.state.filters.taxonomy_values.filter((o) => o !== legalCategories[i].id),
-						)}
-						hideLabel={true}
-					/>
-				</div>,
-			);
+			if (this.state
+				.objectCount?.taxonomy?.[legalCategories[i].category]?.[legalCategories[i].name] > 0) {
+				result.push(
+					<div className="filter-row">
+						<Field
+							className="checkbox-category"
+							type="checkbox"
+							checkBoxLabel={legalCategories[i].name}
+							value={this.state.filters.taxonomy_values.indexOf(legalCategories[i].id) >= 0}
+							onChange={(v) => this.modifyFilters(
+								"taxonomy_values",
+								v
+									? this.state.filters.taxonomy_values.concat([legalCategories[i].id])
+									: this.state.filters.taxonomy_values.filter((o) => o !== legalCategories[i].id),
+							)}
+							hideLabel={true}
+						/>
+						<Count
+							count={
+								this.state.objectCount
+									.taxonomy[legalCategories[i].category][legalCategories[i].name]
+							}
+						/>
+					</div>,
+				);
+			}
 		}
 
 		return result;
+	}
+
+	hasTools(category) {
+		if (this.state.objectCount?.taxonomy?.[category]) {
+			return Object.values(this.state.objectCount.taxonomy[category])
+				.filter((v) => v > 0)
+				.length > 0;
+		}
+
+		return false;
 	}
 
 	modifyFilters(field, value) {
@@ -207,53 +254,53 @@ export default class PageLegal extends React.Component {
 											</div>
 										</div>
 
-										<div className="col-md-12">
-											<div className="grey-horizontal-bar"/>
+										{this.hasTools("LEGAL FRAMEWORK APPLICATION LEVEL")
+											&& <div className="col-md-12">
+												<div className="grey-horizontal-bar"/>
 
-											<div className="h8">
-												APPLICATION LEVEL
+												<div className="h8">
+													APPLICATION LEVEL
+												</div>
+
+												{this.buildClassificationFilters("LEGAL FRAMEWORK APPLICATION LEVEL")}
 											</div>
-										</div>
+										}
 
-										<div className="col-md-12">
-											{this.buildClassificationFilters("LEGAL FRAMEWORK APPLICATION LEVEL")}
-										</div>
+										{this.hasTools("LEGAL FRAMEWORK")
+											&& <div className="col-md-12">
+												<div className="grey-horizontal-bar"/>
 
-										<div className="col-md-12">
-											<div className="grey-horizontal-bar"/>
+												<div className="h8">
+													LEGAL FRAMEWORK
+												</div>
 
-											<div className="h8">
-												LEGAL FRAMEWORK
+												{this.buildClassificationFilters("LEGAL FRAMEWORK")}
 											</div>
-										</div>
+										}
 
-										<div className="col-md-12">
-											{this.buildClassificationFilters("LEGAL FRAMEWORK")}
-										</div>
+										{this.hasTools("LEGAL FRAMEWORK STATUS")
+											&& <div className="col-md-12">
+												<div className="grey-horizontal-bar"/>
 
-										<div className="col-md-12">
-											<div className="grey-horizontal-bar"/>
+												<div className="h8">
+													STATUS
+												</div>
 
-											<div className="h8">
-												STATUS
+												{this.buildClassificationFilters("LEGAL FRAMEWORK STATUS")}
 											</div>
-										</div>
+										}
 
-										<div className="col-md-12">
-											{this.buildClassificationFilters("LEGAL FRAMEWORK STATUS")}
-										</div>
+										{this.hasTools("LEGAL FRAMEWORK SECTOR-SPECIFIC")
+											&& <div className="col-md-12">
+												<div className="grey-horizontal-bar"/>
 
-										<div className="col-md-12">
-											<div className="grey-horizontal-bar"/>
+												<div className="h8">
+													SECTOR-SPECIFIC
+												</div>
 
-											<div className="h8">
-												SECTOR-SPECIFIC
+												{this.buildClassificationFilters("LEGAL FRAMEWORK SECTOR-SPECIFIC")}
 											</div>
-										</div>
-
-										<div className="col-md-12">
-											{this.buildClassificationFilters("LEGAL FRAMEWORK SECTOR-SPECIFIC")}
-										</div>
+										}
 									</div>
 								</div>
 							</div>
