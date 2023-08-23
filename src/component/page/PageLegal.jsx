@@ -83,7 +83,7 @@ export default class PageLegal extends React.Component {
 		/>;
 	}
 
-	buildClassificationFilters() {
+	buildClassificationFilters(category) {
 		if (!this.props.taxonomies) {
 			return <Loading/>;
 		}
@@ -91,7 +91,7 @@ export default class PageLegal extends React.Component {
 		const result = [];
 
 		const legalCategories = this.props.taxonomies.taxonomy_values
-			.filter((c) => c.category === "LEGAL FRAMEWORK")
+			.filter((c) => c.category === category)
 			.sort((a, b) => a.name - b.name);
 
 		for (let i = 0; i < legalCategories.length; i++) {
@@ -211,12 +211,48 @@ export default class PageLegal extends React.Component {
 											<div className="grey-horizontal-bar"/>
 
 											<div className="h8">
+												APPLICATION LEVEL
+											</div>
+										</div>
+
+										<div className="col-md-12">
+											{this.buildClassificationFilters("LEGAL FRAMEWORK APPLICATION LEVEL")}
+										</div>
+
+										<div className="col-md-12">
+											<div className="grey-horizontal-bar"/>
+
+											<div className="h8">
 												LEGAL FRAMEWORK
 											</div>
 										</div>
 
 										<div className="col-md-12">
-											{this.buildClassificationFilters()}
+											{this.buildClassificationFilters("LEGAL FRAMEWORK")}
+										</div>
+
+										<div className="col-md-12">
+											<div className="grey-horizontal-bar"/>
+
+											<div className="h8">
+												STATUS
+											</div>
+										</div>
+
+										<div className="col-md-12">
+											{this.buildClassificationFilters("LEGAL FRAMEWORK STATUS")}
+										</div>
+
+										<div className="col-md-12">
+											<div className="grey-horizontal-bar"/>
+
+											<div className="h8">
+												SECTOR-SPECIFIC
+											</div>
+										</div>
+
+										<div className="col-md-12">
+											{this.buildClassificationFilters("LEGAL FRAMEWORK SECTOR-SPECIFIC")}
 										</div>
 									</div>
 								</div>
