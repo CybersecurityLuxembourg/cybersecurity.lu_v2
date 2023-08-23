@@ -77,6 +77,9 @@ export default class PageSearch extends React.Component {
 			const filters = {
 				name: this.state.searchValue,
 				taxonomy_values: this.state.selectedTaxonomyValues,
+				include_articles: true,
+				include_entities: true,
+				include_article_types: this.state.articleTypes,
 				include_taxonomy_categories: this.state.taxonomyCategories,
 			};
 
