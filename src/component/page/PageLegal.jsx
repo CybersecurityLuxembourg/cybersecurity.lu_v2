@@ -100,7 +100,7 @@ export default class PageLegal extends React.Component {
 					<Field
 						className="checkbox-category"
 						type="checkbox"
-						checkBoxLabel={<b>{legalCategories[i].name}</b>}
+						checkBoxLabel={legalCategories[i].name}
 						value={this.state.filters.taxonomy_values.indexOf(legalCategories[i].id) >= 0}
 						onChange={(v) => this.modifyFilters(
 							"taxonomy_values",
