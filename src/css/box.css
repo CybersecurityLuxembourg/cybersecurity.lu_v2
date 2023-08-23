@@ -12,7 +12,7 @@
 }
 
 .filter-box .Field {
-	margin-bottom: 8px;
+	margin: 4px 0px !important;
 }
 
 .filter-box .right-buttons {
@@ -24,7 +24,7 @@
 }
 
 .filter-box .h8 {
-	margin-bottom: 16px;
+	margin-bottom: 16px !important;
 }
 
 .filter-box .right-buttons button {
