@@ -68,6 +68,7 @@ export default class ChartSolutionHorizontalBar extends React.Component {
 					},
 				},
 			},
+			barPercentage: 0.4,
 		};
 	}
 

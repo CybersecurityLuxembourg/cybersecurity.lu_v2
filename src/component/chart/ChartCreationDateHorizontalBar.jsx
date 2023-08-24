@@ -43,9 +43,6 @@ export default class ChartCreationDateHorizontalBar extends React.Component {
 				position: "right",
 			},
 			scales: {
-				yAxes: [{
-					barThickness: 10,
-				}],
 				x: {
 					grid: {
 						drawBorder: false,
@@ -65,6 +62,7 @@ export default class ChartCreationDateHorizontalBar extends React.Component {
 					},
 				},
 			},
+			barPercentage: 0.4,
 		};
 	}
 

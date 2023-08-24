@@ -27,29 +27,3 @@
 	border: 1px solid #E5F5FF;
 	border-radius: 24px;
 }
-
-#PageDashboardPrivateSector .Tab .Tab-menu {
-	width: fit-content;
-	text-align: left;
-	border: 1px solid var(--gray-300, #D0D5DD);
-	border-radius: 6px;
-	padding: 0px;
-	margin-bottom: 24px;
-}
-
-#PageDashboardPrivateSector .Tab .Tab-menu-el {
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 600;
-	padding: 10px 16px;
-	margin: 0px;
-	overflow: unset;
-}
-
-#PageDashboardPrivateSector .Tab .Tab-menu-el:not(:last-child) {
-	border-right: 1px solid var(--gray-300, #D0D5DD);
-}
-
-#PageDashboardPrivateSector .Tab .Tab-menu-el-selected {
-	border: none;
-}

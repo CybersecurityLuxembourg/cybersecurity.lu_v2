@@ -5,10 +5,9 @@ import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import BoxCount from "../../box/BoxCount.jsx";
-import BoxWithTitle from "../../box/BoxWithTitle.jsx";
-import ChartCoreBusinessDonut from "../../chart/ChartCoreBusinessDonut.jsx";
-import ChartSolutionHorizontalBar from "../../chart/ChartSolutionHorizontalBar.jsx";
-import ChartCreationDateHorizontalBar from "../../chart/ChartCreationDateHorizontalBar.jsx";
+import Tab from "../../tab/Tab.jsx";
+import PageDashboardPrivateSectorCompanies from "./pagedashboardprivatesector/PageDashboardPrivateSectorCompanies.jsx";
+import PageDashboardPrivateSectorStartups from "./pagedashboardprivatesector/PageDashboardPrivateSectorStartups.jsx";
 import { getPastDate } from "../../../utils/date.jsx";
 
 export default class PageDashboardPrivateSector extends React.Component {
@@ -17,6 +16,7 @@ export default class PageDashboardPrivateSector extends React.Component {
 
 		this.state = {
 			serviceProviders: null,
+			selectedMenu: "companies",
 		};
 	}
 
@@ -157,95 +157,24 @@ export default class PageDashboardPrivateSector extends React.Component {
 								<h5>A closer look to the private sector</h5>
 							</div>
 
-							<div className="col-md-6">
-								<BoxWithTitle
-									title={"Cybersecurity as core business"}
-									content={<div className="row">
-										<div className="col-md-12">
-											<ChartCoreBusinessDonut
-												serviceProviders={this.state.serviceProviders}
-												taxonomies={this.props.taxonomies}
-											/>
-										</div>
-										<div className="col-md-12">
-											<div className="right-buttons">
-												<button
-													className="transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=private-sector&corebusiness_only=true")}
-												>
-													See more &nbsp;<i className="fas fa-arrow-right"/>
-												</button>
-											</div>
-										</div>
-									</div>}
-								/>
-							</div>
-
-							<div className="col-md-6">
-								<BoxWithTitle
-									title={"Diversified solutions offered by the ecosystem"}
-									content={<div className="row">
-										<div className="col-md-12">
-											<ChartSolutionHorizontalBar
-												serviceProviders={this.state.serviceProviders}
-												taxonomies={this.props.taxonomies}
-											/>
-										</div>
-										<div className="col-md-12">
-											<div className="right-buttons">
-												<button
-													className="transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
-												>
-													See more details on the solutions offered &nbsp;<i className="fas fa-arrow-right"/>
-												</button>
-											</div>
-										</div>
-									</div>}
-								/>
-							</div>
-
-							<div className="col-md-6">
-								<BoxWithTitle
-									title={"50% of companies have been created in the last 5 years"}
-									content={<div className="row">
-										<div className="col-md-12">
-											<ChartCreationDateHorizontalBar
-												serviceProviders={this.state.serviceProviders}
-												taxonomies={this.props.taxonomies}
-											/>
-										</div>
-									</div>}
-								/>
-							</div>
-
-							<div className="col-md-6">
-								<div className={"join-the-ecosystem"}>
-									<div className="row">
-										<div className="col-md-12">
-											<h4>
-												Join the ecosystem today!
-											</h4>
-
-											<p>
-												Become an active member of the ecosystem
-												and gain great visibility! Throughout the
-												year, a wide set of actions is organised
-												by the ecosystem for the ecosystem.
-											</p>
-
-											<div className="buttons">
-												<button
-													className="link transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
-												>
-													See more information &nbsp;<i className="fas fa-arrow-right"/>
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<Tab
+								onMenuClick={(m) => this.setState({ selectedMenu: m })}
+								selectedMenu={this.state.selectedMenu}
+								labels={["Companies", "Start-ups"]}
+								keys={["companies", "startups"]}
+								content={[
+									<PageDashboardPrivateSectorCompanies
+										key={0}
+										serviceProviders={this.state.serviceProviders}
+										{...this.props}
+									/>,
+									<PageDashboardPrivateSectorStartups
+										key={1}
+										serviceProviders={this.state.serviceProviders}
+										{...this.props}
+									/>,
+								]}
+							/>
 						</div>
 					</div>
 				</div>
