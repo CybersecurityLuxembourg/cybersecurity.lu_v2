@@ -21,7 +21,10 @@ export default class ChartCoreBusinessDonut extends React.Component {
 			labels: ["All companies", "Companies with cybersecurity as core business"],
 			datasets: [
 				{
-					data: [93, 210],
+					data: [
+						this.props.serviceProviders.length
+							- this.props.serviceProviders.filter((c) => c.is_cybersecurity_core_business).length,
+						this.props.serviceProviders.filter((c) => c.is_cybersecurity_core_business).length],
 					backgroundColor: ["#E93842", "#FCE6E7"],
 					hoverBackgroundColor: ["#E93842", "#FCE6E7"],
 				},
@@ -50,7 +53,7 @@ export default class ChartCoreBusinessDonut extends React.Component {
 						</div>
 
 						<h3>
-							93
+							{this.props.serviceProviders.filter((c) => c.is_cybersecurity_core_business).length}
 						</h3>
 					</div>
 
@@ -59,6 +62,9 @@ export default class ChartCoreBusinessDonut extends React.Component {
 							data={this.getChartData()}
 							options={this.getOptions()}
 						/>
+						<div className="total-legend">
+							<h6>{this.props.serviceProviders.length}<br/>Companies</h6>
+						</div>
 					</div>
 
 					<div className="col-md-12">

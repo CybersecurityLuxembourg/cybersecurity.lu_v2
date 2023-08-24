@@ -57,6 +57,10 @@ export default class ChartSolutionHorizontalBar extends React.Component {
 					border: {
 						display: false,
 					},
+					ticks: {
+						beginAtZero: true,
+						precision: 0,
+					},
 				},
 				y: {
 					grid: {
