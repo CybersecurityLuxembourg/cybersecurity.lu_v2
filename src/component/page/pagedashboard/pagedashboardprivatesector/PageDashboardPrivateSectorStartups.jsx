@@ -3,7 +3,6 @@ import "./PageDashboardPrivateSectorStartups.css";
 import BoxWithTitle from "../../../box/BoxWithTitle.jsx";
 import ChartCoreBusinessDonut from "../../../chart/ChartCoreBusinessDonut.jsx";
 import ChartSolutionHorizontalBar from "../../../chart/ChartSolutionHorizontalBar.jsx";
-import { getPastDate } from "../../../../utils/date.jsx";
 import Loading from "../../../box/Loading.jsx";
 
 export default class PageDashboardPrivateSectorStartups extends React.Component {
@@ -13,16 +12,6 @@ export default class PageDashboardPrivateSectorStartups extends React.Component 
 		}
 
 		return this.props.serviceProviders.filter((a) => a.is_startup === 1).length;
-	}
-
-	getYoungCount() {
-		if (!this.props.serviceProviders) {
-			return null;
-		}
-
-		return this.props.serviceProviders
-			.filter((a) => a.creation_date >= getPastDate(5))
-			.length;
 	}
 
 	render() {
