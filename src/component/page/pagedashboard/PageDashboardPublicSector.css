@@ -47,6 +47,22 @@
 	margin-bottom: 32px;
 }
 
+#PageDashboardPublicSector .framework-box i.fa-balance-scale,
+#PageDashboardPublicSector .framework-box .h8 {
+	margin: 12px 0px 12px 0px;
+}
+
+#PageDashboardPublicSector .framework-box i.fa-balance-scale {
+	float: left;
+	font-size: 48px;
+	color: var(--primary-blue-80);
+	margin-right: 24px;
+}
+
+#PageDashboardPublicSector .framework-box .right-buttons button {
+	margin: 24px 0px 0px 0px !important;
+}
+
 @media (min-width: 768px) {
 	#PageDashboardPublicSector .education-training > .row > .col-md-12 > .row  > .col-md-4:first-child {
 		border-right: 1px solid var(--text-neutral-10);

@@ -105,7 +105,9 @@ export default class PageDashboardPublicSector extends React.Component {
 									</div>
 
 									<div className="col-md-12">
-										<div className="box">
+										<div className="box framework-box">
+											<i className="fas fa-balance-scale"/>
+
 											<div className="h8">
 												Access the latest and upcoming International, European
 												and National Legal Frameworks
