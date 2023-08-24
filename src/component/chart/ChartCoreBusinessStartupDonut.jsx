@@ -68,7 +68,7 @@ export default class ChartCoreBusinessStartupDonut extends React.Component {
 							options={this.getOptions()}
 						/>
 						<div className="total-legend">
-							<h6>{this.props.serviceProviders.length}<br/>Startups</h6>
+							<h6>{this.props.serviceProviders.filter((c) => c.is_startup).length}<br/>Startups</h6>
 						</div>
 					</div>
 
