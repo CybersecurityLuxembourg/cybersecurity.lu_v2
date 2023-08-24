@@ -1,27 +1,5 @@
 
-#PageDashboardPrivateSector .title {
-	background: var(--linear-blue);
-	padding: 134px 70px 164px 70px;
-	border: 1px solid #E5F5FF;
-	border-radius: 24px;
-	height: calc(100% - 24px);
-}
-
-#PageDashboardPrivateSector .header button {
-	margin-bottom: 32px;
-}
-
-#PageDashboardPrivateSector .header .box img {
-	max-height: 100%;
-	max-width: 100%;
-	width: auto !important;
-}
-
-#PageDashboardPrivateSector .header .box div:has(> img) {
-	text-align: center;
-}
-
-#PageDashboardPrivateSector .join-the-ecosystem {
+#PageDashboardPrivateSectorCompanies .join-the-ecosystem {
 	background: var(--linear-blue);
 	padding: 44px 26px;
 	border: 1px solid #E5F5FF;

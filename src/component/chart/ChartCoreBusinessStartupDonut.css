@@ -1,0 +1,25 @@
+
+.ChartCoreBusinessStartupDonut .label {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.ChartCoreBusinessStartupDonut .legend {
+	margin-top: 40px;
+	font-family: "Open Sans 600";
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 150%;
+}
+
+.ChartCoreBusinessStartupDonut .total-legend {
+	position: absolute;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	text-align: center;
+}
+
+.ChartCoreBusinessStartupDonut .total-legend h6 {
+	margin-bottom: 0px;
+}
