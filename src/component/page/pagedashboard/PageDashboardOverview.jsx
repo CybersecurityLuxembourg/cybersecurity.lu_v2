@@ -1,5 +1,6 @@
 import React from "react";
 import "./PageDashboardOverview.css";
+import { Doughnut } from "react-chartjs-2";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
@@ -361,12 +362,76 @@ export default class PageDashboardOverview extends React.Component {
 
 									{this.state.serviceProviders
 										? <div className="row">
-											<div className="col-md-5">
-												CHART
+											<div className="col-md-4 offset-md-1">
+												<div className="donut-wrapper">
+													<Doughnut
+														className="big-donut"
+														data={{
+															datasets: [
+																{
+																	data: [
+																		this.state.serviceProviders
+																			.filter((s) => s.is_cybersecurity_core_business)
+																			.length,
+																		this.state.serviceProviders.length
+																			- this.state.serviceProviders
+																				.filter((s) => s.is_cybersecurity_core_business)
+																				.length,
+																	],
+																	backgroundColor: [
+																		"rgba(233, 56, 66, 1)",
+																		"rgba(233, 56, 66, 0.2)",
+																	],
+																	borderWidth: 0,
+																},
+															],
+														}}
+														options={{
+															cutout: "94%",
+															layout: {
+																padding: 5,
+															},
+														}}
+													/>
+
+													<Doughnut
+														className="small-donut"
+														data={{
+															datasets: [
+																{
+																	data: [
+																		this.state.serviceProviders
+																			.filter((s) => s.is_cybersecurity_core_business)
+																			.filter((s) => s.is_startup)
+																			.length,
+																		this.state.serviceProviders
+																			.filter((s) => s.is_startup)
+																			.length
+																			- this.state.serviceProviders
+																				.filter((s) => s.is_cybersecurity_core_business)
+																				.filter((s) => s.is_startup)
+																				.length,
+																	],
+																	backgroundColor: [
+																		"rgba(51, 173, 255, 1)",
+																		"rgba(51, 173, 255, 0.2)",
+																	],
+																	borderWidth: 0,
+																},
+															],
+														}}
+														options={{
+															cutout: "92%",
+															layout: {
+																padding: 30,
+															},
+														}}
+													/>
+												</div>
 											</div>
 
-											<div className="col-md-7">
-												<div className="row">
+											<div className="col-md-6 offset-md-1">
+												<div className="row donut-description vertically-centered">
 													<div className="col-md-2">
 														<h3>{this.state.serviceProviders.length}</h3>
 													</div>
