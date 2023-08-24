@@ -4,6 +4,7 @@ import BoxWithTitle from "../../../box/BoxWithTitle.jsx";
 import ChartCoreBusinessDonut from "../../../chart/ChartCoreBusinessDonut.jsx";
 import ChartSolutionHorizontalBar from "../../../chart/ChartSolutionHorizontalBar.jsx";
 import { getPastDate } from "../../../../utils/date.jsx";
+import Loading from "../../../box/Loading.jsx";
 
 export default class PageDashboardPrivateSectorStartups extends React.Component {
 	getStartupCount() {
@@ -25,6 +26,10 @@ export default class PageDashboardPrivateSectorStartups extends React.Component 
 	}
 
 	render() {
+		if (!this.props.serviceProviders) {
+			return <Loading height={500}/>;
+		}
+
 		return (
 			<div id={"PageDashboardPrivateSectorStartups"}>
 				<div className="row">
