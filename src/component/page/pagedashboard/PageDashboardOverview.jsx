@@ -449,13 +449,13 @@ export default class PageDashboardOverview extends React.Component {
 													</div>
 													<div className="col-md-2">
 														<h3 className="blue">
-															{(this.state.serviceProviders
+															{Math.round((this.state.serviceProviders
 																.filter((s) => s.is_cybersecurity_core_business && s.is_startup)
 																.length
 																* 100)
 																/ this.state.serviceProviders
 																	.filter((s) => s.is_startup)
-																	.length}%
+																	.length)}%
 														</h3>
 													</div>
 													<div className="col-md-10">
