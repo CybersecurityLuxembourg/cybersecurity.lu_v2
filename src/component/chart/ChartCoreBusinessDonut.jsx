@@ -25,8 +25,8 @@ export default class ChartCoreBusinessDonut extends React.Component {
 						this.props.serviceProviders.length
 							- this.props.serviceProviders.filter((c) => c.is_cybersecurity_core_business).length,
 						this.props.serviceProviders.filter((c) => c.is_cybersecurity_core_business).length],
-					backgroundColor: ["#E93842", "#FCE6E7"],
-					hoverBackgroundColor: ["#E93842", "#FCE6E7"],
+					backgroundColor: ["#FCE6E7", "#E93842"],
+					hoverBackgroundColor: ["#FCE6E7", "#E93842"],
 				},
 			],
 		};
