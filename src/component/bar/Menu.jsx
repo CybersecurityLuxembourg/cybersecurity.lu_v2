@@ -15,20 +15,6 @@ export default class Menu extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		document.querySelector("#root").addEventListener("scroll", () => {
-			const currentScrollPos = document.getElementById("root").scrollTop;
-
-			if (currentScrollPos !== undefined && currentScrollPos !== 0) {
-				if (currentScrollPos > 300 && !this.state.showFlyingMenu) {
-					this.setState({ showFlyingMenu: true });
-				} else if (currentScrollPos < 300) {
-					this.setState({ showFlyingMenu: false });
-				}
-			}
-		});
-	}
-
 	// eslint-disable-next-line class-methods-use-this
 	getNavBar() {
 		return <Nav className="mr-sm-2 ml-auto main-navbar-nav">
@@ -264,7 +250,10 @@ export default class Menu extends React.Component {
 						</Link>
 					</Navbar.Brand>
 
-					<Navbar.Toggle aria-controls="basic-navbar-nav"/>
+					<Navbar.Toggle
+						aria-controls="basic-navbar-nav"
+						onClick={(v) => console.log(v)}
+					/>
 
 					<Navbar.Collapse>
 						{this.getNavBar()}
