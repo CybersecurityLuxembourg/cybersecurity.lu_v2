@@ -19,3 +19,7 @@
 		linear-gradient(to right, #cdcdcd 50%, #ddd 50%);
 	background-size: 8px 8px, 8px 8px;
 }
+
+#PageAboutLogo button {
+	margin-bottom: 12px;
+}
