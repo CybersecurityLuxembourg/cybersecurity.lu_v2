@@ -77,4 +77,16 @@
 	#PageDashboardOverview .donut-description {
 		text-align: center;
 	}
+
+	#PageDashboardOverview .total-entities * {
+		vertical-align: middle;
+		display: table-cell;
+		width: auto;
+		padding: 8px;
+	}
+
+	#PageDashboardOverview .total-entities h2 {
+		height: auto;
+		font-size: 64px !important;
+	}
 }

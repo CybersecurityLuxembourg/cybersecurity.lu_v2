@@ -73,7 +73,7 @@ export default class PageDashboardPrivateSectorStartups extends React.Component 
 					<div className="col-md-12">
 						<div className={"discover-program"}>
 							<div className="row">
-								<div className="col-md-5">
+								<div className="col-md-5 spaced-row">
 									<div className="vertically-centered">
 										<div>
 											<h4>

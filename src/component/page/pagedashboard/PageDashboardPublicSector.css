@@ -49,6 +49,7 @@
 
 #PageDashboardPublicSector .framework-box i.fa-balance-scale,
 #PageDashboardPublicSector .framework-box .h8 {
+	display: table-cell;
 	margin: 12px 0px 12px 0px;
 }
 
@@ -70,5 +71,19 @@
 
 	#PageDashboardPublicSector .education-training > .row > .col-md-12 > .row > .col-md-4:last-child {
 		border-left: 1px solid var(--text-neutral-10);
+	}
+}
+
+@media (max-width: 768px) {
+	#PageDashboardPublicSector .total-institutions h3,
+	#PageDashboardPublicSector .total-institutions h6 {
+		vertical-align: middle;
+		display: table-cell;
+		width: auto;
+		padding: 8px;
+	}
+
+	#PageDashboardPublicSector .total-institutions h3 {
+		font-size: 64px !important;
 	}
 }

@@ -97,58 +97,68 @@ export default class PageDashboardPrivateSector extends React.Component {
 								</div>
 							</div>
 
-							<div className="col-md-3">
-								<div className={"total-institutions"}>
-									<h3 className="count">
-										{this.state.serviceProviders
-											? this.state.serviceProviders.length
-											: "Loading..."
-										}
-									</h3>
+							<div className="col-md-6">
+								<div className="row">
+									<div className="col-md-6">
+										<div className={"total-institutions"}>
+											<h3 className="count">
+												{this.state.serviceProviders
+													? this.state.serviceProviders.length
+													: "Loading..."
+												}
+											</h3>
 
-									<h6>
-										Companies are part of the ecosystem
-									</h6>
+											<h6>
+												Companies are part of the ecosystem
+											</h6>
 
-									<button
-										className="small"
-										onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
-									>
-										Access the full list &nbsp;<i className="fas fa-arrow-right"/>
-									</button>
-								</div>
-								<BoxCount
-									image={"/img/icon-plant.png"}
-									label={"Created during the last 5 years"}
-									count={this.getYoungCount()
-										? this.getYoungCount()
-										: "Loading..."}
-								/>
-							</div>
-
-							<div className="col-md-3">
-								<div className="box">
-									<div className="h8">
-										Main point of contact
-									</div>
-
-									<div className="row">
-										<div className="col-md-12">
-											<img
-												src="/img/lhc-logo.png"
-												alt="Logo LHC"
-											/>
+											<button
+												className="small"
+												onClick={() => this.props.history.push("ecosystem?tab=private-sector")}
+											>
+												Access the full list &nbsp;<i className="fas fa-arrow-right"/>
+											</button>
 										</div>
 									</div>
+
+									<div className="col-md-6">
+										<div className="box">
+											<div className="h8">
+												Main point of contact
+											</div>
+
+											<div className="row">
+												<div className="col-md-12">
+													<img
+														src="/img/lhc-logo.png"
+														alt="Logo LHC"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div className="col-md-6">
+										<BoxCount
+											image={"/img/icon-plant.png"}
+											label={"Created during the last 5 years"}
+											count={this.getYoungCount()
+												? this.getYoungCount()
+												: "Loading..."}
+										/>
+									</div>
+
+									<div className="col-md-6">
+										<Link to="/ecosystem?tab=private-sector&startup_only=true">
+											<BoxCount
+												image={"/img/icon-rocket.png"}
+												label={"Number of Startups"}
+												count={this.getStartupCount()
+													? this.getStartupCount() : "Loading..."}
+											/>
+										</Link>
+									</div>
 								</div>
-								<Link to="/ecosystem?tab=private-sector&startup_only=true">
-									<BoxCount
-										image={"/img/icon-rocket.png"}
-										label={"Number of Startups"}
-										count={this.getStartupCount()
-											? this.getStartupCount() : "Loading..."}
-									/>
-								</Link>
 							</div>
 						</div>
 

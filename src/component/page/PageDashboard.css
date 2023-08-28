@@ -29,3 +29,17 @@
 	border-bottom: 4px solid var(--primary-blue-80);
 	color: var(--primary-blue-80);
 }
+
+@media (max-width: 992px) { 
+	#PageDashboard .header-content {
+		position: relative;
+		padding: 60px 48px 164px 48px;
+	}
+
+	#PageDashboard .header-content img {
+		position: absolute;
+		left: 0px;
+		bottom: 20px;
+		width: 100%;
+	}
+}

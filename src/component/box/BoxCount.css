@@ -22,3 +22,31 @@ a:hover:has(.BoxCount) {
 .BoxCount h2 {
 	margin-bottom: 0px;
 }
+
+@media (max-width: 768px) {
+	.BoxCount {
+		padding-top: 48px !important;
+		padding-bottom: 48px !important;
+	}
+
+	.BoxCount img,
+	.BoxCount .label,
+	.BoxCount .count {
+		display: inline-block !important;
+		vertical-align: middle;
+		padding: 0px 8px;
+	}
+
+	.BoxCount .label {
+		margin-top: 0px !important;
+		width: calc(100% - 110px) !important;
+	}
+
+	.BoxCount .count {
+		width: auto;
+	}
+
+	.BoxCount img {
+		width: 42px !important;
+	}
+}

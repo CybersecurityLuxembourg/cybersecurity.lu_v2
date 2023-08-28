@@ -168,10 +168,18 @@ h6 {
     margin: 0px 8px;
 }
 
-@media (max-width: 480px) {
+.show-on-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
     .hide-on-mobile {
 		display: none;
 	}
+
+    .show-on-mobile {
+        display: inherit;
+    }
 
     h1 {
         font-size: 32px !important;

@@ -160,32 +160,32 @@ export default class PageDashboardPublicSector extends React.Component {
 								<BoxWithTitle
 									title={"Preparedness & Response"}
 									content={<div className="row">
-										<div className="col-md-6">
+										<div className="col-6">
 											<img
 												src="/img/logo-govcert.png"
 												alt="Logo GovCert"
 											/>
 										</div>
-										<div className="col-md-6">
+										<div className="col-6">
 											<img
 												src="/img/logo-circl.png"
 												alt="Logo Circl"
 											/>
 										</div>
-										<div className="offset-md-2 col-md-8">
+										<div className="offset-2 col-8">
 											<img
 												className="hcpn-logo"
 												src="/img/logo-hcpn.png"
 												alt="Logo HCPN"
 											/>
 										</div>
-										<div className="col-md-5">
+										<div className="col-5">
 											<img
 												src="/img/logo-certlu.png"
 												alt="Logo CertLu"
 											/>
 										</div>
-										<div className="offset-md-2 col-md-5">
+										<div className="offset-2 col-5">
 											<img
 												src="/img/logo-infocrise.png"
 												alt="Logo InfoCrise"
@@ -196,13 +196,13 @@ export default class PageDashboardPublicSector extends React.Component {
 								<BoxWithTitle
 									title={"Research & Development"}
 									content={<div className="row">
-										<div className="col-md-6">
+										<div className="col-6">
 											<img
 												src="/img/logo-list.png"
 												alt="Logo LIST"
 											/>
 										</div>
-										<div className="col-md-6">
+										<div className="col-6">
 											<img
 												src="/img/logo-unilu.png"
 												alt="Logo Uni.lu"
@@ -223,21 +223,21 @@ export default class PageDashboardPublicSector extends React.Component {
 											</div>
 
 											<div className="row">
-												<div className="col-md-5">
+												<div className="col-5">
 													<img
 														className="fixed-height"
 														src="/img/logo-lyceegk.png"
 														alt="National strategy diagram"
 													/>
 												</div>
-												<div className="offset-md-2 col-md-5">
+												<div className="offset-2 col-5">
 													<img
 														className="fixed-height"
 														src="/img/logo-unkn.png"
 														alt="National strategy diagram"
 													/>
 												</div>
-												<div className="offset-md-3 col-md-6">
+												<div className="offset-3 col-6">
 													<img
 														className="fixed-height"
 														src="/img/logo-unilu-solo.png"
@@ -256,41 +256,43 @@ export default class PageDashboardPublicSector extends React.Component {
 											</div>
 										</div>
 										<div className="col-md-4">
+											<div className="grey-horizontal-bar show-on-mobile"/>
+
 											<div className="h8">
 												Initial and Ongoing Training, Re-skilling
 												and Upskilling
 											</div>
 
 											<div className="row">
-												<div className="col-md-5">
+												<div className="col-5">
 													<img
 														className="fixed-height"
 														src="/img/logo-admin-pub.png"
 														alt="Logo administration publique"
 													/>
 												</div>
-												<div className="offset-md-2 col-md-5">
+												<div className="offset-2 col-5">
 													<img
 														className="fixed-height"
 														src="/img/logo-hot.png"
 														alt="Logo House of Training"
 													/>
 												</div>
-												<div className="col-md-4">
+												<div className="col-4">
 													<img
 														className="fixed-height"
 														src="/img/logo-nc3.png"
 														alt="Logo NC3"
 													/>
 												</div>
-												<div className="col-md-4">
+												<div className="col-4">
 													<img
 														className="fixed-height"
 														src="/img/logo-cwf.png"
 														alt="Logo CWF"
 													/>
 												</div>
-												<div className="col-md-4">
+												<div className="col-4">
 													<img
 														className="fixed-height"
 														src="/img/logo-dlh.png"
@@ -309,25 +311,27 @@ export default class PageDashboardPublicSector extends React.Component {
 											</div>
 										</div>
 										<div className="col-md-4">
+											<div className="grey-horizontal-bar show-on-mobile"/>
+
 											<div className="h8">
 												Awareness Raising Activities
 											</div>
 											<div className="row">
-												<div className="offset-md-3 col-md-6">
+												<div className="offset-3 col-6">
 													<img
 														className="fixed-height"
 														src="/img/logo-beesecure.png"
 														alt="Logo BeeSecure"
 													/>
 												</div>
-												<div className="col-md-5">
+												<div className="col-5">
 													<img
 														className="fixed-height"
 														src="/img/logo-ecsm.png"
 														alt="Logo ECSM"
 													/>
 												</div>
-												<div className="offset-md-2 col-md-5">
+												<div className="offset-2 col-5">
 													<img
 														className="fixed-height"
 														src="/img/logo-cswl.png"
