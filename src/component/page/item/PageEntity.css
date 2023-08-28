@@ -5,9 +5,10 @@
 
 #PageEntity .header h4 {
     display: inline-block;
+    margin-right: 24px;
 }
 
-#PageEntity .header a {
+#PageEntity .header .claim-link {
     margin-top: 0px;
     color: ;
     font-size: 11px;
@@ -16,7 +17,6 @@
     color: var(--text-neutral-50, #232332);
     text-decoration-line: underline;
     vertical-align: text-top;
-    margin-left: 24px;
 }
 
 #PageEntity .header i {
@@ -63,4 +63,11 @@
     padding: 8px;
     margin-right: 8px;
     color: var(--primary-blue-80);
+}
+
+@media (max-width: 992px) {
+    #PageEntity .claim-link {
+        display: block;
+        margin-bottom: 24px;
+    }
 }

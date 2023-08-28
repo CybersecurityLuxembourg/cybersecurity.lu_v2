@@ -311,7 +311,7 @@ export default class PageEntity extends React.Component {
 								<div className="offset-md-1 col-md-4">
 									<div className="entity-card">
 										<div className="row">
-											<div className="col-md-4 entity-logo">
+											<div className="col-4 entity-logo">
 												{this.state.entity.image
 													? <img
 														src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
@@ -321,7 +321,7 @@ export default class PageEntity extends React.Component {
 												}
 											</div>
 
-											<div className="col-md-8 entity-name">
+											<div className="col-8 entity-name">
 												<span className="h8">
 													{this.state.entity.name}
 												</span>
