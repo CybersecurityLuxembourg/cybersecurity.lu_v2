@@ -279,3 +279,7 @@ h6 {
 .blue {
     color: var(--primary-blue-80) !important;
 }
+
+.top-content .text-content .h8 {
+    margin-bottom: 12px;
+}
