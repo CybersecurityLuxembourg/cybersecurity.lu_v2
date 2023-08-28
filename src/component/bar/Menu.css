@@ -68,10 +68,6 @@
     color: var(--primary-blue-100) !important;
 }
 
-.Menu #basic-navbar-nav {
-    display: block !important;
-}
-
 .Menu .main-navbar-nav {
     margin-left: 5px !important;
 }
@@ -210,6 +206,7 @@
 
     .Menu .top-right-bar {
         margin-top: 15px;
+        width: 100%;
     }
 
     .Menu .top-right-bar button {

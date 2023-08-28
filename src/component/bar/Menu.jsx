@@ -11,7 +11,7 @@ export default class Menu extends React.Component {
 		super(props);
 
 		this.state = {
-			showFlyingMenu: false,
+			expandMenu: false,
 		};
 	}
 
@@ -252,7 +252,6 @@ export default class Menu extends React.Component {
 
 					<Navbar.Toggle
 						aria-controls="basic-navbar-nav"
-						onClick={(v) => console.log(v)}
 					/>
 
 					<Navbar.Collapse>
