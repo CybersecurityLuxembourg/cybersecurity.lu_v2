@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  cybersecurity.lu_v2:
+    image: cybersecurity.lu_v2:local
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    tty: true
+    volumes:
+      - ./:/usr/app
+      - /usr/app/node_modules
+    command: npm start
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1 
+      - WDS_SOCKET_PORT=3100
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true 
+      - NODE_ENV="development"
+    ports:
+      - "3100:3000"
+    expose:
+      - '3000'
