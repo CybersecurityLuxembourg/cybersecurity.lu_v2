@@ -151,7 +151,7 @@ export default class PageEcosystemInitiatives extends React.Component {
 			<div id={"PageEcosystemInitiatives"}>
 				<div className="top-content">
 					<div className="row">
-						<div className="col-md-6">
+						<div className="col-md-6 spaced-row">
 							<h4>Clubs, Associations & Initiatives</h4>
 
 							<p>Non-profit organizations and associations that are part

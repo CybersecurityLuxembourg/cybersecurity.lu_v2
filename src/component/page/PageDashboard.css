@@ -30,7 +30,7 @@
 	color: var(--primary-blue-80);
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
 	#PageDashboard .header-content {
 		position: relative;
 		padding: 60px 48px 164px 48px;

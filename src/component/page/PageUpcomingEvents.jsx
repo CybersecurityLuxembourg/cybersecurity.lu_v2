@@ -56,15 +56,17 @@ export default class PageUpcomingEvents extends React.Component {
 									</p>
 								</div>
 
-								<button
-									className="transparent"
-									onClick={() => this.goToDiv("SectionEvents")}
-								>
-									{this.isOnUpcomingTab()
-										? "See all upcoming events"
-										: "See all past events"
-									}
-								</button>
+								<div className="buttons">
+									<button
+										className="transparent"
+										onClick={() => this.goToDiv("SectionEvents")}
+									>
+										{this.isOnUpcomingTab()
+											? "See all upcoming events"
+											: "See all past events"
+										}
+									</button>
+								</div>
 							</div>
 
 							<div className="col-md-1"/>

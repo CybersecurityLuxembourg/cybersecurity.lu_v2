@@ -21,3 +21,14 @@
 		height: calc(100% - 50px);
 	}
 }
+
+@media (max-width: 768px) {
+	#PageUpcomingEvents .top-content .buttons {
+		text-align: center;
+	}
+
+	#PageUpcomingEvents .top-content .buttons button {
+		display: inline-block;
+		margin-bottom: 16px;
+	}
+}

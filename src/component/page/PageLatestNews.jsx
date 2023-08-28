@@ -34,22 +34,24 @@ export default class PageLatestNews extends React.Component {
 									</p>
 								</div>
 
-								<button
-									onClick={() => window.open(
-										getPrivateAppURL(),
-										"_blank",
-									)}>
-									Share your latest news
-								</button>
-								<button
-									className="transparent"
-									onClick={() => window.open(
-										"https://newsletter.cybersecurity-luxembourg.com",
-										"_blank",
-									)}
-								>
-									Subscribe to the newsletter &nbsp;<i className="fas fa-paper-plane"/>
-								</button>
+								<div className="buttons">
+									<button
+										onClick={() => window.open(
+											getPrivateAppURL(),
+											"_blank",
+										)}>
+										Share your latest news
+									</button>
+									<button
+										className="transparent"
+										onClick={() => window.open(
+											"https://newsletter.cybersecurity-luxembourg.com",
+											"_blank",
+										)}
+									>
+										Subscribe to the newsletter &nbsp;<i className="fas fa-paper-plane"/>
+									</button>
+								</div>
 							</div>
 
 							<div className="col-md-1"/>
@@ -82,7 +84,7 @@ export default class PageLatestNews extends React.Component {
 				<div className={"podcast-content"}>
 					<div className="max-sized-section">
 						<div className="row">
-							<div className="col-md-4">
+							<div className="col-md-4 spaced-row">
 								<h4 className="blue-text">Our Podcasts</h4>
 
 								<div>The latest industry news, interviews, technologies, and resources.</div>
@@ -94,11 +96,11 @@ export default class PageLatestNews extends React.Component {
 
 							<div className="col-md-7">
 								<div className="row">
-									<div className="col-md-4">
+									<div className="col-md-4 spaced-row">
 										<img src="/img/ltac-image.svg"/>
 									</div>
 
-									<div className="col-md-8">
+									<div className="col-md-8 spaced-row">
 										<h5><span className="blue-text">#</span> LËTZ TALK ABOUT CYBER</h5>
 
 										In this edition of Lëtz Talk about Cyber, Melanie
@@ -109,11 +111,11 @@ export default class PageLatestNews extends React.Component {
 								</div>
 
 								<div className="row">
-									<div className="col-md-4">
+									<div className="col-md-4 spaced-row">
 										<img src="/img/breakfast-image.svg"/>
 									</div>
 
-									<div className="col-md-8">
+									<div className="col-md-8 spaced-row">
 										<h5><span className="blue-text">#</span> CYBERSECURITY Breakfast</h5>
 
 										CYBERSECURITY Breakfast Podcast is a monthly series

@@ -34,3 +34,14 @@
 #PageEcosystemInitiatives .list-separator {
 	margin-bottom: 48px;
 }
+
+@media (max-width: 768px) {
+	#PageEcosystemInitiatives .buttons {
+		text-align: center;
+	}
+
+	#PageEcosystemInitiatives .buttons button {
+		display: inline-block;
+		margin-bottom: 16px;
+	}
+}

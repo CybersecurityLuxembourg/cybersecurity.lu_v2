@@ -151,7 +151,7 @@ export default class PageEcosystemPublicSector extends React.Component {
 			<div id={"PageEcosystemPublicSector"}>
 				<div className="top-content">
 					<div className="row">
-						<div className="col-md-6">
+						<div className="col-md-6 spaced-row">
 							<h4>Public Sector</h4>
 
 							<p>The public sector entities include government agencies, regulatory

@@ -143,7 +143,7 @@ export default class PageDashboardOverview extends React.Component {
 								</div>
 							</div>
 
-							<div className="col-md-6">
+							<div className="col-md-3">
 								<div className={"total-entities"}>
 									<h2 className="count">
 										{this.state.publicEntities
