@@ -217,11 +217,11 @@ export default class PageEcosystemPublicSector extends React.Component {
 						<div className="col-md-3">
 							<div className="box filter-box">
 								<div className="row">
-									<div className="col-md-6">
+									<div className="col-6">
 										<h6 className="blue-text">Filter by</h6>
 									</div>
 
-									<div className="col-md-6">
+									<div className="col-6">
 										<div className="right-buttons">
 											<button
 												className="link small"

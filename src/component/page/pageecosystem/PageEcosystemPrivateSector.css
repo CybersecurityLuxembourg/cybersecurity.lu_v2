@@ -3,6 +3,10 @@
 	margin: 80px 0px;
 }
 
+#PageEcosystemPrivateSector .buttons button {
+	margin-bottom: 16px;
+}
+
 #PageEcosystemPrivateSector #PageEcosystemPrivateSector-list-content .h8 {
 	margin: 8px 0px;
 }
@@ -29,4 +33,15 @@
 	display: inline-block;
 	color: var(--primary-blue-80);
 	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	#PageEcosystemPrivateSector .buttons {
+		text-align: center;
+	}
+
+	#PageEcosystemPrivateSector .buttons button {
+		display: inline-block;
+		margin-bottom: 16px;
+	}
 }

@@ -222,7 +222,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 			<div id={"PageEcosystemPrivateSector"}>
 				<div className="top-content">
 					<div className="row">
-						<div className="col-md-6">
+						<div className="col-md-6 spaced-row">
 							<h4>Private Sector</h4>
 
 							<p>The private sector play a critical role in the development
@@ -294,11 +294,11 @@ export default class PageEcosystemPrivateSector extends React.Component {
 						<div className="col-md-3">
 							<div className="box filter-box">
 								<div className="row">
-									<div className="col-md-6">
+									<div className="col-6">
 										<h6 className="blue-text">Filter by</h6>
 									</div>
 
-									<div className="col-md-6">
+									<div className="col-6">
 										<div className="right-buttons">
 											<button
 												className="link small"
