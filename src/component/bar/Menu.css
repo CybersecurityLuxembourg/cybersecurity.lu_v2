@@ -228,8 +228,8 @@
 
     .Menu .navbar-toggler {
         position: absolute;
-        top: 20px;
         right: 20px;
+        top: calc(50% - 30px);
     }
 }
 

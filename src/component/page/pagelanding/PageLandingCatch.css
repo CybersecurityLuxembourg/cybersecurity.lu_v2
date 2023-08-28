@@ -101,3 +101,9 @@
 		margin-bottom: 12px;
 	}
 }
+
+@media (max-width: 992px) {
+	#PageLandingCatch .content {
+		padding-top: 6vh;
+	}
+}
