@@ -16,7 +16,7 @@ export default class SectionCSWL extends React.Component {
 				<div className="max-sized-section">
 					<div className="content">
 						<div className="row">
-							<div className="col-md-6">
+							<div className="col-md-6 spaced-row">
 								<div className="text-content">
 									<div>
 										<h4>CSWL 2023 is coming soon!</h4>

@@ -133,7 +133,7 @@ export default class PageLandingEcosystem extends React.Component {
 			<div id={"PageLandingEcosystem"}>
 				<div className="content max-sized-section">
 					<div className="row">
-						<div className="col-md-5">
+						<div className="col-md-5 spaced-row">
 							<div className="vertically-centered">
 								<div>
 									<h3>
@@ -209,7 +209,6 @@ export default class PageLandingEcosystem extends React.Component {
 						</div>
 					</div>
 				</div>
-				{this.state.ee}
 			</div>
 		);
 	}

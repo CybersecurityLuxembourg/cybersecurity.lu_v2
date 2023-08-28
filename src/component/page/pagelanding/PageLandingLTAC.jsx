@@ -16,7 +16,7 @@ export default class PageLandingLTAC extends React.Component {
 				<div className="max-sized-section">
 					<div className="content">
 						<div className="row">
-							<div className="col-md-5">
+							<div className="col-md-5 spaced-row">
 								<img
 									src="/img/image-ltac.png"
 									alt="CSWL 2023"

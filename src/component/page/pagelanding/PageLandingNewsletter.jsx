@@ -16,7 +16,7 @@ export default class PageLandingNewsletter extends React.Component {
 				<div className="mid-sized-section">
 					<div className="content">
 						<div className="row">
-							<div className="col-md-7">
+							<div className="col-md-7 spaced-row">
 								<h4>Don’t miss our latest news!</h4>
 
 								<div className="catch-phrase">
