@@ -1,0 +1,27 @@
+
+#PageSupportForStartups .top-content {
+	background: var(--linear-blue);
+	padding: 60px 0px;
+	margin-bottom: 64px;
+}
+
+#PageSupportForStartups .vertically-centered h6 {
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+#PageSupportForStartups .list-content .h8 {
+	margin: 8px 0px;
+}
+
+#PageSupportForStartups .list-content span.h8 {
+	margin-right: 8px;
+}
+
+#PageSupportForStartups .DynamicTable {
+	margin: 40px 0px;
+}
+
+#PageSupportForStartups .list-separator {
+	margin-bottom: 48px;
+}
