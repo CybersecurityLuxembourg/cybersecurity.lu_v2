@@ -13,9 +13,9 @@ export default class PageBestPractice extends React.Component {
 		super(props);
 
 		this.state = {
-			menuLabels: ["Detect & react", "Protect & prevent", "Test & improve"],
-			menuValues: ["detect_react", "protect_prevent", "test_improve"],
-			selectedMenu: "detect_react",
+			menuLabels: ["Protect & prevent", "Test & improve", "Detect & react"],
+			menuValues: ["protect_prevent", "test_improve", "detect_react"],
+			selectedMenu: "protect_prevent",
 		};
 	}
 
@@ -69,7 +69,10 @@ export default class PageBestPractice extends React.Component {
 
 								<p>From best practices for secure password management to safe online
 								browsing, our page provides essential information
-								on cybersecurity awareness</p>
+								on cybersecurity awareness.</p>
+
+								<p>The content of this section is powered by the
+								National Cybersecurity Center (NC3).</p>
 							</div>
 						</div>
 					</div>
@@ -84,17 +87,17 @@ export default class PageBestPractice extends React.Component {
 								labels={this.state.menuLabels}
 								keys={this.state.menuValues}
 								content={[
-									<PageBestPracticeDetectReact
+									<PageBestPracticeProtectPrevent
 										key={0}
 										taxonomies={this.props.taxonomies}
 										{...this.props}
 									/>,
-									<PageBestPracticeProtectPrevent
+									<PageBestPracticeTestImprove
 										key={1}
 										taxonomies={this.props.taxonomies}
 										{...this.props}
 									/>,
-									<PageBestPracticeTestImprove
+									<PageBestPracticeDetectReact
 										key={2}
 										taxonomies={this.props.taxonomies}
 										{...this.props}

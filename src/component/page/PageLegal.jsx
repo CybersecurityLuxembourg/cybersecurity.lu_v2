@@ -213,19 +213,17 @@ export default class PageLegal extends React.Component {
 
 							<div className="col-md-5">
 								<div className="text-content">
-									<h4>Navigating the complexities of Cybersecurity laws and regulations</h4>
+									<h4>Your easy guide to navigate the complex
+									legal framework that applies to cybersecurity</h4>
 								</div>
 							</div>
 
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<p>The Cyber Awareness and Best Practice page at cybersecurity.lu is
-								your source for valuable tips and resources on how to stay safe online.</p>
-
-								<p>From best practices for secure password management to safe online
-								browsing, our page provides essential information on
-								cybersecurity awareness</p>
+								<p>This section lists all the legal texts that apply to the fields
+								of cybersecurity and data protection in relation
+								to the relevant entities/bodies.</p>
 							</div>
 						</div>
 					</div>

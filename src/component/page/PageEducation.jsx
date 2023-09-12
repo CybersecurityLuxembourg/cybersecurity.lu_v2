@@ -70,7 +70,7 @@ export default class PageEducation extends React.Component {
 							<div className="col-md-5">
 								<p>Our education and training page is a gateway to a wide
 								range of cybersecurity scholarships and training opportunities
-								from our trusted partners.</p>
+								from trusted players.</p>
 
 								<p>Browse our selection of programs to find the best fit for
 								your needs and interests, whether you&apos;re looking to start a

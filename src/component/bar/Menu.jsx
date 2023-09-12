@@ -222,11 +222,33 @@ export default class Menu extends React.Component {
 				</div>
 			</NavDropdown>
 
-			<Nav.Link className="nav-item">
-				<Link to="/about">
-					<div className="Menu-title">About us</div>
-				</Link>
-			</Nav.Link>
+			<NavDropdown
+				title={
+					<div className="Menu-item">
+						<div className="Menu-title">About us</div>
+						<i className="fas fa-chevron-down"/>
+					</div>
+				}
+				id="basic-nav-dropdown"
+				className="nav-item-about">
+				<div className="row">
+					<div className="col-md-12">
+						<div className="h8">
+							About us
+						</div>
+						<NavDropdown.Item>
+							<Link to="/about?tab=portal">
+								<div className="Menu-title">The Portal</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/about?tab=toolkit">
+								<div className="Menu-title">Brand Toolkit</div>
+							</Link>
+						</NavDropdown.Item>
+					</div>
+				</div>
+			</NavDropdown>
 
 			<Nav.Link className="nav-item">
 				<Link to="/contact">

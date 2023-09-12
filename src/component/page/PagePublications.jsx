@@ -148,16 +148,15 @@ export default class PagePublications extends React.Component {
 
 							<div className="col-md-5">
 								<div className="text-content">
-									<h4>Text to be defined</h4>
+									<h4>Resource center for cybersecurity publications</h4>
 								</div>
 							</div>
 
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<p>Text to be defined</p>
-
-								<p>Text to be defined</p>
+								<p>The latest and archived publications on cybersecurity
+								matters impacting Luxembourg.</p>
 							</div>
 						</div>
 					</div>

@@ -109,6 +109,10 @@
     min-width: 500px;
 }
 
+.Menu .nav-item-about .dropdown-menu {
+    min-width: 250px !important;
+}
+
 .Menu .nav-item .dropdown-menu .dropdown-item:hover {
     color: #000;
 }

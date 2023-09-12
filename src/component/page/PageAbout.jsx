@@ -54,8 +54,11 @@ export default class PageAbout extends React.Component {
 						<div className="row">
 							<div className="col-md-6">
 								<Breadcrumb>
-									<Breadcrumb.Item>About us</Breadcrumb.Item>
-									<Breadcrumb.Item><Link to="/about">The initiative</Link></Breadcrumb.Item>
+									<Breadcrumb.Item><Link to="/about">About us</Link></Breadcrumb.Item>
+									{this.state.selectedMenu === "toolkit"
+										? <Breadcrumb.Item><Link to="/about?tab=toolkit">Brand Toolkit</Link></Breadcrumb.Item>
+										: <Breadcrumb.Item><Link to="/about?tab=portal">The Portal</Link></Breadcrumb.Item>
+									}
 								</Breadcrumb>
 
 								<div className="text-content">
