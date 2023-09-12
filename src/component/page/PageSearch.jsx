@@ -217,6 +217,26 @@ export default class PageSearch extends React.Component {
 		return values[0].id;
 	}
 
+	getOrderedTopics() {
+		const orderedValues = [];
+
+		Object.keys(this.state.object_count?.taxonomy).map((t) => (
+			Object.keys(this.state.object_count.taxonomy[t]).map((v) => {
+				if (this.state.object_count.taxonomy[t][v] > 0) {
+					orderedValues.push({ t, v });
+				}
+
+				return "";
+			})
+		));
+
+		return orderedValues.sort((x, y) => (
+			this.state.object_count.taxonomy[x.t][x.v]
+				< this.state.object_count.taxonomy[y.t][y.v]
+				? 1 : -1
+		));
+	}
+
 	render() {
 		return (
 			<div id={"PageSearch"}>
@@ -454,33 +474,27 @@ export default class PageSearch extends React.Component {
 														</div>
 
 														{this.state.object_count?.taxonomy
-															&& Object.keys(this.state.object_count?.taxonomy).map((t) => (
-																Object.keys(this.state.object_count.taxonomy[t]).map((v) => {
-																	if (this.state.object_count.taxonomy[t][v] > 0) {
-																		return <div className="filter-row" key={v}>
-																			<Field
-																				type="checkbox"
-																				checkBoxLabel={v}
-																				value={this.isTaxonomyValueSelected(t, v)}
-																				onChange={(o) => this.setState({
-																					selectedTaxonomyValues:
-																						o
-																							? this.state.selectedTaxonomyValues
-																								.concat([this.getIdOfTaxonomyValue(t, v)])
-																							: this.state.selectedTaxonomyValues
-																								.filter((i) => i
-																									!== this.getIdOfTaxonomyValue(t, v)),
-																				})}
-																				hideLabel={true}
-																			/>
-																			<Count
-																				count={this.state.object_count.taxonomy[t][v]}
-																			/>
-																		</div>;
-																	}
-
-																	return "";
-																})
+															&& this.getOrderedTopics().map((x) => (
+																<div className="filter-row" key={x.v}>
+																	<Field
+																		type="checkbox"
+																		checkBoxLabel={x.v}
+																		value={this.isTaxonomyValueSelected(x.t, x.v)}
+																		onChange={(o) => this.setState({
+																			selectedTaxonomyValues:
+																				o
+																					? this.state.selectedTaxonomyValues
+																						.concat([this.getIdOfTaxonomyValue(x.t, x.v)])
+																					: this.state.selectedTaxonomyValues
+																						.filter((i) => i
+																							!== this.getIdOfTaxonomyValue(x.t, x.v)),
+																		})}
+																		hideLabel={true}
+																	/>
+																	<Count
+																		count={this.state.object_count.taxonomy[x.t][x.v]}
+																	/>
+																</div>
 															))
 														}
 													</div>
