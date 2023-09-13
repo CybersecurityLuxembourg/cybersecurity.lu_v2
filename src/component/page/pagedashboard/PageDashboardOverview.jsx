@@ -200,16 +200,8 @@ export default class PageDashboardOverview extends React.Component {
 											<div className="grey-horizontal-bar"/>
 										</div>
 
-										<div className="col-md-4">
-											<img
-												className={"logo"}
-												src="/img/double-petals.png"
-												alt="Petals"
-											/>
-										</div>
-
-										<div className="col-md-8 governance-box-content">
-											<h3>Prime minister</h3>
+										<div className="col-md-12 governance-box-content">
+											<h5>Prime minister</h5>
 
 											<div className="grey-vertical-bar"/>
 
@@ -217,8 +209,8 @@ export default class PageDashboardOverview extends React.Component {
 
 											<div className="grey-vertical-bar"/>
 
-											<div className="h8">Interministerial Coordination Committee
-											for Cyber prevention and Cybersecurity</div>
+											<h5>Interministerial Coordination Committee
+											for Cyber prevention and Cybersecurity</h5>
 										</div>
 
 										<div className="col-md-12">
@@ -226,12 +218,21 @@ export default class PageDashboardOverview extends React.Component {
 												<button
 													className="transparent"
 													onClick={() => this.props.history.push("dashboard?tab=public-sector")}>
-													Read more about the initiative &nbsp;<i className="fas fa-arrow-right"/>
+													More about the national actors involved &nbsp;<i className="fas fa-arrow-right"/>
 												</button>
 											</div>
 										</div>
 									</div>
 								</div>
+							</div>
+						</div>
+
+						<div className="row spaced-row hide-on-mobile">
+							<div className="col-md-12">
+								<img
+									src="/img/line-connector-1-to-3.svg"
+									alt="Gouvernement du Grand-Duché de Luxembourg (Nouvelle fenêtre)"
+								/>
 							</div>
 						</div>
 
@@ -251,11 +252,11 @@ export default class PageDashboardOverview extends React.Component {
 
 										<div className="col-md-12">
 											<p>
-												Single point of contact dedicated to the treatment
-												of IT incidents affecting the information systems
-												of the government and operators of critical
-												infrastructures (private and public) defined
-												as operating in Luxembourg
+												The public sector entities include government
+												agencies, regulatory bodies, and other public sector
+												organizations that play a critical role in shaping
+												cybersecurity policy, driving cybersecurity innovation, and
+												promoting cybersecurity awareness and education in Luxembourg.
 											</p>
 										</div>
 
@@ -325,12 +326,9 @@ export default class PageDashboardOverview extends React.Component {
 
 										<div className="col-md-12">
 											<p>
-												Backbone of leading-edge cyber resilience in
-												Luxembourg.
-												LHC aims at capitalizing on and further
-												developing innovation, competencies,
-												collaboration and capacity building in the
-												field of cybersecurity.
+												Luxembourg’s cybersecurity private sector is multidisciplinary
+												and dynamic, with 300+ actors developing and implementing
+												cybersecurity solutions and services in Luxembourg and beyond.
 											</p>
 										</div>
 

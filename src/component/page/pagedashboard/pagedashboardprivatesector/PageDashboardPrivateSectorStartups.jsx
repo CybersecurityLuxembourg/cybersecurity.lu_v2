@@ -69,47 +69,6 @@ export default class PageDashboardPrivateSectorStartups extends React.Component 
 							</div>}
 						/>
 					</div>
-
-					<div className="col-md-12">
-						<div className={"discover-program"}>
-							<div className="row">
-								<div className="col-md-5 spaced-row">
-									<div className="vertically-centered">
-										<div>
-											<h4>
-												Discover our start-up support program
-											</h4>
-
-											<p>
-												CYBER4Growth is a collaborative platform for entrepreneurs to have
-												access to state of the art cybersecurity services. The partners of
-												the program are experts with extensive knowledge of start-ups needs
-												in terms of financing, innovation, access to market and growth.
-											</p>
-
-											<div className="buttons">
-												<button
-													className="link transparent"
-													onClick={() => this.props.history.push("ecosystem?tab=private-sector&startup_only=true")}
-												>
-													See more information &nbsp;<i className="fas fa-arrow-right"/>
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div className="col-md-5 offset-md-1">
-									<div className="image-wrapper">
-										<img
-											src="/img/cyber4growth.png"
-											alt="Cyber4Growth logo"
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		);
