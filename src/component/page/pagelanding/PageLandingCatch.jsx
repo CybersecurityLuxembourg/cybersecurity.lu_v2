@@ -18,14 +18,13 @@ export default class PageLandingCatch extends React.Component {
 					<div className="row">
 						<div className="col-md-7">
 							<h2 className="title">
-								Access Luxembourg’s cybersecurity
-								ecosystem, all in one place.
+								The national cybersecurity portal, for everyone
 							</h2>
 
 							<p className="catch-phrase">
-								The national cybersecurity portal for everyone. All
-								in one place, join our community-driven platform
-								that empowers your to stay ahead of the digital economy
+								All in one place, explore & be a part of this
+								community-driven platform whether you are a
+								seasoned pro or just starting out.
 							</p>
 						</div>
 

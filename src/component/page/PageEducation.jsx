@@ -48,13 +48,13 @@ export default class PageEducation extends React.Component {
 							<div className="col-md-12">
 								<Breadcrumb>
 									<Breadcrumb.Item>Skills & jobs</Breadcrumb.Item>
-									<Breadcrumb.Item><Link to="/education">Education & trainings</Link></Breadcrumb.Item>
+									<Breadcrumb.Item><Link to="/education">Education & Professional Skill Trainings</Link></Breadcrumb.Item>
 								</Breadcrumb>
 							</div>
 
 							<div className="col-md-12">
 								<div className="text-content">
-									<div className="h8 blue-text uppercase">Education & trainings</div>
+									<div className="h8 blue-text uppercase">Education & Professional Skill Trainings</div>
 								</div>
 							</div>
 

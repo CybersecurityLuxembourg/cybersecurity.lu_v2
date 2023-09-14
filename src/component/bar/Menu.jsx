@@ -138,7 +138,7 @@ export default class Menu extends React.Component {
 						</NavDropdown.Item>
 						<NavDropdown.Item>
 							<Link to="/education?tab=trainings">
-								<div className="Menu-title">Lifelong Learning</div>
+								<div className="Menu-title">Professional Skill Trainings</div>
 							</Link>
 						</NavDropdown.Item>
 					</div>
@@ -225,7 +225,7 @@ export default class Menu extends React.Component {
 			<NavDropdown
 				title={
 					<div className="Menu-item">
-						<div className="Menu-title">About us</div>
+						<div className="Menu-title">About</div>
 						<i className="fas fa-chevron-down"/>
 					</div>
 				}
@@ -234,7 +234,7 @@ export default class Menu extends React.Component {
 				<div className="row">
 					<div className="col-md-12">
 						<div className="h8">
-							About us
+							About
 						</div>
 						<NavDropdown.Item>
 							<Link to="/about?tab=portal">

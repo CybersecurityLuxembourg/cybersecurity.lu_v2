@@ -213,17 +213,18 @@ export default class PageLegal extends React.Component {
 
 							<div className="col-md-5">
 								<div className="text-content">
-									<h4>Your easy guide to navigate the complex
-									legal framework that applies to cybersecurity</h4>
+									<h4>Your easy guide through
+									the cybersecurity legal framework</h4>
 								</div>
 							</div>
 
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<p>This section lists all the legal texts that apply to the fields
-								of cybersecurity and data protection in relation
-								to the relevant entities/bodies.</p>
+								<p>This section lists all the legal texts that apply to the fields of
+								cybersecurity and data protection in relation to the competent
+								entities/organisations at international, European and
+								national level.</p>
 							</div>
 						</div>
 					</div>

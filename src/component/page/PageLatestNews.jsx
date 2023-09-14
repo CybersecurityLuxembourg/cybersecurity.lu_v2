@@ -118,8 +118,7 @@ export default class PageLatestNews extends React.Component {
 									<div className="col-md-8 spaced-row">
 										<h5><span className="blue-text">#</span> CYBERSECURITY Breakfast</h5>
 
-										CYBERSECURITY Breakfast Podcast is a monthly series
-										that tackles trending or pressing cybersecurity
+										CYBERSECURITY Breakfast Podcast tackles trending or pressing cybersecurity
 										topics. National and international experts from
 										various field of activities discuss their views
 										and experiences.

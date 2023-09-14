@@ -26,9 +26,9 @@ export default class Footer extends React.Component {
 							<div className="row">
 								<div className="col-md-12">
 									<div className="patronage">
-										<b>The national cybersecurity portal for everyone.</b> All in
-										one place, join our community-driven platform that
-										empowers your to stay ahead of the digital economy
+										<b>The national cybersecurity portal, for everyone.</b> All in
+										one place, explore & be a part of this community-driven
+										platform whether you are a seasoned pro or just starting out.
 									</div>
 								</div>
 							</div>
@@ -56,7 +56,7 @@ export default class Footer extends React.Component {
 							</div>
 							<div className="link">
 								<Link to="/about">
-									About us
+									About
 								</Link>
 							</div>
 							<div className="link">
@@ -67,8 +67,11 @@ export default class Footer extends React.Component {
 						</div>
 
 						<div className="col-md-3">
-							<div className="title">Tools</div>
-
+							<div className="link">
+								<Link to="/ecosystem">
+									The ecosystem
+								</Link>
+							</div>
 							<div className="link">
 								<Link to="/dashboard">
 									Dashboard
