@@ -19,12 +19,14 @@ export default class SectionCSWL extends React.Component {
 							<div className="col-md-6 spaced-row">
 								<div className="text-content">
 									<div>
-										<h4>CSWL 2023 is coming soon!</h4>
+										<h4>CYBERSECURITY WEEK LUXEMBOURG 2023</h4>
 
 										<div className="catch-phrase">
-											In this edition of Lëtz Talk about Cyber, Melanie
-											Delannoy, CyberSec Enthusiast received Björn Ottersten, Director
-											of the Interdisciplinary Centre for Security, Reliability and Trust (SnT).
+											Because joint efforts have greater resonance, the CSWL
+											campaign aims to bring together and federate the cybersecurity
+											community, on the one hand, and to promote the hard work being
+											done by that same community to achieve a common goal of cyber
+											resilience, on the other hand.
 										</div>
 
 										<button
@@ -34,7 +36,7 @@ export default class SectionCSWL extends React.Component {
 												"_blank",
 											)}
 										>
-											See more information &nbsp;<i className="fas fa-arrow-right"/>
+											Discover the full programme &nbsp;<i className="fas fa-arrow-right"/>
 										</button>
 									</div>
 								</div>
@@ -42,9 +44,9 @@ export default class SectionCSWL extends React.Component {
 
 							<div className="col-md-1"/>
 
-							<div className="col-md-5">
+							<div className="col-md-5 flex-fill my-auto">
 								<img
-									src="/img/rounded-cswl-2022.png"
+									src="/img/cswl-main.png"
 									alt="CSWL 2023"
 								/>
 							</div>
