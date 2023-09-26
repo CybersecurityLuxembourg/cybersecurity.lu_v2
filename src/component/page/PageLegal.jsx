@@ -54,7 +54,7 @@ export default class PageLegal extends React.Component {
 				page: page || 1,
 				per_page: 6,
 				include_tags: true,
-				name: this.state.filters.title,
+				title: this.state.filters.title,
 				taxonomy_values: this.state.filters.taxonomy_values
 					.concat(this.getLegalFrameworkTaxonomyValueId()),
 			};
