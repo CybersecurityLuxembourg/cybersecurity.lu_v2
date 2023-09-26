@@ -54,7 +54,7 @@ export default class PageStandards extends React.Component {
 					page: page || 1,
 					per_page: 6,
 					include_tags: true,
-					name: this.state.filters.title,
+					title: this.state.filters.title,
 					taxonomy_values: this.state.filters.taxonomy_values
 						.concat(standardValues),
 				};
@@ -96,49 +96,6 @@ export default class PageStandards extends React.Component {
 				</div>
 			)}
 		/>;
-	}
-
-	buildClassificationFilters(category) {
-		if (!this.props.taxonomies) {
-			return <Loading/>;
-		}
-
-		const result = [];
-
-		const legalCategories = this.props.taxonomies.taxonomy_values
-			.filter((c) => c.category === category)
-			.sort((a, b) => a.name - b.name);
-
-		for (let i = 0; i < legalCategories.length; i++) {
-			if (this.state
-				.objectCount?.taxonomy?.[legalCategories[i].category]?.[legalCategories[i].name] > 0) {
-				result.push(
-					<div className="filter-row">
-						<Field
-							className="checkbox-category"
-							type="checkbox"
-							checkBoxLabel={legalCategories[i].name}
-							value={this.state.filters.taxonomy_values.indexOf(legalCategories[i].id) >= 0}
-							onChange={(v) => this.modifyFilters(
-								"taxonomy_values",
-								v
-									? this.state.filters.taxonomy_values.concat([legalCategories[i].id])
-									: this.state.filters.taxonomy_values.filter((o) => o !== legalCategories[i].id),
-							)}
-							hideLabel={true}
-						/>
-						<Count
-							count={
-								this.state.objectCount
-									.taxonomy[legalCategories[i].category][legalCategories[i].name]
-							}
-						/>
-					</div>,
-				);
-			}
-		}
-
-		return result;
 	}
 
 	hasTools(category) {
@@ -227,78 +184,6 @@ export default class PageStandards extends React.Component {
 						</div>
 
 						<div className="row">
-							{/* <div className="col-md-3">
-								<div className="box filter-box">
-									<div className="row">
-										<div className="col-6">
-											<h6 className="blue-text">Filter by</h6>
-										</div>
-
-										<div className="col-6">
-											<div className="right-buttons">
-												<button
-													className="link small"
-													onClick={() => this.clearFilters()}>
-													Clear all
-												</button>
-											</div>
-										</div>
-
-										{this.hasTools("LEGAL FRAMEWORK APPLICATION LEVEL")
-											&& <div className="col-md-12">
-												<div className="grey-horizontal-bar"/>
-
-												<div className="h8">
-													APPLICATION LEVEL
-												</div>
-
-												{this.buildClassificationFilters("LEGAL FRAMEWORK APPLICATION LEVEL")}
-											</div>
-										}
-
-										{this.hasTools("LEGAL FRAMEWORK")
-											&& <div className="col-md-12">
-												<div className="grey-horizontal-bar"/>
-
-												<div className="h8">
-													LEGAL FRAMEWORK
-												</div>
-
-												{this.buildClassificationFilters("LEGAL FRAMEWORK")}
-											</div>
-										}
-
-										{this.hasTools("LEGAL FRAMEWORK STATUS")
-											&& <div className="col-md-12">
-												<div className="grey-horizontal-bar"/>
-
-												<div className="h8">
-													STATUS
-												</div>
-
-												{this.buildClassificationFilters("LEGAL FRAMEWORK STATUS")}
-											</div>
-										}
-
-										{this.hasTools("LEGAL FRAMEWORK SECTOR-SPECIFIC")
-											&& <div className="col-md-12">
-												<div className="grey-horizontal-bar"/>
-
-												<div className="h8">
-													SECTOR-SPECIFIC
-												</div>
-
-												{this.buildClassificationFilters("LEGAL FRAMEWORK SECTOR-SPECIFIC")}
-											</div>
-										}
-									</div>
-								</div>
-							</div>
-
-							<div className="col-md-1"/>
-
-							<div className="col-md-8"> */ }
-
 							<div className="col-md-12">
 								<span className="h8">Standards</span>
 
