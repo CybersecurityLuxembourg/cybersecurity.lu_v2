@@ -52,10 +52,36 @@ export default class Event extends Component {
 				}
 			</div>
 			<div className="card-body">
-				{this.props.info.publication_date
-					&& this.props.hidePublicationDate !== false
+				{this.props.info.start_date && this.props.info.end_date
 					&& <div className="card-date">
-						{dateToString(this.props.info.publication_date, "DD MMM YYYY")}
+						<i className="far fa-calendar"/>
+
+						{dateToString(this.props.info.start_date, "DD MMMM YYYY")
+							=== dateToString(this.props.info.end_date, "DD MMMM YYYY")
+							&& dateToString(this.props.info.start_date, "DD MMMM YYYY")
+						}
+
+						{dateToString(this.props.info.start_date, "DD MMMM YYYY")
+							!== dateToString(this.props.info.end_date, "DD MMMM YYYY")
+							&& dateToString(this.props.info.start_date, "MMMM")
+							=== dateToString(this.props.info.end_date, "MMMM")
+							&& <span>
+								{dateToString(this.props.info.start_date, "DD")}
+								-
+								{dateToString(this.props.info.end_date, "DD MMMM YYYY")}
+							</span>
+						}
+
+						{dateToString(this.props.info.start_date, "DD MMMM YYYY")
+							!== dateToString(this.props.info.end_date, "DD MMMM YYYY")
+							&& dateToString(this.props.info.start_date, "MMMM")
+							!== dateToString(this.props.info.end_date, "MMMM")
+							&& <span>
+								{dateToString(this.props.info.start_date, "DD MMMM YYYY")}
+								&nbsp;-&nbsp;
+								{dateToString(this.props.info.end_date, "DD MMMM YYYY")}
+							</span>
+						}
 					</div>
 				}
 
@@ -71,14 +97,14 @@ export default class Event extends Component {
 				</div>
 
 				<div className="row">
-					<div className="col-md-6">
+					<div className="col-md-5">
 						<CardSocialMedia
 							article={this.props.info}
 						/>
 					</div>
-					<div className="col-md-6">
-						<button className={"link small"}>
-							Read more &nbsp;<i className="fas fa-arrow-right"/>
+					<div className="col-md-7">
+						<button className={"red small"}>
+							More information
 						</button>
 					</div>
 				</div>
