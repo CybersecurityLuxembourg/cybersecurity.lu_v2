@@ -231,7 +231,11 @@ export default class PageJob extends React.Component {
 										and upcoming events, find a review of all the newest developments
 										in one place and remain a step ahead of what&apos;s coming next.</p>
 
-										<button>
+										<button
+											onClick={() => window.open(
+												"https://newsletter.cybersecurity-luxembourg.com",
+												"_blank",
+											)}>
 											Subscribe to our Newletter &nbsp;<i className="fas fa-paper-plane"/>
 										</button>
 									</div>
