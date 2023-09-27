@@ -270,11 +270,11 @@ export default class Menu extends React.Component {
 								alt="CYBERLUX Logo"
 							/>
 						</Link>
-					</Navbar.Brand>
 
-					<Navbar.Toggle
-						aria-controls="basic-navbar-nav"
-					/>
+						<Navbar.Toggle
+							aria-controls="basic-navbar-nav"
+						/>
+					</Navbar.Brand>
 
 					<Navbar.Collapse>
 						{this.getNavBar()}

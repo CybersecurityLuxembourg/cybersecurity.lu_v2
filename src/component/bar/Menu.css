@@ -198,6 +198,7 @@
 
 @media (max-width: 992px) {
     .Menu .navbar-brand {
+        position: relative;
         width: 100% !important;
     }
 
