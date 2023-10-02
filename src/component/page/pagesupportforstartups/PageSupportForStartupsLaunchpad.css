@@ -2,3 +2,16 @@
 #PageSupportForStartupsLaunchpad {
 	margin-top: 40px;
 }
+
+#PageSupportForStartupsLaunchpad .title {
+	background: var(--linear-blue);
+	padding: 78px 70px 78px 70px;
+	border: 1px solid #E5F5FF;
+	border-radius: 24px;
+	height: 100%;
+}
+
+#PageSupportForStartupsLaunchpad .box i {
+	font-size: 42px;
+	color: var(--primary-blue-80);
+}
