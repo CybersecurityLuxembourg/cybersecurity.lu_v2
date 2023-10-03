@@ -9,7 +9,7 @@ export default class PageSupportForStartupsPartners extends React.Component {
 				<div className="max-sized-section">
 					<div className="row">
 						<div className="col-md-12 centered spaced-row">
-							<h4>Partners</h4>
+							<h4>Cyber Referenced Partners</h4>
 						</div>
 
 						<div className="col-md-6">

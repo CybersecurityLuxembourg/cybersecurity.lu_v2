@@ -22,7 +22,11 @@ export default class PageSupportForStartupsLaunchpadLux extends React.Component 
 
 								<div className="col-md-12">
 									<button
-										className="small">
+										className="small"
+										onClick={() => window.open(
+											"https://www.startupluxembourg.com/why-luxembourg/at-a-glance",
+											"_blank",
+										)}>
 										View the content
 									</button>
 								</div>
@@ -45,7 +49,11 @@ export default class PageSupportForStartupsLaunchpadLux extends React.Component 
 
 								<div className="col-md-12">
 									<button
-										className="small">
+										className="small"
+										onClick={() => window.open(
+											"https://www.luxinnovation.lu/wp-content/uploads/sites/3/2022/10/10-good-reasons-july-2022-web-en-ti.pdf",
+											"_blank",
+										)}>
 										Download the brochure
 									</button>
 								</div>

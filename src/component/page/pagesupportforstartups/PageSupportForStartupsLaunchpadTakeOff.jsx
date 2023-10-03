@@ -28,7 +28,11 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 
 								<div className="col-md-12">
 									<button
-										className="small">
+										className="small"
+										onClick={() => window.open(
+											"https://directory.startupluxembourg.com/investors.accelerators/f/all_slug_locations/anyof_luxembourg/investor_type/anyof_accelerator",
+											"_blank",
+										)}>
 										Open the list
 									</button>
 								</div>
@@ -59,7 +63,11 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 
 								<div className="col-md-12">
 									<button
-										className="small">
+										className="small"
+										onClick={() => window.open(
+											"https://directory.startupluxembourg.com/investors/f/all_slug_locations/anyof_luxembourg/investor_type/anyof_venture%20capital?prominence=multistage_emea_prominence_2022_unique&sort=multistage_emea_prominence_2022_unique&id=61132",
+											"_blank",
+										)}>
 										Open the list
 									</button>
 								</div>
@@ -82,7 +90,11 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 
 								<div className="col-md-12">
 									<button
-										className="small">
+										className="small"
+										onClick={() => window.open(
+											"https://directory.startupluxembourg.com/investors/f/all_slug_locations/anyof_luxembourg/investor_type/anyof_angel%20fund_angel?prominence=multistage_emea_prominence_2022_unique&sort=multistage_emea_prominence_2022_unique&id=61133",
+											"_blank",
+										)}>
 										Open the list
 									</button>
 								</div>
@@ -102,19 +114,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-money-check-alt"/>
+									<i className="fas fa-search"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Venture Capitals
+										For research and development projects
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://guichet.public.lu/en/entreprises/financement-aides/aides-recherche-developpement/rdi/aides-rdi.html",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>
@@ -125,19 +141,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-handshake"/>
+									<i className="fas fa-chart-line"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Business Angels
+										For first time founders
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://www.houseofentrepreneurship.lu/actualites?tx_ccnews_news%5Baction%5D=show&tx_ccnews_news%5Bcontroller%5D=News&tx_ccnews_news%5Bnews%5D=4170&cHash=028f4d682382871b54a53009048b9ebf",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>
@@ -156,19 +176,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-money-check-alt"/>
+									<i className="fas fa-cloud"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Venture Capitals
+										Fit4digital
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://www.luxinnovation.lu/fit-4-digital-transition/",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>
@@ -179,19 +203,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-handshake"/>
+									<i className="fas fa-magic"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Business Angels
+										Fit4innovation
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://www.luxinnovation.lu/innovate-in-luxembourg/fit-4-performance-programmes/fit-4-innovation/",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>
@@ -202,19 +230,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-handshake"/>
+									<i className="fas fa-leaf"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Business Angels
+										Fit4sustainability
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://www.luxinnovation.lu/innovate-in-luxembourg/fit-4-performance-programmes/fit-4-sustainability/",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>
@@ -233,19 +265,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-money-check-alt"/>
+									<i className="fas fa-star"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Venture Capitals
+										Fit4Start
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://www.startupluxembourg.com/fit-4-start",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>
@@ -256,19 +292,23 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
-									<i className="fas fa-handshake"/>
+									<i className="fas fa-seedling"/>
 								</div>
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										Business Angels
+										JCI Creative Young Entrepreneur Luxembourg
 									</div>
 								</div>
 
 								<div className="col-md-12">
 									<button
-										className="small">
-										Open the list
+										className="small"
+										onClick={() => window.open(
+											"https://cyel.jci.lu/",
+											"_blank",
+										)}>
+										More information
 									</button>
 								</div>
 							</div>

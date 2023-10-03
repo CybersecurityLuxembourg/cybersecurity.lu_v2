@@ -50,7 +50,7 @@ export default class PageSupportForStartupsLaunchpad extends React.Component {
 				<div className="max-sized-section">
 					<div className="row spaced-row">
 						<div className="col-md-12 centered spaced-row">
-							<h4>Luxembourg’s launchpad for your cyber business</h4>
+							<h4>Launchpad for your cyber business</h4>
 						</div>
 
 						<Tab
