@@ -16,7 +16,7 @@ export default class PageSupportForStartupsLaunchpadLux extends React.Component 
 
 								<div className="col-md-8 offset-md-2">
 									<div className="h8 spaced-row">
-										At a glance
+										A thriving startups community
 									</div>
 								</div>
 
