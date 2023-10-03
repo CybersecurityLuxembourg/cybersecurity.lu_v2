@@ -32,15 +32,18 @@ export default class PageStandards extends React.Component {
 
 	componentDidMount() {
 		this.fetchArticles();
+		this.fetchObjectCount();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (JSON.stringify(prevState.filters) !== JSON.stringify(this.state.filters)) {
 			this.fetchArticles();
+			this.fetchObjectCount();
 		}
 
 		if (prevProps.taxonomies !== this.props.taxonomies) {
 			this.fetchArticles();
+			this.fetchObjectCount();
 		}
 	}
 
@@ -75,6 +78,32 @@ export default class PageStandards extends React.Component {
 		}
 	}
 
+	fetchObjectCount() {
+		if (this.props.taxonomies) {
+			const filters = {
+				name: this.state.filters.title,
+				taxonomy_values: this.state.filters.taxonomy_values
+					.concat(this.getStandardTaxonomyValueId()),
+				include_article_types: ["TOOL"],
+				include_taxonomy_categories: [
+					"STANDARD THEME",
+					"STANDARD ISSUER",
+				],
+			};
+
+			getRequest.call(this, "public/get_public_object_count?"
+				+ dictToURI(filters), (data) => {
+				this.setState({
+					objectCount: data,
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
+			});
+		}
+	}
+
 	buildArticleList() {
 		if (!this.state.articles) {
 			return <Loading height={500}/>;
@@ -96,6 +125,49 @@ export default class PageStandards extends React.Component {
 				</div>
 			)}
 		/>;
+	}
+
+	buildClassificationFilters(category) {
+		if (!this.props.taxonomies) {
+			return <Loading/>;
+		}
+
+		const result = [];
+
+		const legalCategories = this.props.taxonomies.taxonomy_values
+			.filter((c) => c.category === category)
+			.sort((a, b) => a.name - b.name);
+
+		for (let i = 0; i < legalCategories.length; i++) {
+			if (this.state
+				.objectCount?.taxonomy?.[legalCategories[i].category]?.[legalCategories[i].name] > 0) {
+				result.push(
+					<div className="filter-row">
+						<Field
+							className="checkbox-category"
+							type="checkbox"
+							checkBoxLabel={legalCategories[i].name}
+							value={this.state.filters.taxonomy_values.indexOf(legalCategories[i].id) >= 0}
+							onChange={(v) => this.modifyFilters(
+								"taxonomy_values",
+								v
+									? this.state.filters.taxonomy_values.concat([legalCategories[i].id])
+									: this.state.filters.taxonomy_values.filter((o) => o !== legalCategories[i].id),
+							)}
+							hideLabel={true}
+						/>
+						<Count
+							count={
+								this.state.objectCount
+									.taxonomy[legalCategories[i].category][legalCategories[i].name]
+							}
+						/>
+					</div>,
+				);
+			}
+		}
+
+		return result;
 	}
 
 	hasTools(category) {
@@ -184,7 +256,53 @@ export default class PageStandards extends React.Component {
 						</div>
 
 						<div className="row">
-							<div className="col-md-12">
+							<div className="col-md-3">
+								<div className="box filter-box">
+									<div className="row">
+										<div className="col-6">
+											<h6 className="blue-text">Filter by</h6>
+										</div>
+
+										<div className="col-6">
+											<div className="right-buttons">
+												<button
+													className="link small"
+													onClick={() => this.clearFilters()}>
+													Clear all
+												</button>
+											</div>
+										</div>
+
+										{this.hasTools("STANDARD THEME")
+											&& <div className="col-md-12">
+												<div className="grey-horizontal-bar"/>
+
+												<div className="h8">
+													STANDARD THEME
+												</div>
+
+												{this.buildClassificationFilters("STANDARD THEME")}
+											</div>
+										}
+
+										{this.hasTools("STANDARD ISSUER")
+											&& <div className="col-md-12">
+												<div className="grey-horizontal-bar"/>
+
+												<div className="h8">
+													STANDARD ISSUER
+												</div>
+
+												{this.buildClassificationFilters("STANDARD ISSUER")}
+											</div>
+										}
+									</div>
+								</div>
+							</div>
+
+							<div className="col-md-1"/>
+
+							<div className="col-md-8">
 								<span className="h8">Standards</span>
 
 								{this.state.articles
