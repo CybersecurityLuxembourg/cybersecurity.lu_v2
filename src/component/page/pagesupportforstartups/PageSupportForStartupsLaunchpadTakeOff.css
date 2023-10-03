@@ -1,0 +1,17 @@
+
+#PageSupportForStartupsLaunchpadTakeOff {
+	padding: 40px 0px;
+}
+
+#PageSupportForStartupsLaunchpadTakeOff .title {
+	background: var(--linear-blue);
+	padding: 78px 70px 78px 70px;
+	border: 1px solid #E5F5FF;
+	border-radius: 24px;
+	height: 100%;
+}
+
+#PageSupportForStartupsLaunchpadTakeOff .box i {
+	font-size: 42px;
+	color: var(--primary-blue-80);
+}

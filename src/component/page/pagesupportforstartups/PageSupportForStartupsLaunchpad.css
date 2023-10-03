@@ -1,6 +1,7 @@
 
 #PageSupportForStartupsLaunchpad {
-	margin-top: 40px;
+	background: var(--linear-blue);
+	padding: 96px 0px;
 }
 
 #PageSupportForStartupsLaunchpad .title {
@@ -14,4 +15,8 @@
 #PageSupportForStartupsLaunchpad .box i {
 	font-size: 42px;
 	color: var(--primary-blue-80);
+}
+
+#PageSupportForStartupsLaunchpad .Tab .Tab-menu {
+	text-align: center;
 }

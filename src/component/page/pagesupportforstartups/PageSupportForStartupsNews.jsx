@@ -50,7 +50,7 @@ export default class PageSupportForStartupsNews extends React.Component {
 				const params = {
 					type: "NEWS",
 					page: page || 1,
-					per_page: 6,
+					per_page: 3,
 					include_tags: true,
 					name: this.state.filters.title,
 					taxonomy_values: this.state.filters.taxonomy_values
@@ -161,6 +161,10 @@ export default class PageSupportForStartupsNews extends React.Component {
 				<div className="max-sized-section">
 					<div className="list-content">
 						<div className="row">
+							<div className="col-md-12 centered spaced-row">
+								<h4>Startup news</h4>
+							</div>
+
 							<div className="col-md-12">
 								<span className="h8">News</span>
 
