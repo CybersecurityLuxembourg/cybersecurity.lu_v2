@@ -19,7 +19,8 @@ export default class PagePublications extends React.Component {
 		const initFilters = {
 			title: getUrlParameter("title"),
 			taxonomy_values: getUrlParameter("taxonomy_values")
-				? getUrlParameter("taxonomy_values").split(",") : [],
+				? getUrlParameter("taxonomy_values").split(",")
+					.map((v) => (Number(v) ? Number(v) : v)) : [],
 		};
 
 		this.state = {
