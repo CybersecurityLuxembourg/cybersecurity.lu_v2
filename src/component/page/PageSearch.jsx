@@ -272,22 +272,26 @@ export default class PageSearch extends React.Component {
 										<b>Suggested search:</b>
 
 										<button
-											className="link">
+											className="link"
+											onClick={() => this.props.history.push("education?tab=trainings")}>
 											Training
 										</button>
 
 										<button
-											className="link">
+											className="link"
+											onClick={() => this.props.history.push("legal")}>
 											Norms, Rules & Laws
 										</button>
 
 										<button
-											className="link">
+											className="link"
+											onClick={() => this.props.history.push("best-practice")}>
 											Cybersecurity essentials
 										</button>
 
 										<button
-											className="link">
+											className="link"
+											onClick={() => this.props.history.push("support-for-startups")}>
 											Startup
 										</button>
 									</div>
