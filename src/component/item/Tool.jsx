@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Tool.css";
 import { Link } from "react-router-dom";
 import dompurify from "dompurify";
-import CardSocialMedia from "./CardSocialMedia.jsx";
 
 export default class Tool extends Component {
 	constructor(props) {
