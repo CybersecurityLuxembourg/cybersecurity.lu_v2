@@ -48,7 +48,7 @@ export default class PageSupportForStartups extends React.Component {
 								<div className="vertically-centered">
 									<img
 										className="startup-visual"
-										src="/img/startup_visual.svg"
+										src="/img/Startup-visual.png"
 									/>
 								</div>
 							</div>
