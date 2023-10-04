@@ -47,7 +47,7 @@ export default class SectionContactForm extends React.Component {
 					<div className="skyline">
 						<img
 							className={"logo"}
-							src="/img/Skyline.png"
+							src="/img/Skyline.svg"
 							alt="Skyline Luxembourg"
 						/>
 					</div>

@@ -60,7 +60,7 @@ export default class PageLatestNews extends React.Component {
 								<div className="vertically-centered">
 									<img
 										className={"logo"}
-										src="/img/Skyline.png"
+										src="/img/Skyline.svg"
 										alt="Skyline Luxembourg"
 									/>
 								</div>

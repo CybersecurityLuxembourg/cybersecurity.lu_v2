@@ -52,7 +52,7 @@ export default class PageDashboard extends React.Component {
 						</div>
 
 						<img
-							src="/img/Skyline.png"
+							src="/img/Skyline.svg"
 							alt="Skyline Luxembourg"
 						/>
 					</div>
