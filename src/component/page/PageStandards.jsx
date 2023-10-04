@@ -224,9 +224,12 @@ export default class PageStandards extends React.Component {
 							<div className="col-md-1"/>
 
 							<div className="col-md-5">
-								<p>The following is an ad hoc selection of general standards related
-								to risk, threat, and vulnerability management, and security
-								controls. It does not claim to be exhaustive.</p>
+								<p>The listing on this page presents an ad hoc selection of general standards
+								related to information security management, information security controls, privacy
+								management, and specifics on risks and controls. While this listing does not
+								claim to be exhaustive, in addition to the separation by theme, it can also
+								be viewed from the perspective of different standard issuing
+								bodies (ETSI, ISO and CEN/CENELEC).</p>
 							</div>
 						</div>
 					</div>
@@ -237,7 +240,7 @@ export default class PageStandards extends React.Component {
 						<div className="row">
 							<div className="col-md-8">
 								<div className="vertically-centered">
-									<h6>Standards</h6>
+									<h6>Common Information Security Standards</h6>
 								</div>
 							</div>
 
