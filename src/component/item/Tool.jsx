@@ -32,12 +32,7 @@ export default class Tool extends Component {
 				</div>
 
 				<div className="row">
-					<div className="col-md-6">
-						<CardSocialMedia
-							article={this.props.info}
-						/>
-					</div>
-					<div className="col-md-6">
+					<div className="col-md-12">
 						<button className={"link small"}>
 							Read more &nbsp;<i className="fas fa-arrow-right"/>
 						</button>
