@@ -9,6 +9,20 @@ export default class PageLandingLTAC extends React.Component {
 		};
 	}
 
+	getPostcastValueId() {
+		if (this.props.taxonomies?.taxonomy_values) {
+			const value = this.props.taxonomies.taxonomy_values
+				.filter((v) => v.category === "RESOURCE CATEGORY" && v.name === "PODCAST")
+				.pop();
+
+			if (value) {
+				return value.id;
+			}
+		}
+
+		return "";
+	}
+
 	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
@@ -37,7 +51,11 @@ export default class PageLandingLTAC extends React.Component {
 											for Security, Reliability and Trust (SnT).
 										</p>
 
-										<button className="link">
+										<button
+											className="link"
+											onClick={() => this.props.history.push(
+												"publications?taxonomy_values=" + this.getPostcastValueId(),
+											)}>
 											Listen to our podcast &nbsp;<i className="fas fa-arrow-right"/>
 										</button>
 									</div>

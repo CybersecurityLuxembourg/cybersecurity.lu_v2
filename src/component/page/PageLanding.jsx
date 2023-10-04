@@ -43,7 +43,10 @@ export default class PageLanding extends React.Component {
 				<PageLandingResources
 					{...this.props}
 				/>
-				<PageLandingLTAC/>
+				<PageLandingLTAC
+					taxonomies={this.props.taxonomies}
+					{...this.props}
+				/>
 				<SectionContactForm/>
 			</div>
 		);
