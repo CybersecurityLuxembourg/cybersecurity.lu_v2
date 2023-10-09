@@ -76,9 +76,9 @@ export default class AlertNews extends React.Component {
 	}
 
 	render() {
-		if (this.state.news?.items?.length > 0 && this.state.show) {
+		if (this.state.news?.items?.length > 0) {
 			return (
-				<div className="AlertNews">
+				<div className={"AlertNews" + (this.state.show ? "" : " AlertNews-hidden")}>
 					<div className="row">
 						<div className="col-md-10">
 							<div className="h8"><i className="fas fa-shield-alt"/>&nbsp;Latest Alerts</div>

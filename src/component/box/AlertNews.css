@@ -70,3 +70,7 @@
     cursor: default;
     color: var(--text-neutral-10);
 }
+
+.AlertNews-hidden {
+    visibility: hidden;
+}
