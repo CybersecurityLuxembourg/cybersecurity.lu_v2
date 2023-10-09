@@ -1,0 +1,69 @@
+
+.PageResource .breadcrumb {
+	margin-top: 64px;
+}
+
+.PageResource article {
+	margin-bottom: 96px;
+}
+
+.PageResource article h4 {
+	margin: 32px 0px 20px 0px;
+}
+
+.PageResource article h5 {
+	margin: 8px 0px 8px 0px;
+}
+
+.PageResource article .cover img {
+	width: 100%;
+	border-radius: 12px;
+	margin: 32px 0px;
+}
+
+.PageResource article .publication-date {
+	text-align: right;
+	margin-bottom: 24px;
+}
+
+.PageResource article .publication-date .date {
+	margin-top: 12px;
+}
+
+.PageResource article .content-media {
+	margin: 48px auto;
+	text-align: center;
+	display: flex;
+  	justify-content: center;
+}
+
+.PageResource article .content-media iframe {
+	max-width: 100%;
+}
+
+.PageResource article .content-media p {
+	margin: 0 !important;
+}
+
+.PageResource .side-info .grey-horizontal-bar {
+	margin: 32px 0px;
+}
+
+.PageResource .side-info .blue-text {
+	margin-bottom: 16px;
+}
+
+.PageResource .side-info .social-media-links {
+	width: 100%;
+	margin-top: 8px;
+}
+
+.PageResource .side-info .social-media-links .TwitterLink,
+.PageResource .side-info .social-media-links .LinkedInLink {
+	display: inline-block;
+}
+
+.PageResource abstract {
+	font-size: 18px;
+	margin: 15px 0px;
+}

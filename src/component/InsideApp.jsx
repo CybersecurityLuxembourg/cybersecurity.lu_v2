@@ -12,6 +12,7 @@ import PageNews from "./page/item/PageNews.jsx";
 import PageEvent from "./page/item/PageEvent.jsx";
 import PageService from "./page/item/PageService.jsx";
 import PageTool from "./page/item/PageTool.jsx";
+import PageResource from "./page/item/PageResource.jsx";
 import PageJob from "./page/item/PageJob.jsx";
 import PageEntity from "./page/item/PageEntity.jsx";
 import PageLanding from "./page/PageLanding.jsx";
@@ -111,6 +112,10 @@ class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/tool/:handle" render={(props) => <PageTool
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/resource/:handle" render={(props) => <PageResource
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
