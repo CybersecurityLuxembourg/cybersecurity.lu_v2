@@ -27,7 +27,7 @@ export default class PageSupportForStartupsLaunchpadLux extends React.Component 
 											"https://www.startupluxembourg.com/why-luxembourg/at-a-glance",
 											"_blank",
 										)}>
-										View the content
+										Startup Luxembourg
 									</button>
 								</div>
 							</div>
