@@ -13,6 +13,20 @@ export default class PageLatestNews extends React.Component {
 		};
 	}
 
+	getPodcastValueId() {
+		if (this.props.taxonomies?.taxonomy_values) {
+			const value = this.props.taxonomies.taxonomy_values
+				.filter((v) => v.category === "RESOURCE CATEGORY" && v.name === "PODCAST")
+				.pop();
+
+			if (value) {
+				return value.id;
+			}
+		}
+
+		return "";
+	}
+
 	render() {
 		return (
 			<div id={"PageLatestNews"}>
@@ -89,7 +103,12 @@ export default class PageLatestNews extends React.Component {
 
 								<div>The latest industry news, interviews, technologies, and resources.</div>
 
-								<button>View all podcasts</button>
+								<button
+									onClick={() => this.props.history.push(
+										"publications?taxonomy_values=" + this.getPodcastValueId(),
+									)}>
+									View all podcasts
+								</button>
 							</div>
 
 							<div className="col-md-1"/>
