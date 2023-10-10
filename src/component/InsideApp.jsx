@@ -46,6 +46,7 @@ class InsideApp extends React.Component {
 		this.state = {
 			taxonomies: null,
 			unlisten: null,
+			currentPathname: null,
 		};
 	}
 
@@ -57,6 +58,12 @@ class InsideApp extends React.Component {
 				const paq = window._paq = window._paq || [];
 				paq.push(["setCustomUrl", location.pathname + location.search]);
 				paq.push(["trackPageView"]);
+
+				if (this.state.currentPathname !== location.pathname) {
+					document.getElementById("InsideApp").scrollIntoView();
+				}
+
+				this.setState({ currentPathname: location.pathname });
 			}),
 		});
 	}
@@ -67,6 +74,13 @@ class InsideApp extends React.Component {
 
 	componentDidMount() {
 		this.getAnalytics();
+	}
+
+	componentDidUpdate(prevProps) {
+		console.log(this.props.history.location.pathname, prevProps.history.location.pathname);
+		if (this.props.history.location.pathname !== prevProps.history.location.pathname) {
+			window.scrollTo(0, 0);
+		}
 	}
 
 	getAnalytics() {
