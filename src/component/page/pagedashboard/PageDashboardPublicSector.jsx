@@ -96,11 +96,17 @@ export default class PageDashboardPublicSector extends React.Component {
 												National contact point
 											</div>
 
-											<img
-												className="spaced-row"
-												src="/img/logo-hcpn.png"
-												alt="Logo HCPN"
-											/>
+											<a
+												href="https://hcpn.gouvernement.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													className="spaced-row"
+													src="/img/logo-hcpn.png"
+													alt="Logo HCPN"
+												/>
+											</a>
 										</div>
 									</div>
 
@@ -161,35 +167,65 @@ export default class PageDashboardPublicSector extends React.Component {
 									title={"Preparedness & Response"}
 									content={<div className="row">
 										<div className="col-6">
-											<img
-												src="/img/logo-govcert.png"
-												alt="Logo GovCert"
-											/>
+											<a
+												href="https://www.govcert.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													src="/img/logo-govcert.png"
+													alt="Logo GovCert"
+												/>
+											</a>
 										</div>
 										<div className="col-6">
-											<img
-												src="/img/logo-circl.png"
-												alt="Logo Circl"
-											/>
+											<a
+												href="https://www.circl.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													src="/img/logo-circl.png"
+													alt="Logo Circl"
+												/>
+											</a>
 										</div>
 										<div className="offset-2 col-8">
-											<img
-												className="hcpn-logo"
-												src="/img/logo-hcpn.png"
-												alt="Logo HCPN"
-											/>
+											<a
+												href="https://hcpn.gouvernement.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													className="hcpn-logo"
+													src="/img/logo-hcpn.png"
+													alt="Logo HCPN"
+												/>
+											</a>
 										</div>
 										<div className="col-5">
-											<img
-												src="/img/logo-certlu.png"
-												alt="Logo CertLu"
-											/>
+											<a
+												href="https://www.cert.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													src="/img/logo-certlu.png"
+													alt="Logo CertLu"
+												/>
+											</a>
 										</div>
 										<div className="offset-2 col-5">
-											<img
-												src="/img/logo-infocrise.png"
-												alt="Logo InfoCrise"
-											/>
+											<a
+												href="https://infocrise.public.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													src="/img/logo-infocrise.png"
+													alt="Logo InfoCrise"
+												/>
+											</a>
 										</div>
 									</div>}
 								/>
@@ -197,16 +233,28 @@ export default class PageDashboardPublicSector extends React.Component {
 									title={"Research & Development"}
 									content={<div className="row">
 										<div className="col-6">
-											<img
-												src="/img/logo-list.png"
-												alt="Logo LIST"
-											/>
+											<a
+												href="https://www.list.lu/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													src="/img/logo-list.png"
+													alt="Logo LIST"
+												/>
+											</a>
 										</div>
 										<div className="col-6">
-											<img
-												src="/img/logo-unilu.png"
-												alt="Logo Uni.lu"
-											/>
+											<a
+												href="https://www.uni.lu/snt-en/"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<img
+													src="/img/logo-unilu.png"
+													alt="Logo SNT"
+												/>
+											</a>
 										</div>
 									</div>}
 								/>
@@ -224,25 +272,43 @@ export default class PageDashboardPublicSector extends React.Component {
 
 											<div className="row">
 												<div className="col-5">
-													<img
-														className="fixed-height"
-														src="/img/logo-lyceegk.png"
-														alt="National strategy diagram"
-													/>
+													<a
+														href="https://www.lgk.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-lyceegk.png"
+															alt="Logo Lycée GK"
+														/>
+													</a>
 												</div>
 												<div className="offset-2 col-5">
-													<img
-														className="fixed-height"
-														src="/img/logo-unkn.png"
-														alt="National strategy diagram"
-													/>
+													<a
+														href="https://www.artsetmetiers.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-unkn.png"
+															alt="Logo lycée Arts et Métiers"
+														/>
+													</a>
 												</div>
 												<div className="offset-3 col-6">
-													<img
-														className="fixed-height"
-														src="/img/logo-unilu-solo.png"
-														alt="National strategy diagram"
-													/>
+													<a
+														href="https://www.uni.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-unilu-solo.png"
+															alt="Logo Uni.lu"
+														/>
+													</a>
 												</div>
 											</div>
 
@@ -265,39 +331,69 @@ export default class PageDashboardPublicSector extends React.Component {
 
 											<div className="row">
 												<div className="col-5">
-													<img
-														className="fixed-height"
-														src="/img/logo-admin-pub.png"
-														alt="Logo administration publique"
-													/>
+													<a
+														href="https://etat.public.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-admin-pub.png"
+															alt="Logo administration publique"
+														/>
+													</a>
 												</div>
 												<div className="offset-2 col-5">
-													<img
-														className="fixed-height"
-														src="/img/logo-hot.png"
-														alt="Logo House of Training"
-													/>
+													<a
+														href="https://www.houseoftraining.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-hot.png"
+															alt="Logo House of Training"
+														/>
+													</a>
 												</div>
 												<div className="col-4">
-													<img
-														className="fixed-height"
-														src="/img/logo-nc3.png"
-														alt="Logo NC3"
-													/>
+													<a
+														href="https://nc3.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-nc3.png"
+															alt="Logo NC3"
+														/>
+													</a>
 												</div>
 												<div className="col-4">
-													<img
-														className="fixed-height"
-														src="/img/logo-cwf.png"
-														alt="Logo CWF"
-													/>
+													<a
+														href="https://www.cyberwayfinder.com/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-cwf.png"
+															alt="Logo CWF"
+														/>
+													</a>
 												</div>
 												<div className="col-4">
-													<img
-														className="fixed-height"
-														src="/img/logo-dlh.png"
-														alt="Logo DLH"
-													/>
+													<a
+														href="https://dlh.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-dlh.png"
+															alt="Logo DLH"
+														/>
+													</a>
 												</div>
 											</div>
 
@@ -318,25 +414,43 @@ export default class PageDashboardPublicSector extends React.Component {
 											</div>
 											<div className="row">
 												<div className="offset-3 col-6">
-													<img
-														className="fixed-height"
-														src="/img/logo-beesecure.png"
-														alt="Logo BeeSecure"
-													/>
+													<a
+														href="https://www.bee-secure.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-beesecure.png"
+															alt="Logo BeeSecure"
+														/>
+													</a>
 												</div>
 												<div className="col-5">
-													<img
-														className="fixed-height"
-														src="/img/logo-ecsm.png"
-														alt="Logo ECSM"
-													/>
+													<a
+														href="https://cybersecuritymonth.eu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-ecsm.png"
+															alt="Logo ECSM"
+														/>
+													</a>
 												</div>
 												<div className="offset-2 col-5">
-													<img
-														className="fixed-height"
-														src="/img/logo-cswl.png"
-														alt="Logo CSWL"
-													/>
+													<a
+														href="https://cswl.lu/"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															className="fixed-height"
+															src="/img/logo-cswl.png"
+															alt="Logo CSWL"
+														/>
+													</a>
 												</div>
 											</div>
 											<div className="buttons">

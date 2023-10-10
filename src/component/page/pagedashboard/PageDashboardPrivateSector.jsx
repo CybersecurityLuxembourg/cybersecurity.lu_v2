@@ -128,11 +128,17 @@ export default class PageDashboardPrivateSector extends React.Component {
 											</div>
 
 											<div className="row">
-												<div className="col-md-12">
-													<img
-														src="/img/lhc-logo.png"
-														alt="Logo LHC"
-													/>
+												<div className="col-md-12 py-4">
+													<a
+														href="https://lhc.lu"
+														target="_blank"
+														rel="noreferrer"
+													>
+														<img
+															src="/img/lhc-logo.png"
+															alt="Logo LHC"
+														/>
+													</a>
 												</div>
 											</div>
 										</div>
