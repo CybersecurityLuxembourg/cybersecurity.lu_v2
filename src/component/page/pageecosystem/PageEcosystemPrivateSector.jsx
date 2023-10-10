@@ -49,12 +49,23 @@ export default class PageEcosystemPrivateSector extends React.Component {
 			this.fetchServiceProviders();
 		}
 
-		if (this.state.filters.startup_only !== (getUrlParameter("startup_only") === "true")) {
-			this.modifyFilters("startup_only", getUrlParameter("startup_only") === "true");
-		}
+		this.applyUrlParams();
+	}
 
-		if (this.state.filters.pcdoctor_only !== (getUrlParameter("pcdoctor_only") === "true")) {
-			this.modifyFilters("pcdoctor_only", getUrlParameter("pcdoctor_only") === "true");
+	applyUrlParams() {
+		if ((getUrlParameter("startup_only") === "true") !== this.state.filters.startup_only
+			|| (getUrlParameter("pcdoctor_only") === "true") !== this.state.filters.pcdoctor_only
+			|| (getUrlParameter("corebusiness_only") === "true") !== this.state.filters.corebusiness_only) {
+			const filters = {
+				...this.state.filters,
+				...{
+					startup_only: getUrlParameter("startup_only") === "true",
+					pcdoctor_only: getUrlParameter("pcdoctor_only") === "true",
+					corebusiness_only: getUrlParameter("corebusiness_only") === "true",
+				},
+			};
+
+			this.setState({ filters });
 		}
 	}
 
@@ -133,6 +144,16 @@ export default class PageEcosystemPrivateSector extends React.Component {
 	modifyFilters(field, value) {
 		const filters = { ...this.state.filters };
 		filters[field] = value;
+
+		this.props.history.push(
+			"?" + dictToURI({
+				tab: getUrlParameter("tab"),
+				startup_only: filters.startup_only ? "true" : undefined,
+				pcdoctor_only: filters.pcdoctor_only ? "true" : undefined,
+				corebusiness_only: filters.corebusiness_only ? "true" : undefined,
+			}),
+		);
+
 		this.setState({ filters });
 	}
 

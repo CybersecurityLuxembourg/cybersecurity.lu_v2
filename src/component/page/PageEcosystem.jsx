@@ -57,6 +57,7 @@ export default class PageEcosystem extends React.Component {
 								keys={this.state.menuValues}
 								content={[
 									<PageEcosystemPrivateSector
+										{...this.props}
 										key={this.state.menuValues[0]}
 										taxonomies={this.props.taxonomies}
 									/>,
