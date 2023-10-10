@@ -48,6 +48,14 @@ export default class PageEcosystemPrivateSector extends React.Component {
 		if (this.state.filters !== prevState.filters) {
 			this.fetchServiceProviders();
 		}
+
+		if (this.state.filters.startup_only !== (getUrlParameter("startup_only") === "true")) {
+			this.modifyFilters("startup_only", getUrlParameter("startup_only") === "true");
+		}
+
+		if (this.state.filters.pcdoctor_only !== (getUrlParameter("pcdoctor_only") === "true")) {
+			this.modifyFilters("pcdoctor_only", getUrlParameter("pcdoctor_only") === "true");
+		}
 	}
 
 	fetchServiceProviders() {
