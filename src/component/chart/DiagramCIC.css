@@ -1,0 +1,31 @@
+.DiagramCIC {
+}
+
+.DiagramCIC .donut-chart-inner,
+.DiagramCIC .donut-chart-outer {
+}
+
+.DiagramCIC .donut-chart-inner {
+	width: calc(46% - 3px);
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+  	right: 0;
+  	top: 26%;
+  	z-index: 10;
+}
+
+.DiagramCIC .donut-chart-outer {
+	width: 100%;
+	z-index: 11;
+}
+
+.DiagramCIC img {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+  	right: 0;
+	width: 8% !important;
+}

@@ -77,7 +77,6 @@ class InsideApp extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		console.log(this.props.history.location.pathname, prevProps.history.location.pathname);
 		if (this.props.history.location.pathname !== prevProps.history.location.pathname) {
 			window.scrollTo(0, 0);
 		}

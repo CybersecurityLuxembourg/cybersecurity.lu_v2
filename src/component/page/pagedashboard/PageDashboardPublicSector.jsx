@@ -3,6 +3,7 @@ import "./PageDashboardPublicSector.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
+import DiagramCIC from "../../chart/DiagramCIC.jsx";
 import BoxWithTitle from "../../box/BoxWithTitle.jsx";
 
 export default class PageDashboardPublicSector extends React.Component {
@@ -142,11 +143,14 @@ export default class PageDashboardPublicSector extends React.Component {
 								<BoxWithTitle
 									title={"National Strategy & Governance"}
 									content={<div className="row">
-										<div className="offset-md-1 col-md-10">
-											<img
-												src="/img/national-strategy-diagram.svg"
-												alt="National strategy diagram"
-											/>
+										<div className="offset-md-1 col-md-10 spaced-row">
+											<DiagramCIC/>
+										</div>
+										<div className="offset-md-1 col-md-10 text-center">
+											<div className="h8">
+												Comité interministériel en matière de cyber-prévention
+												et de cybersécurité (CIC-CPCS)
+											</div>
 										</div>
 										<div className="col-md-12">
 											<div className="right-buttons">
