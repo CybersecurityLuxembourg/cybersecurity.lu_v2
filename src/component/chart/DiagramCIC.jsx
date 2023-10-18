@@ -158,19 +158,6 @@ const DiagramCIC = () => (
 					maintainAspectRatio: true,
 					aspectRatio: 1,
 					// responsive: true,
-					tooltips: {
-						enabled: true,
-						mode: "single",
-						callbacks: {
-							// eslint-disable-next-line object-shorthand
-							label: function (tooltipItems, data) {
-								const dataset = data.datasets[tooltipItems.datasetIndex];
-								const label = data.labels[tooltipItems.index];
-								const value = dataset.data[tooltipItems.index];
-								return `${label}: ${value}`;
-							},
-						},
-					},
 				}}
 				id="outerDonut"
 			/>
