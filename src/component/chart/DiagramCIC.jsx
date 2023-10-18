@@ -142,7 +142,7 @@ const DiagramCIC = () => (
 				options={{
 					maintainAspectRatio: true,
 					aspectRatio: 1,
-					// responsive: true,
+					responsive: true,
 					rotation: -90,
 				}}
 				id="innerDonut"
@@ -157,7 +157,7 @@ const DiagramCIC = () => (
 				options={{
 					maintainAspectRatio: true,
 					aspectRatio: 1,
-					// responsive: true,
+					responsive: true,
 				}}
 				id="outerDonut"
 			/>
