@@ -6,6 +6,14 @@ const innerDonutData = {
 	datasets: [
 		{
 			labels: ["ANSSI", "GOVCERT", "CTIE", "NC3", "LHC", "CIRCL"],
+			urls: [
+				"https://hcpn.gouvernement.lu/fr/service/attributions/missions-nationales/anssi.html",
+				"https://www.govcert.lu/",
+				"https://ctie.gouvernement.lu/",
+				"https://www.nc3.lu/",
+				"https://www.lhc.lu/",
+				"https://www.circl.lu/",
+			],
 			data: [10, 10, 10, 10, 10, 10],
 			backgroundColor: ["#66C2FF", "#66C2FF", "#66C2FF", "#EE6A71", "#EE6A71", "#EE6A71"],
 			borderWidth: 6,
@@ -24,6 +32,15 @@ const outerDonutData = {
 				"Ministry of Foreign and European Affairs",
 				"Institut Luxembourgeois de Régulation (ILR)",
 				"Service des Médias, de la Connectivité et de la politique numérique (SMC)",
+			],
+			urls: [
+				"https://hcpn.gouvernement.lu/",
+				"https://defense.gouvernement.lu/",
+				"https://sre.gouvernement.lu/",
+				"https://meco.gouvernement.lu/",
+				"https://maee.gouvernement.lu/",
+				"https://web.ilr.lu/",
+				"https://smc.gouvernement.lu/",
 			],
 			data: [10, 10, 10, 10, 10, 10, 10],
 			backgroundColor: [
@@ -79,6 +96,23 @@ const fillText = (ctx, text, x, y, maxWidth, lineHeight) => {
 	}
 };
 
+const clickEventHandling = {
+	onClick: (event, elements, chart) => {
+		if (elements.length > 0) {
+			const segmentIndex = elements[0].index;
+			const url = chart.data.datasets[0].urls[segmentIndex];
+
+			if (url) {
+				window.open(url, "_blank");
+			}
+		}
+	},
+	onHover: (event, elements, chart) => {
+		// eslint-disable-next-line no-param-reassign, no-unused-expressions
+		elements.length > 0 ? chart.canvas.style.cursor = "pointer" : chart.canvas.style.cursor = "default";
+	},
+};
+
 const labelPluginOuter = (chart) => {
 	// eslint-disable-next-line prefer-destructuring
 	const ctx = chart.ctx;
@@ -93,6 +127,7 @@ const labelPluginOuter = (chart) => {
 				ctx.fillStyle = "black"; // Label text color
 				ctx.font = "700 " + fontSize + "px Open Sans"; // Label font size and family
 				ctx.textAlign = "center";
+				ctx.cursor = "pointer";
 				const radius = element.outerRadius * 0.75;
 				// eslint-disable-next-line no-underscore-dangle
 				const posX = (element.x + radius * Math.cos(0.5 * (element.startAngle + element.endAngle)));
@@ -117,6 +152,7 @@ const labelPluginInner = (chart) => {
 				const value = `${dataset.labels[index]}`;
 				ctx.fillStyle = "white";
 				ctx.font = "13px Open Sans";
+				ctx.cursor = "pointer";
 				const text = ctx.measureText(value);
 				const radius = element.outerRadius * 0.75;
 				// eslint-disable-next-line no-underscore-dangle
@@ -144,6 +180,8 @@ const DiagramCIC = () => (
 					aspectRatio: 1,
 					responsive: true,
 					rotation: -90,
+					onClick: clickEventHandling.onClick,
+					onHover: clickEventHandling.onHover,
 				}}
 				id="innerDonut"
 			/>
@@ -158,6 +196,8 @@ const DiagramCIC = () => (
 					maintainAspectRatio: true,
 					aspectRatio: 1,
 					responsive: true,
+					onClick: clickEventHandling.onClick,
+					onHover: clickEventHandling.onHover,
 				}}
 				id="outerDonut"
 			/>
