@@ -36,7 +36,7 @@ export default class SectionCSWL extends React.Component {
 												"_blank",
 											)}
 										>
-											Discover the full programme &nbsp;<i className="fas fa-arrow-right"/>
+											Look back at the past edition &nbsp;<i className="fas fa-arrow-right"/>
 										</button>
 									</div>
 								</div>
