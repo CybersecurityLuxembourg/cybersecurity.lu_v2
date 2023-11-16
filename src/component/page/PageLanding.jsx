@@ -5,7 +5,6 @@ import PageLandingEcosystem from "./pagelanding/PageLandingEcosystem.jsx";
 import PageLandingNews from "./pagelanding/PageLandingNews.jsx";
 import PageLandingNewsletter from "./pagelanding/PageLandingNewsletter.jsx";
 import PageLandingEvents from "./pagelanding/PageLandingEvents.jsx";
-import PageLandingCSWL from "./pagelanding/PageLandingCSWL.jsx";
 import PageLandingResources from "./pagelanding/PageLandingResources.jsx";
 import PageLandingLTAC from "./pagelanding/PageLandingLTAC.jsx";
 import SectionContactForm from "../section/SectionContactForm.jsx";
@@ -39,7 +38,6 @@ export default class PageLanding extends React.Component {
 				<PageLandingEvents
 					{...this.props}
 				/>
-				<PageLandingCSWL/>
 				<PageLandingResources
 					{...this.props}
 				/>
