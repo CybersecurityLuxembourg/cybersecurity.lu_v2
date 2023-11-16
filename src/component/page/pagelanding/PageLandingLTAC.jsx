@@ -45,10 +45,16 @@ export default class PageLandingLTAC extends React.Component {
 										<h4><span className="blue-text">#</span> LËTZ TALK ABOUT CYBER</h4>
 
 										<p className="catch-phrase">
-											In this edition of Lëtz Talk about Cyber, Melanie
-											Delannoy, CyberSec Enthusiast received Björn
-											Ottersten, Director of the Interdisciplinary Centre
-											for Security, Reliability and Trust (SnT).
+											Johannes Mueller (SnT) received Arash Atashpendar (Abstraction Lab), Pascal
+											Steichen (LHC), Rodolphe Stranen (SMC), Alan Kuresevic (SES) to discuss
+											the fundamentals of quantum technologies and how we can use those technologies
+											to improve secure communications.
+										</p>
+
+										<p className="catch-phrase">
+											To prepare Luxembourg for the quantum
+											age, several actors are involved in various projects. Which are they? And
+											how could we further bundle our competences?
 										</p>
 
 										<button
