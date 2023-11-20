@@ -61,23 +61,24 @@
 
 .Footer .Footer-network {
   font-size: 20px;
-  padding: 5px 8px;
+  margin: 0px 8px;
   text-align: center;
   color: #009fe3;
-  margin-bottom: 5px;
 }
 
 .Footer .social-network {
+  position: relative;
   margin-top: 24px !important;
   margin-bottom: 34px !important;
 }
 
-.Footer .social-network a i {
+.Footer .social-network a > * {
   margin-right: 16px;
 }
 
-.Footer .social-network a i:hover {
-  color: #e40613 !important;
+.Footer .social-network a > img {
+  max-width: 17px !important;
+  vertical-align: text-top;
 }
 
 .Footer .row > div {
