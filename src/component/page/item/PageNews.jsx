@@ -38,6 +38,12 @@ export default class PageNews extends React.Component {
 		this.getArticleContent();
 	}
 
+	componentDidUpdate(prevProps) {
+		if (prevProps.match.params.handle !== this.props.match.params.handle) {
+			this.componentDidMount();
+		}
+	}
+
 	getArticleContent() {
 		this.setState({
 			article: null,

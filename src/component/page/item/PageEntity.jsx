@@ -46,6 +46,12 @@ export default class PageEntity extends React.Component {
 		this.getEntityArticle("TOOL", "tools");
 	}
 
+	componentDidUpdate(prevProps) {
+		if (prevProps.match.params.id !== this.props.match.params.id) {
+			this.componentDidMount();
+		}
+	}
+
 	getEntityContent() {
 		getRequest.call(this, "public/get_public_entity/"
 			+ this.props.match.params.id
