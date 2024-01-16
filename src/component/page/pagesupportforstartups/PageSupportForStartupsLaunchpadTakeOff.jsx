@@ -17,6 +17,33 @@ export default class PageSupportForStartupsLaunchpadTakeOff extends React.Compon
 						<div className="box vertically-centered centered">
 							<div className="row">
 								<div className="col-md-6 offset-md-3 spaced-row">
+									<i className="fas fa-shield-alt"/>
+								</div>
+
+								<div className="col-md-8 offset-md-2">
+									<div className="h8 spaced-row">
+										LUxembourg CYbersecurity Accelerator - LUCYA
+									</div>
+								</div>
+
+								<div className="col-md-12">
+									<button
+										className="small"
+										onClick={() => window.open(
+											"https://lhc.lu/lucya",
+											"_blank",
+										)}>
+										More information
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="col-md-4">
+						<div className="box vertically-centered centered">
+							<div className="row">
+								<div className="col-md-6 offset-md-3 spaced-row">
 									<i className="fas fa-rocket"/>
 								</div>
 
