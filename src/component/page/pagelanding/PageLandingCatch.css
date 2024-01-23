@@ -73,13 +73,22 @@
 	z-index: 10;
 }
 
-@media (min-width: 768px) {
+#PageLandingCatch .alert-wrapper .PopupNews {
+	position: absolute;
+	bottom: -64px;
+	right: 525px;
+	width: 400px;
+	z-index: 10;
+	background-color: #33ADFF;
+}
+
+@media (min-width: 992px) {
     #PageLandingCatch .catch-phrase {
 		max-width: 70%;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
 	#PageLandingCatch .content {
 		padding-top: 12vh;
 		padding-bottom: 168px;
@@ -94,6 +103,14 @@
 	}
 
 	#PageLandingCatch .alert-wrapper .AlertNews {
+		position: relative !important;
+		width: 100% !important;
+		bottom: unset;
+		right: unset;
+		margin-bottom: 12px;
+	}
+
+	#PageLandingCatch .alert-wrapper .PopupNews {
 		position: relative !important;
 		width: 100% !important;
 		bottom: unset;

@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageLandingCatch.css";
 import AlertNews from "../../box/AlertNews.jsx";
+import PopupNews from "../../box/PopupNews.jsx";
 
 export default class PageLandingCatch extends React.Component {
 	constructor(props) {
@@ -48,6 +49,7 @@ export default class PageLandingCatch extends React.Component {
 
 				<div className="alert-container">
 					<div className="alert-wrapper">
+						<PopupNews/>
 						<AlertNews
 							taxonomies={this.props.taxonomies}
 						/>
