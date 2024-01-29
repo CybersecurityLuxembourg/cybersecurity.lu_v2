@@ -49,7 +49,7 @@ export default class PageLandingCatch extends React.Component {
 
 				<div className="alert-container">
 					<div className="alert-wrapper">
-						<PopupNews/>
+						<!--<PopupNews/> former ICRC symposium news alert-->
 						<AlertNews
 							taxonomies={this.props.taxonomies}
 						/>
