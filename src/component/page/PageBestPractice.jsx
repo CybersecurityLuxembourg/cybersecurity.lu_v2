@@ -6,6 +6,7 @@ import Tab from "../tab/Tab.jsx";
 import PageBestPracticeDetectReact from "./pagebestpractice/PageBestPracticeDetectReact.jsx";
 import PageBestPracticeProtectPrevent from "./pagebestpractice/PageBestPracticeProtectPrevent.jsx";
 import PageBestPracticeTestImprove from "./pagebestpractice/PageBestPracticeTestImprove.jsx";
+import PageBestPracticeSecureIot from "./pagebestpractice/PageBestPracticeSecureIot.jsx";
 import { getUrlParameter } from "../../utils/url.jsx";
 
 export default class PageBestPractice extends React.Component {
@@ -13,8 +14,8 @@ export default class PageBestPractice extends React.Component {
 		super(props);
 
 		this.state = {
-			menuLabels: ["Protect & prevent", "Test & improve", "Detect & react"],
-			menuValues: ["protect_prevent", "test_improve", "detect_react"],
+			menuLabels: ["Protect & prevent", "Test & improve", "Detect & react", "Secure IOT"],
+			menuValues: ["protect_prevent", "test_improve", "detect_react", "secure_iot"],
 			selectedMenu: "protect_prevent",
 		};
 	}
@@ -98,6 +99,11 @@ export default class PageBestPractice extends React.Component {
 										{...this.props}
 									/>,
 									<PageBestPracticeDetectReact
+										key={2}
+										taxonomies={this.props.taxonomies}
+										{...this.props}
+									/>,
+									<PageBestPracticeSecureIot
 										key={2}
 										taxonomies={this.props.taxonomies}
 										{...this.props}
