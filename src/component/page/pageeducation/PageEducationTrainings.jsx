@@ -125,8 +125,8 @@ export default class PageEducationTrainings extends React.Component {
 
 								{this.state.entity
 									&& <img
-										src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
-									/>
+										src={getApiURL() + "public/get_public_image/1825"} //Lifelong-learning image
+									 alt={"lifelong-learning logo"}/>
 								}
 							</div>
 						</div>
