@@ -123,11 +123,7 @@ export default class PageEducationTrainings extends React.Component {
 							<div className="col-md-12">
 								<div>In collaboration with the national portal</div>
 
-								{this.state.entity
-								&& <img
-									src={getApiURL() + "public/get_public_image/1825"}
-								/>
-								}
+								{this.state.entity && <img src={getApiURL() + "public/get_public_image/1825"}/>}
 							</div>
 						</div>
 					</div>
