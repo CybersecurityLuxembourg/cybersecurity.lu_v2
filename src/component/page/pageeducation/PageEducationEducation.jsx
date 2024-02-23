@@ -11,7 +11,6 @@ import Loading from "../../box/Loading.jsx";
 export default class PageEducationEducation extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			educationEntities: null,
 			educationServices: null,
