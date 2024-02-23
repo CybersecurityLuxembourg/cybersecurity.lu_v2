@@ -121,9 +121,10 @@ export default class PageEducationTrainings extends React.Component {
 					<div className="title-section">
 						<div className="row">
 							<div className="col-md-12">
-								<div>In collaboration with the national portal</div>
-
-								{this.state.entity && <img src={getApiURL() + "public/get_public_image/1825"}/>}
+								<div>
+									In collaboration with the national portal <br/>
+									{this.state.entity && <img src={getApiURL() + "public/get_public_image/1825"}/>}
+								</div>
 							</div>
 						</div>
 					</div>
