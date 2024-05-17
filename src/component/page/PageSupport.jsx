@@ -286,7 +286,7 @@ export default class PageSupport extends React.Component {
 										<button
 											className="link"
 											onClick={() => window.open(
-												"https://circl.lu",
+												"https://circl.lu/report/",
 												"_blank",
 											)}>
 											Report an incident &nbsp;<i className="fas fa-arrow-right"/>
