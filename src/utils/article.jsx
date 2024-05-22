@@ -29,9 +29,9 @@ export function getContentFromBlock(b) {
 				<div dangerouslySetInnerHTML={
 					{
 						__html:
-						b.content.replace("&lt;", "<").replace("&gt;", ">"),
+							dompurify.sanitize(b.content.replace("&lt;", "<").replace("&gt;", ">")),
 					}
-				} />
+				}/>
 			</div>;
 		}
 	}
