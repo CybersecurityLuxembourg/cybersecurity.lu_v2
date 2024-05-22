@@ -26,7 +26,7 @@ export function getContentFromBlock(b) {
 	} else if (b.type === "FRAME") {
 		if (b.content !== null) {
 			// Sanitize and validate the content as a URL
-			const sanitizedContent = dompurify.sanitize(b.content.replace("&lt;", "<").replace("&gt;", ">"));
+			const sanitizedContent = dompurify.sanitize(b.content);
 
 			// Create the iframe element directly
 			el = <div className='content-media'>
