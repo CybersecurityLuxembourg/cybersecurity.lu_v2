@@ -214,7 +214,7 @@
         width: 100%;
     }
 
-    .Menu .top-right-bar button {
+    .Menu .top-right-bar .immediate {
         margin: 16px auto;
         width: fit-content;
     }

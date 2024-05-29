@@ -306,7 +306,7 @@ export default class Menu extends React.Component {
 							<div className="separator"/>
 							<div className="split-bar"/>
 
-							<a className="red small"
+							<a className="red small immediate"
 								href="/support"
 							>
 								IMMEDIATE SUPPORT
