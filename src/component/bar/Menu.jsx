@@ -305,14 +305,11 @@ export default class Menu extends React.Component {
 
 							<div className="separator"/>
 							<div className="split-bar"/>
-
-							<button
-								className="red small"
-								href={getPrivateAppURL()}
-								onClick={() => this.props.history.push("support")}
-							>
-								IMMEDIATE SUPPORT
-							</button>
+							<a href="/support">
+								<button className="red small">
+									IMMEDIATE SUPPORT
+								</button>
+							</a>
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
