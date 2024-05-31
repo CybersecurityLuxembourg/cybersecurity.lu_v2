@@ -305,11 +305,10 @@ export default class Menu extends React.Component {
 
 							<div className="separator"/>
 							<div className="split-bar"/>
-
-							<a className="red small immediate"
-								href="/support"
-							>
-								IMMEDIATE SUPPORT
+							<a href="/support">
+								<button className="red small">
+									IMMEDIATE SUPPORT
+								</button>
 							</a>
 						</Nav>
 					</Navbar.Collapse>
