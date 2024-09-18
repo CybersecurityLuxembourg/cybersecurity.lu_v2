@@ -38,7 +38,6 @@ import PageContact from "./page/PageContact.jsx";
 import PageSupport from "./page/PageSupport.jsx";
 import PageSearch from "./page/PageSearch.jsx";
 import Page404 from "./page/Page404.jsx";
-import SecurityTxt from "./SecurityTxt.jsx";
 
 class InsideApp extends React.Component {
 	constructor(props) {
@@ -235,7 +234,6 @@ class InsideApp extends React.Component {
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
-						<Route path="/.well-known/security.txt" component={SecurityTxt} />
 
 						{/* Internal redirections */}
 
