@@ -38,6 +38,7 @@ import PageContact from "./page/PageContact.jsx";
 import PageSupport from "./page/PageSupport.jsx";
 import PageSearch from "./page/PageSearch.jsx";
 import Page404 from "./page/Page404.jsx";
+import SecurityTxt from "./SecurityTxt.jsx";
 
 class InsideApp extends React.Component {
 	constructor(props) {
@@ -50,36 +51,38 @@ class InsideApp extends React.Component {
 		};
 	}
 
-	// eslint-disable-next-line react/no-deprecated
-	componentWillMount() {
-		this.setState({
-			unlisten: this.props.history.listen((location) => {
-				// eslint-disable-next-line no-multi-assign,no-underscore-dangle
-				const paq = window._paq = window._paq || [];
-				paq.push(["setCustomUrl", location.pathname + location.search]);
-				paq.push(["trackPageView"]);
-
-				if (this.state.currentPathname !== location.pathname) {
-					document.getElementById("InsideApp").scrollIntoView();
-				}
-
-				this.setState({ currentPathname: location.pathname });
-			}),
-		});
+	componentDidMount() {
+		this.setupHistoryListener();
+		this.getAnalytics();
 	}
 
 	componentWillUnmount() {
-		this.state.unlisten();
-	}
-
-	componentDidMount() {
-		this.getAnalytics();
+		if (this.state.unlisten) {
+			this.state.unlisten();
+		}
 	}
 
 	componentDidUpdate(prevProps) {
 		if (this.props.history.location.pathname !== prevProps.history.location.pathname) {
 			window.scrollTo(0, 0);
 		}
+	}
+
+	setupHistoryListener() {
+		const unlisten = this.props.history.listen((location) => {
+			// eslint-disable-next-line no-multi-assign,no-underscore-dangle
+			const paq = window._paq = window._paq || [];
+			paq.push(["setCustomUrl", location.pathname + location.search]);
+			paq.push(["trackPageView"]);
+
+			if (this.state.currentPathname !== location.pathname) {
+				document.getElementById("InsideApp").scrollIntoView();
+			}
+
+			this.setState({ currentPathname: location.pathname });
+		});
+
+		this.setState({ unlisten });
 	}
 
 	getAnalytics() {
@@ -232,6 +235,7 @@ class InsideApp extends React.Component {
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>
+						<Route path="/.well-known/security.txt" component={SecurityTxt} />
 
 						{/* Internal redirections */}
 
