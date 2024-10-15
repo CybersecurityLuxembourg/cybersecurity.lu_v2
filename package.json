@@ -24,7 +24,7 @@
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
-    "start": "WATCHPACK_POLLING=true react-scripts start",
+    "start": "react-scripts start && cpx \"public/.well-known/**/*\" .well-known",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -32,6 +32,9 @@
     "lint-fix": "eslint --fix --ext .js --ext .jsx src"
   },
   "devDependencies": {
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
+    "cpx": "^1.5.0",
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "react-scripts": "^5.0.0",

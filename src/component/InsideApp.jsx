@@ -50,36 +50,38 @@ class InsideApp extends React.Component {
 		};
 	}
 
-	// eslint-disable-next-line react/no-deprecated
-	componentWillMount() {
-		this.setState({
-			unlisten: this.props.history.listen((location) => {
-				// eslint-disable-next-line no-multi-assign,no-underscore-dangle
-				const paq = window._paq = window._paq || [];
-				paq.push(["setCustomUrl", location.pathname + location.search]);
-				paq.push(["trackPageView"]);
-
-				if (this.state.currentPathname !== location.pathname) {
-					document.getElementById("InsideApp").scrollIntoView();
-				}
-
-				this.setState({ currentPathname: location.pathname });
-			}),
-		});
+	componentDidMount() {
+		this.setupHistoryListener();
+		this.getAnalytics();
 	}
 
 	componentWillUnmount() {
-		this.state.unlisten();
-	}
-
-	componentDidMount() {
-		this.getAnalytics();
+		if (this.state.unlisten) {
+			this.state.unlisten();
+		}
 	}
 
 	componentDidUpdate(prevProps) {
 		if (this.props.history.location.pathname !== prevProps.history.location.pathname) {
 			window.scrollTo(0, 0);
 		}
+	}
+
+	setupHistoryListener() {
+		const unlisten = this.props.history.listen((location) => {
+			// eslint-disable-next-line no-multi-assign,no-underscore-dangle
+			const paq = window._paq = window._paq || [];
+			paq.push(["setCustomUrl", location.pathname + location.search]);
+			paq.push(["trackPageView"]);
+
+			if (this.state.currentPathname !== location.pathname) {
+				document.getElementById("InsideApp").scrollIntoView();
+			}
+
+			this.setState({ currentPathname: location.pathname });
+		});
+
+		this.setState({ unlisten });
 	}
 
 	getAnalytics() {
@@ -246,6 +248,10 @@ class InsideApp extends React.Component {
 						<Route
 							path="/luxchat/general-terms-and-conditions"
 							component={() => { window.location = "https://api.cybersecurity.lu/public/get_public_document/Luxchat%20-%20general%20terms%20and%20conditions.pdf"; return null; } }
+						/>
+						<Route
+							path="/cybersecurityweek"
+							component={() => { window.location = "https://cswl.lu"; return null; } }
 						/>
 
 						{/* 404 */}
