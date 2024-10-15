@@ -249,6 +249,10 @@ class InsideApp extends React.Component {
 							path="/luxchat/general-terms-and-conditions"
 							component={() => { window.location = "https://api.cybersecurity.lu/public/get_public_document/Luxchat%20-%20general%20terms%20and%20conditions.pdf"; return null; } }
 						/>
+						<Route
+							path="/cybersecurityweek"
+							component={() => { window.location = "https://cswl.lu"; return null; } }
+						/>
 
 						{/* 404 */}
 

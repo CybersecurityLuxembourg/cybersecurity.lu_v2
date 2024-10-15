@@ -8,7 +8,7 @@ import "./css/carousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import InsideApp from "./component/InsideApp.jsx";
 import { getApiURL } from "./utils/env.jsx";
 
@@ -26,17 +26,12 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<BrowserRouter>
-				<Switch>
-					<Route exact path="/.well-known/security.txt" />
-					<Route>
-						<div id="App">
-							<InsideApp {...this.props} />
-							<NotificationContainer />
-						</div>
-					</Route>
-				</Switch>
-			</BrowserRouter>
+			<div id="App">
+				<BrowserRouter>
+					<InsideApp {...this.props}/>
+					<NotificationContainer/>
+				</BrowserRouter>
+			</div>
 		);
 	}
 }
