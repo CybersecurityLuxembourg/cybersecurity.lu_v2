@@ -51,7 +51,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Open Sans;
+    font-family: "Open Sans", "sans-serif";
     font-size: 16px;
     color: var(--text-neutral-40);
 }
@@ -282,4 +282,8 @@ h6 {
 
 .top-content .text-content .h8 {
     margin-bottom: 12px;
+}
+
+strong, b {
+    font-family: "Open Sans 700", "sans-serif";
 }
