@@ -117,18 +117,19 @@ export default class PageSupportSmePackageCybersecurity extends React.Component 
 					<div className="row mt-5">
 						<div className="col-md-12">
 							<div className={"d-flex-column align-items-center justify-content-left "}>
-								<div className={"col-md-3 p-0"}>
+								<div style={{ width: "221px", height: "60px", marginBottom: "1rem" }} className={"mv-4"}>
 									<a href={"https://nc3.lu/assessment-testing-and-training/fit4cybersecurity"} target={"_blank"} rel={"noopener noreferrer"}>
 										<img
 											src="/img/fit4logo.png"
 											alt={"Fit4Cybersecurity"}
+											className={"img-fluid"}
 										/>
 									</a>
 								</div>
 								<div>
-									<p className={"lead font-weight-bolder"}>The company must undergo a pre-analysis by
+									<p className={"lead font-weight-bold"}><strong>The company must undergo a pre-analysis by
 											the <a href={"https://nc3.lu"} target={"_blank"} rel={"noopener noreferrer"}>National CybersecurityCompetence Center</a> of the <a href={"https://lhc.lu"} target={"_blank"} rel={"noopener noreferrer"}>Luxembourg House
-													of Cybersecurity</a> based on the <a href={"https://nc3.lu/assessment-testing-and-training/fit4cybersecurity"} target={"_blank"} rel={"noopener noreferrer"}>Fit4Cybersecurity self-assessment tool</a>. </p>
+													of Cybersecurity</a> based on the <a href={"https://nc3.lu/assessment-testing-and-training/fit4cybersecurity"} target={"_blank"} rel={"noopener noreferrer"}>Fit4Cybersecurity self-assessment tool</a>. </strong></p>
 								</div>
 							</div>
 						</div>
@@ -143,7 +144,7 @@ export default class PageSupportSmePackageCybersecurity extends React.Component 
 									/>
 								</div>
 								<div>
-									<p className={"mt-0 mb-0"}>All details about the SME Package – Cybersecurity to be found on <a href={"https://guichet.public.lu/fr/entreprises/financement-aides/regime-sme-packages/soutien-pme/sme-package-cybersecurity.html"} target={"_blank"} rel={"noopener noreferrer"}>guichet.lu</a>. </p>
+									<p className={"mt-0 mb-0 font-weight-bold"}><strong>All details about the SME Package – Cybersecurity to be found on <a href={"https://guichet.public.lu/fr/entreprises/financement-aides/regime-sme-packages/soutien-pme/sme-package-cybersecurity.html"} target={"_blank"} rel={"noopener noreferrer"}>guichet.lu</a>.</strong></p>
 								</div>
 							</div>
 						</div>
