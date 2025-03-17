@@ -30,6 +30,7 @@ import PageLegal from "./page/PageLegal.jsx";
 import PageStandards from "./page/PageStandards.jsx";
 import PagePublications from "./page/PagePublications.jsx";
 import PageSupportForStartups from "./page/PageSupportForStartups.jsx";
+import PageSupportSmePackageCybersecurity from "./page/PageSupportSmePackageCybersecurity.jsx";
 import PageFunding from "./page/PageFunding.jsx";
 import PageScholarships from "./page/PageScholarships.jsx";
 import PagePartnerships from "./page/PagePartnerships.jsx";
@@ -201,6 +202,10 @@ class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/support-for-startups" render={(props) => <PageSupportForStartups
+							taxonomies={this.state.taxonomies}
+							{...props}
+						/>}/>
+						<Route path="/sme-package-cybersecurity" render={(props) => <PageSupportSmePackageCybersecurity
 							taxonomies={this.state.taxonomies}
 							{...props}
 						/>}/>

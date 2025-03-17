@@ -30,7 +30,7 @@ export default class Menu extends React.Component {
 				<div className="row">
 					<div className="col-md-6">
 						<div className="h8">
-							Get an overview
+														Get an overview
 						</div>
 						<NavDropdown.Item>
 							<Link to="/dashboard">
@@ -40,7 +40,7 @@ export default class Menu extends React.Component {
 					</div>
 					<div className="col-md-6">
 						<div className="h8">
-							Member list
+														Member list
 						</div>
 						<NavDropdown.Item>
 							<Link to="/ecosystem?tab=private-sector">
@@ -84,7 +84,7 @@ export default class Menu extends React.Component {
 				<div className="row">
 					<div className="col-md-6">
 						<div className="h8">
-							News
+														News
 						</div>
 						<NavDropdown.Item>
 							<Link to="/news">
@@ -101,7 +101,7 @@ export default class Menu extends React.Component {
 					</div>
 					<div className="col-md-6">
 						<div className="h8">
-							Events
+														Events
 						</div>
 						<NavDropdown.Item>
 							<Link to="/events">
@@ -129,7 +129,7 @@ export default class Menu extends React.Component {
 				<div className="row">
 					<div className="col-md-6">
 						<div className="h8">
-							Skills
+														Skills
 						</div>
 						<NavDropdown.Item>
 							<Link to="/education">
@@ -144,7 +144,7 @@ export default class Menu extends React.Component {
 					</div>
 					<div className="col-md-6">
 						<div className="h8">
-							Jobs
+														Jobs
 						</div>
 						<NavDropdown.Item>
 							<Link to="/jobs">
@@ -171,7 +171,7 @@ export default class Menu extends React.Component {
 				<div className="row">
 					<div className="col-md-6">
 						<div className="h8">
-							Resources
+														Resources
 						</div>
 						<NavDropdown.Item>
 							<Link to="/best-practice">
@@ -196,11 +196,16 @@ export default class Menu extends React.Component {
 					</div>
 					<div className="col-md-6">
 						<div className="h8">
-							Support
+														Support
 						</div>
 						<NavDropdown.Item>
 							<Link to="/support-for-startups">
 								<div className="Menu-title">Support for Startups</div>
+							</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Item>
+							<Link to="/sme-package-cybersecurity">
+								<div className="Menu-title">SME Package - Cybersecurity</div>
 							</Link>
 						</NavDropdown.Item>
 						{/* <NavDropdown.Item>
@@ -234,7 +239,7 @@ export default class Menu extends React.Component {
 				<div className="row">
 					<div className="col-md-12">
 						<div className="h8">
-							About
+														About
 						</div>
 						<NavDropdown.Item>
 							<Link to="/about?tab=portal">
@@ -286,12 +291,14 @@ export default class Menu extends React.Component {
 						<Nav className="top-right-bar mr-sm-2 ml-auto">
 							<Nav.Link className="top-link">
 								<Link to="/search">
-									<div className="Menu-title"><i className="fas fa-search"/>Search</div>
+									<div className="Menu-title"><i className="fas fa-search"/>Search
+									</div>
 								</Link>
 							</Nav.Link>
 							<Nav.Link className="top-link">
 								<Link to="/dashboard">
-									<div className="Menu-title"><i className="fas fa-th"/>Dashboard</div>
+									<div className="Menu-title"><i className="fas fa-th"/>Dashboard
+									</div>
 								</Link>
 							</Nav.Link>
 							<a className="nav-link top-link">
@@ -299,7 +306,9 @@ export default class Menu extends React.Component {
 									href={getPrivateAppURL()}
 									target="_blank"
 									rel="noreferrer">
-									<div className="Menu-title"><i className="fas fa-user"/>Log in/Register</div>
+									<div className="Menu-title"><i className="fas fa-user"/>Log
+																				in/Register
+									</div>
 								</a>
 							</a>
 
@@ -307,7 +316,7 @@ export default class Menu extends React.Component {
 							<div className="split-bar"/>
 							<a href="/support">
 								<button className="red small">
-									IMMEDIATE SUPPORT
+																		IMMEDIATE SUPPORT
 								</button>
 							</a>
 						</Nav>
