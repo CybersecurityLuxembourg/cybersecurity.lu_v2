@@ -1,0 +1,25 @@
+#ServiceList {
+    width: 100%;
+}
+
+#ServiceList .item {
+    width: 100%;
+}
+
+#ServiceList .item .header {
+    height: 54px;
+    margin-bottom: 8px;
+
+    line-height: 150%;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-neutral-50);
+}
+
+#ServiceList .item .link {
+    float: right;
+}
+
+#ServiceList hr {
+    margin-bottom: 15px;
+}
