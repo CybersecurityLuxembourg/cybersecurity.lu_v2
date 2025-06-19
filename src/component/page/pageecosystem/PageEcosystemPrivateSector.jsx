@@ -81,24 +81,25 @@ export default class PageEcosystemPrivateSector extends React.Component {
 		if (!this.props.taxonomies) return [];
 
 		const taxonomyFilters = [
-			(object) => object.category === "ENTITY TYPE" && object.name === "PRIVATE SECTOR",
-			(object) => object.category === "ECOSYSTEM ROLE" && object.name === "CYBERSECURITY SERVICE PROVIDER",
+			{ category: "ENTITY TYPE", name: "PRIVATE SECTOR" },
+			{ category: "ECOSYSTEM ROLE", name: "CYBERSECURITY SERVICE PROVIDER" },
 		];
 
 		if (taxonomyFilters.length === 0) return [];
 
 		if (this.state.filters.pcdoctor_only) {
-			taxonomyFilters.push((object) => object.category === "ENTITY TARGET" && object.name === "INDIVIDUAL");
+			taxonomyFilters.push({ category: "ENTITY TARGET", name: "INDIVIDUAL" });
 		}
 
 		if (this.state.filters.smeprovider_only) {
-			taxonomyFilters.push((object) => object.category === "SME PACKAGE" && object.name === "SME package ready");
+			taxonomyFilters.push({ category: "SME PACKAGE", name: "SME PACKAGE READY" });
 		}
 
-		const filtered = taxonomyFilters
-			.flatMap((fn) => this.props.taxonomies.taxonomy_values.filter(fn));
-
-		return filtered.map((object) => object.id);
+		return this.props.taxonomies.taxonomy_values
+			.filter((object) => taxonomyFilters
+				.some((filter) => object.category.toLowerCase() === filter.category.toLowerCase()
+					&& object.name.toLowerCase() === filter.name.toLowerCase()))
+			.map((object) => object.id);
 	}
 
 	fetchServiceProviders() {
@@ -175,8 +176,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 		this.setState({ filters: this.state.initFilters });
 	}
 
-	// eslint-disable-next-line class-methods-use-this
-	goToDiv(id) {
+	static goToDiv(id) {
 		const elmnt = document.getElementById(id);
 		elmnt.scrollIntoView();
 	}
@@ -390,13 +390,10 @@ export default class PageEcosystemPrivateSector extends React.Component {
 
 										<Field
 											type="checkbox"
-											checkBoxLabel={"SME package provider"}
+											checkBoxLabel={"SME package providers"}
 											value={this.state.filters.smeprovider_only}
 											onChange={() => this.modifyFilters("smeprovider_only", !this.state.filters.smeprovider_only)}
 											hideLabel={true}
-											disabled={!this.props.taxonomies?.taxonomy_values.some(
-												(value) => value.category === "SME PACKAGE" && value.name === "SME package ready",
-											)}
 										/>
 
 										<div className="grey-horizontal-bar"/>
