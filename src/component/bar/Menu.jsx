@@ -58,6 +58,11 @@ export default class Menu extends React.Component {
 									<div className="Menu-title">PC Doctors</div>
 								</Link>
 							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link to="/ecosystem?tab=private-sector&smeprovider_only=true">
+									<div className="Menu-title">SME Package Providers</div>
+								</Link>
+							</NavDropdown.Item>
 						</div>
 						<NavDropdown.Item>
 							<Link to="/ecosystem?tab=public-sector">
