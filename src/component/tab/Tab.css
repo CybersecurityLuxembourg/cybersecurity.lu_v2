@@ -16,6 +16,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 14px;
+    border-bottom: 2px solid transparent;
 }
 
 .Tab .Tab-menu-el {
@@ -35,4 +36,8 @@
 
 .Tab .Tab-menu-el-empty {
     height: 15px;
+}
+
+.Tab .Tab-content {
+    padding-top: 8px;
 }

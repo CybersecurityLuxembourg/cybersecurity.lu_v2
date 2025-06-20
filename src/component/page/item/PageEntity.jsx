@@ -10,6 +10,7 @@ import NoImage from "../../box/NoImage.jsx";
 import { getApiURL, getPrivateAppURL } from "../../../utils/env.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
+import ServiceList from "../../item/ServiceList.jsx";
 import Tab from "../../tab/Tab.jsx";
 import Address from "../../form/Address.jsx";
 import Chip from "../../form/Chip.jsx";
@@ -119,6 +120,52 @@ export default class PageEntity extends React.Component {
 	hasGeolocation() {
 		return this.state.geolocations
 			&& this.state.geolocations.length > 0;
+	}
+
+	getEntitySummary() {
+		if (this.state.entity) {
+			return <>
+				{this.state.entity.headline
+					&& <h6>
+						{this.state.entity.headline}
+					</h6>
+				}
+
+				{this.state.entity.description
+					&& <div>
+						{this.state.entity.description}
+					</div>
+				}
+
+				{this.state.entity.trade_register_number
+					? <div className="titled-info">
+						<div className="h8 blue-text">
+							Trade register number
+						</div>
+
+						{this.state.entity.trade_register_number}
+					</div>
+					: ""
+				}
+
+				{this.state.entity.creation_date
+					? <div className="titled-info">
+						<div className="h8 blue-text">
+							Creation date
+						</div>
+
+						{this.state.entity.creation_date}
+					</div>
+					: ""
+				}
+			</>;
+		}
+
+		return <div className="col-md-12">
+			<Loading
+				height={200}
+			/>
+		</div>;
 	}
 
 	getArticleContent(type, variable) {
@@ -258,38 +305,21 @@ export default class PageEntity extends React.Component {
 												}
 											</div>
 
-											{this.state.entity.headline
-												&& <h6>
-													{this.state.entity.headline}
-												</h6>
-											}
-
-											{this.state.entity.description
-												&& <div>
-													{this.state.entity.description}
-												</div>
-											}
-
-											{this.state.entity.trade_register_number
-												? <div className="titled-info">
-													<div className="h8 blue-text">
-														Trade register number
-													</div>
-
-													{this.state.entity.trade_register_number}
-												</div>
-												: ""
-											}
-
-											{this.state.entity.creation_date
-												? <div className="titled-info">
-													<div className="h8 blue-text">
-														Creation date
-													</div>
-
-													{this.state.entity.creation_date}
-												</div>
-												: ""
+											{this.state.services?.items.length > 0
+												? <Tab
+													keys={["ABOUT", this.state?.services && "SERVICES"]}
+													labels={[
+														<div key="about" className="about-tab-header">ABOUT</div>,
+														<div key="services">SERVICES<Count
+															count={this.state.services?.pagination.total || "?"}/>
+														</div>,
+													]}
+													content={[
+														this.getEntitySummary(),
+														// eslint-disable-next-line react/jsx-key
+														<ServiceList services={this.state.services?.items || []} />,
+													]}
+												/> : this.getEntitySummary()
 											}
 										</div>
 									</div>
@@ -424,7 +454,7 @@ export default class PageEntity extends React.Component {
 						&& <div className="row spaced-row">
 							<div className="col-md-12">
 								<Tab
-									keys={["NEWS", "EVENTS", "JOB OFFERS", "SERVICES", "TOOLS"]}
+									keys={["NEWS", "EVENTS", "JOB OFFERS", "TOOLS"]}
 									labels={[
 										<span key="news">NEWS <Count
 											count={this.state.news ? this.state.news.pagination.total : "?"}/>
@@ -435,9 +465,6 @@ export default class PageEntity extends React.Component {
 										<span key="news">JOB OFFERS <Count
 											count={this.state.jobOffers ? this.state.jobOffers.pagination.total : "?"}/>
 										</span>,
-										<span key="news">SERVICES <Count
-											count={this.state.services ? this.state.services.pagination.total : "?"}/>
-										</span>,
 										<span key="news">TOOLS <Count
 											count={this.state.tools ? this.state.tools.pagination.total : "?"}/>
 										</span>,
@@ -446,7 +473,6 @@ export default class PageEntity extends React.Component {
 										this.getArticleContent("NEWS", "news"),
 										this.getArticleContent("EVENT", "events"),
 										this.getArticleContent("JOB OFFER", "jobOffers"),
-										this.getArticleContent("SERVICE", "services"),
 										this.getArticleContent("TOOL", "tools"),
 									]}
 								/>
