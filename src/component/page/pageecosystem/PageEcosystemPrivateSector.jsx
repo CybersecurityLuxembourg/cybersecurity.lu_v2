@@ -23,6 +23,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 			corebusiness_only: getUrlParameter("corebusiness_only") === "true",
 			startup_only: getUrlParameter("startup_only") === "true",
 			pcdoctor_only: getUrlParameter("pcdoctor_only") === "true",
+			smeprovider_only: getUrlParameter("smeprovider_only") === "true",
 			taxonomy_values: getUrlParameter("taxonomy_values")
 				? getUrlParameter("taxonomy_values").split(",") : [],
 		};
@@ -53,44 +54,68 @@ export default class PageEcosystemPrivateSector extends React.Component {
 	}
 
 	applyUrlParams() {
-		if ((getUrlParameter("startup_only") === "true") !== this.state.filters.startup_only
-			|| (getUrlParameter("pcdoctor_only") === "true") !== this.state.filters.pcdoctor_only
-			|| (getUrlParameter("corebusiness_only") === "true") !== this.state.filters.corebusiness_only) {
+		const keys = [
+			"startup_only",
+			"pcdoctor_only",
+			"corebusiness_only",
+			"smeprovider_only",
+		];
+
+		const params = {};
+
+		keys.forEach((key) => {
+			params[key] = getUrlParameter(key) === "true";
+		});
+
+		if (keys.some((key) => params[key] !== this.state.filters[key])) {
 			const filters = {
 				...this.state.filters,
-				...{
-					startup_only: getUrlParameter("startup_only") === "true",
-					pcdoctor_only: getUrlParameter("pcdoctor_only") === "true",
-					corebusiness_only: getUrlParameter("corebusiness_only") === "true",
-				},
+				...params,
 			};
 
 			this.setState({ filters });
 		}
 	}
 
+	getFilteredTaxonomyValueIds() {
+		if (!this.props.taxonomies) return [];
+
+		const taxonomyFilters = [
+			{ category: "ENTITY TYPE", name: "PRIVATE SECTOR" },
+			{ category: "ECOSYSTEM ROLE", name: "CYBERSECURITY SERVICE PROVIDER" },
+		];
+
+		if (taxonomyFilters.length === 0) return [];
+
+		if (this.state.filters.pcdoctor_only) {
+			taxonomyFilters.push({ category: "ENTITY TARGET", name: "INDIVIDUAL" });
+		}
+
+		if (this.state.filters.smeprovider_only) {
+			taxonomyFilters.push({ category: "SME PACKAGE", name: "SME PACKAGE READY" });
+		}
+
+		return this.props.taxonomies.taxonomy_values
+			.filter((object) => taxonomyFilters
+				.some((filter) => object.category.toLowerCase() === filter.category.toLowerCase()
+					&& object.name.toLowerCase() === filter.name.toLowerCase()))
+			.map((object) => object.id);
+	}
+
 	fetchServiceProviders() {
 		if (this.props.taxonomies) {
-			const entityTypes = this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "ENTITY TYPE")
-				.filter((v) => v.name === "PRIVATE SECTOR")
-				.map((v) => v.id);
+			const taxonomyValueIds = this.getFilteredTaxonomyValueIds();
 
-			const ecosystemRoles = this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "ECOSYSTEM ROLE")
-				.filter((v) => v.name === "CYBERSECURITY SERVICE PROVIDER")
-				.map((v) => v.id);
-
-			if (entityTypes.length > 0 && ecosystemRoles.length > 0) {
+			if (taxonomyValueIds.length > 0) {
 				this.setState({
 					serviceProviders: null,
 				}, () => {
 					const params = {
-						...this.state.filters,
-						taxonomy_values: entityTypes
-							.concat(ecosystemRoles)
-							.concat(this.state.filters.taxonomy_values)
-							.concat(this.getPcDoctorTaxonomyValues()),
+						startup_only: this.state.filters.startup_only,
+						corebusiness_only: this.state.filters.corebusiness_only,
+						pcdoctor_only: this.state.filters.pcdoctor_only,
+						taxonomy_values: taxonomyValueIds
+							.concat(this.state.filters.taxonomy_values),
 					};
 
 					getRequest.call(this, "public/get_public_entities?" + dictToURI(params), (data) => {
@@ -106,17 +131,6 @@ export default class PageEcosystemPrivateSector extends React.Component {
 				});
 			}
 		}
-	}
-
-	getPcDoctorTaxonomyValues() {
-		if (this.props.taxonomies && this.state.filters.pcdoctor_only) {
-			return this.props.taxonomies.taxonomy_values
-				.filter((v) => v.category === "ENTITY TARGET")
-				.filter((v) => v.name === "INDIVIDUAL")
-				.map((v) => v.id);
-		}
-
-		return [];
 	}
 
 	buildEntityList() {
@@ -151,6 +165,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 				startup_only: filters.startup_only ? "true" : undefined,
 				pcdoctor_only: filters.pcdoctor_only ? "true" : undefined,
 				corebusiness_only: filters.corebusiness_only ? "true" : undefined,
+				smeprovider_only: filters.smeprovider_only ? "true" : undefined,
 			}),
 		);
 
@@ -161,8 +176,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 		this.setState({ filters: this.state.initFilters });
 	}
 
-	// eslint-disable-next-line class-methods-use-this
-	goToDiv(id) {
+	static goToDiv(id) {
 		const elmnt = document.getElementById(id);
 		elmnt.scrollIntoView();
 	}
@@ -371,6 +385,14 @@ export default class PageEcosystemPrivateSector extends React.Component {
 											checkBoxLabel="PC Doctors"
 											value={this.state.filters.pcdoctor_only}
 											onChange={() => this.modifyFilters("pcdoctor_only", !this.state.filters.pcdoctor_only)}
+											hideLabel={true}
+										/>
+
+										<Field
+											type="checkbox"
+											checkBoxLabel={"SME package providers"}
+											value={this.state.filters.smeprovider_only}
+											onChange={() => this.modifyFilters("smeprovider_only", !this.state.filters.smeprovider_only)}
 											hideLabel={true}
 										/>
 
