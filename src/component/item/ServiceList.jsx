@@ -14,14 +14,14 @@ export default class ServiceList extends React.Component {
 
 		return <div id="ServiceList">
 			{articles.map((item, index) => (
-				<>
-					<div className="item" key={index}>
+				<React.Fragment key={`service_${item.id}`}>
+					<div className="item">
 						<div className="header">
 							{item.title}
 						</div>
 						<div className="row">
 							<div className="col-md-12">
-								<div key={index} dangerouslySetInnerHTML={{
+								<div dangerouslySetInnerHTML={{
 									__html:
 									dompurify.sanitize(item.abstract),
 								}} />
@@ -41,7 +41,7 @@ export default class ServiceList extends React.Component {
 						</div>
 					</div>
 					{index + 1 < articles.length && <hr />}
-				</>
+				</React.Fragment>
 			))}
 		</div>;
 	}
