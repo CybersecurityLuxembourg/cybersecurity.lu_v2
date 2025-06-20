@@ -1,5 +1,4 @@
 import React from "react";
-import "./FlashNews.css";
 import { NotificationManager as nm } from "react-notifications";
 import { Link } from "react-router-dom";
 import { getRequest } from "../../utils/request.jsx";
