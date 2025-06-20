@@ -8,7 +8,6 @@ import PageLandingEvents from "./pagelanding/PageLandingEvents.jsx";
 import PageLandingCSWL from "./pagelanding/PageLandingCSWL.jsx";
 import PageLandingResources from "./pagelanding/PageLandingResources.jsx";
 import PageLandingLTAC from "./pagelanding/PageLandingLTAC.jsx";
-import PageLandingContact from "./pagelanding/PageLandingContact.jsx";
 
 export default class PageLanding extends React.Component {
 	constructor(props) {
@@ -35,7 +34,6 @@ export default class PageLanding extends React.Component {
 				<PageLandingCSWL/>
 				<PageLandingResources/>
 				<PageLandingLTAC/>
-				<PageLandingContact/>
 			</div>
 		);
 	}
