@@ -110,10 +110,10 @@ export default class PageEcosystemPrivateSector extends React.Component {
 				this.setState({
 					serviceProviders: null,
 				}, () => {
+					const { smeprovider_only: _omit, ...filters } = this.state.filters;
+
 					const params = {
-						startup_only: this.state.filters.startup_only,
-						corebusiness_only: this.state.filters.corebusiness_only,
-						pcdoctor_only: this.state.filters.pcdoctor_only,
+						...filters,
 						taxonomy_values: taxonomyValueIds
 							.concat(this.state.filters.taxonomy_values),
 					};
