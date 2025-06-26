@@ -1,0 +1,54 @@
+.ArticleContent article {
+    margin-bottom: 96px;
+}
+
+.ArticleContent article h4 {
+    margin: 32px 0 20px 0;
+}
+
+.ArticleContent article h5 {
+    margin: 8px 0 8px 0;
+}
+
+.ArticleContent article .cover img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 32px 0;
+}
+
+.ArticleContent article .publication-date {
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.ArticleContent article .publication-date .date {
+    margin-top: 12px;
+}
+
+.ArticleContent article .content-media {
+    margin: 48px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.ArticleContent article .content-media p {
+    margin: 0 !important;
+}
+
+.ArticleContent .side-info .grey-horizontal-bar {
+    margin: 32px 0;
+}
+
+.ArticleContent .side-info .blue-text {
+    margin-bottom: 16px;
+}
+
+.ArticleContent .abstract {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.ArticleContent .loading {
+    position: absolute;
+}

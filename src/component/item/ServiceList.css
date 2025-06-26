@@ -18,6 +18,22 @@
 
 #ServiceList .item .link {
     float: right;
+
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 150%;
+
+    color: var(--blue);
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    & > i {
+        font-size: 1rem;
+        margin-left: 8px;
+    }
 }
 
 #ServiceList hr {
