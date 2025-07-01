@@ -40,11 +40,11 @@ export default class PageEntity extends React.Component {
 	componentDidMount() {
 		this.getEntityContent();
 		this.getEntityAddresses();
-		this.getEntityArticle("NEWS", "news");
-		this.getEntityArticle("EVENT", "events");
-		this.getEntityArticle("JOB OFFER", "jobOffers");
-		this.getEntityArticle("SERVICE", "services");
-		this.getEntityArticle("TOOL", "tools");
+		this.getEntityArticles("NEWS", "news");
+		this.getEntityArticles("EVENT", "events");
+		this.getEntityArticles("JOB OFFER", "jobOffers");
+		this.getEntityArticles("TOOL", "tools");
+		this.getEntityServices();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -53,62 +53,69 @@ export default class PageEntity extends React.Component {
 		}
 	}
 
-	getEntityContent() {
-		getRequest.call(this, "public/get_public_entity/"
-			+ this.props.match.params.id
-			+ "?include_assignments=true", (data) => {
-			this.setState({
-				entity: data,
-			}, () => {
-				getRequest.call(this, "public/get_public_entity_geolocations?ids="
-					+ this.props.match.params.id, (data2) => {
-					this.setState({
-						geolocations: data2,
-					});
-				}, (response) => {
+	async queryData(endpoint, params = {}) {
+		const urlParams = dictToURI(params);
+		const url = `${endpoint}${urlParams && "?"}${urlParams}`;
+
+		return new Promise((resolve, reject) => {
+			getRequest.call(
+				this,
+				url,
+				(data) => resolve(data),
+				(response) => {
 					nm.warning(response.statusText);
-				}, (error) => {
-					nm.error(error.message);
-				});
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
+					reject(new Error(response.statusText));
+				},
+				(error) => reject(error),
+			);
 		});
 	}
 
-	getEntityArticle(type, variable, page) {
+	getEntityContent() {
+		const { id } = this.props.match.params;
+		const entityUrl = `public/get_public_entity/${id}`;
+		const geoUrl = "public/get_public_entity_geolocations";
+
+		Promise.all([
+			this.queryData(entityUrl, { include_assignments: true }),
+			this.queryData(geoUrl, { ids: id }),
+		])
+			.then(([entity, geolocations]) => {
+				this.setState({ entity, geolocations });
+			})
+			.catch((error) => nm.error(error.message));
+	}
+
+	getEntityArticles(type, stateKey, page = 1) {
 		const params = {
 			type,
 			entities: this.props.match.params.id,
-			page: page || 1,
-			per_page: 4,
+			page,
+			per_page: 6,
 		};
 
-		getRequest.call(this, "public/get_public_articles?"
-			+ dictToURI(params), (data) => {
-			this.setState({
-				[variable]: data,
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		this.queryData("public/get_public_articles", params)
+			.then((articles) => this.setState({ [stateKey]: articles }))
+			.catch((error) => nm.error(error.message));
+	}
+
+	getEntityServices() {
+		const params = {
+			type: "SERVICE",
+			entities: this.props.match.params.id,
+		};
+
+		this.queryData("public/get_public_articles", params)
+			.then((services) => this.setState({ services }))
+			.catch((error) => nm.error(error.message));
 	}
 
 	getEntityAddresses() {
-		getRequest.call(this, "public/get_public_entity_addresses/"
-			+ this.props.match.params.id, (data) => {
-			this.setState({
-				addresses: data,
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		const { id } = this.props.match.params;
+
+		this.queryData(`public/get_public_entity_addresses/${id}`)
+			.then((addresses) => this.setState({ addresses }))
+			.catch((error) => nm.error(error.message));
 	}
 
 	hasWebsite() {
@@ -168,13 +175,13 @@ export default class PageEntity extends React.Component {
 		</div>;
 	}
 
-	getArticleContent(type, variable) {
-		if (this.state[variable]) {
-			if (this.state[variable].pagination.total > 0) {
+	getArticleContent(type, key) {
+		if (this.state[key]) {
+			if (this.state[key].pagination.total > 0) {
 				return <DynamicTable
-					items={this.state[variable].items}
-					pagination={this.state[variable].pagination}
-					changePage={(page) => this.getEntityArticle(type, variable, page)}
+					items={this.state[key].items}
+					pagination={this.state[key].pagination}
+					changePage={(page) => this.getEntityArticles(type, key, page)}
 					buildElement={(a) => <div className="col-md-4">
 						{type === "NEWS"
 							&& <News
