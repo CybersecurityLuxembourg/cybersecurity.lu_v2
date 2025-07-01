@@ -62,10 +62,7 @@ export default class PageEntity extends React.Component {
 				this,
 				url,
 				(data) => resolve(data),
-				(response) => {
-					nm.warning(response.statusText);
-					reject(new Error(response.statusText));
-				},
+				(response) => nm.warning(response.statusText),
 				(error) => reject(error),
 			);
 		});
