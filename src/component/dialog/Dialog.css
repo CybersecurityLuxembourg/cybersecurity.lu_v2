@@ -23,7 +23,7 @@
 	-o-animation: fadeIn ease .5s;
 	-ms-animation: fadeIn ease .5s;
 	z-index: 1080 !important;
-	background: var(--base-white, #FFF);
+	background-color: #FFF;
 	border-radius: 12px;
 	line-height: 1.5 !important;
 	overflow: auto;

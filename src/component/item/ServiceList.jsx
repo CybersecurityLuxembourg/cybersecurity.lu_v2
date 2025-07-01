@@ -9,12 +9,12 @@ import ArticleContent from "../content/ArticleContent.jsx";
  * Each service is displayed with its title, abstract content, and either a link to a website
  * or details of the service that open in a modal dialog.
  *
- * @param {Array} services - An array of service objects. Each object should contain:
+ * @property {Array} services - An array of service objects. Each object should contain:
  *   - {string} id - A unique identifier for the service.
  *   - {string} title - The title of the service.
  *   - {string} abstract - A brief description or abstract content of the service.
  *   - {string} [link] - Optional. A URL to an external website related to the service.
- *   - {string} handle - Used as an identifier for detailed views or modal dialogs.
+ *   - {string} handle - A short reader-friendly identifier.
  */
 
 export default class ServiceList extends React.Component {
@@ -45,8 +45,8 @@ export default class ServiceList extends React.Component {
 									Visit website<i className="fa fa-up-right-from-square"/>
 									</a>
 									: <Dialog trigger={<div className="link" role={"link"} tabIndex={0}>
-										View service<i className="fa fa-window-restore"/>
-									</div>} content={<ArticleContent id={item.handle} article={item} />}/>
+										Read more<i className="fa fa-window-restore"/>
+									</div>} content={<ArticleContent handle={item.handle} article={item} />}/>
 								}
 							</div>
 						</div>

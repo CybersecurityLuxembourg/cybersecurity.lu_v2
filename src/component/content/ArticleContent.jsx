@@ -4,19 +4,21 @@ import { Helmet } from "react-helmet";
 import dompurify from "dompurify";
 import { NotificationManager as nm } from "react-notifications";
 import { getApiURL } from "../../utils/env.jsx";
-import { dateToString } from "../../utils/date.jsx";
 import { buildCarousel, getContentFromBlock, getNextNonImagePosition } from "../../utils/article.jsx";
 import { getRequest } from "../../utils/request.jsx";
 import { dictToURI } from "../../utils/url.jsx";
+import Loading from "../box/Loading.jsx";
 
 /**
  * A React component responsible for displaying the content of an article.
  *
- * The component fetches the main article and related articles based on the provided article ID.
- * It also handles loading states and errors during data fetching. Once the article data is fetched,
- * it renders the article's title, cover image, publication date, abstract, and content blocks.
+ * The component fetches the main article and related articles based on the provided article handle.
+ * Once the article data is fetched, it renders the article's title, cover image, publication date,
+ * abstract, and content blocks.
  *
- * @extends React.Component
+ * @property {string} handle - The 'handle' identifier for the article.
+ * @property {Object} [article] - Optional preloaded article data.
+ *
  */
 
 export default class ArticleContent extends React.Component {
@@ -24,79 +26,75 @@ export default class ArticleContent extends React.Component {
 		super(props);
 
 		this.state = {
-			article: null,
+			article: props.article || null,
 			articleEntities: null,
 			relatedArticles: null,
 			relatedArticleEntities: null,
 			articleLoading: false,
 			relatedArticleLoading: false,
+			isLoading: true,
 		};
+
+		this.loadContent = this.loadContent.bind(this);
 	}
 
 	componentDidMount() {
-		this.getArticleContent(this.props.id);
+		this.loadContent(this.props.handle);
 	}
 
-	getArticleContent(id) {
-		this.setState({
-			article: null,
-			articleEntities: null,
-			relatedArticles: null,
-			relatedArticleEntities: null,
-			articleLoading: false,
-			relatedArticleLoading: false,
+	async queryData(endpoint, params = {}) {
+		const urlParams = dictToURI(params);
+		const url = `${endpoint}${urlParams && "?"}${urlParams}`;
+
+		return new Promise((resolve, reject) => {
+			getRequest.call(
+				this,
+				url,
+				(data) => resolve(data),
+				(response) => {
+					nm.warning(response.statusText);
+					reject(new Error(response.statusText));
+				},
+				(error) => reject(error),
+			);
 		});
+	}
 
-		getRequest.call(this, "public/get_public_article_content/" + id, (data) => {
-			this.setState({
-				article: data,
-				articleLoading: false,
-			});
+	async loadContent(handle) {
+		this.setState({ isLoading: true });
 
-			getRequest.call(this, "public/get_public_related_articles/" + id + "?include_tags=true", (data2) => {
-				this.setState({
-					relatedArticles: data2,
-					relatedArticleLoading: false,
-				}, () => {
-					const params2 = {
-						ids: Array.prototype.concat.apply(
-							[],
-							data2
-								.filter((i) => i.entity_tags)
-								.map((i) => i.entity_tags),
-						),
-					};
+		try {
+			const [article, relatedArticles] = await Promise.all([
+				this.queryData(`public/get_public_article_content/${handle}`),
+				this.queryData(`public/get_public_related_articles/${handle}`, { include_tags: true }),
+			]);
 
-					if (params2.ids.length > 0) {
-						getRequest.call(this, "public/get_public_entities?" + dictToURI(params2), (data3) => {
-							this.setState({
-								relatedArticleEntities: data3,
-							});
-						}, (response) => {
-							nm.warning(response.statusText);
-						}, (error) => {
-							nm.error(error.message);
-						});
-					}
-				});
-			}, (response) => {
-				this.setState({ loading: false });
-				nm.warning(response.statusText);
-			}, (error) => {
-				this.setState({ loading: false });
-				nm.error(error.message);
-			});
-		}, (response) => {
-			this.setState({ loading: false });
-			nm.warning(response.statusText);
-		}, (error) => {
-			this.setState({ loading: false });
-			nm.error(error.message);
-		});
+			this.setState({ article, relatedArticles });
+
+			const ids = relatedArticles.flatMap((relatedArticle) => relatedArticle.entity_tags);
+
+			if (ids.length > 0) {
+				const relatedArticleEntities = await this.queryData("public/get_public_entities", { ids });
+				this.setState({ relatedArticleEntities });
+			}
+		} catch (error) {
+			nm.warning(`Failed to load article data: ${error.message}`);
+		}
+
+		this.setState({ isLoading: false });
 	}
 
 	render() {
 		let positionToTreat = 0;
+
+		if (this.state.isLoading) {
+			return (
+				<div className="ArticleContent">
+					<div className="loading-container"><Loading /></div>
+				</div>
+			);
+		}
+
 		return (
 			<div className={"ArticleContent"}>
 				{this.state.article ? <article>
@@ -104,17 +102,11 @@ export default class ArticleContent extends React.Component {
 						<meta name="title" property="og:title" content={this.state.article.title}/>
 						<meta name="description" property="og:description" content={this.state.article.abstract}/>
 						<meta name="image" property="og:image" content={getApiURL() + "public/get_public_image/" + this.state.article.image}/>
-						<meta name="url" property="og:url" content={this.props.article.link !== undefined
-					&& this.state.article.link !== null
-					&& this.state.article.link.length > 0
-							? this.state.article.link
-							: window.location.origin + "/service/"
-						+ this.props.id}/>
 					</Helmet>
 
-					<h3>
+					<h4 className="title">
 						{this.state.article.title}
-					</h3>
+					</h4>
 
 					<div className='cover'>
 						{this.state.article.image !== null
@@ -122,53 +114,47 @@ export default class ArticleContent extends React.Component {
 							: ""}
 					</div>
 
-					<div className="publication-date">
-						<div className="h8 blue-text">
-						Published on
-						</div>
-
-						<div className="date">
-							{dateToString(this.state.article.publication_date, "DD MMM YYYY")}
-						</div>
-					</div>
-
 					{this.state.article.abstract
-					&& <div
-						className="abstract"
-						dangerouslySetInnerHTML={{
-							__html:
-								dompurify.sanitize(this.state.article.abstract),
-						}}>
-					</div>
+							&& <div
+								className="abstract"
+								dangerouslySetInnerHTML={{
+									__html:
+										dompurify.sanitize(this.state.article.abstract),
+								}}>
+							</div>
 					}
 
-					{this.state.article.content.map((b, i) => {
-						if (positionToTreat <= i) {
-							if (b.type === "IMAGE") {
-								const nextNonImagePosition = getNextNonImagePosition(
-									this.state.article.content,
-									i,
-								);
+					{this.state.article.content?.length > 0 && <div className="content">
+						{this.state.article.content?.map((b, i) => {
+							if (positionToTreat <= i) {
+								if (b.type === "IMAGE") {
+									const nextNonImagePosition = getNextNonImagePosition(
+										this.state.article.content,
+										i,
+									);
 
-								const el = buildCarousel(
-									this.state.article.content
-										.slice(
-											i,
-											nextNonImagePosition,
-										),
-								);
+									const el = buildCarousel(
+										this.state.article.content
+											.slice(
+												i,
+												nextNonImagePosition,
+											),
+									);
 
-								positionToTreat = nextNonImagePosition;
+									positionToTreat = nextNonImagePosition;
 
-								return el;
+									return el;
+								}
+
+								positionToTreat += 1;
+								return getContentFromBlock(b);
 							}
+							return null;
+						})}
+					</div>}
 
-							positionToTreat += 1;
-							return getContentFromBlock(b);
-						}
-						return null;
-					})}
-				</article> : null}
+				</article> : <div className="loading-container"><p>Article not found</p></div>
+				}
 			</div>
 		);
 	}
