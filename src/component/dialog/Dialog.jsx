@@ -19,15 +19,17 @@ export default class Dialog extends React.Component {
 				className={"Dialog"}
 			>
 				{(close) => (
-					<div className={"wrapper"}>
-						{this.props.content}
+					<>
+						<div className={"wrapper"}>
+							 {this.props.content}
+						</div>
 						<div
 							className="close-button"
 							data-hover="Close"
 							onClick={close}>
 							<i className="fas fa-times"/>
 						</div>
-					</div>
+					</>
 				)}
 			</Popup>
 		);

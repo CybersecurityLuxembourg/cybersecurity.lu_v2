@@ -13,7 +13,7 @@
 }
 
 .Dialog-overlay .popup-content {
-	max-height: 100%;
+	max-height: calc(100% - 10px);
 	width: 80% !important;
 	max-width: 1200px;
 	padding: 30px;
@@ -34,10 +34,16 @@
 }
 
 .Dialog-overlay .close-button {
-	position: absolute !important;
-	width: auto !important;
-	top: 0 !important;
-	right: 0 !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 44px;
+	height: 44px;
+	margin: 24px;
 }
 
 .Dialog-overlay .close-button i {
