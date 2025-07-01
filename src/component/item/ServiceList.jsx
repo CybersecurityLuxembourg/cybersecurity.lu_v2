@@ -21,8 +21,6 @@ export default class ServiceList extends React.Component {
 	render() {
 		const { services } = this.props;
 
-		console.log(services);
-
 		return <div id="ServiceList">
 			{services.map((item, index) => (
 				<React.Fragment key={`service_${item.id}`}>
