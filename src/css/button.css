@@ -3,7 +3,7 @@
     margin-top: 24px;
 }
 
-.buttons button {
+.buttons button, .buttons a {
     margin-right: 24px;
 }
 
@@ -13,7 +13,17 @@
     margin-top: 24px;
 }
 
-button {
+a.button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+
+    &:focus {
+        outline: 5px auto -webkit-focus-ring-color;
+    }
+}
+
+button, a.button {
     box-sizing: border-box;
 
     /* Auto layout */
@@ -25,7 +35,6 @@ button {
     gap: 19px;
 
     position: relative;
-    font-size: 14px;
     font-size: 16px;
     line-height: 150%;
     color: var(--text-neutral-0);
@@ -33,10 +42,16 @@ button {
     background: var(--accent-blue);
     border: 1px solid var(--accent-blue) --primary-blue-100;
 
-    /* Button drop shadow */
-
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
     border-radius: 200px;
+
+    &:active {
+        box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.1);
+        transform: translate(1px, 1px);
+    }
+
+    &:hover {
+        filter: brightness(1.1);
+    }
 }
 
 button[disabled] {

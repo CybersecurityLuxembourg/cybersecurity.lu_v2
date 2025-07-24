@@ -367,14 +367,18 @@ export default class PageEntity extends React.Component {
 
 											<div className="col-md-12">
 												{this.hasWebsite()
-													? <button
-														onClick={() => window.open(
-															this.state.entity.website,
-															"_blank",
-														)}>
+													? <a
+														className={"button"}
+														href={this.state.entity.website}
+														target={"_blank"}
+														rel={"noreferrer"}
+														title={`Visit website: ${this.state.entity.website}`}
+														aria-label={`Visit website: ${this.state.entity.website}`}
+														tabIndex={0}
+													>
 														Visit website
-													</button>
-													: ""
+													</a>
+													: null
 												}
 											</div>
 										</div>
