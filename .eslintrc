@@ -16,5 +16,10 @@
       "prefer-template": 0,
       "react/prop-types": 0
   	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
   	"ignorePatterns": ["/node_modules/*", "/build/*", "/public/*"]
 }

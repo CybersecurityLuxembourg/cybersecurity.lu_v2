@@ -10,6 +10,7 @@ import NoImage from "../../box/NoImage.jsx";
 import { getApiURL, getPrivateAppURL } from "../../../utils/env.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
+import ServiceList from "../../item/ServiceList.jsx";
 import Tab from "../../tab/Tab.jsx";
 import Address from "../../form/Address.jsx";
 import Chip from "../../form/Chip.jsx";
@@ -39,11 +40,11 @@ export default class PageEntity extends React.Component {
 	componentDidMount() {
 		this.getEntityContent();
 		this.getEntityAddresses();
-		this.getEntityArticle("NEWS", "news");
-		this.getEntityArticle("EVENT", "events");
-		this.getEntityArticle("JOB OFFER", "jobOffers");
-		this.getEntityArticle("SERVICE", "services");
-		this.getEntityArticle("TOOL", "tools");
+		this.getEntityArticles("NEWS", "news");
+		this.getEntityArticles("EVENT", "events");
+		this.getEntityArticles("JOB OFFER", "jobOffers");
+		this.getEntityArticles("TOOL", "tools");
+		this.getEntityServices();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -52,62 +53,66 @@ export default class PageEntity extends React.Component {
 		}
 	}
 
-	getEntityContent() {
-		getRequest.call(this, "public/get_public_entity/"
-			+ this.props.match.params.id
-			+ "?include_assignments=true", (data) => {
-			this.setState({
-				entity: data,
-			}, () => {
-				getRequest.call(this, "public/get_public_entity_geolocations?ids="
-					+ this.props.match.params.id, (data2) => {
-					this.setState({
-						geolocations: data2,
-					});
-				}, (response) => {
-					nm.warning(response.statusText);
-				}, (error) => {
-					nm.error(error.message);
-				});
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
+	async queryData(endpoint, params = {}) {
+		const urlParams = dictToURI(params);
+		const url = `${endpoint}${urlParams && "?"}${urlParams}`;
+
+		return new Promise((resolve, reject) => {
+			getRequest.call(
+				this,
+				url,
+				(data) => resolve(data),
+				(response) => nm.warning(response.statusText),
+				(error) => reject(error),
+			);
 		});
 	}
 
-	getEntityArticle(type, variable, page) {
+	getEntityContent() {
+		const { id } = this.props.match.params;
+		const entityUrl = `public/get_public_entity/${id}`;
+		const geoUrl = "public/get_public_entity_geolocations";
+
+		Promise.all([
+			this.queryData(entityUrl, { include_assignments: true }),
+			this.queryData(geoUrl, { ids: id }),
+		])
+			.then(([entity, geolocations]) => {
+				this.setState({ entity, geolocations });
+			})
+			.catch((error) => nm.error(error.message));
+	}
+
+	getEntityArticles(type, stateKey, page = 1) {
 		const params = {
 			type,
 			entities: this.props.match.params.id,
-			page: page || 1,
-			per_page: 4,
+			page,
+			per_page: 6,
 		};
 
-		getRequest.call(this, "public/get_public_articles?"
-			+ dictToURI(params), (data) => {
-			this.setState({
-				[variable]: data,
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		this.queryData("public/get_public_articles", params)
+			.then((articles) => this.setState({ [stateKey]: articles }))
+			.catch((error) => nm.error(error.message));
+	}
+
+	getEntityServices() {
+		const params = {
+			type: "SERVICE",
+			entities: this.props.match.params.id,
+		};
+
+		this.queryData("public/get_public_articles", params)
+			.then((services) => this.setState({ services }))
+			.catch((error) => nm.error(error.message));
 	}
 
 	getEntityAddresses() {
-		getRequest.call(this, "public/get_public_entity_addresses/"
-			+ this.props.match.params.id, (data) => {
-			this.setState({
-				addresses: data,
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
+		const { id } = this.props.match.params;
+
+		this.queryData(`public/get_public_entity_addresses/${id}`)
+			.then((addresses) => this.setState({ addresses }))
+			.catch((error) => nm.error(error.message));
 	}
 
 	hasWebsite() {
@@ -121,13 +126,59 @@ export default class PageEntity extends React.Component {
 			&& this.state.geolocations.length > 0;
 	}
 
-	getArticleContent(type, variable) {
-		if (this.state[variable]) {
-			if (this.state[variable].pagination.total > 0) {
+	getEntitySummary() {
+		if (this.state.entity) {
+			return <>
+				{this.state.entity.headline
+					&& <h6>
+						{this.state.entity.headline}
+					</h6>
+				}
+
+				{this.state.entity.description
+					&& <div>
+						{this.state.entity.description}
+					</div>
+				}
+
+				{this.state.entity.trade_register_number
+					? <div className="titled-info">
+						<div className="h8 blue-text">
+							Trade register number
+						</div>
+
+						{this.state.entity.trade_register_number}
+					</div>
+					: ""
+				}
+
+				{this.state.entity.creation_date
+					? <div className="titled-info">
+						<div className="h8 blue-text">
+							Creation date
+						</div>
+
+						{this.state.entity.creation_date}
+					</div>
+					: ""
+				}
+			</>;
+		}
+
+		return <div className="col-md-12">
+			<Loading
+				height={200}
+			/>
+		</div>;
+	}
+
+	getArticleContent(type, key) {
+		if (this.state[key]) {
+			if (this.state[key].pagination.total > 0) {
 				return <DynamicTable
-					items={this.state[variable].items}
-					pagination={this.state[variable].pagination}
-					changePage={(page) => this.getEntityArticle(type, variable, page)}
+					items={this.state[key].items}
+					pagination={this.state[key].pagination}
+					changePage={(page) => this.getEntityArticles(type, key, page)}
 					buildElement={(a) => <div className="col-md-4">
 						{type === "NEWS"
 							&& <News
@@ -258,38 +309,21 @@ export default class PageEntity extends React.Component {
 												}
 											</div>
 
-											{this.state.entity.headline
-												&& <h6>
-													{this.state.entity.headline}
-												</h6>
-											}
-
-											{this.state.entity.description
-												&& <div>
-													{this.state.entity.description}
-												</div>
-											}
-
-											{this.state.entity.trade_register_number
-												? <div className="titled-info">
-													<div className="h8 blue-text">
-														Trade register number
-													</div>
-
-													{this.state.entity.trade_register_number}
-												</div>
-												: ""
-											}
-
-											{this.state.entity.creation_date
-												? <div className="titled-info">
-													<div className="h8 blue-text">
-														Creation date
-													</div>
-
-													{this.state.entity.creation_date}
-												</div>
-												: ""
+											{this.state.services?.items.length > 0
+												? <Tab
+													keys={["ABOUT", this.state?.services && "SERVICES"]}
+													labels={[
+														<div key="about" className="about-tab-header">ABOUT</div>,
+														<div key="services">SERVICES<Count
+															count={this.state.services?.pagination.total || "?"}/>
+														</div>,
+													]}
+													content={[
+														this.getEntitySummary(),
+														// eslint-disable-next-line react/jsx-key
+														<ServiceList services={this.state.services?.items || []} />,
+													]}
+												/> : this.getEntitySummary()
 											}
 										</div>
 									</div>
@@ -424,7 +458,7 @@ export default class PageEntity extends React.Component {
 						&& <div className="row spaced-row">
 							<div className="col-md-12">
 								<Tab
-									keys={["NEWS", "EVENTS", "JOB OFFERS", "SERVICES", "TOOLS"]}
+									keys={["NEWS", "EVENTS", "JOB OFFERS", "TOOLS"]}
 									labels={[
 										<span key="news">NEWS <Count
 											count={this.state.news ? this.state.news.pagination.total : "?"}/>
@@ -435,9 +469,6 @@ export default class PageEntity extends React.Component {
 										<span key="news">JOB OFFERS <Count
 											count={this.state.jobOffers ? this.state.jobOffers.pagination.total : "?"}/>
 										</span>,
-										<span key="news">SERVICES <Count
-											count={this.state.services ? this.state.services.pagination.total : "?"}/>
-										</span>,
 										<span key="news">TOOLS <Count
 											count={this.state.tools ? this.state.tools.pagination.total : "?"}/>
 										</span>,
@@ -446,7 +477,6 @@ export default class PageEntity extends React.Component {
 										this.getArticleContent("NEWS", "news"),
 										this.getArticleContent("EVENT", "events"),
 										this.getArticleContent("JOB OFFER", "jobOffers"),
-										this.getArticleContent("SERVICE", "services"),
 										this.getArticleContent("TOOL", "tools"),
 									]}
 								/>

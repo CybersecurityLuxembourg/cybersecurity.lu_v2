@@ -43,4 +43,4 @@ jobs:
       run: ssh -J ${{ secrets.BASTION_USER }}@${{ secrets.BASTION_HOST }}:${{ secrets.BASTION_SSH_PORT }} cyfofront@${{ secrets.VALIDATION_ENV_HOST }} 'rm -rf /var/www/cy-fo-front/*'
 
     - name: Deploy in target dir with SCP
-      run: scp -r -J ${{ secrets.BASTION_USER }}@${{ secrets.BASTION_HOST }}:${{ secrets.BASTION_SSH_PORT }} ./build/* cyfofront@${{ secrets.VALIDATION_ENV_HOST }}:/var/www/cy-fo-front
+      run: scp -r -J ${{ secrets.BASTION_USER }}@${{ secrets.BASTION_HOST }}:${{ secrets.BASTION_SSH_PORT }} ./build/{*,.[!.]*} cyfofront@${{ secrets.VALIDATION_ENV_HOST }}:/var/www/cy-fo-front
