@@ -1,6 +1,6 @@
 
 #PageSupportForStartupsLaunchpadLux {
-	padding: 40px 0px;
+	padding: 40px 0;
 }
 
 #PageSupportForStartupsLaunchpadLux .title {
@@ -14,4 +14,26 @@
 #PageSupportForStartupsLaunchpadLux .box i {
 	font-size: 42px;
 	color: var(--primary-blue-80);
+}
+
+.card-link {
+  all: unset;
+  display: block;
+  cursor: pointer;
+  outline: revert;
+  outline-offset: revert;
+}
+
+.card-link:hover {
+  color: inherit;
+}
+
+.card-link:focus-visible {
+  outline: 2px solid #000;
+  border-radius: 12px;
+  outline-offset: -2px;
+}
+
+.card-link:focus:not(:focus-visible) {
+  outline: none;
 }
