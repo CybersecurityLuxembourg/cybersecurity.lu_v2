@@ -39,9 +39,9 @@
     "cpx": "^1.5.0",
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "local-cors-proxy": "^1.1.0",
     "react-scripts": "^5.0.0",
-    "source-map-explorer": "^2.5.2",
-    "local-cors-proxy": "^1.1.0"
+    "source-map-explorer": "^2.5.2"
   },
   "browserslist": {
     "production": [
