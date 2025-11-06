@@ -11,7 +11,7 @@
     "moment": "^2.29.1",
     "react": "^16.14.0",
     "react-bootstrap": "^1.5.1",
-    "react-chartjs-2": "^5.2.0",
+    "react-chartjs-2": "5.2.0",
     "react-countup": "^4.3.3",
     "react-dom": "^16.3.1",
     "react-helmet": "^6.1.0",
@@ -40,7 +40,7 @@
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "local-cors-proxy": "^1.1.0",
-    "react-scripts": "^5.0.0",
+    "react-scripts": "5.0.0",
     "source-map-explorer": "^2.5.2"
   },
   "browserslist": {
