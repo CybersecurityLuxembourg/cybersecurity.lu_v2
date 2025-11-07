@@ -41,6 +41,37 @@
     margin-bottom: 8px;
 }
 
+.Job .job-source {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-blue-10);
+    color: var(--primary-blue-120);
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.Job .job-source--cyberr {
+    background: var(--primary-green-20);
+    color: var(--primary-green-120);
+}
+
+.Job .job-source--moovijobs {
+    background: var(--primary-blue-20);
+    color: var(--primary-blue-120);
+}
+
+.Job .job-company {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-neutral-40);
+    margin-bottom: 16px;
+}
+
 .Job .card-tags {
     height: 96px;
 }
@@ -48,6 +79,7 @@
 .Job .card-title {
     height: 54px;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
