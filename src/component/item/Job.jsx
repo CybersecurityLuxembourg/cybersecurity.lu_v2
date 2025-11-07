@@ -12,16 +12,45 @@ export default class Job extends Component {
 		};
 	}
 
+	getSourceLabel() {
+		if (this.props.info.sourceLabel) {
+			return this.props.info.sourceLabel;
+		}
+
+		if (this.props.info.source) {
+			return this.props.info.source.charAt(0).toUpperCase()
+				+ this.props.info.source.slice(1);
+		}
+
+		return null;
+	}
+
 	getBoxContent() {
+		const sourceLabel = this.getSourceLabel();
+		const sourceClassSuffix = (this.props.info.source || "default").toLowerCase();
+		const hasDateOrSource = this.props.info.publication_date || sourceLabel;
+
 		return <div>
 			<div className="card-body">
 				<div className="card-title">
 					{this.props.info.title}
 				</div>
 
-				{this.props.info.publication_date
+				{hasDateOrSource
 					&& <div className="card-date">
-						<i className="far fa-calendar"/> {dateToString(this.props.info.publication_date, "DD MMM YYYY")}
+						{this.props.info.publication_date
+							&& <><i className="far fa-calendar"/> {dateToString(this.props.info.publication_date, "DD MMM YYYY")} </>}
+						{sourceLabel
+							&& <span className={`job-source job-source--${sourceClassSuffix}`}>
+								{sourceLabel}
+							</span>
+						}
+					</div>
+				}
+
+				{this.props.info.companyName
+					&& <div className="job-company">
+						{this.props.info.companyName}
 					</div>
 				}
 
