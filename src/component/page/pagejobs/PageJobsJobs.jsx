@@ -3,7 +3,7 @@ import "./PageJobsJobs.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../../../utils/request.jsx";
 import { dictToURI } from "../../../utils/url.jsx";
-import { getApiURL } from "../../../utils/env.jsx";
+import { getApiURL, getJobsMiddlewareURL } from "../../../utils/env.jsx";
 import Job from "../../item/Job.jsx";
 import Message from "../../box/Message.jsx";
 import Loading from "../../box/Loading.jsx";
@@ -11,6 +11,18 @@ import Field from "../../form/Field.jsx";
 import DynamicTable from "../../table/DynamicTable.jsx";
 
 export default class PageJobsJobs extends React.Component {
+	static augmentMoovijobItems(items) {
+		if (!Array.isArray(items)) {
+			return [];
+		}
+
+		return items.map((item) => ({
+			...item,
+			source: item.source || "moovijobs",
+			sourceLabel: item.sourceLabel || "Moovijobs",
+		}));
+	}
+
 	constructor(props) {
 		super(props);
 
@@ -18,12 +30,15 @@ export default class PageJobsJobs extends React.Component {
 			entity: null,
 			jobs: null,
 			searchValue: "",
+			cyberrJobs: [],
+			cyberrLoading: false,
 		};
 	}
 
 	componentDidMount() {
 		this.fetchMoovijob();
 		this.fetchJobs();
+		this.fetchCyberrJobs();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -73,8 +88,12 @@ export default class PageJobsJobs extends React.Component {
 
 			getRequest.call(this, "public/get_public_articles?"
 				+ dictToURI(params), (data) => {
+				const augmentedItems = PageJobsJobs.augmentMoovijobItems(data.items);
 				this.setState({
-					jobs: data,
+					jobs: {
+						...data,
+						items: augmentedItems,
+					},
 				});
 			}, (response) => {
 				nm.warning(response.statusText);
@@ -84,29 +103,136 @@ export default class PageJobsJobs extends React.Component {
 		}
 	}
 
+	fetchCyberrJobs() {
+		const baseUrl = getJobsMiddlewareURL();
+
+		if (!baseUrl) {
+			this.setState({ cyberrJobs: [], cyberrLoading: false });
+			return;
+		}
+
+		this.setState({ cyberrLoading: true });
+
+		const normalizedBase = baseUrl.replace(/\/?$/, "");
+		const url = `${normalizedBase}/jobs?countries=LU&countries=FR&limit=100&offset=0`;
+
+		fetch(url, {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+			},
+		}).then((response) => {
+			if (!response.ok) {
+				throw new Error(response.statusText || "Failed fetching jobs from middleware");
+			}
+			return response.json();
+		}).then((jsonBody) => {
+			const jobs = (jsonBody?.data?.jobs || []).map((job) => ({
+				id: `cyberr-${job.id || job.url}`,
+				title: job.title,
+				publication_date: job.publishedAt,
+				link: job.url,
+				handle: job.id || job.url,
+				source: "cyberr",
+				sourceLabel: "Cyberr",
+				excerpt: job.excerpt,
+				companyName: job.companyName,
+			}));
+
+			this.setState({
+				cyberrJobs: jobs,
+				cyberrLoading: false,
+			});
+		}).catch((error) => {
+			nm.warning(error.message || "An error occurred while fetching Cyberr jobs");
+			this.setState({
+				cyberrJobs: [],
+				cyberrLoading: false,
+			});
+		});
+	}
+
+	getFilteredCyberrJobs() {
+		if (!Array.isArray(this.state.cyberrJobs) || this.state.cyberrJobs.length === 0) {
+			return [];
+		}
+
+		if (!this.state.searchValue || this.state.searchValue.length < 1) {
+			return this.state.cyberrJobs;
+		}
+
+		const query = this.state.searchValue.toLowerCase();
+		return this.state.cyberrJobs.filter((job) => {
+			const searchableFields = [job.title, job.companyName, job.excerpt];
+			return searchableFields.some((field) => typeof field === "string"
+				&& field.toLowerCase().includes(query));
+		});
+	}
+
+	getCombinedJobs() {
+		if (!this.state.jobs) {
+			return null;
+		}
+
+		const baseItems = Array.isArray(this.state.jobs.items) ? this.state.jobs.items : [];
+		const filteredCyberrJobs = this.getFilteredCyberrJobs();
+		const includeCyberr = this.state.jobs?.pagination?.page === 1;
+		const combinedItems = includeCyberr ? [...filteredCyberrJobs, ...baseItems] : baseItems;
+		const basePagination = this.state.jobs.pagination || {};
+		const basePerPage = basePagination.per_page || baseItems.length;
+		const combinedPerPage = includeCyberr ? basePerPage + filteredCyberrJobs.length : basePerPage;
+
+		const combinedPagination = {
+			...basePagination,
+			per_page: combinedPerPage,
+			total: (basePagination.total || baseItems.length)
+				+ (includeCyberr ? filteredCyberrJobs.length : 0),
+			pages: basePagination.pages,
+			page: basePagination.page || 1,
+		};
+
+		if (!combinedPagination.pages) {
+			combinedPagination.pages = 1;
+		}
+
+		return {
+			items: combinedItems,
+			pagination: combinedPagination,
+		};
+	}
+
 	buildContent() {
 		if (!this.state.jobs) {
 			return <Loading height={500}/>;
 		}
 
-		if (this.state.jobs.pagination.total === 0) {
+		const combinedJobs = this.getCombinedJobs();
+
+		if (!combinedJobs || combinedJobs.items.length === 0) {
 			return <Message height={500} text={"No job found"}/>;
 		}
 
 		return <div className="education-section">
 			<div className="row">
-				<DynamicTable
-					items={this.state.jobs.items}
-					pagination={this.state.jobs.pagination}
-					changePage={(page) => this.fetchJobs(page)}
-					buildElement={(s) => <div
-						className="col-md-4"
-						key={s.id}>
-						<Job
-							info={s}
-						/>
+				{this.state.cyberrLoading
+					&& <div className="col-md-12">
+						<div className="cyberr-sync-banner">Refreshing Cyberr jobs…</div>
 					</div>
-					}
+				}
+
+				<DynamicTable
+					items={combinedJobs.items}
+					pagination={combinedJobs.pagination}
+					changePage={(page) => this.fetchJobs(page)}
+					buildElement={(s) => (
+						<div
+							className="col-md-4"
+							key={s.id}>
+							<Job
+								info={s}
+							/>
+						</div>
+					)}
 				/>
 			</div>
 		</div>;
@@ -119,13 +245,20 @@ export default class PageJobsJobs extends React.Component {
 					<div className="title-section">
 						<div className="row">
 							<div className="col-md-12">
-								<div>In collaboration with</div>
+								<div className="collaboration-details">
+									<div className="collaboration-text">
+										In collaboration with Moovijob and Cyberr
+									</div>
 
-								{this.state.entity
-									&& <img
-										src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
-									/>
-								}
+									{this.state.entity && (
+										<img
+											src={getApiURL() + "public/get_public_image/" + this.state.entity.image}
+											alt="Moovijob"
+										/>
+									)}
+
+									<div className="collaboration-badge">Cyberr</div>
+								</div>
 							</div>
 						</div>
 					</div>
