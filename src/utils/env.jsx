@@ -22,5 +22,5 @@ export function getJobsMiddlewareURL() {
 		return "http://localhost:8002/";
 	}
 
-	return "https://jobs-middleware." + window.location.hostname.replace("www.", "") + "/";
+	return "https://jobs-middleware.cybersecurity.lu/";
 }
