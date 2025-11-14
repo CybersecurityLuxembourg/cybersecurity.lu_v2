@@ -11,6 +11,7 @@ import "react-notifications/lib/notifications.css";
 import { BrowserRouter } from "react-router-dom";
 import InsideApp from "./component/InsideApp.jsx";
 import { getApiURL } from "./utils/env.jsx";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default class App extends React.Component {
 	constructor(props) {
