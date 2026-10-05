@@ -28,33 +28,47 @@ export default class AlertNews extends React.Component {
 	}
 
 	getNews() {
+		const taxonomyNames = ["IMPORTANT NEWS", "CYBERFRAUD NEWS"];
+
 		if (this.props.taxonomies
 			&& this.props.taxonomies.taxonomy_values) {
 			const values = this.props.taxonomies.taxonomy_values
 				.filter((v) => v.category === "ARTICLE CATEGORY")
-				.filter((v) => v.name === "IMPORTANT NEWS");
+				.filter((v) => taxonomyNames.includes(v.name));
 
-			if (values.length > 0) {
-				const params = {
-					type: "NEWS",
-					taxonomy_values: values.map((v) => v.id).join(","),
-				};
-
-				getRequest.call(this, "public/get_public_articles?" + dictToURI(params), (data) => {
-					this.setState({
-						news: data,
-					});
-				}, (response) => {
-					nm.warning(response.statusText);
-				}, (error) => {
-					nm.error(error.message);
-				});
-			} else {
-				this.setState({
-					news: { pagination: { total: 0 } },
-				});
+			if (values.length === 0) {
+				this.setState({ news: { pagination: { total: 0 } } });
+				return;
 			}
+
+			Promise.all(values.map((v) => this.fetchArticles(v.id)))
+				.then((results) => {
+					const items = [
+						...new Map(
+							results
+								.flatMap((result) => result.items)
+								.map((item) => [item.id, item]),
+						).values(),
+					].sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
+
+					this.setState({ news: { items, pagination: { total: items.length } } });
+				})
+				.catch((message) => nm.error(message));
 		}
+	}
+
+	fetchArticles(taxonomyValueId) {
+		const params = {
+			type: "NEWS",
+			taxonomy_values: taxonomyValueId,
+		};
+
+		return new Promise((resolve, reject) => {
+			getRequest.call(this, "public/get_public_articles?" + dictToURI(params),
+				resolve,
+				(response) => reject(response.statusText),
+				(error) => reject(error.message));
+		});
 	}
 
 	getLeftArrowStatus() {
