@@ -381,7 +381,7 @@ export default class PageEntity extends React.Component {
 												&& <div className="col-md-12">
 													<div className="Address">
 														<div className="marker">
-															<i className="fas fa-envelope"/>
+															<i className="fas fa-fw fa-envelope"/>
 														</div>
 
 														<div className="details">
