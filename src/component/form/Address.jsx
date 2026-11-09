@@ -16,7 +16,7 @@ export default class Address extends Component {
 
 		return <div className="Address">
 			<div className="marker">
-				<i className="fas fa-map-marker-alt"/>
+				<i className="fas fa-fw fa-map-marker-alt"/>
 			</div>
 
 			<div className="details">
