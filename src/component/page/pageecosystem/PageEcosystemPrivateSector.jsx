@@ -103,7 +103,6 @@ export default class PageEcosystemPrivateSector extends React.Component {
 	}
 
 	fetchServiceProviders() {
-		console.log(this.props.taxonomies);
 		if (this.props.taxonomies) {
 			const taxonomyValueIds = this.getFilteredTaxonomyValueIds();
 
