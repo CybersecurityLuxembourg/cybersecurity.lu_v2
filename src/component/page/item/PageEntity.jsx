@@ -377,6 +377,22 @@ export default class PageEntity extends React.Component {
 												))
 											}
 
+											{this.state.entity.email
+												&& <div className="col-md-12">
+													<div className="Address">
+														<div className="marker">
+															<i className="fas fa-fw fa-envelope"/>
+														</div>
+
+														<div className="details">
+															<a href={`mailto:${this.state.entity.email}`}>
+																{this.state.entity.email}
+															</a>
+														</div>
+													</div>
+												</div>
+											}
+
 											{(this.state.entity.twitter_url
 												|| this.state.entity.linkedin_url)
 												&& <div className="col-md-12 entity-socials">
