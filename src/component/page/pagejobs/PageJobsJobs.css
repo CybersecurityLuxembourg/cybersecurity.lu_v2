@@ -19,12 +19,40 @@
 	width: auto;
 }
 
-#PageJobsJobs .title-section > .row > .col-md-12 > div {
-	display: inline-block;
-	height: 100%;
+#PageJobsJobs .collaboration-details {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px;
 	font-family: "Open Sans 700";
+	color: var(--text-neutral-50);
+}
+
+#PageJobsJobs .collaboration-text {
 	font-size: 20px;
 	line-height: 150%;
-	margin-right: 24px;
-	color: var(--text-neutral-50);
+}
+
+#PageJobsJobs .collaboration-details img {
+	max-height: 72px;
+	object-fit: contain;
+}
+
+#PageJobsJobs .collaboration-badge {
+	background: var(--primary-blue-20);
+	color: var(--primary-blue-120);
+	padding: 8px 16px;
+	border-radius: 999px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+#PageJobsJobs .cyberr-sync-banner {
+	background: var(--primary-blue-10);
+	border: 1px solid var(--primary-blue-40);
+	color: var(--primary-blue-120);
+	border-radius: 8px;
+	padding: 12px 16px;
+	margin-bottom: 24px;
+	font-weight: 600;
 }
