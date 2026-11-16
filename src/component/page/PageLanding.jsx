@@ -6,7 +6,6 @@ import PageLandingNews from "./pagelanding/PageLandingNews.jsx";
 import PageLandingNewsletter from "./pagelanding/PageLandingNewsletter.jsx";
 import PageLandingEvents from "./pagelanding/PageLandingEvents.jsx";
 import PageLandingResources from "./pagelanding/PageLandingResources.jsx";
-import PageLandingLTAC from "./pagelanding/PageLandingLTAC.jsx";
 import SectionContactForm from "../section/SectionContactForm.jsx";
 
 export default class PageLanding extends React.Component {
@@ -39,10 +38,6 @@ export default class PageLanding extends React.Component {
 					{...this.props}
 				/>
 				<PageLandingResources
-					{...this.props}
-				/>
-				<PageLandingLTAC
-					taxonomies={this.props.taxonomies}
 					{...this.props}
 				/>
 				<SectionContactForm/>

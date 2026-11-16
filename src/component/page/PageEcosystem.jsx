@@ -1,7 +1,6 @@
 import React from "react";
 import "./PageEcosystem.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import { Link } from "react-router-dom";
 import { getUrlParameter } from "../../utils/url.jsx";
 import PageEcosystemPrivateSector from "./pageecosystem/PageEcosystemPrivateSector.jsx";
 import PageEcosystemPublicSector from "./pageecosystem/PageEcosystemPublicSector.jsx";
@@ -41,11 +40,11 @@ export default class PageEcosystem extends React.Component {
 							<Breadcrumb>
 								<Breadcrumb.Item>The Ecosystem</Breadcrumb.Item>
 								{getUrlParameter("tab") !== "public-sector" && getUrlParameter("tab") !== "initiatives"
-									&& <Breadcrumb.Item><Link to="/ecosystem?tab=private-sector">Private sector</Link></Breadcrumb.Item>}
+									&& <Breadcrumb.Item to="/ecosystem?tab=private-sector">Private sector</Breadcrumb.Item>}
 								{getUrlParameter("tab") === "public-sector"
-									&& <Breadcrumb.Item><Link to="/ecosystem?tab=public-sector">Public sector</Link></Breadcrumb.Item>}
+									&& <Breadcrumb.Item to="/ecosystem?tab=public-sector">Public sector</Breadcrumb.Item>}
 								{getUrlParameter("tab") === "initiatives"
-									&& <Breadcrumb.Item><Link to="/ecosystem?tab=initiatives">Clubs, associations & initiatives</Link></Breadcrumb.Item>}
+									&& <Breadcrumb.Item to="/ecosystem?tab=initiatives">Clubs, associations & initiatives</Breadcrumb.Item>}
 							</Breadcrumb>
 						</div>
 

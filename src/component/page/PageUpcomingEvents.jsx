@@ -3,7 +3,6 @@ import "./PageUpcomingEvents.css";
 import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import SectionEvents from "../section/SectionEvents.jsx";
-import SectionCSWL from "../section/SectionCSWL.jsx";
 import { getUrlParameter } from "../../utils/url.jsx";
 
 export default class PageUpcomingEvents extends React.Component {
@@ -97,7 +96,6 @@ export default class PageUpcomingEvents extends React.Component {
 					</div>
 				</div>
 
-				<SectionCSWL/>
 			</div>
 		);
 	}

@@ -323,7 +323,7 @@ export default class PageEcosystemPrivateSector extends React.Component {
 							<Field
 								hideLabel={true}
 								placeholder="Search entity"
-								value={this.state.filters.name}
+								value={this.state.filters.name || ""}
 								onChange={(v) => this.modifyFilters("name", v)}
 							/>
 						</div>
